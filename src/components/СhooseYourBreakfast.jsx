@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const СhooseYourBreakfast = () => {
-  return (
-    <div>
+const ChooseYourBreakfast = () => {
+  return <div></div>;
+};
 
-    </div>
-  )
-}
-
-export default СhooseYourBreakfast
+export default ChooseYourBreakfast;
