@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Container } from './HomePage.styled';
+
+import ChooseYourBreakfast from 'components/ChooseYourBreakfast/СhooseYourBreakfast';
+import Main from 'components/Main/Main';
+import Search from 'components/Search/Search';
 
 const HomePage = () => {
   return (
-    <div>
+    <Container>
+      <Main />
+      <ChooseYourBreakfast />
+      <Search />
+    </Container>
+  );
+};
 
-    </div>
-  )
-}
-
-export default HomePage
+export default HomePage;
