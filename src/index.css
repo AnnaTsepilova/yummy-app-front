@@ -28,9 +28,6 @@ html,
 body,
 div,
 span,
-applet,
-object,
-iframe,
 h1,
 h2,
 h3,
@@ -41,42 +38,24 @@ p,
 blockquote,
 pre,
 a,
-abbr,
-acronym,
 address,
-big,
 cite,
 code,
-del,
-dfn,
-em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
 sub,
 sup,
 tt,
-var,
 b,
 u,
 i,
-center,
 dl,
 dt,
 dd,
 ol,
 ul,
 li,
-fieldset,
 form,
 label,
-legend,
 table,
 caption,
 tbody,
@@ -111,9 +90,9 @@ button {
 
 /* Make images and embedded objects responsive */
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 input,
@@ -148,29 +127,35 @@ table {
 :root {
   --primary-white: #fafafa;
 
+  /* GREEN */
   --primary-green: #8baa36;
   --secondary-green: #8aa936;
 
+  /* BLACK */
   --black: #000000;
   --primary-black: #23262a;
   --secondary-black: #22252a;
   --title-color: #001833;
   --number-black: #333333;
-  --pagination-color: #656565;
 
+  /* GRAY */
   --primary-gray: #3e4462;
   --secondary-gray: #7e7e7e;
   --light-gray: #d9d9d9;
   --categories-gray: #bdbdbd;
+  --pagination-color: #656565;
 
+  /* INPUT */
   --input-red: #e74a3b;
   --input-green: #3cbc81;
   --input-yellow: #f6c23e;
 
+  /* BACKGROUND */
   --background-light: #ececec;
   --background-dark: #1e1f28;
   --background-light-green: #ebf3d4;
   --modal-background: #2a2c36;
 
+  /* HOVER/FOCUS */
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
