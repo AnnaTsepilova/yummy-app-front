@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { RecipeList, RecipeTitle } from './MyRecipeList.styled.js';
 
-const MyRecipesList = () => {
+const MyRecipesList = ({ children }) => {
   return (
-    <div>
+    <>
+      <RecipeTitle>My recipes</RecipeTitle>
+      <RecipeList>{children}</RecipeList>
+    </>
+  );
+};
 
-    </div>
-  )
-}
-
-export default MyRecipesList
+export default MyRecipesList;
