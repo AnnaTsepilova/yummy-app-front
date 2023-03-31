@@ -1,9 +1,10 @@
-import React from 'react'
+// import { useSelector } from 'react-redux';
+// import { Navigate, Outlet } from 'react-router-dom';
+// import { selectToken } from '../../redux/selectors';
 
 const PrivateRoute = () => {
-  return (
-    <div>PrivateRoute</div>
-  )
-}
+  // const token = useSelector(selectToken);
+  // return token ? <Navigate to="/home/expenses" /> : <Outlet />;
+};
 
-export default PrivateRoute
+export default PrivateRoute;
