@@ -3,7 +3,10 @@ import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
 // const HomePage = lazy(() => import('./../pages/HomePage/HomePage'));
 // const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
-const NotFound = lazy(() => import('./NotFound/NotFound'));
+// const NotFound = lazy(() => import('./NotFound/NotFound'));
+const CategoriesPage = lazy(() =>
+  import('pages/CategoriesPage/CategoriesPage')
+);
 
 export const App = () => {
   return (
@@ -11,9 +14,9 @@ export const App = () => {
       <Routes>
         {/* <Route path="/register" element={<RegisterForm />} />
         <Route path="/signin" element={<RegisterForm />} /> */}
-        {/* <Route path="/main" element={<HomePage />} /> */}
-        <Route path="/" element={<NotFound />} />
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="/" element={<NotFound />} /> */}
+        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<CategoriesPage />} />
       </Routes>
     </Suspense>
   );
