@@ -1,13 +1,21 @@
 import React from 'react';
-import { createRoot } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
 import './index.css';
 
-createRoot(document.getElementById('root')).render(
+import { store, persistor } from 'redux/store';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/yummy-app-front/">
-      <App />
+    <BrowserRouter basename="/yummy-app-front">
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

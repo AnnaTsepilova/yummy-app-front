@@ -10,14 +10,12 @@ import PublicRoute from 'components/PublicRoute/PublicRoute';
 // const HomePage = lazy(() => import('./../pages/HomePage/HomePage'));
 
 // const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
+
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 const AddRecipePage = lazy(() => import('pagesAddRecipePage/AddRecipePage'));
-const CategoriesPage = lazy(() =>
-  import('pages/CategoriesPage/CategoriesPage')
-);
 const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
@@ -28,6 +26,10 @@ const ShoppingListPage = lazy(() =>
 );
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
+const CategoriesPage = lazy(() =>
+  import('pages/CategoriesPage/CategoriesPage')
+);
+
 export const App = () => {
   return (
     // <BrowserRouter basename="yummy-app-front">
@@ -36,11 +38,13 @@ export const App = () => {
         <Routes>
           {/* <Route path="/register" element={<RegisterForm />} />
         <Route path="/signin" element={<RegisterForm />} /> */}
+
           <Route path="/" element={<PublicRoute />}>
             <Route path="/" element={<WelcomePage />} />
             <Route path="/" element={<SignInPage />} />
             <Route path="/" element={<RegisterPage />} />
           </Route>
+          <Route path="/" element={<CategoriesPage />} />
           <Route path="/" element={<SharedLayout />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
