@@ -7,3 +7,9 @@ export const getCategoryListAPI = () => {
     return data;
   });
 };
+
+export const getLimitedRecipesByCategoryAPI = (category, limit) => {
+  return axios.get(`/recipes/${category}/${limit}`).then(({ data }) => {
+    return data;
+  });
+};

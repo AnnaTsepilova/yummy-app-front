@@ -5,6 +5,7 @@ import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+import CategoriesCard from 'pages/CategoriesCard/CategoriesCard';
 // import PublicRoute from 'routes/PublicRoute/PublicRoute';
 // import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
 
@@ -46,7 +47,10 @@ export const App = () => {
           {/* </Route> */}
           {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route path="/" element={<SharedLayout />}>
-            <Route path="/categories" element={<CategoriesPage />} />
+            {/* <Route path="/categories" element={<CategoriesPage />} /> */}
+            <Route path="/categories" element={<CategoriesPage />}>
+              <Route path=":categoryName" element={<CategoriesCard />} />
+            </Route>
             <Route path="/add " element={<AddRecipePage />} />
             <Route path="/my" element={<MyRecipesPage />} />
             <Route path="/favorite" element={<FavoriteRecipesPage />} />
