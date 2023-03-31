@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+// import { Container } from './SharedLayouts.styled';
 
 const SharedLayout = () => {
-  return (
-    <div>
+  return <div></div>;
+};
 
-    </div>
-  )
-}
-
-export default SharedLayout
+export default SharedLayout;
