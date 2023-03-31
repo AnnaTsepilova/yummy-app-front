@@ -14,8 +14,9 @@ export const App = () => {
       <Routes>
         {/* <Route path="/register" element={<RegisterForm />} />
         <Route path="/signin" element={<RegisterForm />} /> */}
-        <Route path="/" element={<NotFound />} />
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="/" element={<NotFound />} /> */}
+        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<CategoriesPage />} />
       </Routes>
     </Suspense>
   );
