@@ -1,25 +1,25 @@
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
 
-import { SharedLayout } from 'components/SharedLayout/SharedLayout';
-import PublicRoute from 'components/PublicRoute/PublicRoute';
-
-// const HomePage = lazy(() => import('./../pages/HomePage/HomePage'));
-
-// const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
+import SharedLayout from 'components/SharedLayout/SharedLayout';
+// import PublicRoute from 'routes/PublicRoute/PublicRoute';
+// import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
-const AddRecipePage = lazy(() => import('pagesAddRecipePage/AddRecipePage'));
-const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
-const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
+// const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
+// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
-const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
+const FavoriteRecipesPage = lazy(() =>
+  import('pages/FavoriteRecipesPage/FavoriteRecipesPage')
+);
+// const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const ShoppingListPage = lazy(() =>
   import('pages/ShoppingListPage/ShoppingListPage')
@@ -32,20 +32,28 @@ const CategoriesPage = lazy(() =>
 
 export const App = () => {
   return (
-    // <BrowserRouter basename="yummy-app-front">
+    // <BrowserRouter basename="/yummy-app-front">
     <BrowserRouter>
       <Suspense fallback={<Loader />}>
         <Routes>
           {/* <Route path="/register" element={<RegisterForm />} />
         <Route path="/signin" element={<RegisterForm />} /> */}
 
-          <Route path="/" element={<PublicRoute />}>
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/" element={<SignInPage />} />
-            <Route path="/" element={<RegisterPage />} />
+          {/* <Route path="/" element={<PublicRoute />}> */}
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          {/* </Route> */}
+          {/* <Route path="/" element={<PrivateRoute />}> */}
+          <Route path="/" element={<SharedLayout />}>
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/add " element={<AddRecipePage />} />
+            <Route path="/my" element={<MyRecipesPage />} />
+            <Route path="/favorite" element={<FavoriteRecipesPage />} />
+            <Route path="/shopping-list" element={<ShoppingListPage />} />
+            <Route path="/search" element={<SearchPage />} />
           </Route>
-          <Route path="/" element={<CategoriesPage />} />
-          <Route path="/" element={<SharedLayout />} />
+          {/* </Route> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
