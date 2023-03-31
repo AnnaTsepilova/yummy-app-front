@@ -3,14 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
-<<<<<<< HEAD
 
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 
-=======
 // const HomePage = lazy(() => import('./../pages/HomePage/HomePage'));
->>>>>>> 14ba3955dca17579dddb7258e82ceaa53a87482d
+
 // const RegisterForm = lazy(() => import('./RegisterForm/RegisterForm'));
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
