@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Form, Input } from './Search.styled';
+import { SearchBlackBtn } from './../Buttons/Buttons';
 
 const Search = () => {
   return (
-    <div>
+    <Form>
+      <Input type="text" autocomplete="off" placeholder="Beef |" />
+      <SearchBlackBtn type="submit">Search</SearchBlackBtn>
+    </Form>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Search
+export default Search;

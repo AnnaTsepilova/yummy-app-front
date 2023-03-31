@@ -9,7 +9,7 @@ import {
 } from './Buttons.styled';
 
 export const SearchBlackBtn = ({ children }) => {
-  return <StyledSearchBlackBtn>{children}</StyledSearchBlackBtn>;
+  return <StyledSearchBlackBtn type="submit">{children}</StyledSearchBlackBtn>;
 };
 export const SearchGreenBtn = ({ children }) => {
   return <StyledSearchGreenBtn>{children}</StyledSearchGreenBtn>;
