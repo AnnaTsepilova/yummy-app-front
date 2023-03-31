@@ -2,17 +2,20 @@ import styled from 'styled-components';
 
 export const StyledSearchBlackBtn = styled.button`
   background-color: #22252a;
-  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-  padding: 52px 23px;
-  width: 161px;
+  /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
+  padding: 15.7px 31.72px;
+  width: 113px;
   color: #fafafa;
   border: none;
-  font-family: 'Poppins';
+  border-radius: 18px 44px;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   cursor: pointer;
+
+  position: absolute;
+  left: 200px;
   &:hover {
     background-color: #8baa36;
   }
@@ -24,7 +27,7 @@ export const StyledSearchGreenBtn = styled.button`
   width: 161px;
   color: #fafafa;
   border: none;
-  font-family: 'Poppins';
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -42,7 +45,7 @@ export const StyledSignInBtn = styled.button`
   color: #fafafa;
   border: 2px solid #fafafa;
   cursor: pointer;
-  font-family: 'Poppins';
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -59,7 +62,7 @@ export const StyledSubscribeGreenBtn = styled.button`
   width: 339px;
   padding: 21px 134px;
   cursor: pointer;
-  font-family: 'Poppins';
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -76,7 +79,7 @@ export const StyledLogOutBtn = styled.button`
   width: 192px;
   padding: 18px 39px;
   cursor: pointer;
-  font-family: 'Poppins';
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -93,7 +96,7 @@ export const StyledCancelBtn = styled.button`
   width: 192px;
   padding: 18px 39px;
   cursor: pointer;
-  font-family: 'Poppins';
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
