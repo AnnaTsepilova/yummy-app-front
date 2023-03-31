@@ -7,3 +7,7 @@ export const getCategoryListAPI = () => {
     return data;
   });
 };
+
+export const patchShoppingList = () => {};
+
+export const getShoppingList = () => {};
