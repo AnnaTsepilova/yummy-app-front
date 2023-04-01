@@ -15,7 +15,7 @@ export const StyledSearchBlackBtn = styled.button`
   cursor: pointer;
 
   position: absolute;
-  left: 200px;
+  left: 222px;
   &:hover {
     background-color: #8baa36;
   }
