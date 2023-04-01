@@ -12,29 +12,33 @@ import {
   RecipeImg,
   RecipeSubtitle,
 } from './MyRecipeItem.styled';
+import { Link } from 'react-router-dom';
 // import { SearchGreenBtn } from 'components/Buttons/Buttons';
+import { useDispatch } from 'react-redux';
 
-const MyRecipesItem = () => {
+const MyRecipesItem = ({ data }) => {
+  const { _id, title, description, preview, time } = data;
+
+  const dispatch = useDispatch();
+
+  const deleteRecipeFromMy = () => {};
+
   return (
     <Item>
       <ImgWrapper>
-        <RecipeImg
-          src="https://via.placeholder.com/150x150.png?text=Recipe"
-          alt="#"
-        />
+        <RecipeImg src={preview} alt={title} />
       </ImgWrapper>
       <ContentWrapper>
-        <RecipeTitle>Apple Frangipan Tart</RecipeTitle>
-        <RecipeText>
-          General Tso’s Chicken Is A Favorite Chinese Food Takeout Choice That
-          Is Sweet And Slightly Spicy With A Kick From Garlic And Ginger.
-        </RecipeText>
+        <RecipeTitle>{title}</RecipeTitle>
+        <RecipeText>{description}</RecipeText>
         <RecipeSubtitle>
           General Tso’s Chicken Is A Favorite Chinese Food Takeout Choice That
         </RecipeSubtitle>
-        <RecipeTime>20 min</RecipeTime>
-        <RecipeBtn> See reecipe </RecipeBtn>
-        <DeleteBtn>
+        <RecipeTime>{time} min</RecipeTime>
+        <RecipeBtn as={Link} to={`/recipe/${_id}`}>
+          See reecipe
+        </RecipeBtn>
+        <DeleteBtn onClick={() => dispatch(deleteRecipeFromMy(_id))}>
           <StyledIcon />
         </DeleteBtn>
       </ContentWrapper>

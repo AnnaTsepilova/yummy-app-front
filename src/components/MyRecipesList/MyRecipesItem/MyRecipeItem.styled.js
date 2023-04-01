@@ -5,18 +5,7 @@ import {
 } from '../../Buttons/Buttons.styled';
 import TrashIcon from './TrashIcon';
 
-export const StyledIcon = styled(TrashIcon)`
-  /* width: 14px;
-  height: 14px;
-  display: flex;
-  align-item: center;
-  justify-content: center;
-
-  @media screen and (min-width: 768px) {
-    width: 22px;
-    height: 22px;
-  } */
-`;
+export const StyledIcon = styled(TrashIcon)``;
 
 export const Item = styled.li`
   width: 343px;
@@ -73,6 +62,7 @@ export const ContentWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 420px;
+    padding-top: 0;
   }
 
   @media screen and (min-width: 1440px) {
@@ -82,6 +72,8 @@ export const ContentWrapper = styled.div`
 
 export const RecipeTitle = styled.h3`
   margin-bottom: 14px;
+
+  width: 85%;
 
   font-family: 'Poppins';
   font-style: normal;
@@ -162,7 +154,7 @@ export const RecipeBtn = styled(StyledSearchGreenBtn)`
   @media screen and (min-width: 768px) {
     bottom: -21px;
     width: 138px;
-    padding: 30px 18px;
+    padding: 30px 28px;
 
     font-size: 14px;
   }
@@ -170,7 +162,7 @@ export const RecipeBtn = styled(StyledSearchGreenBtn)`
   @media screen and (min-width: 1440px) {
     bottom: -32px;
     width: 172px;
-    padding: 52px 23px;
+    padding: 52px 38px;
 
     font-size: 16px;
   }
@@ -198,3 +190,7 @@ export const DeleteBtn = styled(StyledSubscribeGreenBtn)`
     height: 44px;
   }
 `;
+
+// Link = styled(RecipeBtn)``;
+
+// export default Link;
