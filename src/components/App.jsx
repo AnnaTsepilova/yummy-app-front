@@ -13,13 +13,11 @@ const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
-// const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
-const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
+// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
-const FavoriteRecipesPage = lazy(() =>
-  import('pages/FavoriteRecipesPage/FavoriteRecipesPage')
-);
-// const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
+// const FavoriteRecipesPage = lazy(() => import('pages/FavoriteRecipesPage/FavoriteRecipesPage'));
+const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
 const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
 const ShoppingListPage = lazy(() =>
   import('pages/ShoppingListPage/ShoppingListPage')
@@ -32,8 +30,7 @@ const CategoriesPage = lazy(() =>
 
 export const App = () => {
   return (
-    // <BrowserRouter basename="/yummy-app-front">
-    <BrowserRouter>
+    <BrowserRouter basename="/yummy-app-front">
       <Suspense fallback={<Loader />}>
         <Routes>
           {/* <Route path="/register" element={<RegisterForm />} />
@@ -48,9 +45,14 @@ export const App = () => {
           <Route path="/" element={<SharedLayout />}>
             <Route path="/main" element={<HomePage />} />
             <Route path="/categories" element={<CategoriesPage />} />
+            <Route
+              path="/categories/:categoryName"
+              element={<div>categoryName</div>}
+            />
+            <Route path="/recipe/:recipeId" element={<RecipePage />} />
             <Route path="/add " element={<AddRecipePage />} />
             <Route path="/my" element={<MyRecipesPage />} />
-            <Route path="/favorite" element={<FavoriteRecipesPage />} />
+            <Route path="/favorite" element={<FavoritesPage />} />
             <Route path="/shopping-list" element={<ShoppingListPage />} />
             <Route path="/search" element={<SearchPage />} />
           </Route>
