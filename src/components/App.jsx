@@ -14,7 +14,7 @@ const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
 // const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
-// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
 const FavoriteRecipesPage = lazy(() =>
   import('pages/FavoriteRecipesPage/FavoriteRecipesPage')
@@ -46,6 +46,7 @@ export const App = () => {
           {/* </Route> */}
           {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route path="/" element={<SharedLayout />}>
+            <Route path="/main" element={<HomePage />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/add " element={<AddRecipePage />} />
             <Route path="/my" element={<MyRecipesPage />} />

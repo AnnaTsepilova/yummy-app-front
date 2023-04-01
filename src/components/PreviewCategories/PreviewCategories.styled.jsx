@@ -12,12 +12,3 @@ export const Input = styled.input`
   font-size: 12px;
   line-height: 1.5;
 `;
-export const Form = styled.form`
-  display: flex;
-  align-items: center;
-`;
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 147px;
-`;
