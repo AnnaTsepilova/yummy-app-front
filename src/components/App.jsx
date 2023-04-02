@@ -48,7 +48,7 @@ export const App = () => {
           {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route path="/" element={<SharedLayout />}>
             {/* <Route path="/categories" element={<CategoriesPage />} /> */}
-            <Route path="/categories" element={<CategoriesPage />}>
+            <Route path="*" element={<CategoriesPage />}>
               <Route path=":categoryName" element={<CategoriesCard />} />
             </Route>
             <Route path="/add " element={<AddRecipePage />} />
@@ -58,7 +58,7 @@ export const App = () => {
             <Route path="/search" element={<SearchPage />} />
           </Route>
           {/* </Route> */}
-          <Route path="*" element={<NotFoundPage />} />
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </Suspense>
     </BrowserRouter>
