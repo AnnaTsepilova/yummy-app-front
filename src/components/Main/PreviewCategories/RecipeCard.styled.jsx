@@ -5,11 +5,19 @@ export const Card = styled.div`
   width: 343px;
   height: 323px;
   position: relative;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 300px;
+  }
 `;
 export const RecipePicture = styled.img`
   display: block;
   height: 100%;
   width: 100%;
+  object-fit: cover;
 `;
 
 export const RecipeTitle = styled.div`

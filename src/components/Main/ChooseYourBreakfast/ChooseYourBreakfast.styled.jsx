@@ -10,6 +10,18 @@ export const PopUp = styled.div`
   background-color: yellow;
 
   margin-bottom: 115px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    width: 260px;
+    margin-left: 74px;
+    padding: 12px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 16px;
+    width: 298px;
+    height: 114px;
+    margin-left: 0;
+  }
 `;
 
 export const Title = styled.p`
@@ -22,6 +34,10 @@ export const Title = styled.p`
   margin-bottom: 4px;
   & span {
     color: var(--primary-green);
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
   }
 `;
 export const BoxLink = styled.div`

@@ -2,7 +2,7 @@ import { OtherCatBtn } from 'components/Buttons/Buttons';
 import React, { useEffect, useState } from 'react';
 import { getMainPageAPI } from 'service/API/dishesApi';
 import Category from './Category';
-// import { RecipeCard } from './RecipeCard';
+import { Box } from './PreviewCategories.styled';
 
 const PreviewCategories = () => {
   const [allCategories, setAllCategories] = useState([]);
@@ -15,12 +15,14 @@ const PreviewCategories = () => {
     });
   }, []);
   return (
-    <div>
+    <>
       {allCategories.map((item, index) => (
         <Category key={index} data={item} />
       ))}
-      <OtherCatBtn>Other categories</OtherCatBtn>
-    </div>
+      <Box>
+        <OtherCatBtn>Other categories</OtherCatBtn>
+      </Box>
+    </>
   );
 };
 
