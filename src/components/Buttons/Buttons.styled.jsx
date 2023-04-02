@@ -27,6 +27,7 @@ export const StyledSearchBlackBtn = styled.button`
     background-color: var(--primary-green);
   }
 `;
+
 export const StyledSearchGreenBtn = styled.button`
   background-color: var(--primary-green);
   border-radius: 18px 44px;
@@ -53,11 +54,12 @@ export const StyledSearchGreenBtn = styled.button`
     background-color: var(--secondary-black);
   }
 `;
+
 export const StyledSignInBtn = styled.button`
   background-color: transparent;
   border-radius: 18px 44px;
-  padding: 22px 44px;
-  min-width: 141px;
+  padding: 12px 44px;
+  min-width: 95px;
   color: var(--primary-white);
   border: 2px solid var(--primary-white);
   cursor: pointer;
