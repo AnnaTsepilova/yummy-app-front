@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const PublicContainer = styled.div`
+export const PublicPageContainer = styled.div`
   min-width: 320px;
-  padding: 18px 16px 0 16px;
+  padding-top: 18px;
+  padding-right: 16px;
+  padding-left: 16px;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
