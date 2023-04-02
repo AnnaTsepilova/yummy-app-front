@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
-import Loader from './Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 // import PublicRoute from 'routes/PublicRoute/PublicRoute';
