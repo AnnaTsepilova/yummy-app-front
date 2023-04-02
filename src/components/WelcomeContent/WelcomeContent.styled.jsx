@@ -27,23 +27,14 @@ export const PublicPageContainer = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  vertical-align: middle;
-  /* min-width: 320px;
-  padding-top: 18px;
-  padding-right: 16px;
-  padding-left: 16px;
-  margin: 0 auto;
+  width: 305px;
 
   @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    width: 505px;
   }
   @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
-  } */
+    width: 540px;
+  }
 `;
 
 export const BgImage = styled.div`
