@@ -6,9 +6,11 @@ import {
   BgImage,
   WelcomeTitle,
   WelcomeText,
-  RegistrationBtn,
-  SignInBtnW,
+  BtnsWrapper,
+  RegistrationLink,
+  SignInLink,
 } from 'components/WelcomeContent/WelcomeContent.styled';
+
 import Logo from 'components/Logo/Logo';
 
 const WelcomeContent = () => {
@@ -26,8 +28,10 @@ const WelcomeContent = () => {
             designed to be your very own digital cookbook. You can easily save
             and retrieve your own recipes at any time.
           </WelcomeText>
-          <RegistrationBtn to="/register">Registration</RegistrationBtn>
-          <SignInBtnW to="/signin">Sign In</SignInBtnW>
+          <BtnsWrapper>
+            <RegistrationLink to="/register">Registration</RegistrationLink>
+            <SignInLink to="/signin">Sign In</SignInLink>
+          </BtnsWrapper>
         </ContentWrapper>
       </PublicPageContainer>
     </BgImage>

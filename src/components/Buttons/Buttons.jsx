@@ -3,22 +3,18 @@ import { Link } from 'react-router-dom';
 import {
   StyledSearchBlackBtn,
   StyledSearchGreenBtn,
-  StyledSignInBtn,
   StyledSubscribeGreenBtn,
   StyledLogOutBtn,
   StyledCancelBtn,
   StyledSeeAllBtn,
   StyledOtherCatBtn,
-} from './Buttons.styled';
+} from 'components/Buttons/Buttons.styled';
 
 export const SearchBlackBtn = ({ children }) => {
   return <StyledSearchBlackBtn type="submit">{children}</StyledSearchBlackBtn>;
 };
 export const SearchGreenBtn = ({ children }) => {
   return <StyledSearchGreenBtn type="submit">{children}</StyledSearchGreenBtn>;
-};
-export const SignInBtn = ({ children }) => {
-  return <StyledSignInBtn>{children}</StyledSignInBtn>;
 };
 export const SubscribeGreenBtn = ({ children }) => {
   return <StyledSubscribeGreenBtn>{children}</StyledSubscribeGreenBtn>;

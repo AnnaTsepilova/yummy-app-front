@@ -2,15 +2,17 @@ import styled from 'styled-components';
 
 export const StyledSearchBlackBtn = styled.button`
   background-color: var(--secondary-black);
+  border-radius: 18px 44px;
+  border: none;
+
   padding: 16px 24px;
   min-width: 113px;
-  color: var(--primary-white);
-  border: none;
-  border-radius: 18px 44px;
-  font-style: normal;
-  font-weight: 400;
+
   font-size: 14px;
   line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
@@ -31,14 +33,16 @@ export const StyledSearchBlackBtn = styled.button`
 export const StyledSearchGreenBtn = styled.button`
   background-color: var(--primary-green);
   border-radius: 18px 44px;
-  padding: 16px 24px;
-  min-width: 113px;
-  color: var(--primary-white);
   border: none;
 
-  font-weight: 400;
+  padding: 16px 24px;
+  min-width: 113px;
+
   font-size: 14px;
   line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
@@ -55,70 +59,86 @@ export const StyledSearchGreenBtn = styled.button`
   }
 `;
 
-export const StyledSignInBtn = styled.button`
-  background-color: transparent;
-  border-radius: 18px 44px;
-  padding: 12px 44px;
-  min-width: 95px;
-  color: var(--primary-white);
-  border: 2px solid var(--primary-white);
-  cursor: pointer;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  &:hover {
-    border: 2px solid var(--primary-green);
-    color: var(--primary-green);
-  }
-`;
 export const StyledSubscribeGreenBtn = styled.button`
   background: var(--primary-green);
   border: none;
   border-radius: 6px;
-  width: 339px;
-  padding: 21px 134px;
+
+  min-width: 204px;
+  padding: 11px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: var(--primary-white);
+  @media screen and (min-width: 768px) {
+    padding: 16px;
+    min-width: 171px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 21px;
+    min-width: 339px;
+  }
+
   &:hover {
     color: var(--secondary-black);
   }
 `;
+
 export const StyledLogOutBtn = styled.button`
   background: var(--primary-green);
   border: none;
   border-radius: 6px;
-  width: 192px;
-  padding: 18px 39px;
+
+  min-width: 137px;
+  padding: 14px 18px;
+
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: var(--primary-white);
+  @media screen and (min-width: 768px) {
+    padding: 18px 39px;
+    min-width: 192px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
   &:hover {
     background: var(--secondary-black);
   }
 `;
+
 export const StyledCancelBtn = styled.button`
   background: var(--light-gray);
-  border: none;
   border-radius: 6px;
-  width: 192px;
-  padding: 18px 39px;
+  border: none;
+
+  min-width: 137px;
+  padding: 14px 18px;
+
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--primary-black);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: var(--primary-black);
+  @media screen and (min-width: 768px) {
+    padding: 18px 39px;
+    min-width: 192px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
   &:hover {
     border: 1px solid var(--primary-black);
     background: transparent;
@@ -127,34 +147,45 @@ export const StyledCancelBtn = styled.button`
 
 export const StyledSeeAllBtn = styled.div`
   background: var(--primary-green);
-  border: none;
   border-radius: 6px;
-  width: 94px;
-  padding: 10px 24px;
-  cursor: pointer;
+  border: none;
 
-  font-style: normal;
-  font-weight: 400;
+  min-width: 94px;
+  padding: 10px 24px;
+
   font-size: 14px;
   line-height: 1.29;
   color: var(--primary-white);
+  text-align: center;
+
+  cursor: pointer;
+
   &:hover {
     background: var(--secondary-black);
   }
 `;
+
 export const StyledOtherCatBtn = styled.div`
   background-color: transparent;
   border-radius: 18px 44px;
-  padding: 14px 32px;
-  width: 195px;
-  color: var(--secondary-black);
-
-  cursor: pointer;
   border: 2px solid var(--primary-green);
-  font-style: normal;
-  font-weight: 400;
+
+  padding: 14px 24px;
+  min-width: 195px;
+
   font-size: 14px;
   line-height: 1.5;
+  color: var(--secondary-black);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 39px;
+    min-width: 239px;
+    font-size: 16px;
+  }
+
   &:hover {
     background-color: var(--primary-green);
     color: var(--primary-white);

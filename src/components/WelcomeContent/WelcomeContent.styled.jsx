@@ -1,8 +1,8 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import BgImgMob from 'images/WelcomePageImg/wellcome-page-img-mob@1x.jpg';
 import BgImgTab from 'images/WelcomePageImg/wellcome-page-img-tab@1x.jpg';
 import BgImgDesc from 'images/WelcomePageImg/wellcome-page-img-desc@1x.jpg';
-import { SearchGreenBtn, SignInBtn } from 'components/Buttons/Buttons';
 
 export const PublicPageContainer = styled.div`
   display: flex;
@@ -23,18 +23,6 @@ export const PublicPageContainer = styled.div`
     width: 1440px;
     padding-left: 100px;
     padding-right: 100px;
-  }
-`;
-
-export const ContentWrapper = styled.div`
-  justify-content: center;
-  width: 305px;
-
-  @media screen and (min-width: 768px) {
-    width: 505px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 540px;
   }
 `;
 
@@ -85,6 +73,29 @@ export const BgImage = styled.div`
   }
 `;
 
+export const ContentWrapper = styled.div`
+  justify-content: center;
+  width: 305px;
+
+  @media screen and (min-width: 768px) {
+    width: 505px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 540px;
+  }
+`;
+
+export const LogoWelcome = styled.div`
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 68px;
+    height: 68px;
+  }
+`;
+
 export const WelcomeTitle = styled.h1`
   margin-top: 28px;
   margin-bottom: 14px;
@@ -113,49 +124,68 @@ export const WelcomeText = styled.p`
   }
 `;
 
-export const RegistrationBtn = styled(SearchGreenBtn)`
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--primary-white);
-  text-align: center;
-
-  /* @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-  } */
-  /* @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
-  } */
-`;
-
-export const SignInBtnW = styled(SignInBtn)`
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--primary-white);
-  text-align: center;
-
-  /* @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-  } */
-  /* @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
-  } */
-`;
-
-export const LogoWelcome = styled.div`
-  width: 54px;
-  height: 54px;
-  margin: 0 auto;
+export const BtnsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 
   @media screen and (min-width: 768px) {
-    width: 68px;
-    height: 68px;
+    gap: 18px;
+  }
+`;
+
+export const RegistrationLink = styled(NavLink)`
+  background-color: var(--primary-green);
+  border-radius: 18px 44px;
+  border: none;
+
+  padding: 12px 24px;
+  min-width: 132px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 22px 24px;
+    min-width: 184px;
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 23px 24px;
+  }
+
+  &:hover {
+    background-color: var(--secondary-black);
+  }
+`;
+
+export const SignInLink = styled(NavLink)`
+  background-color: transparent;
+  border-radius: 18px 44px;
+  border: 2px solid var(--primary-white);
+
+  padding: 12px 24px;
+  min-width: 95px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 22px 24px;
+    min-width: 141px;
+    font-size: 16px;
+  }
+
+  &:hover {
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
   }
 `;
