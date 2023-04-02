@@ -13,9 +13,6 @@ export const StyledSearchBlackBtn = styled.button`
   line-height: 1.5;
   cursor: pointer;
 
-  /* position: absolute;
-  left: 222px; */
-
   @media screen and (min-width: 768px) {
     padding: 18px 24px;
     min-width: 161px;
