@@ -26,7 +26,7 @@ const CategoriesCard = () => {
       {limitedRecipes
         ? limitedRecipes
             .slice(0, 8)
-            .map(data => <RecipeCard data={data} key={data.id} />)
+            .map((data, i) => <RecipeCard data={data} key={i} />)
         : null}
     </Table>
   );

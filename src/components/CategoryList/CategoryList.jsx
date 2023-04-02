@@ -26,7 +26,7 @@ export const CategoryList = () => {
 
     const newArray = fullCategoryList.map((e, index) => {
       if (index === 3) {
-        return 'desserts';
+        return 'dessert';
       }
       return e;
     });
