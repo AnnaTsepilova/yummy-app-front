@@ -21,7 +21,6 @@ const WelcomeContent = () => {
           <LogoWelcome>
             <Logo width={'100%'} height={'100%'} />
           </LogoWelcome>
-
           <WelcomeTitle>Welcome to the app!</WelcomeTitle>
           <WelcomeText>
             This app offers more than just a collection of recipes - it is
