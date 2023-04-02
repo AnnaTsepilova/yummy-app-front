@@ -23,7 +23,7 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
     try {
       const { category, limit } = params;
       const data = await getLimitedRecipesByCategoryAPI(category, limit);
-      return data.meals;
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
