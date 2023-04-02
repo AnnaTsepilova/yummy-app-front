@@ -1,141 +1,193 @@
 import styled from 'styled-components';
 
 export const StyledSearchBlackBtn = styled.button`
-  background-color: #22252a;
-  padding: 15.7px 31.72px;
-  width: 113px;
-  color: #fafafa;
-  border: none;
+  background-color: var(--secondary-black);
   border-radius: 18px 44px;
-  font-style: normal;
-  font-weight: 400;
+  border: none;
+
+  padding: 16px 24px;
+  min-width: 113px;
+
   font-size: 14px;
   line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
+  @media screen and (min-width: 768px) {
+    padding: 18px 24px;
+    min-width: 161px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 23px 24px;
+  }
+
   &:hover {
-    background-color: #8baa36;
+    background-color: var(--primary-green);
   }
 `;
+
 export const StyledSearchGreenBtn = styled.button`
-  background-color: #8baa36;
+  background-color: var(--primary-green);
   border-radius: 18px 44px;
-  padding: 15.7px 31.72px;
-  width: 161px;
-  color: #fafafa;
   border: none;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  padding: 16px 24px;
+  min-width: 113px;
+
+  font-size: 14px;
   line-height: 1.5;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px 24px;
+    min-width: 161px;
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 23px 24px;
+  }
+
   &:hover {
-    background-color: #22252a;
+    background-color: var(--secondary-black);
   }
 `;
-export const StyledSignInBtn = styled.button`
-  background-color: transparent;
-  border-radius: 18px 44px;
-  padding: 22px 44px;
-  min-width: 141px;
-  color: #fafafa;
-  border: 2px solid #fafafa;
-  cursor: pointer;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  &:hover {
-    border: 2px solid #8baa36;
-    color: #8baa36;
-  }
-`;
+
 export const StyledSubscribeGreenBtn = styled.button`
-  background: #8baa36;
+  background: var(--primary-green);
   border: none;
   border-radius: 6px;
-  width: 339px;
-  padding: 21px 134px;
+
+  min-width: 204px;
+  padding: 11px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: #fafafa;
+  @media screen and (min-width: 768px) {
+    padding: 16px;
+    min-width: 171px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 21px;
+    min-width: 339px;
+  }
+
   &:hover {
-    color: #22252a;
+    color: var(--secondary-black);
   }
 `;
+
 export const StyledLogOutBtn = styled.button`
-  background: #8baa36;
+  background: var(--primary-green);
   border: none;
   border-radius: 6px;
-  width: 192px;
-  padding: 18px 39px;
+
+  min-width: 137px;
+  padding: 14px 18px;
+
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--primary-white);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: #fafafa;
+  @media screen and (min-width: 768px) {
+    padding: 18px 39px;
+    min-width: 192px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
   &:hover {
-    background: #22252a;
+    background: var(--secondary-black);
   }
 `;
+
 export const StyledCancelBtn = styled.button`
-  background: #d9d9d9;
-  border: none;
+  background: var(--light-gray);
   border-radius: 6px;
-  width: 192px;
-  padding: 18px 39px;
+  border: none;
+
+  min-width: 137px;
+  padding: 14px 18px;
+
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--primary-black);
+  text-align: center;
+
   cursor: pointer;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.12;
-  color: #23262a;
+  @media screen and (min-width: 768px) {
+    padding: 18px 39px;
+    min-width: 192px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
   &:hover {
-    border: 1px solid #23262a;
+    border: 1px solid var(--primary-black);
     background: transparent;
   }
 `;
 
 export const StyledSeeAllBtn = styled.div`
-  background: #8baa36;
-  border: none;
+  background: var(--primary-green);
   border-radius: 6px;
-  width: 94px;
-  padding: 10px 24px;
-  cursor: pointer;
+  border: none;
 
-  font-style: normal;
-  font-weight: 400;
+  min-width: 94px;
+  padding: 10px 24px;
+
   font-size: 14px;
   line-height: 1.29;
-  color: #fafafa;
+  color: var(--primary-white);
+  text-align: center;
+
+  cursor: pointer;
+
   &:hover {
-    background: #22252a;
+    background: var(--secondary-black);
   }
 `;
+
 export const StyledOtherCatBtn = styled.div`
   background-color: transparent;
   border-radius: 18px 44px;
-  padding: 14px 32px;
-  width: 195px;
-  color: #22252a;
+  border: 2px solid var(--primary-green);
 
-  cursor: pointer;
-  border: 2px solid #8baa36;
-  font-style: normal;
-  font-weight: 400;
+  padding: 14px 24px;
+  min-width: 195px;
+
   font-size: 14px;
   line-height: 1.5;
+  color: var(--secondary-black);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 39px;
+    min-width: 239px;
+    font-size: 16px;
+  }
+
   &:hover {
-    background-color: #8baa36;
-    color: #fafafa;
+    background-color: var(--primary-green);
+    color: var(--primary-white);
   }
 `;
