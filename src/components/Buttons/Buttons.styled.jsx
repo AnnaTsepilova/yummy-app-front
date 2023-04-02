@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledSearchBlackBtn = styled.button`
   background-color: #22252a;
-  /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
   padding: 15.7px 31.72px;
   width: 113px;
   color: #fafafa;
@@ -22,8 +21,8 @@ export const StyledSearchBlackBtn = styled.button`
 `;
 export const StyledSearchGreenBtn = styled.button`
   background-color: #8baa36;
-  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-  padding: 52px 23px;
+  border-radius: 18px 44px;
+  padding: 15.7px 31.72px;
   width: 161px;
   color: #fafafa;
   border: none;
@@ -39,13 +38,12 @@ export const StyledSearchGreenBtn = styled.button`
 `;
 export const StyledSignInBtn = styled.button`
   background-color: transparent;
-  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-  padding: 44px 22px;
-  width: 141px;
+  border-radius: 18px 44px;
+  padding: 22px 44px;
+  min-width: 141px;
   color: #fafafa;
   border: 2px solid #fafafa;
   cursor: pointer;
-
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -105,5 +103,41 @@ export const StyledCancelBtn = styled.button`
   &:hover {
     border: 1px solid #23262a;
     background: transparent;
+  }
+`;
+
+export const StyledSeeAllBtn = styled.div`
+  background: #8baa36;
+  border: none;
+  border-radius: 6px;
+  width: 94px;
+  padding: 10px 24px;
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #fafafa;
+  &:hover {
+    background: #22252a;
+  }
+`;
+export const StyledOtherCatBtn = styled.div`
+  background-color: transparent;
+  border-radius: 18px 44px;
+  padding: 14px 32px;
+  width: 195px;
+  color: #22252a;
+
+  cursor: pointer;
+  border: 2px solid #8baa36;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  &:hover {
+    background-color: #8baa36;
+    color: #fafafa;
   }
 `;
