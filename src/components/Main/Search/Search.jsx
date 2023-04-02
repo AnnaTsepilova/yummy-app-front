@@ -1,11 +1,12 @@
 import React from 'react';
-import { Form, Input, Wrapper } from './Search.styled';
+import { BtnWrapper, Form, Input, Wrapper } from './Search.styled';
 import { SearchBlackBtn } from '../../Buttons/Buttons';
 import HeroBcg from '../Hero/HeroBcg/LeftBcg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { updateSearchQuery } from 'redux/search/searchSlice';
+import ChooseYourBreakfast from '../ChooseYourBreakfast/СhooseYourBreakfast';
 
 const Search = () => {
   const navigate = useNavigate();
@@ -38,8 +39,11 @@ const Search = () => {
             autocomplete="off"
             placeholder="Beef |"
           />
-          <SearchBlackBtn type="submit">Search</SearchBlackBtn>
+          <BtnWrapper>
+            <SearchBlackBtn type="submit">Search</SearchBlackBtn>{' '}
+          </BtnWrapper>
         </Form>
+        <ChooseYourBreakfast />
         <HeroBcg />
       </Wrapper>
     </>
