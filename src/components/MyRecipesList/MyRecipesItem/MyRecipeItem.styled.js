@@ -3,9 +3,23 @@ import {
   StyledSearchGreenBtn,
   StyledSubscribeGreenBtn,
 } from '../../Buttons/Buttons.styled';
-import TrashIcon from './TrashIcon';
+import { ReactComponent as IconTr } from 'images/TrashIcon/Icon.svg';
 
-export const StyledIcon = styled(TrashIcon)``;
+export const StyledIcon = styled(IconTr)`
+  stroke: white;
+  width: 14px;
+  height: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 22px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 24px;
+    height: 24px;
+  }
+`;
 
 export const Item = styled.li`
   width: 343px;
