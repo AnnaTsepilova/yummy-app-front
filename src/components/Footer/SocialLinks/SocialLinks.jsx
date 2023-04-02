@@ -1,10 +1,10 @@
 import React from 'react';
 import { SocialLinksContainer } from './SocialLinks.styled';
 
-import { ReactComponent as Facebook } from 'images/Icons/Facebook.svg';
-import { ReactComponent as Youtube } from 'images/Icons/Youtube.svg';
-import { ReactComponent as Twitter } from 'images/Icons/Twitter.svg';
-import { ReactComponent as Instagram } from 'images/Icons/Instagram.svg';
+import { ReactComponent as Facebook } from 'images/Icons/facebook.svg';
+import { ReactComponent as Youtube } from 'images/Icons/youtube.svg';
+import { ReactComponent as Twitter } from 'images/Icons/twitter.svg';
+import { ReactComponent as Instagram } from 'images/Icons/instagram.svg';
 
 const SocialLinks = ({ text }) => {
   return (
