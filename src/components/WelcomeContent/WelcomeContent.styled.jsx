@@ -27,6 +27,7 @@ export const PublicPageContainer = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
+  justify-content: center;
   width: 305px;
 
   @media screen and (min-width: 768px) {
@@ -86,6 +87,7 @@ export const BgImage = styled.div`
 `;
 
 export const WelcomeTitle = styled.h1`
+  margin-top: 28px;
   margin-bottom: 14px;
   font-weight: 600;
   font-size: 24px;
@@ -99,7 +101,7 @@ export const WelcomeTitle = styled.h1`
 `;
 
 export const WelcomeText = styled.p`
-  // max-width: 305px;
+  margin-bottom: 44px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -146,4 +148,15 @@ export const SignInBtnW = styled(SignInBtn)`
     padding-left: 100px;
     padding-right: 100px;
   } */
+`;
+
+export const LogoWelcome = styled.div`
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 68px;
+    height: 68px;
+  }
 `;
