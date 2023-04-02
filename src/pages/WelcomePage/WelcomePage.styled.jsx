@@ -18,3 +18,21 @@ export const PublicPageContainer = styled.div`
     padding-right: 100px;
   }
 `;
+
+export const WelcomeTitle = styled.h1`
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  color: #fafafa;
+
+  /* @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  } */
+`;
