@@ -5,28 +5,30 @@ import BgImgDesc from 'images/WelcomePageImg/wellcome-page-img-desc@1x.jpg';
 
 export const BgImage = styled.div`
   min-width: 320px;
-  background: linear-gradient(
+  background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 58.58%,
       rgba(0, 0, 0, 0.345172) 78.98%,
       rgba(0, 0, 0, 0) 100%
     ),
     url('${BgImgMob}');
-
+  width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
+  z-index: -1;
 
   @media screen and (min-width: 768px) {
     min-width: 768px;
-    background: linear-gradient(
+    background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
         rgba(0, 0, 0, 0.345172) 78.98%,
         rgba(0, 0, 0, 0) 100%
       ),
       url('${BgImgTab}');
+    width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,13 +36,14 @@ export const BgImage = styled.div`
   }
   @media screen and (min-width: 1440px) {
     min-width: 1440px;
-    background: linear-gradient(
+    background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
         rgba(0, 0, 0, 0.345172) 78.98%,
         rgba(0, 0, 0, 0) 100%
       ),
       url('${BgImgDesc}');
+    width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;

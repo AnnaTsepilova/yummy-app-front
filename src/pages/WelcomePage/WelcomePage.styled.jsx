@@ -23,7 +23,8 @@ export const WelcomeTitle = styled.h1`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
-  color: #fafafa;
+  color: var(--primary-white);
+  z-index: 111;
 
   /* @media screen and (min-width: 768px) {
     width: 768px;

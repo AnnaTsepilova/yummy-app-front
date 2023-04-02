@@ -2,19 +2,23 @@ import React, { Suspense } from 'react';
 import { Outlet } from 'react-router';
 
 import Loader from 'components/Loader/Loader';
-import WelcomeBg from 'components/WelcomeBg/WelcomeBg';
-import { PublicPageContainer } from 'pages/WelcomePage/WelcomePage.styled';
+import WelcomeContent from 'components/WelcomeContent/WelcomeContent';
+import {
+  PublicPageContainer,
+  WelcomeTitle,
+} from 'pages/WelcomePage/WelcomePage.styled';
 
 const WelcomePage = () => {
   return (
     <>
-      <WelcomeBg>
+      <WelcomeContent>
         <PublicPageContainer>
-          <Suspense fallback={<Loader />}>
+          <WelcomeTitle>Welcome to the app!</WelcomeTitle>
+          {/* <Suspense fallback={<Loader />}>
             <Outlet />
-          </Suspense>
+          </Suspense> */}
         </PublicPageContainer>
-      </WelcomeBg>
+      </WelcomeContent>
     </>
   );
 };
