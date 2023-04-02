@@ -1,3 +1,4 @@
+import { OtherCatBtn } from 'components/Buttons/Buttons';
 import React, { useEffect, useState } from 'react';
 import { getMainPageAPI } from 'service/API/dishesApi';
 import Category from './Category';
@@ -11,7 +12,6 @@ const PreviewCategories = () => {
       const dishArray = Object.entries(data);
       console.log('log eff', dishArray);
       setAllCategories(dishArray);
-      // console.log('log eff', data);
     });
   }, []);
   return (
@@ -19,6 +19,7 @@ const PreviewCategories = () => {
       {allCategories.map((item, index) => (
         <Category key={index} data={item} />
       ))}
+      <OtherCatBtn>Other categories</OtherCatBtn>
     </div>
   );
 };
