@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 export const CategoryList = () => {
   const { categoryName } = useParams();
   const dispatcher = useDispatch();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const [mapArray, setMapArray] = useState([]);
   const navigate = useNavigate();
   const [flag, setFlag] = useState(false);
