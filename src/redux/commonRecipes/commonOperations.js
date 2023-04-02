@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   getCategoryListAPI,
   getLimitedRecipesByCategoryAPI,
+  getAllRecipesByCategoryAPI,
 } from 'service/API/dishesApi';
 
 export const getCategoryList = createAsyncThunk(
@@ -23,6 +24,18 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
     try {
       const { category, limit } = params;
       const data = await getLimitedRecipesByCategoryAPI(category, limit);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const getAllRecipesByCategory = createAsyncThunk(
+  'outerRecipes/allRecipes',
+  async (category, { rejectWithValue }) => {
+    try {
+      const data = await getAllRecipesByCategoryAPI(category);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

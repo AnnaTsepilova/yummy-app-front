@@ -15,21 +15,19 @@ const CategoriesCard = () => {
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
   useEffect(() => {
-    const params = { category: categoryName, limit: 12 };
-    if (categoryName === 'desserts') {
-      dispatch(getLimitedRecipesByCategory({ category: 'dessert', limit: 12 }));
-    } else {
-      dispatch(getLimitedRecipesByCategory(params));
-    }
+    const params = { category: categoryName, limit: 8 };
+    dispatch(getLimitedRecipesByCategory(params));
   }, [dispatch, categoryName]);
 
   return isPending ? (
     <Loader />
   ) : (
     <Table>
-      {limitedRecipes.slice(0, 8).map(data => (
-        <RecipeCard data={data} key={data._id} />
-      ))}
+      {limitedRecipes
+        ? limitedRecipes
+            .slice(0, 8)
+            .map(data => <RecipeCard data={data} key={data.id} />)
+        : null}
     </Table>
   );
 };
