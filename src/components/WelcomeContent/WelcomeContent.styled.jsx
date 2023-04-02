@@ -52,7 +52,6 @@ export const BgImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  z-index: -1;
 
   @media screen and (min-width: 768px) {
     min-width: 768px;

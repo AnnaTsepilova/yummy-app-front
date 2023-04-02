@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledSearchBlackBtn = styled.button`
-  background-color: #22252a;
-  padding: 15.7px 31.72px;
-  width: 113px;
-  color: #fafafa;
+  background-color: var(--secondary-black);
+  padding: 16px 24px;
+  min-width: 113px;
+  color: var(--primary-white);
   border: none;
   border-radius: 18px 44px;
   font-style: normal;
@@ -13,27 +13,47 @@ export const StyledSearchBlackBtn = styled.button`
   line-height: 1.5;
   cursor: pointer;
 
-  position: absolute;
-  left: 222px;
+  /* position: absolute;
+  left: 222px; */
+
+  @media screen and (min-width: 768px) {
+    padding: 18px 24px;
+    min-width: 161px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 23px 24px;
+  }
+
   &:hover {
-    background-color: #8baa36;
+    background-color: var(--primary-green);
   }
 `;
 export const StyledSearchGreenBtn = styled.button`
-  background-color: #8baa36;
+  background-color: var(--primary-green);
   border-radius: 18px 44px;
-  padding: 15.7px 31.72px;
-  width: 161px;
-  color: #fafafa;
+  padding: 16px 24px;
+  min-width: 113px;
+  color: var(--primary-white);
   border: none;
 
-  font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px 24px;
+    min-width: 161px;
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 23px 24px;
+  }
+
   &:hover {
-    background-color: #22252a;
+    background-color: var(--secondary-black);
   }
 `;
 export const StyledSignInBtn = styled.button`
@@ -41,20 +61,20 @@ export const StyledSignInBtn = styled.button`
   border-radius: 18px 44px;
   padding: 22px 44px;
   min-width: 141px;
-  color: #fafafa;
-  border: 2px solid #fafafa;
+  color: var(--primary-white);
+  border: 2px solid var(--primary-white);
   cursor: pointer;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   &:hover {
-    border: 2px solid #8baa36;
-    color: #8baa36;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
   }
 `;
 export const StyledSubscribeGreenBtn = styled.button`
-  background: #8baa36;
+  background: var(--primary-green);
   border: none;
   border-radius: 6px;
   width: 339px;
@@ -65,13 +85,13 @@ export const StyledSubscribeGreenBtn = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.12;
-  color: #fafafa;
+  color: var(--primary-white);
   &:hover {
-    color: #22252a;
+    color: var(--secondary-black);
   }
 `;
 export const StyledLogOutBtn = styled.button`
-  background: #8baa36;
+  background: var(--primary-green);
   border: none;
   border-radius: 6px;
   width: 192px;
@@ -82,13 +102,13 @@ export const StyledLogOutBtn = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.12;
-  color: #fafafa;
+  color: var(--primary-white);
   &:hover {
-    background: #22252a;
+    background: var(--secondary-black);
   }
 `;
 export const StyledCancelBtn = styled.button`
-  background: #d9d9d9;
+  background: var(--light-gray);
   border: none;
   border-radius: 6px;
   width: 192px;
@@ -99,15 +119,15 @@ export const StyledCancelBtn = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.12;
-  color: #23262a;
+  color: var(--primary-black);
   &:hover {
-    border: 1px solid #23262a;
+    border: 1px solid var(--primary-black);
     background: transparent;
   }
 `;
 
 export const StyledSeeAllBtn = styled.div`
-  background: #8baa36;
+  background: var(--primary-green);
   border: none;
   border-radius: 6px;
   width: 94px;
@@ -118,9 +138,9 @@ export const StyledSeeAllBtn = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: #fafafa;
+  color: var(--primary-white);
   &:hover {
-    background: #22252a;
+    background: var(--secondary-black);
   }
 `;
 export const StyledOtherCatBtn = styled.div`
@@ -128,16 +148,16 @@ export const StyledOtherCatBtn = styled.div`
   border-radius: 18px 44px;
   padding: 14px 32px;
   width: 195px;
-  color: #22252a;
+  color: var(--secondary-black);
 
   cursor: pointer;
-  border: 2px solid #8baa36;
+  border: 2px solid var(--primary-green);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
   &:hover {
-    background-color: #8baa36;
-    color: #fafafa;
+    background-color: var(--primary-green);
+    color: var(--primary-white);
   }
 `;
