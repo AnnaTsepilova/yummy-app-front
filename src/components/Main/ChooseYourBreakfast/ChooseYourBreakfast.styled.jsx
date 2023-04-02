@@ -24,12 +24,24 @@ export const Title = styled.p`
     color: var(--primary-green);
   }
 `;
+export const BoxLink = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &:hover {
+    color: #8baa36;
+  }
+`;
+
 export const RecipeLink = styled(Link)`
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: 0.2px;
-  margin-left: 136px;
   color: var(--primary-gray);
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
