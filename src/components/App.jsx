@@ -10,7 +10,7 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 // import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
-const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
+// const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
@@ -36,13 +36,10 @@ export const App = () => {
     <BrowserRouter basename="/yummy-app-front">
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route path="/register" element={<RegisterForm />} />
-        <Route path="/signin" element={<RegisterForm />} /> */}
-
           {/* <Route path="/" element={<PublicRoute />}> */}
           <Route path="/" element={<WelcomePage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signin" element={<RegisterPage />} />
           {/* </Route> */}
           {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route path="/" element={<SharedLayout />}>
