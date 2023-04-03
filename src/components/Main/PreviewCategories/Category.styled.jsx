@@ -39,17 +39,12 @@ export const ListRecipe = styled.ul`
 `;
 
 export const Container = styled.div`
-  &:not(:last-child) {
-    margin-bottom: 32px;
-  }
+  margin-bottom: 32px;
+
   @media screen and (min-width: 768px) {
-    &:not(:last-child) {
-      margin-bottom: 50px;
-    }
+    margin-bottom: 50px;
   }
   @media screen and (min-width: 1440px) {
-    &:not(:last-child) {
-      margin-bottom: 100px;
-    }
+    margin-bottom: 100px;
   }
 `;
