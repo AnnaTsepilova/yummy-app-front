@@ -29,6 +29,7 @@ const CategoriesCard = () => {
             .slice(0, 8)
             .map(({ description, preview, title, _id }) => (
               <RecipeCard
+                key={_id}
                 id={_id}
                 image={preview}
                 altText={description}
