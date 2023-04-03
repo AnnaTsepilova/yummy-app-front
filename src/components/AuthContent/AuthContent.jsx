@@ -1,20 +1,15 @@
-import { PublicPageContainer } from 'components/WelcomeContent/WelcomeContent.styled';
 import {
+  PageContainer,
   FooterBgImage,
-  ContentWrapper,
-  SignInLink,
+  HeroImage,
 } from 'components/AuthContent/AuthContent.styled';
 
 const AuthContent = () => {
   return (
     <>
-      <div>AuthContent</div>
-
-      {/* <PublicPageContainer>
-        <ContentWrapper>
-          <SignInLink to="/signin">Sign In</SignInLink>
-        </ContentWrapper>
-      </PublicPageContainer> */}
+      <PageContainer>
+        <HeroImage />
+      </PageContainer>
 
       <FooterBgImage />
     </>

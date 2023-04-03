@@ -1,34 +1,51 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+
 import FooterBg from 'images/AuthImages/footer-bg-auth.svg';
 import FooterBgDesc from 'images/AuthImages/footer-bg-auth-desc.svg';
+import OrderFoodSvg from 'images/AuthImages/order-food-pana.svg';
 
-// order-food-pana
-
-export const PublicPageContainer = styled.div`
+export const PageContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
 
   min-width: 320px;
   height: 100vh;
-  padding: 18px 16px;
+  padding: 87px 20px;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 96px 134px;
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 115px 113px;
+    justify-content: left;
+  }
+`;
+
+export const HeroImage = styled.div`
+  width: 285px;
+  height: 250px;
+  background-image: url('${OrderFoodSvg}');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    width: 409px;
+    height: 359px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 532px;
+    height: 468px;
   }
 `;
 
 export const FooterBgImage = styled.div`
-  height: 490px;
+  height: 60%;
   background-image: url('${FooterBg}');
   width: 100%;
 
@@ -38,55 +55,27 @@ export const FooterBgImage = styled.div`
   bottom: 0;
 
   position: absolute;
-
-  @media screen and (min-width: 768px) {
-    height: 606px;
-  }
+  z-index: -1;
 
   @media screen and (min-width: 1440px) {
     background-image: url('${FooterBgDesc}');
-    height: 325px;
+    height: 42%;
+  }
+
+  @media screen and (min-width: 1600px) {
+    height: 55%;
   }
 `;
 
-export const ContentWrapper = styled.div`
-  justify-content: center;
-  width: 305px;
-
-  @media screen and (min-width: 768px) {
-    width: 505px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 540px;
-  }
-`;
-
-export const WelcomeTitle = styled.h1`
-  margin-top: 28px;
-  margin-bottom: 14px;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1;
-  color: var(--primary-white);
-  text-align: center;
-
-  @media screen and (min-width: 768px) {
-    font-size: 28px;
-  }
-`;
-
-export const SignInLink = styled(NavLink)`
+export const AuthLink = styled(NavLink)`
   background-color: transparent;
-  border-radius: 18px 44px;
-  border: 2px solid var(--primary-white);
-
-  padding: 12px 24px;
   min-width: 95px;
 
   font-size: 14px;
   line-height: 1.5;
   color: var(--primary-white);
   text-align: center;
+  text-decoration: underline;
 
   cursor: pointer;
 
@@ -97,7 +86,6 @@ export const SignInLink = styled(NavLink)`
   }
 
   &:hover {
-    border: 2px solid var(--primary-green);
     color: var(--primary-green);
   }
 `;
