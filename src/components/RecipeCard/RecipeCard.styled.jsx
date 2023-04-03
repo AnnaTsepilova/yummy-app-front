@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.li`
   border-radius: 8px;
-  width: 343px;
+  width: 299px;
   height: 323px;
   position: relative;
 `;
@@ -10,6 +10,7 @@ export const RecipePicture = styled.img`
   display: block;
   height: 100%;
   width: 100%;
+  border-radius: 8px;
 `;
 
 export const RecipeTitle = styled.div`
