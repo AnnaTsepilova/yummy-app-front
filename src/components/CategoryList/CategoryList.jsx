@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 export const CategoryList = () => {
   const { categoryName } = useParams();
   const dispatcher = useDispatch();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const [mapArray, setMapArray] = useState([]);
   const navigate = useNavigate();
   const [flag, setFlag] = useState(false);
@@ -26,7 +26,7 @@ export const CategoryList = () => {
 
     const newArray = fullCategoryList.map((e, index) => {
       if (index === 3) {
-        return 'desserts';
+        return 'dessert';
       }
       return e;
     });
@@ -70,7 +70,11 @@ export const CategoryList = () => {
 
   return (
     <Box
-      sx={{ maxWidth: '100%', bgcolor: 'transparent' }}
+      sx={{
+        maxWidth: '100%',
+        bgcolor: 'transparent',
+        borderBottom: '1px solid #E0E0E0',
+      }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
