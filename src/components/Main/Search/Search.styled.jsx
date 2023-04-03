@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   border-radius: 18px 44px;
-  background-color: yellow;
+  background-color: var(--primary-white);
   padding: 17px 32px;
   border: none;
 
@@ -18,6 +18,8 @@ export const Input = styled.input`
     padding: 18px 38px;
   }
   @media screen and (min-width: 1440px) {
+    padding: 23px 48px;
+    width: 510px;
   }
 `;
 export const Form = styled.form`
