@@ -2,8 +2,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
 
-axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjg2ZjAzMzBhOThiNWM2MWU4YjUzNiIsImlhdCI6MTY4MDYwMTU5MiwiZXhwIjoxNjgwNjA1MTkyfQ.sL8cOiVbKzpzEUKjLRFE2HHmhENIEniD9zyuPsB5Tco`;
-
 export const getCategoryListAPI = () => {
   return axios.get('/recipes/category-list').then(({ data }) => {
     return data;
