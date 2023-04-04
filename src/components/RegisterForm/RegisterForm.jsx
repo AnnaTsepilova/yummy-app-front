@@ -20,30 +20,32 @@ const RegisterForm = () => {
   const isLogin = pathname === '/signin';
 
   return (
-    <FormContainer>
-      <FormWrapper>
-        <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
-        <Form className={isLogin ? 'signin' : ''}>
-          {!isLogin && (
-            <InputWrap iconUrl={iconUser}>
-              <FormInput placeholder="Name" />
+    <>
+      <FormContainer>
+        <FormWrapper>
+          <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
+          <Form className={isLogin ? 'signin' : ''}>
+            {!isLogin && (
+              <InputWrap iconUrl={iconUser}>
+                <FormInput placeholder="Name" />
+              </InputWrap>
+            )}
+            <InputWrap iconUrl={iconMail}>
+              <FormInput placeholder="Email" />
             </InputWrap>
-          )}
-          <InputWrap iconUrl={iconMail}>
-            <FormInput placeholder="Email" />
-          </InputWrap>
-          <InputWrap iconUrl={iconLock}>
-            <FormInput placeholder="Password" />
-          </InputWrap>
-          <FormButton>{isLogin ? 'Sign in' : 'Sign up'}</FormButton>
-        </Form>
-      </FormWrapper>
-      <FormSwitch>
-        <FormLink exact to={isLogin ? '/register' : '/signin'}>
-          {isLogin ? 'Registration' : 'Sign in'}
-        </FormLink>
-      </FormSwitch>
-    </FormContainer>
+            <InputWrap iconUrl={iconLock}>
+              <FormInput placeholder="Password" />
+            </InputWrap>
+            <FormButton>{isLogin ? 'Sign in' : 'Sign up'}</FormButton>
+          </Form>
+        </FormWrapper>
+        <FormSwitch>
+          <FormLink exact to={isLogin ? '/register' : '/signin'}>
+            {isLogin ? 'Registration' : 'Sign in'}
+          </FormLink>
+        </FormSwitch>
+      </FormContainer>
+    </>
   );
 };
 

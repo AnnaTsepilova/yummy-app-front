@@ -2,44 +2,53 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const FormContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(70%, -50%);
-  display: flex;
-  flex-direction: column;
+  margin-top: -32px;
 
+  @media screen and (min-width: 768px) {
+    margin-top: -24px;
+  }
+  /* @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(70%, -50%);
+    display: flex;
+    flex-direction: column;
+  } */
 `;
 
 export const FormWrapper = styled.div`
-  width: 335px;
+  margin: 0 auto;
+  width: 100%;
   min-height: 315px;
   padding: 32px 28px 40px 28px;
-  background: #2a2c36;
+  background: var(--modal-background);
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  @media screen and (max-width: 1439px) {
-    font-family: 'Poppins';
+  @media screen and (min-width: 375px) {
+    width: 335px;
   }
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    min-height: 419px;
+    padding: 44px 50px;
   }
 `;
 
-export const FormTitle = styled.h2`
-  font-family: 'Poppins';
+export const FormTitle = styled.h1`
+  margin-bottom: 18px;
+
   font-weight: 600;
   font-size: 24px;
   line-height: 1.17;
-  letter-spacing: -0.02em;
-  font-feature-settings: 'liga' off;
-  color: #fafafa;
-  margin-bottom: 18px;
+  color: var(--primary-white);
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    font-size: 28px;
+    line-height: 1.07;
   }
 `;
 
@@ -56,22 +65,24 @@ export const InputWrap = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  width: 279px;
+
+  width: 100%;
   height: 45px;
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #fafafa;
+  border: 1px solid var(--primary-white);
   outline: none;
   font-family: 'Poppins';
   font-size: 18px;
-  color: #fafafa;
-  caret-color: #fafafa;
+  color: var(--primary-white);
+  caret-color: var(--primary-white);
   display: inline-block;
   box-sizing: border-box;
   transition: border 250ms ease;
 
-  :hover {
+  :hover,
+  :active {
     border: 2px solid #fff;
   }
 
@@ -88,6 +99,10 @@ export const InputWrap = styled.div`
     background-repeat: no-repeat;
   }
 
+  /* @media screen and (min-width: 375px) {
+    width: 279px;
+  } */
+
   @media screen and (max-width: 767px) {
     font-family: 'Poppins';
   }
@@ -97,24 +112,26 @@ export const FormInput = styled.input`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
   width: 100%;
   height: 100%;
   margin-left: -12px;
   padding: 12px 0 12px 40px;
+
+  background-color: transparent;
   border-radius: 6px;
   border: none;
-  background-color: transparent;
   outline: none;
-  font-family: 'Poppins';
+
   font-size: 14px;
-  color: #fafafa;
-  caret-color: #fafafa;
+  color: var(--primary-white);
+  caret-color: var(--primary-white);
 
   ::placeholder {
     margin-left: 40px;
     font-family: 'Poppins';
     font-size: 14px;
-    color: #fafafa;
+    color: var(--primary-white);
     opacity: 0.8;
     letter-spacing: -0.02em;
   }
@@ -125,30 +142,32 @@ export const FormInput = styled.input`
 `;
 
 export const FormButton = styled.button`
+  width: 100%;
   margin-top: 16px;
-  padding: 12px 106px;
-  background: #8BAA36;
+  padding: 12px 24px;
+
+  background: var(--primary-green);
   border-radius: 6px;
-  font-family: 'Poppins';
-  font-size: 16px;
-  line-height: 1.12;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #FAFAFA;
-  flex: none;
-  order: 0;
   outline: none;
   border: 0;
-  flex-grow: 0;
+
+  font-size: 16px;
+  line-height: 1.12;
+  color: var(--primary-white);
+  text-align: center;
+
+  /* flex: none;
+  order: 0;
+  flex-grow: 0; */
+
   cursor: pointer;
 
   &:hover {
-    font-family: 'Poppins';
+    color: var(--secondary-black);
   }
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+  @media screen and (min-width: 768px) {
+    padding: 20px 24px;
   }
 `;
 
@@ -158,17 +177,20 @@ export const FormSwitch = styled.div`
 `;
 
 export const FormLink = styled(NavLink)`
-  font-family: 'Poppins';
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 1.5;
   text-decoration-line: underline;
-  color: #FAFAFA;
+  color: var(--primary-white);
 
   &.active {
-    font-family: 'Poppins';
+    // font-family: 'Poppins';
   }
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+  &:hover {
+    color: var(--primary-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
   }
 `;
