@@ -1,11 +1,21 @@
-import React from 'react'
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { TitleBox, Title } from '../CategoriesPage/CategoriesPage.styled';
+import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
+import Loader from 'components/Loader/Loader';
 
 const SearchPage = () => {
   return (
-    <div>
+    <>
+      <TitleBox>
+        <Title>Search</Title>
+      </TitleBox>
+      <SearchedRecipesList />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+    </>
+  );
+};
 
-    </div>
-  )
-}
-
-export default SearchPage
+export default SearchPage;
