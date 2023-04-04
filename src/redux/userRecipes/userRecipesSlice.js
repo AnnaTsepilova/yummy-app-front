@@ -2,11 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   addRecipeToFavorite,
   getFavoriteRecipes,
+  getMyRecipe,
+  removeMyRecipe,
   removeRecipeFromFavorite,
 } from './userResipesOperations';
 
 const initialState = {
-  usersResipes: [],
+  myRecipes: [],
   favorite: [],
 };
 
@@ -24,6 +26,13 @@ const userResipesSlice = createSlice({
       })
       .addCase(getFavoriteRecipes.fulfilled, (state, { payload }) => {
         state.favorite = payload;
+      })
+      .addCase(getMyRecipe.fulfilled, (state, { payload }) => {
+        state.myRecipes = payload;
+      })
+      .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
+        const index = state.myRecipes.findIndex(item => item.id === payload);
+        state.myRecipes.splice(index, 1);
       }),
 });
 

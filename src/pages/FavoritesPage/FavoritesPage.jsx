@@ -7,10 +7,9 @@ import {
   removeRecipeFromFavorite,
   getFavoriteRecipes,
 } from 'redux/userRecipes/userResipesOperations';
-import { useDispatch } from 'react-redux';
-
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteRecipes } from 'redux/userRecipes/userRecipesSelectors';
+import NotFoundImg from 'images/Search/not-found-img.png';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
@@ -27,11 +26,15 @@ const FavoritesPage = () => {
     <>
       <Header />
       <PageHeader>Favorites</PageHeader>
-      <MyRecipesList
-        items={recipes}
-        btnStyle={'secondary'}
-        removeFnc={removeRecipeFromFavorite}
-      />
+      {recipes.length > 0 ? (
+        <MyRecipesList
+          items={recipes}
+          btnStyle={'secondary'}
+          removeFnc={removeRecipeFromFavorite}
+        />
+      ) : (
+        <img src={NotFoundImg} alt="Not found" />
+      )}
     </>
   );
 };

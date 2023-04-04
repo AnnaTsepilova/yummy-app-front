@@ -3,6 +3,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addRecipeTofavoriteAPI,
   getFavoriteRecipesAPI,
+  getMyRecipeAPI,
+  removeMyRecipeAPI,
   removeRecipeFromFavoriteAPI,
 } from 'service/API/dishesApi';
 
@@ -36,6 +38,30 @@ export const getFavoriteRecipes = createAsyncThunk(
     try {
       const data = await getFavoriteRecipesAPI();
       return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const getMyRecipe = createAsyncThunk(
+  'userRecipes/getMyRecipes',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await getMyRecipeAPI();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const removeMyRecipe = createAsyncThunk(
+  'userRecipes/removeMyRecipes',
+  async (id, { rejectWithValue }) => {
+    try {
+      const data = await removeMyRecipeAPI(id);
+      return data.id;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }

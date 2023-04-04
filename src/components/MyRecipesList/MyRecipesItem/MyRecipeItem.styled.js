@@ -4,6 +4,12 @@ import {
   StyledSubscribeGreenBtn,
 } from '../../Buttons/Buttons.styled';
 import { ReactComponent as IconTr } from 'images/TrashIcon/Icon.svg';
+import { ReactComponent as NotFoundRecipeImg } from 'images/Plugs/image.svg';
+
+export const StyledNotFoundImg = styled(NotFoundRecipeImg)`
+  width: 100%;
+  height: 100%;
+`;
 
 export const StyledIcon = styled(IconTr)`
   stroke: ${props => (props.view === 'secondary' ? '#22252A' : '#FAFAFA')};
@@ -165,6 +171,13 @@ export const RecipeBtn = styled(StyledSearchGreenBtn)`
 
   background-color: ${props =>
     props.view === 'secondary' ? '#22252A' : '#8BAA36'};
+
+  &:hover {
+    background-color: ${props =>
+      props.view === 'secondary'
+        ? 'var(--primary-green)'
+        : 'var(--secondary-black)'};
+  }
 
   color: #fafafa;
 

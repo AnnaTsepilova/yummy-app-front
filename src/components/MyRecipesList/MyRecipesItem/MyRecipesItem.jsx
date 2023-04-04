@@ -13,8 +13,8 @@ import {
   RecipeSubtitle,
 } from './MyRecipeItem.styled';
 import { Link } from 'react-router-dom';
-// import { SearchGreenBtn } from 'components/Buttons/Buttons';
 import { useDispatch } from 'react-redux';
+import { StyledNotFoundImg } from './MyRecipeItem.styled';
 
 const MyRecipesItem = ({ data, btnStyle, removeFnc }) => {
   const { _id, title, description, preview, time } = data;
@@ -24,7 +24,11 @@ const MyRecipesItem = ({ data, btnStyle, removeFnc }) => {
   return (
     <Item>
       <ImgWrapper>
-        <RecipeImg src={preview} alt={title} />
+        {preview ? (
+          <RecipeImg src={preview} alt={title} />
+        ) : (
+          <StyledNotFoundImg />
+        )}
       </ImgWrapper>
       <ContentWrapper>
         <RecipeTitle>{title}</RecipeTitle>
