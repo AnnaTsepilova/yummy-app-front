@@ -8,15 +8,20 @@ import {
   getFavoriteRecipes,
 } from 'redux/userRecipes/userResipesOperations';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavoriteRecipes } from 'redux/userRecipes/userRecipesSelectors';
-import NotFoundImg from 'images/Search/not-found-img.png';
+import {
+  selectFavoriteRecipes,
+  selectIsLoading,
+  selectUserError,
+} from 'redux/userRecipes/userRecipesSelectors';
+import Loader from 'components/Loader/Loader';
+import NotFound from 'components/NotFound/NotFound';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectUserError);
 
   const dispatch = useDispatch();
-
-  console.log(recipes);
 
   useEffect(() => {
     dispatch(getFavoriteRecipes());
@@ -26,15 +31,16 @@ const FavoritesPage = () => {
     <>
       <Header />
       <PageHeader>Favorites</PageHeader>
-      {recipes.length > 0 ? (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <MyRecipesList
           items={recipes}
           btnStyle={'secondary'}
           removeFnc={removeRecipeFromFavorite}
         />
-      ) : (
-        <img src={NotFoundImg} alt="Not found" />
       )}
+      {error && <NotFound />}
     </>
   );
 };

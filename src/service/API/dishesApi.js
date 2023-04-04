@@ -39,6 +39,14 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
+export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+  return axios
+    .get(`/recipes/search/${query}?page=${page}&per_page=${per_page}`)
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 export const getMyRecipeAPI = () => {
   return axios.get('/recipes').then(({ data }) => {
     return data;
