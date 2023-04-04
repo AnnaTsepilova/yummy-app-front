@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import BgImgMob from 'images/WelcomePageImg/wellcome-page-img-mob@1x.jpg';
+import BgImgMob2 from 'images/WelcomePageImg/wellcome-page-img-mob@2x.jpg';
 import BgImgTab from 'images/WelcomePageImg/wellcome-page-img-tab@1x.jpg';
+import BgImgTab2 from 'images/WelcomePageImg/wellcome-page-img-tab@2x.jpg';
 import BgImgDesc from 'images/WelcomePageImg/wellcome-page-img-desc@1x.jpg';
+import BgImgDesc2 from 'images/WelcomePageImg/wellcome-page-img-desc@2x.jpg';
 
 export const PublicPageContainer = styled.div`
   display: flex;
@@ -41,6 +44,12 @@ export const BgImage = styled.div`
   background-size: cover;
   background-position: top center;
 
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('${BgImgMob2}');
+  }
+
   @media screen and (min-width: 768px) {
     min-width: 768px;
     background-image: linear-gradient(
@@ -55,7 +64,14 @@ export const BgImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('${BgImgTab2}');
+    }
   }
+
   @media screen and (min-width: 1440px) {
     min-width: 1440px;
     background-image: linear-gradient(
@@ -70,6 +86,12 @@ export const BgImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('${BgImgDesc2}');
+    }
   }
 `;
 
