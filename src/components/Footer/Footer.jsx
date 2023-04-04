@@ -1,14 +1,14 @@
 import React from 'react';
 
-import FooterNavigation from './FooterNavigation/FooterNavigation';
-import SocialLinks from './SocialLinks/SocialLinks';
+import FooterNavigation from 'components/FooterNavigation/FooterNavigation';
+import SocialLinks from 'components/SocialLinks/SocialLinks';
 
 import {
   FooterWrapper,
   FooterTopContainer,
   FooterBottomContainer,
   SocialLinksContainer,
-} from './Footer.styled';
+} from 'components/Footer/Footer.styled';
 
 const Footer = () => {
   return (
