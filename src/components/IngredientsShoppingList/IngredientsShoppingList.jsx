@@ -14,6 +14,7 @@ import {
 import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
 import { patchShoppingList, getShoppingList } from 'service/API/dishesApi';
 import Loader from 'components/Loader/Loader';
+import ShoppingItem from './ShoppingItem/ShoppingItem';
 
 const IngredientsShoppingList = () => {
   const [list, setList] = useState([]);

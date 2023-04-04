@@ -1,17 +1,22 @@
 import React from 'react';
-import css from './TitleShoppingList.module.css';
+import {
+  TitleWrapper,
+  Title,
+  Products,
+  RightPartText,
+} from './TitleShoppingList.styled';
 
 const TitleShoppingList = () => {
   return (
-    <div className={css.titleWrapper}>
-      <div className={css.title}>
-        <span className={css.products}>Products</span>
-        <div className={css.rightPartText}>
+    <TitleWrapper>
+      <Title>
+        <Products>Products</Products>
+        <RightPartText>
           <span>Number</span>
           <span>Remove</span>
-        </div>
-      </div>
-    </div>
+        </RightPartText>
+      </Title>
+    </TitleWrapper>
   );
 };
 

@@ -1,33 +1,36 @@
 import React from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-import { Wrapper } from './ShoppingItem.styled';
+import { WrapperLi, RightWrapper, Button } from './ShoppingItem.styled';
 import ShoppingItemPhoto from '../ShoppingItemFoto/ShoppingItemFoto';
 import ShoppingItemDescription from '../ShoppingItemDescription/ShoppingItemDescription';
+import ShoppingItemNumber from '../ShoppingItemNumber/ShoppingItemNumber';
+// import { ReactComponent as CloseIcon } from 'assets/images/AddRecipe/close.svg';
+import defaultImage from '../../../images/HeaderMenu/header-menu.svg';
 
 const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
   return (
-    <Wrapper>
+    <WrapperLi>
       <ShoppingItemPhoto image={image ? image : defaultImage} />
       <div>
         <ShoppingItemDescription name={name} />
       </div>
-      <div className={css.rightThumb}>
+      <div>
         {measure.map(item => (
-          <div className={css.rightWrapper} key={nanoid()}>
+          <RightWrapper key={nanoid()}>
             <ShoppingItemNumber text={item} />
-            <button
-              className={css.button}
+            <Button
               type="button"
               onClick={e => {
                 onDelete(item, e);
               }}
             >
-              <CloseIcon width="18px" height="18px" />
-            </button>
-          </div>
+              KNOPKA
+              {/* <CloseIcon width="18px" height="18px" /> */}
+            </Button>
+          </RightWrapper>
         ))}
       </div>
-    </Wrapper>
+    </WrapperLi>
   );
 };
 

@@ -1,6 +1,6 @@
 const { default: styled } = require('styled-components');
 
-export const Wrapper = styled.li`
+export const WrapperLi = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -26,5 +26,46 @@ export const Wrapper = styled.li`
     padding-left: 40px;
     padding-bottom: 12px;
     padding-top: 12px;
+  }
+`;
+
+export const RightWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 147px;
+
+  @media screen and (min-width: 768px) {
+    .RightWrapper {
+      width: 240px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .RightWrapper {
+      width: 401px;
+    }
+  }
+`;
+
+export const Button = styled.button`
+  .button {
+    width: 18px;
+    height: 18px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 0;
+    border: none;
+    background-color: inherit;
+    transition: scale 0.3s;
+  }
+  .button:hover {
+    scale: 1.4;
+  }
+
+  .button svg path {
+    stroke: var(--closeBtFill);
   }
 `;
