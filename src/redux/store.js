@@ -7,6 +7,7 @@ import userRecipesSlice from './userRecipes/userRecipesSlice';
 const userRecipesPersistConfig = {
   key: 'userRecipes',
   storage,
+  whitelist: ['myRecipes', 'favorite'],
 };
 
 const commonRecipesPersistConfig = {
