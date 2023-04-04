@@ -4,7 +4,7 @@ import { WrapperLi, RightWrapper, Button } from './ShoppingItem.styled';
 import ShoppingItemPhoto from '../ShoppingItemFoto/ShoppingItemFoto';
 import ShoppingItemDescription from '../ShoppingItemDescription/ShoppingItemDescription';
 import ShoppingItemNumber from '../ShoppingItemNumber/ShoppingItemNumber';
-// import { ReactComponent as CloseIcon } from 'close.svg';
+import { ReactComponent as CloseIcon } from '../../../images/AddRecipe/close.svg';
 import defaultImage from '../../../images/HeaderMenu/header-menu.svg';
 
 const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
@@ -25,7 +25,7 @@ const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
               }}
             >
               KNOPKA
-              {/* <CloseIcon width="18px" height="18px" /> */}
+              <CloseIcon width="18px" height="18px" />
             </Button>
           </RightWrapper>
         ))}

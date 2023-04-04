@@ -10,7 +10,7 @@ export const getCategoryListAPI = () => {
 
 export const patchShoppingList = async info => {
   try {
-    const { data } = await axios.patch(`/user-info/shopping-list`, info);
+    const { data } = await axios.patch(`/shoping-list/`, info);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -20,7 +20,17 @@ export const patchShoppingList = async info => {
 
 export const getShoppingList = async () => {
   try {
-    const { data } = await axios.get(`/user-info/shopping-list`);
+    const { data } = await axios.get(`/shoping-list/`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const deleteShoppingList = async id => {
+  try {
+    const { data } = await axios.delete(`/shopping-list/${id}`);
     return data;
   } catch (error) {
     console.log(error.message);
