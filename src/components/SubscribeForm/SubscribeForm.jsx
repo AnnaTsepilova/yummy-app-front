@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import Notiflix from 'notiflix';
 import {
   FormWrapper,
   Form,
@@ -11,8 +13,20 @@ const SubscribeForm = () => {
   const [email, setEmail] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
+    try {
+      await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
+        email,
+      });
+      Notiflix.Notify.success('Great! You signed up!');
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        Notiflix.Notify.info('A user with this email is already signed');
+      } else {
+        Notiflix.Notify.failure('There was an error, try again later');
+      }
+    }
   };
 
   const handleChange = event => {
@@ -37,7 +51,7 @@ const SubscribeForm = () => {
           />
         </InputWrap>
         <Button type="submit" disabled={isDisabled}>
-          Subcribe
+          Subscribe
         </Button>
       </Form>
     </FormWrapper>
