@@ -8,6 +8,7 @@ import authSlice from './auth/authSlice';
 const userRecipesPersistConfig = {
   key: 'userRecipes',
   storage,
+  whitelist: ['myRecipes', 'favorite'],
 };
 
 const commonRecipesPersistConfig = {
