@@ -18,7 +18,7 @@ export const BGDots = styled.div`
 export const DivContainer = styled.div`
   z-index: -1;
   position: relative;
-  margin-bottom: 240px;
+  margin-bottom: 640px;
   width: 345px;
   height: 192px;
   background-image: url('../../assets/images/SearchBackground/image1green.png'),
