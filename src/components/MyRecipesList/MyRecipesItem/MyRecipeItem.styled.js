@@ -11,22 +11,6 @@ export const StyledNotFoundImg = styled(NotFoundRecipeImg)`
   height: 100%;
 `;
 
-export const StyledIcon = styled(IconTr)`
-  stroke: ${props => (props.view === 'secondary' ? '#22252A' : '#FAFAFA')};
-  width: 14px;
-  height: 14px;
-
-  @media screen and (min-width: 768px) {
-    width: 22px;
-    height: 22px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
-
 export const Item = styled.li`
   width: 343px;
   padding: 14px 9px;
@@ -34,7 +18,7 @@ export const Item = styled.li`
   display: flex;
   gap: 14px;
 
-  background: #ffffff;
+  background: var(--white);
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
@@ -95,15 +79,13 @@ export const RecipeTitle = styled.h3`
 
   width: 85%;
 
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 1;
 
   letter-spacing: -0.24px;
 
-  color: #3e4462;
+  color: var(--primary-gray);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 28px;
@@ -120,7 +102,7 @@ export const RecipeText = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: #23262a;
+  color: var(--primary-black);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -135,6 +117,7 @@ export const RecipeText = styled.p`
 
 export const RecipeSubtitle = styled(RecipeText)`
   display: none;
+  color: var(--primary-black);
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -150,7 +133,7 @@ export const RecipeTime = styled.p`
 
   letter-spacing: -0.24px;
 
-  color: #3e4462;
+  color: var(--primary-gray);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -169,8 +152,12 @@ export const RecipeBtn = styled(StyledSearchGreenBtn)`
   font-size: 10px;
   line-height: 1.5;
 
+  transition: background-color var(--transition-function);
+
   background-color: ${props =>
-    props.view === 'secondary' ? '#22252A' : '#8BAA36'};
+    props.view === 'secondary'
+      ? 'var(--secondary-black)'
+      : 'var(--primary-green)'};
 
   &:hover {
     background-color: ${props =>
@@ -179,7 +166,7 @@ export const RecipeBtn = styled(StyledSearchGreenBtn)`
         : 'var(--secondary-black)'};
   }
 
-  color: #fafafa;
+  color: var(--primary-white);
 
   @media screen and (min-width: 768px) {
     min-width: 138px;
@@ -209,7 +196,19 @@ export const DeleteBtn = styled(StyledSubscribeGreenBtn)`
   align-items: center;
   justify-content: center;
   background-color: ${props =>
-    props.view === 'secondary' ? '#EBF3D4' : '#8BAA36'};
+    props.view === 'secondary'
+      ? 'var(--background-light-green)'
+      : 'var(--primary-green)'};
+
+  transition: background-color var(--transition-function);
+
+  &:hover {
+    background-color: ${props =>
+      props.view === 'secondary'
+        ? 'var(--primary-green)'
+        : 'var(--background-light-green)'};
+  }
+
   @media screen and (min-width: 768px) {
     min-width: 38px;
     height: 38px;
@@ -217,5 +216,33 @@ export const DeleteBtn = styled(StyledSubscribeGreenBtn)`
   @media screen and (min-width: 1440px) {
     min-width: 44px;
     height: 44px;
+  }
+`;
+
+export const StyledIcon = styled(IconTr)`
+  stroke: ${props =>
+    props.view === 'secondary'
+      ? 'var(--secondary-black)'
+      : 'var(--primary-white)'};
+  width: 14px;
+  height: 14px;
+
+  transition: stroke var(--transition-function);
+
+  ${DeleteBtn}:hover & {
+    stroke: ${props =>
+      props.view === 'secondary'
+        ? 'var(--primary-white)'
+        : 'var(--secondary-black)'};
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 22px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 24px;
+    height: 24px;
   }
 `;
