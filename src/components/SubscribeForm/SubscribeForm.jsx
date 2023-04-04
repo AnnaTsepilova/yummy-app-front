@@ -1,24 +1,46 @@
-import React from 'react';
-
-import FooterForm from './FooterForm/FooterForm';
-
+import React, { useState } from 'react';
 import {
-  FooterRightText,
-  FooterSubscribeFormDiv,
-} from './SubscribeForm.styled';
+  FormWrapper,
+  Form,
+  Input,
+  Button,
+  InputWrap,
+} from './subscribeForm.styled';
 
 const SubscribeForm = () => {
+  const [email, setEmail] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
+
+  const handleChange = event => {
+    setEmail(event.target.value);
+    setIsDisabled(event.target.value === '');
+  };
+
   return (
-    <FooterRightText>
-      <h3>Subscribe to our Newsletter</h3>
-      <p>
-        Subscribe to our newsletter. Be in touch with latest news and special
-        offers, etc.
-      </p>
-      <FooterSubscribeFormDiv>
-        <FooterForm />
-      </FooterSubscribeFormDiv>
-    </FooterRightText>
+    <FormWrapper>
+      <Form onSubmit={handleSubmit}>
+        <label htmlFor="email"></label>
+        <InputWrap>
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            placeholder="Enter your email address"
+            required
+            autoComplete="off"
+          />
+        </InputWrap>
+        <Button type="submit" disabled={isDisabled}>
+          Subcribe
+        </Button>
+      </Form>
+    </FormWrapper>
   );
 };
 

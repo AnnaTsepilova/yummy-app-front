@@ -7,7 +7,7 @@ export const PopUp = styled.div`
   width: 225px;
   margin-left: 100px;
   background-color: var(--primary-white);
-  background-color: yellow;
+  /* background-color: yellow; */
 
   margin-bottom: 115px;
   @media screen and (min-width: 768px) {
@@ -20,7 +20,7 @@ export const PopUp = styled.div`
     padding: 16px;
     width: 298px;
     height: 114px;
-    margin-left: 0;
+    margin-left: 410px;
   }
 `;
 

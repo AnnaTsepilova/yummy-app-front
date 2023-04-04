@@ -45,4 +45,32 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
     .then(({ data }) => {
       return data;
     });
+export const getMyRecipeAPI = () => {
+  return axios.get('/recipes').then(({ data }) => {
+    return data;
+  });
+};
+
+export const addRecipeTofavoriteAPI = id => {
+  return axios.post(`/favorite/${id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const removeRecipeFromFavoriteAPI = id => {
+  return axios.put(`/favorite/${id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const removeMyRecipeAPI = id => {
+  return axios.delete(`/recipes/remove/${id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getFavoriteRecipesAPI = () => {
+  return axios.get('/favorite/list').then(({ data }) => {
+    return data;
+  });
 };
