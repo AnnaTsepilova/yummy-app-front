@@ -4,9 +4,15 @@ import {
   StyledSubscribeGreenBtn,
 } from '../../Buttons/Buttons.styled';
 import { ReactComponent as IconTr } from 'images/TrashIcon/Icon.svg';
+import { ReactComponent as NotFoundRecipeImg } from 'images/Plugs/image.svg';
+
+export const StyledNotFoundImg = styled(NotFoundRecipeImg)`
+  width: 100%;
+  height: 100%;
+`;
 
 export const StyledIcon = styled(IconTr)`
-  stroke: white;
+  stroke: ${props => (props.view === 'secondary' ? '#22252A' : '#FAFAFA')};
   width: 14px;
   height: 14px;
 
@@ -153,30 +159,38 @@ export const RecipeTime = styled.p`
 
 export const RecipeBtn = styled(StyledSearchGreenBtn)`
   position: absolute;
-  bottom: -14px;
+  bottom: 0;
   right: 0;
 
-  width: 87px;
-  padding: 20px 14px;
+  min-width: 87px;
+  padding: 6px 14px;
 
   font-weight: 400;
   font-size: 10px;
   line-height: 1.5;
 
+  background-color: ${props =>
+    props.view === 'secondary' ? '#22252A' : '#8BAA36'};
+
+  &:hover {
+    background-color: ${props =>
+      props.view === 'secondary'
+        ? 'var(--primary-green)'
+        : 'var(--secondary-black)'};
+  }
+
   color: #fafafa;
 
   @media screen and (min-width: 768px) {
-    bottom: -21px;
-    width: 138px;
-    padding: 30px 28px;
+    min-width: 138px;
+    padding: 12px 32px;
 
     font-size: 14px;
   }
 
   @media screen and (min-width: 1440px) {
-    bottom: -32px;
-    width: 172px;
-    padding: 52px 38px;
+    min-width: 172px;
+    padding: 18px 44px;
 
     font-size: 16px;
   }
@@ -187,24 +201,21 @@ export const DeleteBtn = styled(StyledSubscribeGreenBtn)`
   top: 0;
   right: 0;
 
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   padding: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
+  background-color: ${props =>
+    props.view === 'secondary' ? '#EBF3D4' : '#8BAA36'};
   @media screen and (min-width: 768px) {
-    width: 38px;
+    min-width: 38px;
     height: 38px;
   }
   @media screen and (min-width: 1440px) {
-    width: 44px;
+    min-width: 44px;
     height: 44px;
   }
 `;
-
-// Link = styled(RecipeBtn)``;
-
-// export default Link;
