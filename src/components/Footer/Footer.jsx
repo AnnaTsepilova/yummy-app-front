@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FooterNavigation from 'components/FooterNavigation/FooterNavigation';
-import SocialLinks from 'components/SocialLinks/SocialLinks';
+import FooterNavigation from 'components/Footer/FooterNavigation/FooterNavigation';
+import SocialLinks from 'components/Footer/SocialLinks/SocialLinks';
 
 import {
   FooterWrapper,
