@@ -7,14 +7,9 @@ export const FormContainer = styled.div`
   @media screen and (min-width: 768px) {
     margin-top: -24px;
   }
-  /* @media screen and (min-width: 1440px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(70%, -50%);
-    display: flex;
-    flex-direction: column;
-  } */
+  @media screen and (min-width: 1440px) {
+    margin-top: 0;
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -63,27 +58,26 @@ export const Form = styled.form`
 
 export const InputWrap = styled.div`
   display: flex;
-  align-items: center;
   position: relative;
 
   width: 100%;
   height: 45px;
   margin-bottom: 12px;
   padding: 12px;
+
   border-radius: 6px;
-  border: 1px solid var(--primary-white);
+  border: 1px solid rgba(250, 250, 250, 0.3);
   outline: none;
-  font-family: 'Poppins';
+
   font-size: 18px;
   color: var(--primary-white);
-  caret-color: var(--primary-white);
-  display: inline-block;
-  box-sizing: border-box;
-  transition: border 250ms ease;
 
-  :hover,
-  :active {
-    border: 2px solid #fff;
+  transition: border 250ms var(--transition-function);
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid var(--primary-white);
   }
 
   ::before {
@@ -91,20 +85,23 @@ export const InputWrap = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 12px;
+
     width: 18px;
     height: 18px;
+
     background-image: url(${props => props.iconUrl});
     background-size: contain;
     background-repeat: no-repeat;
   }
 
-  /* @media screen and (min-width: 375px) {
-    width: 279px;
-  } */
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    height: 59px;
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+    ::before {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -115,8 +112,8 @@ export const FormInput = styled.input`
 
   width: 100%;
   height: 100%;
-  margin-left: -12px;
-  padding: 12px 0 12px 40px;
+  margin-left: -14px;
+  padding: 12px 5px 12px 40px;
 
   background-color: transparent;
   border-radius: 6px;
@@ -124,20 +121,26 @@ export const FormInput = styled.input`
   outline: none;
 
   font-size: 14px;
+  line-height: 1.5;
   color: var(--primary-white);
-  caret-color: var(--primary-white);
 
   ::placeholder {
     margin-left: 40px;
     font-family: 'Poppins';
     font-size: 14px;
+    line-height: 1.5;
     color: var(--primary-white);
     opacity: 0.8;
     letter-spacing: -0.02em;
   }
 
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    padding: 16px 10px 16px 50px;
+
+    ::placeholder {
+      font-size: 18px;
+    }
   }
 `;
 
@@ -156,17 +159,17 @@ export const FormButton = styled.button`
   color: var(--primary-white);
   text-align: center;
 
-  /* flex: none;
-  order: 0;
-  flex-grow: 0; */
+  transition: color 250ms var(--transition-function);
 
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--secondary-black);
   }
 
   @media screen and (min-width: 768px) {
+    margin-top: 26px;
     padding: 20px 24px;
   }
 `;
@@ -182,11 +185,10 @@ export const FormLink = styled(NavLink)`
   text-decoration-line: underline;
   color: var(--primary-white);
 
-  &.active {
-    // font-family: 'Poppins';
-  }
+  transition: color 250ms var(--transition-function);
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--primary-green);
   }
 

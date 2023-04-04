@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import iconUser from '../../images/AuthImages/icon-user-mob.svg';
-import iconMail from '../../images/AuthImages/icon-mail-mob.svg';
-import iconLock from '../../images/AuthImages/icon-lock-mob.svg';
+import iconUser from 'images/AuthImages/icon-user-mob.svg';
+import iconMail from 'images/AuthImages/icon-mail-mob.svg';
+import iconLock from 'images/AuthImages/icon-lock-mob.svg';
 import {
   FormContainer,
   FormWrapper,
