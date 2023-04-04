@@ -45,6 +45,8 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
     .then(({ data }) => {
       return data;
     });
+};
+
 export const getMyRecipeAPI = () => {
   return axios.get('/recipes').then(({ data }) => {
     return data;
