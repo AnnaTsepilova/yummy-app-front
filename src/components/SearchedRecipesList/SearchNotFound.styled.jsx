@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SearchWrapper = styled.div`
   margin: 0 auto;
-  margin-top: 50px;
+
   text-align: center;
   width: 100%;
   height: auto;
@@ -15,16 +15,17 @@ export const SearchText = styled.p`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  padding-bottom: 100px;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
+    padding-bottom: 200px;
   }
 `;
 
 export const SearchImage = styled.div`
-  margin: 0 auto;
-  margin-bottom: 24px;
+  margin: 50px auto 24px;
   width: 208px;
   height: 133px;
 

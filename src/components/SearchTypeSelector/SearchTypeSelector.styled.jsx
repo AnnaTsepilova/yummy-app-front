@@ -75,7 +75,11 @@ export const SelectStyled = styled(Select)`
     color: #fafafa;
   }
 
-  & .react-select-contanier {
+  & .react-select__value-container {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  & .react-select-container {
     box-shadow: none;
     outline: none;
     border-color: transparent;

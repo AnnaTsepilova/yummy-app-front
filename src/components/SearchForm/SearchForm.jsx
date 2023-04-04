@@ -1,9 +1,6 @@
-import {
-  BtnWrapper,
-  Form,
-  Input,
-  Wrapper,
-} from 'components/Main/Search/Search.styled';
+import { BtnWrapper, Form, Input } from 'components/Main/Search/Search.styled';
+import { Wrapper } from './SearchForm.styled';
+
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
 import React, { useState } from 'react';
 
