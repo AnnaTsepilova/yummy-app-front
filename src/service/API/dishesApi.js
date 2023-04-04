@@ -8,9 +8,25 @@ export const getCategoryListAPI = () => {
   });
 };
 
-export const patchShoppingList = () => {};
+export const patchShoppingList = async info => {
+  try {
+    const { data } = await axios.patch(`/user-info/shopping-list`, info);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
-export const getShoppingList = () => {};
+export const getShoppingList = async () => {
+  try {
+    const { data } = await axios.get(`/user-info/shopping-list`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
 export const getLimitedRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {

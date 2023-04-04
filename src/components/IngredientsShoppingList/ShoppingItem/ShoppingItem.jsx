@@ -4,10 +4,10 @@ import { WrapperLi, RightWrapper, Button } from './ShoppingItem.styled';
 import ShoppingItemPhoto from '../ShoppingItemFoto/ShoppingItemFoto';
 import ShoppingItemDescription from '../ShoppingItemDescription/ShoppingItemDescription';
 import ShoppingItemNumber from '../ShoppingItemNumber/ShoppingItemNumber';
-// import { ReactComponent as CloseIcon } from 'assets/images/AddRecipe/close.svg';
+// import { ReactComponent as CloseIcon } from 'close.svg';
 import defaultImage from '../../../images/HeaderMenu/header-menu.svg';
 
-const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
+const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
   return (
     <WrapperLi>
       <ShoppingItemPhoto image={image ? image : defaultImage} />
@@ -15,7 +15,7 @@ const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
         <ShoppingItemDescription name={name} />
       </div>
       <div>
-        {measure.map(item => (
+        {messure.map(item => (
           <RightWrapper key={nanoid()}>
             <ShoppingItemNumber text={item} />
             <Button

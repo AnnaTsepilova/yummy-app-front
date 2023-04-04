@@ -55,12 +55,12 @@ const IngredientsShoppingList = () => {
         <Loader />
       ) : list.length > 0 ? (
         <ShoppingItemList>
-          {list.map(({ thumb, title, measure, productId }, index) => (
+          {list.map(({ thumb, title, messure, productId }, index) => (
             <ShoppingItem
               key={nanoid()}
               image={thumb}
               name={title}
-              measure={measure}
+              messure={messure}
               id={productId}
               onDelete={(item, e) => handleDeleteIngridient(productId, item, e)}
             />
