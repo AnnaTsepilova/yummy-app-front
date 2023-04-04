@@ -17,18 +17,14 @@ export const Wrapper = styled.div`
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    .wrapper {
-      width: 190px;
-      min-height: 36px;
-      font-size: 16px;
-      padding: 5px;
-    }
+    width: 190px;
+    min-height: 36px;
+    font-size: 16px;
+    padding: 5px;
   }
 
   @media screen and (min-width: 1440px) {
-    .wrapper {
-      width: 197px;
-      font-size: 18px;
-    }
+    width: 197px;
+    font-size: 18px;
   }
 `;

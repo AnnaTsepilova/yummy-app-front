@@ -4,17 +4,17 @@ import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import {
   BGDots,
-  Title,
   ShoppingItemList,
   EmptyShoppingList,
   DivContainer,
   EmptyShoppingListImg,
   EmptyShoppingListText,
 } from './IngredientsShoppingList.styled';
-import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
 import { patchShoppingList, getShoppingList } from 'service/API/dishesApi';
+import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
 import Loader from 'components/Loader/Loader';
 import ShoppingItem from './ShoppingItem/ShoppingItem';
+import Title from 'components/IngredientsShoppingList/Title/Title';
 
 const IngredientsShoppingList = () => {
   const [list, setList] = useState([]);

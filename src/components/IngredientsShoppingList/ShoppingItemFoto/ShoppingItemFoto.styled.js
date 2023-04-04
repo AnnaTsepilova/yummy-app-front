@@ -16,7 +16,5 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  .image {
-    border-radius: 6px;
-  }
+  border-radius: 6px;
 `;

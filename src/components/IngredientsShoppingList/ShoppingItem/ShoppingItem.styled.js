@@ -36,31 +36,27 @@ export const RightWrapper = styled.div`
   width: 147px;
 
   @media screen and (min-width: 768px) {
-    .RightWrapper {
-      width: 240px;
-    }
+    width: 240px;
   }
+
   @media screen and (min-width: 1440px) {
-    .RightWrapper {
-      width: 401px;
-    }
+    width: 401px;
   }
 `;
 
 export const Button = styled.button`
-  .button {
-    width: 18px;
-    height: 18px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: 0;
-    border: none;
-    background-color: inherit;
-    transition: scale 0.3s;
-  }
+  width: 18px;
+  height: 18px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
+  border: none;
+  background-color: inherit;
+  transition: scale 0.3s;
+
   .button:hover {
     scale: 1.4;
   }

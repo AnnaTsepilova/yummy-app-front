@@ -14,30 +14,6 @@ export const BGDots = styled.div`
     left 332px top 46px;
 `;
 
-export const Title = styled.title`
-  .title {
-    padding-top: 50px;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--titleColor);
-    @media screen and (min-width: 768px) {
-      .title {
-        font-size: 32px;
-        padding-top: 72px;
-      }
-    }
-
-    @media screen and (min-width: 1440px) {
-      .title {
-        font-size: 44px;
-        padding-top: 100px;
-      }
-    }
-  }
-`;
-
 export const DivContainer = styled.div`
   z-index: -1;
   position: absolute;
@@ -97,14 +73,11 @@ export const EmptyShoppingList = styled.div`
   margin-top: 20px;
 
   @media screen and (min-width: 768px) {
-    .emptyShoppingList {
-      margin-top: 50px;
-    }
+    margin-top: 50px;
   }
+
   @media screen and (min-width: 1440px) {
-    .emptyShoppingList {
-      margin-top: 100px;
-    }
+    margin-top: 100px;
   }
 `;
 
