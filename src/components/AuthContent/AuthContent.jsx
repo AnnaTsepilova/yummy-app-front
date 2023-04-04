@@ -1,18 +1,20 @@
 import {
-  PageContainer,
+  PageWrapper,
+  ContentContainer,
   FooterBgImage,
   HeroImage,
 } from 'components/AuthContent/AuthContent.styled';
+import RegisterForm from 'components/RegisterForm/RegisterForm';
 
 const AuthContent = () => {
   return (
-    <>
-      <PageContainer>
-        <HeroImage />
-      </PageContainer>
-
+    <PageWrapper>
       <FooterBgImage />
-    </>
+      <ContentContainer>
+        <HeroImage />
+        <RegisterForm />
+      </ContentContainer>
+    </PageWrapper>
   );
 };
 

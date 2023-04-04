@@ -126,6 +126,7 @@ table {
 }
 
 :root {
+  --white: #ffffff;
   --primary-white: #fafafa;
 
   /* GREEN */
