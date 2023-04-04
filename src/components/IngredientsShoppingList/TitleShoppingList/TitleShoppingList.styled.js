@@ -18,7 +18,7 @@ export const Title = styled.div`
   height: 42px;
   padding-left: 14px;
   padding-right: 14px;
-  background-color: var(--greenColor);
+  background-color: var(--primary-green);
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
@@ -40,7 +40,7 @@ export const Products = styled.span`
   line-height: 15px;
   align-items: center;
   letter-spacing: 0.03em;
-  color: var(--whiteColor);
+  color: var(--primary-white);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -62,7 +62,7 @@ export const RightPartText = styled.div`
   line-height: 15px;
   align-items: center;
   letter-spacing: 0.03em;
-  color: var(--whiteColor);
+  color: var(--primary-white);
 
   @media screen and (min-width: 768px) {
     width: 233px;
