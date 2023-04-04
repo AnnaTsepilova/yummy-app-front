@@ -1,7 +1,8 @@
 import React from 'react';
+import WelcomeContent from 'components/WelcomeContent/WelcomeContent';
 
 const WelcomePage = () => {
-  return <div>WelcomePage</div>;
+  return <WelcomeContent />;
 };
 
 export default WelcomePage;

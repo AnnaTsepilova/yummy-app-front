@@ -1,34 +1,49 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import iconUser from '../../images/AuthImages/icon-user-mob.svg';
+import iconMail from '../../images/AuthImages/icon-mail-mob.svg';
+import iconLock from '../../images/AuthImages/icon-lock-mob.svg';
+import {
+  FormContainer,
+  FormWrapper,
+  FormTitle,
+  Form,
+  FormInput,
+  FormButton,
+  FormSwitch,
+  FormLink,
+  InputWrap,
+} from './registerForm.styled';
 
 const RegisterForm = () => {
   const { pathname } = useLocation();
   const isLogin = pathname === '/signin';
 
   return (
-    <div style={{ height: window.innerHeight - 54 }}>
-      <div style={{ width: 600 }}>
-        <h2>{isLogin ? 'Sign up' : 'Sign in'}</h2>
-        <form>
-          <input placeholder="Name" />
-          <input placeholder="Email" />
-          <input placeholder="Password" />
-
-          <div>
-            {isLogin ? "Don't have an account? " : 'Already have an account? '}
-            <NavLink
-              exact
-              to={isLogin ? '/register' : '/signin'}
-              activeClassName="active"
-            >
-              {isLogin ? 'Register' : 'Sign in'}
-            </NavLink>
-          </div>
-
-          <button>{isLogin ? 'Sign in' : 'Sign up'}</button>
-        </form>
-      </div>
-    </div>
+    <FormContainer>
+      <FormWrapper>
+        <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
+        <Form className={isLogin ? 'signin' : ''}>
+          {!isLogin && (
+            <InputWrap iconUrl={iconUser}>
+              <FormInput placeholder="Name" />
+            </InputWrap>
+          )}
+          <InputWrap iconUrl={iconMail}>
+            <FormInput placeholder="Email" />
+          </InputWrap>
+          <InputWrap iconUrl={iconLock}>
+            <FormInput placeholder="Password" />
+          </InputWrap>
+          <FormButton>{isLogin ? 'Sign in' : 'Sign up'}</FormButton>
+        </Form>
+      </FormWrapper>
+      <FormSwitch>
+        <FormLink exact to={isLogin ? '/register' : '/signin'}>
+          {isLogin ? 'Registration' : 'Sign in'}
+        </FormLink>
+      </FormSwitch>
+    </FormContainer>
   );
 };
 

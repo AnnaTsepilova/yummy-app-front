@@ -11,3 +11,34 @@ export const getCategoryListAPI = () => {
 export const patchShoppingList = () => {};
 
 export const getShoppingList = () => {};
+
+export const getLimitedRecipesByCategoryAPI = category => {
+  return axios.get(`/recipes/${category}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getMainPageAPI = () => {
+  return axios.get('/recipes/main-page').then(({ data }) => {
+    console.log('api', data);
+    return data;
+  });
+};
+
+export const getAllRecipesByCategoryAPI = category => {
+  return axios.get(`/recipes/${category}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getRecipeByIdAPI = () => {
+  return axios.get('/recipes/:id').then(({ data }) => {
+    return data;
+  });
+};
+
+export const getRecipeByCategoryAPI = () => {
+  return axios.get('/recipes/:category').then(({ data }) => {
+    return data;
+  });
+};
