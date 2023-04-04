@@ -28,3 +28,48 @@ export const FooterNavigationDiv = styled.div`
       align-items: start;
     }
 `;
+
+export const SubscribeContainer = styled.div`
+  @media only screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    ${'' /* gap: 28px; */}
+    max-width: 338px;
+    margin-left: 235px;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
+`;
+
+export const SubscribeTitle = styled.h3`
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 14px;
+  @media only screen and (max-width: 1439px) {
+    display: none;
+  }
+`;
+
+export const SubscribeText = styled.p`
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 28px;
+  @media only screen and (max-width: 1439px) {
+    display: none;
+  }
+`;
