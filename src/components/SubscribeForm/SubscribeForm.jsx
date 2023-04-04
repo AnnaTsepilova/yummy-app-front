@@ -16,7 +16,7 @@ const SubscribeForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      await axios.post('https://y-3wt8.onrender.com/ap/subscribe/', {
+      await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
         email,
       });
       Notiflix.Notify.success('Great! You signed up!');
