@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import img from 'images/Search/not-found-img.png';
 
 export const BGDots = styled.div`
   z-index: -1;
@@ -86,7 +87,8 @@ export const EmptyShoppingListImg = styled.div`
   width: 208px;
   height: 133px;
   margin: auto;
-  background-image: url('../../assets/images/SearchBackground/noRecipesImg.png');
+  /* background-image: url('images/Search/not-found-img.png'); */
+  background-image: url(${img});
   background-size: contain;
   margin-bottom: 33px;
 

@@ -68,7 +68,7 @@ const IngredientsShoppingList = () => {
         </ShoppingItemList>
       ) : (
         <EmptyShoppingList>
-          <EmptyShoppingListImg></EmptyShoppingListImg>
+          <EmptyShoppingListImg />
           <EmptyShoppingListText>Shopping list is empty</EmptyShoppingListText>
         </EmptyShoppingList>
       )}
