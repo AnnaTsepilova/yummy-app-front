@@ -38,7 +38,7 @@ const persistedUserRecipesReduser = persistReducer(
 
 export const store = configureStore({
   reducer: {
-    authSlice: persistedAuthReducer,
+    auth: persistedAuthReducer,
     outerRecipes: persistedCommonRecipesReducer,
     userRecipes: persistedUserRecipesReduser,
   },

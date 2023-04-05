@@ -28,49 +28,56 @@ const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
-  /* eslint-disable-next-line */
-  const [emailInvalid, setEmailInvalid] = useState(false);
-  /* eslint-disable-next-line */
-  const [passwordInvalid, setPasswordInvalid] = useState(false);
+  // const [errors, setErrors] = useState([]);
+  // /* eslint-disable-next-line */
+  // const [emailInvalid, setEmailInvalid] = useState(false);
+  // /* eslint-disable-next-line */
+  // const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   const reset = () => {
     setEmail('');
     setPassword('');
   };
 
-  const handleChange = event => {
+  const handleChangeSignUp = event => {
     const {
       target: { name, value },
     } = event;
 
-    if (isLogin) {
-      switch (name) {
-        case 'email':
-          setEmail(value);
-          break;
-        case 'password':
-          setPassword(value);
-          break;
-        default:
-          break;
-      }
-    } else {
-      switch (name) {
-        case 'name':
-          setName(value);
-          break;
-        case 'email':
-          setEmail(value);
-          break;
-        case 'password':
-          setPassword(value);
-          break;
-        default:
-          break;
-      }
-      // handleValidation(event);
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
     }
+    // handleValidation(event);
+  };
+
+  const handleChangeSignIn = event => {
+    const {
+      target: { name, value },
+    } = event;
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+    // handleValidation(event);
   };
 
   const handleSubmitSignUp = event => {
@@ -114,11 +121,11 @@ const RegisterForm = () => {
         password: data.get('password'),
       })
     ).then(result => {
-      if (result.type === 'auth/register/rejected') {
+      if (result.type === 'auth/signin/rejected') {
         return;
       }
-      reset();
     });
+    reset();
   };
 
   return (
@@ -128,20 +135,49 @@ const RegisterForm = () => {
           <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
           <Form
             className={isLogin ? 'signin' : ''}
-            onChange={handleChange}
             onSubmit={isLogin ? handleSubmitSignIn : handleSubmitSignUp}
             autoComplete="on"
           >
             {!isLogin && (
               <InputWrap iconUrl={iconUser}>
-                <FormInput placeholder="Name" />
+                <FormInput
+                  placeholder="Name"
+                  onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
+                  // onBlur={handleValidation}
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  autoFocus
+                  value={name}
+                />
               </InputWrap>
             )}
             <InputWrap iconUrl={iconMail}>
-              <FormInput placeholder="Email" />
+              <FormInput
+                placeholder="Email"
+                onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
+                // onBlur={handleValidation}
+                type="email"
+                name="email"
+                autoComplete="email"
+                required
+                autoFocus
+                value={email}
+              />
             </InputWrap>
             <InputWrap iconUrl={iconLock}>
-              <FormInput placeholder="Password" />
+              <FormInput
+                placeholder="Password"
+                onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
+                // onBlur={handleValidation}
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                required
+                autoFocus
+                value={password}
+              />
             </InputWrap>
             <FormButton>{isLogin ? 'Sign in' : 'Sign up'}</FormButton>
           </Form>

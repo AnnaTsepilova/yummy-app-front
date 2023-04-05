@@ -2,6 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
+
+import // selectToken,
+// selectIsFetchingCurrentUser,
+'redux/auth/authSelectors';
+
 import Loader from './Loader/Loader';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
@@ -32,6 +37,9 @@ const CategoriesCard = lazy(() =>
 );
 
 export const App = () => {
+  // const dispatch = useDispatch();
+  // const token = useSelector(selectToken);
+
   return (
     <BrowserRouter basename="/yummy-app-front">
       <Suspense fallback={<Loader />}>
