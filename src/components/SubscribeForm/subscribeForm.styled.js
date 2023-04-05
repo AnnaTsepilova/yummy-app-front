@@ -53,7 +53,7 @@ export const Form = styled.form`
 
 export const InputWrap = styled.div`
   position: relative;
-  border: 1px solid #fafafa;
+  border: 1px solid var(--primary-white);
   border-radius: 6px;
   width: 204px;
   height: 38px;
@@ -61,11 +61,11 @@ export const InputWrap = styled.div`
   font-family: 'Poppins';
   padding: 12px;
   font-size: 10px;
-  color: #fafafa;
-  caret-color: #fafafa;
+  color: var(--primary-white);
+  caret-color: var(--primary-white);
   transition: border 250ms ease;
   :hover {
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
   }
   ::before {
     content: '';
@@ -78,7 +78,6 @@ export const InputWrap = styled.div`
     background-image: url(${iconMail});
     background-size: contain;
     background-repeat: no-repeat;
-
   }
   ${formInputStyles}
 
@@ -123,11 +122,11 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
-  color: #fafafa;
+  color: var(--primary-white);
   transition: color 250ms ease;
 
   &:hover {
-    color: #22252a;
+    color: var(--secondary-black);
   }
 
   @media only screen and (min-width: 768px) {
