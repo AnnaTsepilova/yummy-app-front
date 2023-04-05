@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Logo from 'components/Logo/Logo';
 import HeaderNavigation from '../HeaderNavigation/HeaderNavigation';
 import {
@@ -7,13 +6,14 @@ import {
   Btnswrapper,
   MobCloseBtn,
   StyledLink,
+  MobileNavWrapper,
 } from './MobileNavMenu.styled';
 import { ReactComponent as NavClose } from 'images/MenuNavClose/menu-nav-close.svg';
 
 const MobileNavMenu = ({ closeMenu, isOpen }) => {
   return (
     <Container isOpen={isOpen}>
-      <div>
+      <MobileNavWrapper>
         <Btnswrapper>
           <StyledLink to="/main" onClick={() => closeMenu()}>
             <Logo />
@@ -23,7 +23,7 @@ const MobileNavMenu = ({ closeMenu, isOpen }) => {
           </MobCloseBtn>
         </Btnswrapper>
         <HeaderNavigation closeMenu={closeMenu} />
-      </div>
+      </MobileNavWrapper>
     </Container>
   );
 };

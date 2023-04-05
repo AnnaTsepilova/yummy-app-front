@@ -13,7 +13,6 @@ export const Container = styled.div`
 
   overflow-y: auto;
 
-  padding: 18px 16px;
   background-color: var(--background-light-green);
   background-image: url(${BgMobileImage});
   background-repeat: no-repeat;
@@ -24,12 +23,20 @@ export const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     background-image: url(${BgTabletImage});
-    padding: 18px 32px;
   }
 `;
 
 export const MobileNavWrapper = styled.div`
-  width: 768px;
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 18px 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 18px 32px;
+  }
 `;
 
 export const Btnswrapper = styled.div`
