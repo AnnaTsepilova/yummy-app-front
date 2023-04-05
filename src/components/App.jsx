@@ -98,7 +98,7 @@ export const App = () => {
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Route>
-          <Route path="*" element={<Navigate to="/main" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
