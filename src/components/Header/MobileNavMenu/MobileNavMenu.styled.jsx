@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import BgMobileImage from 'images/MenuBackground/menu-background-mob.png';
+import BgTabletImage from 'images/MenuBackground/menu-background-tab.png';
 
 export const Container = styled.div`
-  /* transform: translateX(50%); */
   transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(100%)')};
   position: fixed;
   top: 0;
@@ -10,10 +11,11 @@ export const Container = styled.div`
   left: 0;
   bottom: 0;
 
-  padding: 18px 16px;
+  overflow-y: auto;
 
+  padding: 18px 16px;
   background-color: var(--background-light-green);
-  background-image: url('images/MenuBackground/menu-background-mob.png');
+  background-image: url(${BgMobileImage});
   background-repeat: no-repeat;
   background-position: bottom right;
   z-index: 10000;
@@ -21,14 +23,21 @@ export const Container = styled.div`
   transition: transform var(--transition-function);
 
   @media screen and (min-width: 768px) {
-    background-image: url('images/MenuBackground/menu-background-tab.png');
+    background-image: url(${BgTabletImage});
+    padding: 18px 32px;
   }
+`;
+
+export const MobileNavWrapper = styled.div`
+  width: 768px;
 `;
 
 export const Btnswrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 124px;
 `;
 
 export const MobCloseBtn = styled.button`

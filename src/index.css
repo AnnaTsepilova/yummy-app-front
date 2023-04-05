@@ -8,6 +8,7 @@ body {
   font-style: normal;
   letter-spacing: -0.02em;
   background-color: var(--primary-white);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

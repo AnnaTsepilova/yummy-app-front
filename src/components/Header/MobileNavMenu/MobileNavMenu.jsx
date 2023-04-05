@@ -13,15 +13,17 @@ import { ReactComponent as NavClose } from 'images/MenuNavClose/menu-nav-close.s
 const MobileNavMenu = ({ closeMenu, isOpen }) => {
   return (
     <Container isOpen={isOpen}>
-      <Btnswrapper>
-        <StyledLink to="/main" onClick={() => closeMenu()}>
-          <Logo />
-        </StyledLink>
-        <MobCloseBtn onClick={() => closeMenu()}>
-          <NavClose />
-        </MobCloseBtn>
-      </Btnswrapper>
-      <HeaderNavigation closeMenu={closeMenu} />
+      <div>
+        <Btnswrapper>
+          <StyledLink to="/main" onClick={() => closeMenu()}>
+            <Logo />
+          </StyledLink>
+          <MobCloseBtn onClick={() => closeMenu()}>
+            <NavClose />
+          </MobCloseBtn>
+        </Btnswrapper>
+        <HeaderNavigation closeMenu={closeMenu} />
+      </div>
     </Container>
   );
 };
