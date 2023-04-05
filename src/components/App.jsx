@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { lazy, Suspense } from 'react';
@@ -95,9 +95,10 @@ export const App = () => {
               <Route path="/favorite" element={<FavoritesPage />} />
               <Route path="/shopping-list" element={<ShoppingListPage />} />
               <Route path="/search" element={<SearchPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

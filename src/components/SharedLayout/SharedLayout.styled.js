@@ -19,9 +19,9 @@ export const Container = styled.div`
   background-image: url('${DotsMob}');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 120px 76px;
+  background-position: 70% 76px;
   background-size: 240px 74px;
-  z-index: -1;
+  z-index: -2;
 
   @media screen and (min-width: 768px) {
     width: 768px;
