@@ -109,26 +109,14 @@ const RegisterForm = () => {
     const data = new FormData(event.currentTarget);
 
     dispatch(
-      authOperations.signUp({
-        name: data.get('name'),
+      authOperations.signIn({
         email: data.get('email'),
         password: data.get('password'),
       })
     ).then(result => {
-      if (result.type === 'auth/signup/rejected') {
+      if (result.type === 'auth/register/rejected') {
         return;
       }
-      Notify.success('Your registration is successful', {
-        fontSize: '16px',
-        width: '350px',
-        padding: '10px',
-      });
-      dispatch(
-        authOperations.signIn({
-          email: data.get('email'),
-          password: data.get('password'),
-        })
-      );
       reset();
     });
   };
