@@ -78,6 +78,11 @@ export const InputWrap = styled.div`
     background-image: url(${iconMail});
     background-size: contain;
     background-repeat: no-repeat;
+
+    @media only screen and (min-width: 768px) {
+      width: 20px;
+      height: 16px;
+    }
   }
   ${formInputStyles}
 
@@ -106,6 +111,20 @@ export const Input = styled.input`
   border: none;
   background-color: transparent;
   ${formInputStyles}
+  ::placeholder {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--primary-white);
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Button = styled.button`
