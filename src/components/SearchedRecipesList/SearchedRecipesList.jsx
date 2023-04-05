@@ -5,12 +5,16 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 import { SearchNotFound } from './SearchNotFound';
+import Notiflix from 'notiflix';
 
 import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
-import { getRecipesByQuery } from 'redux/commonRecipes/commonOperations';
+import {
+  getRecipesByQuery,
+  // getRecipesByIngredient,
+} from 'redux/commonRecipes/commonOperations';
 
 import { useMediaQuery } from 'react-responsive';
 
@@ -28,21 +32,21 @@ const SearchedRecipesList = () => {
   // const totalQuery = recipesBySearchQuery.totalHits;
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 
-  const isTab = useMediaQuery({ minWidth: 768 });
-  const isDesc = useMediaQuery({ minWidth: 1440 });
+  // const isTab = useMediaQuery({ minWidth: 768 });
+  // const isDesc = useMediaQuery({ minWidth: 1440 });
 
-  let perPage;
-  if (isDesc) {
-    perPage = 12;
-  } else if (isTab) {
-    perPage = 6;
-  } else {
-    perPage = 6;
-  }
+  // let perPage;
+  // if (isDesc) {
+  //   perPage = 12;
+  // } else if (isTab) {
+  //   perPage = 6;
+  // } else {
+  //   perPage = 6;
+  // }
 
   const handleOnSubmit = (query1, type1) => {
     if (query1 === '') {
-      alert(`You didn't enter anything to search`);
+      Notiflix.Notify.warning(`You didn't enter anything to search`);
       return;
     }
     setSearchParams(
@@ -62,14 +66,14 @@ const SearchedRecipesList = () => {
     if (query === '' || type === '') return;
 
     if (type === 'title') {
-      dispatch(getRecipesByQuery({ query, page, per_page: perPage }));
+      dispatch(getRecipesByQuery({ query }));
       setRequest(true);
     } else {
       dispatch();
-      // getRecipesByIngredient({ ingredient: query, page, per_page: perPage })
+      // getRecipesByIngredient({ ingredient: query });
       setRequest(true);
     }
-  }, [dispatch, type, query, page, perPage]);
+  }, [dispatch, type, query]);
 
   return (
     <>

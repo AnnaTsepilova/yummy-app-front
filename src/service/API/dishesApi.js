@@ -39,9 +39,29 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
-export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+// export const getRecipesByQueryAPI = query => {
+//   return axios.get(`/recipes/search/${query}`).then(({ data }) => {
+//     return data;
+//   });
+// };
+
+// export const getRecipesByQueryAPI = query => {
+//   return axios
+//     .post('/recipes/search', {
+//       value: query,
+//       flags: 'i',
+//     })
+//     .then(({ data }) => {
+//       return data;
+//     });
+// };
+
+export const getRecipesByQueryAPI = ({ value, flags }) => {
   return axios
-    .get(`/recipes/search/${query}?page=${page}&per_page=${per_page}`)
+    .post('/recipes/search', {
+      value,
+      flags,
+    })
     .then(({ data }) => {
       return data;
     });
@@ -76,3 +96,9 @@ export const getFavoriteRecipesAPI = () => {
     return data;
   });
 };
+
+// export const getRecipesByIngredientAPI = ingredientTtl => {
+//   return axios.get(`/ingredients/${ingredientTtl}`).then(({ data }) => {
+//     return data;
+//   });
+// };
