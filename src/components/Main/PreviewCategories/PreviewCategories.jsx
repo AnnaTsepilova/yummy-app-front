@@ -1,19 +1,24 @@
 import { OtherCatBtn } from 'components/Buttons/Buttons';
 import React, { useEffect, useState } from 'react';
-import { getMainPageAPI } from 'service/API/dishesApi';
-import Category from './Category';
-import { Box, Section } from './PreviewCategories.styled';
+import { useDispatch } from 'react-redux';
+import { getMainPage } from 'redux/commonRecipes/commonOperations';
+import Category from 'components/Main/PreviewCategories/Category';
+import {
+  Box,
+  Section,
+} from 'components/Main/PreviewCategories/PreviewCategories.styled';
 
 const PreviewCategories = () => {
   const [allCategories, setAllCategories] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getMainPageAPI().then(data => {
-      const dishArray = Object.entries(data);
-      console.log('log eff', dishArray);
+    dispatch(getMainPage()).then(result => {
+      const dishArray = Object.entries(result.payload);
       setAllCategories(dishArray);
     });
-  }, []);
+  }, [dispatch]);
+
   return (
     <Section>
       {allCategories.map((item, index) => (
