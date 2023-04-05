@@ -30,16 +30,11 @@ const userResipesSlice = createSlice({
     builder
       .addCase(addRecipeToFavorite.pending, pending)
       .addCase(addRecipeToFavorite.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = null;
         state.favorite = payload;
       })
       .addCase(addRecipeToFavorite.rejected, rejected)
       .addCase(removeRecipeFromFavorite.pending, pending)
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = null;
-
         const index = state.favorite.findIndex(item => item.id === payload);
         state.favorite.splice(index, 1);
       })
@@ -61,8 +56,6 @@ const userResipesSlice = createSlice({
       .addCase(removeMyRecipe.pending, pending)
       .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
         const index = state.myRecipes.findIndex(item => item.id === payload);
-        state.isLoading = false;
-        state.error = null;
         state.myRecipes.splice(index, 1);
       })
       .addCase(removeMyRecipe.rejected, rejected),

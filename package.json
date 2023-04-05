@@ -1,5 +1,5 @@
 {
-  "name": "yummy-app",
+  "name": "yummy-app-front",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://annatsepilova.github.io/yummy-app-front/",
@@ -28,6 +28,7 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.9",

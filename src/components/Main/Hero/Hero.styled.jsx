@@ -20,6 +20,7 @@ export const Caption = styled.h1`
   font-size: 60px;
   line-height: 1;
   letter-spacing: -0.005em;
+  margin-top: 71px;
   margin-bottom: 14px;
   color: var(--secondary-black);
   & span {
@@ -27,10 +28,12 @@ export const Caption = styled.h1`
   }
   @media screen and (min-width: 768px) {
     font-size: 72px;
+    margin-top: 141px;
     margin-bottom: 24px;
   }
   @media screen and (min-width: 1440px) {
     font-size: 100px;
+    margin-top: 164px;
   }
 `;
 

@@ -13,7 +13,7 @@ import {
   FormSwitch,
   FormLink,
   InputWrap,
-} from './registerForm.styled';
+} from 'components/RegisterForm/RegisterForm.styled';
 
 const RegisterForm = () => {
   const { pathname } = useLocation();

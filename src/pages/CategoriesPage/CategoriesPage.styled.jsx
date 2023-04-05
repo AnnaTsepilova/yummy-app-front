@@ -5,14 +5,17 @@ export const TitleBox = styled.div`
   z-index: -1;
   box-sizing: border-box;
   width: 100%;
-  padding-top: 114px;
+  margin-top: 53px;
+  ${'' /* padding-top: 114px; */}
   @media screen and (min-width: 768px) {
     height: 240px;
-    padding-top: 136px;
+    margin-top: 73px;
+    ${'' /* padding-top: 136px; */}
 
   @media screen and (min-width: 1440px) {
     height: 308px;
-    padding-top: 164px;
+    margin-top: 102px;
+    ${'' /* padding-top: 164px; */}
   }
   h2 {
     font-style: normal;
