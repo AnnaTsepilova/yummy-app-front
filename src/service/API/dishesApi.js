@@ -2,6 +2,14 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
 
+const setToken = accessToken => {
+  if (accessToken) {
+    axios.defaults.headers.common.authorization = `Bearer ${accessToken}`;
+  } else {
+    delete axios.defaults.headers.common.authorization;
+  }
+};
+
 export const getCategoryListAPI = () => {
   return axios.get('/recipes/category-list').then(({ data }) => {
     return data;
@@ -19,8 +27,11 @@ export const patchShoppingList = async info => {
 };
 
 export const getShoppingList = async () => {
+  setToken(
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjgzZTIwNTg4MmM5MTRkZGIzNTQ3YiIsInNpZCI6IjY0MmQ5OWMxZDA2NTA1NzhkYjEzZTM4NyIsImlhdCI6MTY4MDcxMDA4MSwiZXhwIjoxNjgwNzEzNjgxfQ.q5PQPDheFX_sQbx7CW_jqSm4AHR1JNoMPEIkSeO6w_I'
+  );
   try {
-    const { data } = await axios.get(`/shoping-list/`);
+    const { data } = await axios.get(`/shopping-list/`);
     return data;
   } catch (error) {
     console.log(error.message);

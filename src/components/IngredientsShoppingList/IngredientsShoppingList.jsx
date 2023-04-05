@@ -39,12 +39,15 @@ const IngredientsShoppingList = () => {
       await getShoppingList()
         .then(({ shoppingList }) => {
           setList(shoppingList);
+          console.log(shoppingList);
         })
         .catch(error => console.log(error));
       setIsLoading(false);
     }, 1000);
     return;
   }, []);
+
+  // console.log(list);
 
   return (
     <DivContainer>
