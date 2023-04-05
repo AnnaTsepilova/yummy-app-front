@@ -7,7 +7,7 @@ import // selectToken,
 // selectIsFetchingCurrentUser,
 'redux/auth/authSelectors';
 
-import Loader from './Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
