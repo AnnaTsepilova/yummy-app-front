@@ -50,26 +50,27 @@ const authSlice = createSlice({
         state.userEmail = action.payload.user.email;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.signIn.rejected, handleRejected);
+      .addCase(authOperations.signIn.rejected, handleRejected)
 
-    // .addCase(authOperations.logOut.pending, handlePending)
-    // .addCase(authOperations.logOut.fulfilled, (state, action) => {
-    //   state.userId = null;
-    //   state.accessToken = null;
-    //   state.refreshToken = null;
-    //   state.sid = null;
-    //   state.isLoggedIn = false;
-    // })
-    // .addCase(authOperations.logOut.rejected, handleRejected)
+      .addCase(authOperations.logOut.pending, handlePending)
+      .addCase(authOperations.logOut.fulfilled, (state, action) => {
+        state.userId = null;
+        state.accessToken = null;
+        state.refreshToken = null;
+        state.sid = null;
+        state.userEmail = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(authOperations.logOut.rejected, handleRejected)
 
-    // .addCase(authOperations.refreshToken.pending, (state, action) => {})
-    // .addCase(authOperations.refreshToken.fulfilled, (state, action) => {
-    //   state.accessToken = action.payload.newAccessToken;
-    //   state.refreshToken = action.payload.newRefreshToken;
-    //   state.sid = action.payload.newSid;
-    //   state.isLoggedIn = true;
-    // })
-    // .addCase(authOperations.refreshToken.rejected, (state, action) => {})
+      .addCase(authOperations.refreshToken.pending, (state, action) => {})
+      .addCase(authOperations.refreshToken.fulfilled, (state, action) => {
+        state.accessToken = action.payload.newAccessToken;
+        state.refreshToken = action.payload.newRefreshToken;
+        state.sid = action.payload.newSid;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.refreshToken.rejected, (state, action) => {});
 
     // .addCase(authOperations.getUserById.pending, handlePending)
     // .addCase(authOperations.getUserById.fulfilled, (state, action) => {

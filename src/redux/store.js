@@ -9,7 +9,7 @@ import userRecipesSlice from 'redux/userRecipes/userRecipesSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'userEmail', 'isLoggedIn'],
+  whitelist: ['accessToken', 'userEmail', 'isLoggedIn', 'sid', 'refreshToken'],
 };
 
 const userRecipesPersistConfig = {

@@ -28,11 +28,11 @@ const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [errors, setErrors] = useState([]);
-  // /* eslint-disable-next-line */
-  // const [emailInvalid, setEmailInvalid] = useState(false);
-  // /* eslint-disable-next-line */
-  // const [passwordInvalid, setPasswordInvalid] = useState(false);
+  const [errors, setErrors] = useState([]);
+  /* eslint-disable-next-line */
+  const [emailInvalid, setEmailInvalid] = useState(false);
+  /* eslint-disable-next-line */
+  const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   const reset = () => {
     setEmail('');
