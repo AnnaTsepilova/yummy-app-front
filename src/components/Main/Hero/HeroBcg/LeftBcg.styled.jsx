@@ -58,6 +58,5 @@ export const Thumb = styled.div`
   z-index: -1;
   width: 320px;
   height: 296px;
-  background-image: url('../../../../assets/images/HeroMain/V2/plate.png');
   background-size: contain;
 `;

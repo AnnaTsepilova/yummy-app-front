@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import FooterNavigation from './FooterNavigation/FooterNavigation';
-import SocialLinks from './SocialLinks/SocialLinks';
+import FooterNavigation from 'components/Footer/FooterNavigation/FooterNavigation';
+import SocialLinks from 'components/Footer/SocialLinks/SocialLinks';
 
 import {
+  FooterWrapper,
   FooterTopContainer,
   FooterBottomContainer,
   SocialLinksContainer,
-  LeafsContainer,
-} from './Footer.styled';
+} from 'components/Footer/Footer.styled';
 
 const Footer = () => {
   return (
-    <footer>
+    <FooterWrapper>
       <FooterTopContainer>
         <FooterNavigation />
         <SocialLinksContainer>
@@ -23,9 +23,8 @@ const Footer = () => {
         <span>© 2023 All Rights Reserved.</span>
         <span> Terms of Service</span>
       </FooterBottomContainer>
-      <LeafsContainer></LeafsContainer>
-    </footer>
+    </FooterWrapper>
   );
-}
+};
 
 export default Footer;
