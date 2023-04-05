@@ -19,26 +19,23 @@ import PublicRoute from 'routes/PublicRoute/PublicRoute';
 import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
-// const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
-
-const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
-const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
+const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
-const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
-const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
-const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
-const ShoppingListPage = lazy(() =>
-  import('pages/ShoppingListPage/ShoppingListPage')
-);
-const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
-
 const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
 );
 const CategoriesCard = lazy(() =>
   import('pages/CategoriesCard/CategoriesCard')
 );
+const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
+const FavoritesPage = lazy(() => import('pages/FavoritesPage/FavoritesPage'));
+const RecipePage = lazy(() => import('pages/RecipePage/RecipePage'));
+const SearchPage = lazy(() => import('pages/SearchPage/SearchPage'));
+const ShoppingListPage = lazy(() =>
+  import('pages/ShoppingListPage/ShoppingListPage')
+);
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -80,8 +77,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<PublicRoute />}>
             <Route path="/" element={<WelcomePage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/signin" element={<RegisterPage />} />
+            <Route path="/register" element={<AuthPage />} />
+            <Route path="/signin" element={<AuthPage />} />
           </Route>
           <Route path="/" element={<PrivateRoute />}>
             <Route path="/" element={<SharedLayout />}>
