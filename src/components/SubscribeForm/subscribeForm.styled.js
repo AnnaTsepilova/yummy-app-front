@@ -115,7 +115,7 @@ export const Button = styled.button`
   border: none;
   width: 204px;
   height: 38px;
-  background: #8baa36;
+  background: var(--primary-green);
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Poppins';
