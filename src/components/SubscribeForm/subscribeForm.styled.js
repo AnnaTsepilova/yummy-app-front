@@ -31,15 +31,29 @@ export const FormWrapper = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 204px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+    align-items: normal;
+    margin-top: 72px;
+    padding: 0;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
 `;
 
 export const InputWrap = styled.div`
   position: relative;
-  border: 1px solid #FAFAFA;
+  border: 1px solid #fafafa;
   border-radius: 6px;
   width: 204px;
   height: 38px;
@@ -64,8 +78,21 @@ export const InputWrap = styled.div`
     background-image: url(${iconMail});
     background-size: contain;
     background-repeat: no-repeat;
+
   }
   ${formInputStyles}
+
+  @media only screen and (min-width: 768px) {
+    height: 50px;
+    width: 259px;
+    margin: 0;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    height: 59px;
+    width: 338px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const Input = styled.input`
@@ -89,17 +116,33 @@ export const Button = styled.button`
   border: none;
   width: 204px;
   height: 38px;
-  background: #8BAA36;
+  background: #8baa36;
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
-  color: #FAFAFA;
+  color: #fafafa;
   transition: color 250ms ease;
 
   &:hover {
-    color: #22252A;
+    color: #22252a;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 50px;
+    width: 171px;
+
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    height: 60px;
+    width: 339px;
+
+    font-size: 16px;
+    line-height: 1.12;
   }
 `;
