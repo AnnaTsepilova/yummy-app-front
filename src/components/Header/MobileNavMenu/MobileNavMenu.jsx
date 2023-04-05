@@ -1,19 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Logo from 'components/Logo/Logo';
-import MobMenuCloseBtn from './MobMenuCloseBtn/MobMenuCloseBtn';
 import HeaderNavigation from '../HeaderNavigation/HeaderNavigation';
-import { Container, LogoWrapper, MobNavBtn } from './MobileNavMenu.styled';
+import {
+  Container,
+  Btnswrapper,
+  MobCloseBtn,
+  StyledLink,
+} from './MobileNavMenu.styled';
+import { ReactComponent as NavClose } from 'images/MenuNavClose/menu-nav-close.svg';
 
-const MobileNavMenu = ({ closeMenu }) => {
+const MobileNavMenu = ({ closeMenu, isOpen }) => {
   return (
-    <Container>
-      <div onClick={() => closeMenu()}>
-        <Link to="/main" className={LogoWrapper}>
+    <Container isOpen={isOpen}>
+      <Btnswrapper>
+        <StyledLink to="/main" onClick={() => closeMenu()}>
           <Logo />
-        </Link>
-      </div>
-      <MobMenuCloseBtn className={MobNavBtn} closeMenu={closeMenu} />
+        </StyledLink>
+        <MobCloseBtn onClick={() => closeMenu()}>
+          <NavClose />
+        </MobCloseBtn>
+      </Btnswrapper>
       <HeaderNavigation closeMenu={closeMenu} />
     </Container>
   );

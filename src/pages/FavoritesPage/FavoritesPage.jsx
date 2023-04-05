@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
-import Header from 'components/Header/Header';
 import PageHeader from 'components/PageHeader/PageHeader';
 import {
   removeRecipeFromFavorite,
