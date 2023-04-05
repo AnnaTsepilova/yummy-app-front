@@ -4,7 +4,7 @@ export const LogoText = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px;
+  margin-bottom: 32px;
 
   font-family: Poppins;
   font-size: 18px;
@@ -20,10 +20,15 @@ export const LogoText = styled.div`
   @media (min-width: 768px) {
     font-size: 28px;
     line-height: 28px;
+    margin-bottom: 24px;
 
     & span {
       margin-left: 12px;
     }
+  }
+
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 40px;
   }
 `;
 
@@ -31,7 +36,6 @@ export const FooterLeftText = styled.ul`
   display: none;
 
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
     margin-right: 173px;
     padding-left: 20px;
     list-style-type: disc;

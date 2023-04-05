@@ -8,9 +8,9 @@ export const FooterNavigationDiv = styled.div`
 
   color: white;
 
-  & > :not(first-child) {
+  ${'' /* & > :not(first-child) {
     margin-bottom: 32px;
-  }
+  } */}
 
   @media screen and (min-width: 768px) {
       justify-content: center;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledPageHeader = styled.h2`
+  margin-top: 53px;
   margin-bottom: 50px;
 
   font-style: normal;
@@ -14,11 +15,12 @@ export const StyledPageHeader = styled.h2`
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
-
+    margin-top: 73px;
     margin-bottom: 100px;
   }
 
   @media screen and (min-width: 1440px) {
     font-size: 44px;
+    margin-top: 102px;
   } ;
 `;
