@@ -1,13 +1,13 @@
 import React from 'react';
 import { RecipeList } from './MyRecipeList.styled.js';
 import MyRecipesItem from 'components/MyRecipesList/MyRecipesItem/MyRecipesItem';
-import NotFoundImg from 'images/Search/not-found-img.png';
+import { SearchNotFound } from 'components/SearchedRecipesList/SearchNotFound.jsx';
 
 const MyRecipesList = ({ items, btnStyle, removeFnc }) => {
   return (
     <>
       {items.length === 0 ? (
-        <img src={NotFoundImg} alt="Not found" />
+        <SearchNotFound text={'Thre will be your recipes here'} />
       ) : (
         <RecipeList>
           {items.map(item => {
