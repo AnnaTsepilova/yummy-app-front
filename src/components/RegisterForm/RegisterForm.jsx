@@ -77,7 +77,7 @@ const RegisterForm = () => {
     event.preventDefault();
     // handleValidation(event);
     const data = new FormData(event.currentTarget);
-
+    console.log(data.get('name'));
     dispatch(
       authOperations.signUp({
         name: data.get('name'),
@@ -129,7 +129,7 @@ const RegisterForm = () => {
           <Form
             className={isLogin ? 'signin' : ''}
             onChange={handleChange}
-            onSubmit={isLogin ? handleSubmitSignUp : handleSubmitSignIn}
+            onSubmit={isLogin ? handleSubmitSignIn : handleSubmitSignUp}
             autoComplete="on"
           >
             {!isLogin && (
