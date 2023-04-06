@@ -12,7 +12,7 @@ import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
-import { CardMeal } from './CardMeal';
+import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
 
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -75,7 +75,7 @@ const SearchedRecipesList = () => {
       {isPending ? (
         <Loader />
       ) : (
-        <ul>
+        <Table>
           {console.log(recipesBySearchQuery)}
           {recipesBySearchQuery?.results?.map(result => (
             <RecipeCard
@@ -85,7 +85,7 @@ const SearchedRecipesList = () => {
               text={result.title}
             />
           ))}
-        </ul>
+        </Table>
       )}
       {/* {totalQuery > 0 && (
         <PaginationComp
