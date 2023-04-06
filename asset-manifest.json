@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yummy-app-front/static/css/main.fca9789e.css",
-    "main.js": "/yummy-app-front/static/js/main.dc0ae5e2.js",
+    "main.js": "/yummy-app-front/static/js/main.f6069349.js",
     "static/js/773.1d3dc260.chunk.js": "/yummy-app-front/static/js/773.1d3dc260.chunk.js",
     "static/js/887.2cc862c1.chunk.js": "/yummy-app-front/static/js/887.2cc862c1.chunk.js",
     "static/js/113.59fd13d4.chunk.js": "/yummy-app-front/static/js/113.59fd13d4.chunk.js",
@@ -34,11 +34,13 @@
     "static/media/basket_search_mobile@2x.png": "/yummy-app-front/static/media/basket_search_mobile@2x.7f02eca71ddf396f17e0.png",
     "static/media/order-food-pana-black.svg": "/yummy-app-front/static/media/order-food-pana-black.385bc53ff93756268481b368cafeeb4b.svg",
     "static/media/order-food-pana-white.svg": "/yummy-app-front/static/media/order-food-pana-white.e42bd30f99b1473f24f8bae33ca09571.svg",
+    "static/media/menu-background-tab.png": "/yummy-app-front/static/media/menu-background-tab.094be090f4154fe0bc47.png",
     "static/media/basket_search_from_desc_to_tab@1x.png": "/yummy-app-front/static/media/basket_search_from_desc_to_tab@1x.bc91271998b75900e48e.png",
     "static/media/leaves-on-main-bottom-desc-cut@1x.png": "/yummy-app-front/static/media/leaves-on-main-bottom-desc-cut@1x.a497cd55d24fe884e849.png",
     "static/media/leaves-on-main-bottom-mob-cut@2x.png": "/yummy-app-front/static/media/leaves-on-main-bottom-mob-cut@2x.425faf13dcc384421735.png",
     "static/media/wellcome-page-img-mob@1x.jpg": "/yummy-app-front/static/media/wellcome-page-img-mob@1x.0805fb2685abee13f6dc.jpg",
     "static/media/leaves-on-main-bottom-tab-cut@1x.png": "/yummy-app-front/static/media/leaves-on-main-bottom-tab-cut@1x.5991db54432ef3273672.png",
+    "static/media/menu-background-mob.png": "/yummy-app-front/static/media/menu-background-mob.8d17f287013d87d3e147.png",
     "static/media/basket_search_mobile@1x.png": "/yummy-app-front/static/media/basket_search_mobile@1x.63c33e63d51609222126.png",
     "static/media/not-found-page.svg": "/yummy-app-front/static/media/not-found-page.45fbafd942fafe5ed622d5d0debccb15.svg",
     "static/media/footer-background-tab@2x.png": "/yummy-app-front/static/media/footer-background-tab@2x.e9e5814d7d9fa0b34bd8.png",
@@ -70,7 +72,7 @@
     "static/media/footer-bg-auth-desc.svg": "/yummy-app-front/static/media/footer-bg-auth-desc.d5d5440654b186017ddacb2e9f52c512.svg",
     "static/media/header-menu.svg": "/yummy-app-front/static/media/header-menu.03946b1d0051aebc6abfeb3aeac74e41.svg",
     "main.fca9789e.css.map": "/yummy-app-front/static/css/main.fca9789e.css.map",
-    "main.dc0ae5e2.js.map": "/yummy-app-front/static/js/main.dc0ae5e2.js.map",
+    "main.f6069349.js.map": "/yummy-app-front/static/js/main.f6069349.js.map",
     "773.1d3dc260.chunk.js.map": "/yummy-app-front/static/js/773.1d3dc260.chunk.js.map",
     "887.2cc862c1.chunk.js.map": "/yummy-app-front/static/js/887.2cc862c1.chunk.js.map",
     "113.59fd13d4.chunk.js.map": "/yummy-app-front/static/js/113.59fd13d4.chunk.js.map",
@@ -91,6 +93,6 @@
   },
   "entrypoints": [
     "static/css/main.fca9789e.css",
-    "static/js/main.dc0ae5e2.js"
+    "static/js/main.f6069349.js"
   ]
 }
