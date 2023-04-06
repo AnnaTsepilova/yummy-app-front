@@ -100,7 +100,6 @@ export const getRecipesByQuery = createAsyncThunk(
       console.log('recipes by search query', data);
       return data;
     } catch (error) {
-      console.log(error.message);
       return rejectWithValue(error.response.status);
     }
   }

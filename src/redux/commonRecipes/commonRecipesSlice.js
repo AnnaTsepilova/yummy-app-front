@@ -21,8 +21,9 @@ const initialState = {
   limitedRecipesByCategory: [],
   allRecipesByCategory: [],
   recipesByQuery: {
-    recipes: [],
-    totalHits: 0,
+    results: [],
+    // totalHits: 0,
+    totalResults: 0,
   },
 };
 
@@ -43,15 +44,15 @@ export const commmonRecipesSlice = createSlice({
         state.isCategoryFetching = false;
       })
       .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
-        state.recipesByQuery.recipes = payload.recipes;
-        state.recipesByQuery.totalHits = payload.totalHits;
+        state.recipesByQuery.results = payload.results;
+        state.recipesByQuery.totalResults = payload.totalResults;
         state.isCategoryFetching = false;
         state.isError = false;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
-        state.recipesByQuery.recipes = payload.recipes;
-        state.recipesByQuery.totalHits = payload.totalHits;
+        state.recipesByQuery.results = payload.results;
+        state.recipesByQuery.totalResults = payload.totalResults;
         state.isCategoryFetching = false;
       })
       .addCase(getLimitedRecipesByCategory.pending, pending)
@@ -63,14 +64,14 @@ export const commmonRecipesSlice = createSlice({
       .addCase(getRecipesByQuery.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
-        state.recipesByQuery.recipes = [];
-        state.recipesByQuery.totalHits = 0;
+        state.recipesByQuery.results = [];
+        state.recipesByQuery.totalResults = 0;
       })
       .addCase(getRecipesByIngredient.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
-        state.recipesByQuery.recipes = [];
-        state.recipesByQuery.totalHits = 0;
+        state.recipesByQuery.results = [];
+        state.recipesByQuery.totalResults = 0;
       }),
 });
 

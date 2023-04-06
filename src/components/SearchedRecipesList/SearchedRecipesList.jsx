@@ -12,11 +12,11 @@ import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
+import { CardMeal } from './CardMeal';
 
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
-  const [recipes, setRecipes] = useState([]);
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(false);
@@ -72,7 +72,31 @@ const SearchedRecipesList = () => {
         startType={type}
         startQuery={query}
       />
-      {isPending ? <Loader /> : <ul>{console.log(recipesBySearchQuery)}</ul>}
+      {isPending ? (
+        <Loader />
+      ) : (
+        <ul>
+          {console.log(recipesBySearchQuery)}
+          <ul>
+            {/* {recipesBySearchQuery.map(recipe => (
+              <li key={recipe._id}>
+                <img src={recipe.preview} alt={recipe.title} />
+                <h3>{recipe.title}</h3>
+                <p>{recipe._id}</p>
+              </li>
+            ))} */}
+
+            {Array.isArray(recipesBySearchQuery) &&
+              recipesBySearchQuery.map(recipe => (
+                <li key={recipe._id}>
+                  <img src={recipe.preview} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                  <p>{recipe._id}</p>
+                </li>
+              ))}
+          </ul>
+        </ul>
+      )}
       {/* {totalQuery > 0 && (
         <PaginationComp
           count={Math.ceil(totalQuery / perPage)}
