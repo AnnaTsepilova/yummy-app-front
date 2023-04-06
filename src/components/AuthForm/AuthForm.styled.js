@@ -63,9 +63,11 @@ export const InputWrap = styled.div`
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  /* border: 1px solid ${({ error }) => error ? 'red' : '#ccc'}; */
-  border: 1px solid ${props => props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3);'};
-  /* border: 1px solid ${props => props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
+  /* border: 1px solid ${({ error }) => (error ? 'red' : '#ccc')}; */
+  border: 1px solid ${props =>
+    props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3);'};
+  /* border: 1px solid ${props =>
+    props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
 
   font-size: 18px;
   color: var(--primary-white);
@@ -107,7 +109,8 @@ export const InputWrap = styled.div`
     width: 18px;
     height: 18px;
     right: 19px;
-      background-image: ${props => props.error ? `url(${props.iconError})` : ''};
+      background-image: ${props =>
+    props.error ? `url(${props.iconError})` : ''};
 background-size: contain;
     background-repeat: no-repeat;
   }
@@ -218,17 +221,17 @@ export const FormLink = styled(NavLink)`
 `;
 
 export const Error = styled.div`
- font-size: 14px;
- color: #E74A3B;
- position: relative;
- left: -13px;
- bottom: -160%;
+  font-size: 14px;
+  color: #e74a3b;
+  position: relative;
+  left: -13px;
+  bottom: -160%;
 `;
 
 export const Correct = styled.div`
- font-size: 14px;
- color: green;
- position: relative;
- left: -13px;
- bottom: -160%;
+  font-size: 14px;
+  color: green;
+  position: relative;
+  left: -13px;
+  bottom: -160%;
 `;
