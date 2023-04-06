@@ -5,7 +5,7 @@ export const NavMenu = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   gap: 32px;
 
   @media screen and (min-width: 768px) {
@@ -22,9 +22,3 @@ export const NavMenu = styled.nav`
     gap: 30px;
   }
 `;
-
-
-
-
-
-
