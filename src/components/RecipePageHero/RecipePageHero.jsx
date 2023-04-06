@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { HeroBackground } from './RecipePageHero.styled';
 
 const RecipePageHero = () => {
-  return (
-    <div>
+  return <HeroBackground />;
+};
 
-    </div>
-  )
-}
-
-export default RecipePageHero
+export default RecipePageHero;
