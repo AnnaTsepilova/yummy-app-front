@@ -6,7 +6,7 @@ import {
   getRecipesByQuery,
 } from './commonOperations';
 
-import { getRecipesByIngredient } from 'redux/searchByIngredients/ingredientsOperations';
+import { getRecipesByIngredient } from 'redux/ingredients/ingredientsOperations';
 
 const pending = state => {
   state.isCategoryFetching = true;
@@ -22,7 +22,6 @@ const initialState = {
   allRecipesByCategory: [],
   recipesByQuery: {
     results: [],
-    // totalHits: 0,
     totalHits: 0,
   },
 };
