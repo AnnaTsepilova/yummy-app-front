@@ -16,6 +16,8 @@ export const AvatarLabel = styled.label`
 
   border-radius: 50%;
   margin-bottom: 54px;
+
+  cursor: pointer;
 `;
 
 export const AvatarWrapper = styled.div`

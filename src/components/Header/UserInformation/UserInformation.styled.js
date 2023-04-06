@@ -7,6 +7,8 @@ export const UserInform = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 `;
 
 export const UserAvatarWrp = styled.div`

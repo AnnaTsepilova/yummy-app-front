@@ -14,12 +14,16 @@ import {
   PasswordInputIcon,
   PlusFileIcon,
 } from './UserProfileForm.styled';
+import { useSelector } from 'react-redux';
+import { selectUserEmail } from 'redux/auth/authSelectors';
 
 const UserProfileForm = () => {
+  const userName = useSelector(selectUserEmail);
+
   const formik = useFormik({
     initialValues: {
       file: '',
-      userName: '',
+      userName,
       password: '',
     },
     onSubmit: values => {
@@ -51,7 +55,7 @@ const UserProfileForm = () => {
           placeholder="name"
           autoComplete="off"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.userName}
         />
       </NameLabel>
       <NameLabel htmlFor="password">
@@ -63,7 +67,7 @@ const UserProfileForm = () => {
           placeholder="password"
           autoComplete="off"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.password}
         />
       </NameLabel>
 
