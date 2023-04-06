@@ -8,15 +8,11 @@ export const FooterNavigationDiv = styled.div`
 
   color: white;
 
-  ${'' /* & > :not(first-child) {
-    margin-bottom: 32px;
-  } */}
-
   @media screen and (min-width: 768px) {
-      justify-content: center;
-      flex-wrap: wrap;
-      flex-direction: row;
-      padding-top: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 50px;
 
     & > :not(first-child) {
       margin-bottom: 0px;
@@ -24,9 +20,14 @@ export const FooterNavigationDiv = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-      flex-wrap: no-wrap;
-      align-items: start;
-    }
+    flex-wrap: no-wrap;
+    align-items: start;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const SubscribeContainer = styled.div`
@@ -35,7 +36,6 @@ export const SubscribeContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    ${'' /* gap: 28px; */}
     max-width: 338px;
     margin-left: 235px;
 

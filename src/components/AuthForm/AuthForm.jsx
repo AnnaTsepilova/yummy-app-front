@@ -28,6 +28,7 @@ const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  /* eslint-disable-next-line */
   const [errors, setErrors] = useState([]);
   /* eslint-disable-next-line */
   const [emailInvalid, setEmailInvalid] = useState(false);
