@@ -16,6 +16,7 @@ import {
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const [recipes, setRecipes] = useState([]);
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(false);
@@ -71,15 +72,7 @@ const SearchedRecipesList = () => {
         startType={type}
         startQuery={query}
       />
-      {isPending ? (
-        <Loader />
-      ) : (
-        <ul>
-          {recipesBySearchQuery?.data?.map(el => (
-            <RecipeCard card={el} key={el.id} />
-          ))}
-        </ul>
-      )}
+      {isPending ? <Loader /> : <ul>{console.log(recipesBySearchQuery)}</ul>}
       {/* {totalQuery > 0 && (
         <PaginationComp
           count={Math.ceil(totalQuery / perPage)}

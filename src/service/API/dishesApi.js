@@ -66,27 +66,67 @@ export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+// export const getRecipesByIngredientAPI = (
+//   ingredientTtl,
+//   page = 1,
+//   per_page = 12
+// ) => {
+//   return axios
+//     .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
+//     .then(({ data }) => {
+//       return data;
+//     });
+// };
+
+// export const getRecipesByQueryAPI = (
+//   query,
+//   ingredient,
+//   page = 1,
+//   per_page = 12
+// ) => {
+//   return axios
+//     .get(
+//       `/recipes/search/recipes?title=${query}&ingredient=${ingredient}&page=${page}&per_page=${per_page}`
+//     )
+//     .then(({ data }) => {
+//       return data;
+//     });
+// };
+
+// export const getRecipesByQueryAPI = (
+//   title,
+//   ingredient,
+//   page = 1,
+//   per_page = 12
+// ) => {
+//   return axios
+//     .get(
+//       `/recipes/search/recipes?title=${title}&ingredient=${ingredient}&page=${page}&per_page=${per_page}`
+//     )
+//     .then(({ data }) => {
+//       return data;
+//     });
+// };
+
+export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+  return axios
+    .get(
+      `/recipes/search/recipes?title=${query}&ingredient=${query}&page=${page}&per_page=${per_page}`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 export const getRecipesByIngredientAPI = (
   ingredientTtl,
   page = 1,
   per_page = 12
 ) => {
   return axios
-    .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
-  return axios
-    .get(`/search/recipes`, {
-      params: {
-        q: query,
-        page: page,
-        perPage: perPage,
-      },
-    })
+    .get(
+      `/recipes/search/ingredients?ingredient=${ingredientTtl}&page=${page}&per_page=${per_page}`
+    )
     .then(({ data }) => {
       return data;
     });
