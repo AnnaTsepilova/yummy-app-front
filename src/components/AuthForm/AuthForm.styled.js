@@ -21,7 +21,7 @@ export const FormWrapper = styled.div`
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     width: 500px;
     min-height: 419px;
     padding: 44px 50px;
@@ -35,7 +35,7 @@ export const FormTitle = styled.h1`
   line-height: 1.17;
   color: var(--primary-white);
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     margin-bottom: 32px;
     font-size: 28px;
     line-height: 1.07;
@@ -49,7 +49,7 @@ export const Form = styled.form`
   &.signin {
     margin-top: 43px;
 
-    @media (min-width: 768px), (min-width: 1440px) {
+    @media (min-width: 768px) {
       margin-top: 53px;
     }
   }
@@ -96,7 +96,7 @@ export const InputWrap = styled.div`
     background-repeat: no-repeat;
   }
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     margin-bottom: 24px;
     height: 59px;
 
@@ -137,7 +137,7 @@ export const FormInput = styled.input`
     letter-spacing: -0.02em;
   }
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     font-size: 18px;
     padding: 16px 10px 16px 50px;
 
@@ -171,7 +171,7 @@ export const FormButton = styled.button`
     color: var(--secondary-black);
   }
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     margin-top: 26px;
     padding: 19px 24px;
   }
@@ -195,7 +195,7 @@ export const FormLink = styled(NavLink)`
     color: var(--primary-green);
   }
 
-  @media (min-width: 768px), (min-width: 1440px) {
+  @media (min-width: 768px) {
     font-size: 16px;
   }
 `;
