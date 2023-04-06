@@ -77,24 +77,14 @@ const SearchedRecipesList = () => {
       ) : (
         <ul>
           {console.log(recipesBySearchQuery)}
-          <ul>
-            {/* {recipesBySearchQuery.map(recipe => (
-              <li key={recipe._id}>
-                <img src={recipe.preview} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-                <p>{recipe._id}</p>
-              </li>
-            ))} */}
-
-            {Array.isArray(recipesBySearchQuery) &&
-              recipesBySearchQuery.map(recipe => (
-                <li key={recipe._id}>
-                  <img src={recipe.preview} alt={recipe.title} />
-                  <h3>{recipe.title}</h3>
-                  <p>{recipe._id}</p>
-                </li>
-              ))}
-          </ul>
+          {recipesBySearchQuery?.results?.map(result => (
+            <RecipeCard
+              key={result._id}
+              id={result._id}
+              image={result.preview}
+              text={result.title}
+            />
+          ))}
         </ul>
       )}
       {/* {totalQuery > 0 && (

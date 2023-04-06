@@ -23,7 +23,7 @@ const initialState = {
   recipesByQuery: {
     results: [],
     // totalHits: 0,
-    totalResults: 0,
+    totalHits: 0,
   },
 };
 
@@ -45,14 +45,14 @@ export const commmonRecipesSlice = createSlice({
       })
       .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
         state.recipesByQuery.results = payload.results;
-        state.recipesByQuery.totalResults = payload.totalResults;
+        state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
         state.isError = false;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
         state.recipesByQuery.results = payload.results;
-        state.recipesByQuery.totalResults = payload.totalResults;
+        state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
       })
       .addCase(getLimitedRecipesByCategory.pending, pending)
@@ -65,13 +65,13 @@ export const commmonRecipesSlice = createSlice({
         state.isCategoryFetching = false;
         state.isError = true;
         state.recipesByQuery.results = [];
-        state.recipesByQuery.totalResults = 0;
+        state.recipesByQuery.totalHits = 0;
       })
       .addCase(getRecipesByIngredient.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
         state.recipesByQuery.results = [];
-        state.recipesByQuery.totalResults = 0;
+        state.recipesByQuery.totalHits = 0;
       }),
 });
 

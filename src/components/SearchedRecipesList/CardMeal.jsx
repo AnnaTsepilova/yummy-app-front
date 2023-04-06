@@ -10,7 +10,7 @@ export const CardMeal = ({ data }) => {
   return (
     <CardDish>
       <Link to={`/recipe/${data._id}`}>
-        <CardImg src={data.preview} alt={data.strMeal} />
+        <CardImg src={data.preview} alt={data.title} key={data._id} />
         <CardTitle data-tooltip-id={data._id}>{data.title}</CardTitle>
         {data.title.length > 30 && (
           <TooltipWrapper>
