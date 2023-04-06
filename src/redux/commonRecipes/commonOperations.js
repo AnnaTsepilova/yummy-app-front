@@ -4,7 +4,7 @@ import {
   getCategoryListAPI,
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
-  getRecipesByQueryAPI,
+  // getRecipesByQueryAPI,
 } from 'service/API/dishesApi';
 
 import axios from 'axios';
