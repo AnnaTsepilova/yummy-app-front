@@ -34,6 +34,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
