@@ -72,7 +72,7 @@ export const SelectStyled = styled(Select)`
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: #fafafa;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   & .react-select__value-container {

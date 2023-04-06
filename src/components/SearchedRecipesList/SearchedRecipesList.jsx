@@ -13,8 +13,9 @@ import {
 } from 'redux/commonRecipes/commonSelectors';
 import {
   getRecipesByQuery,
-  // getRecipesByIngredient,
+  getRecipesByIngredient,
 } from 'redux/commonRecipes/commonOperations';
+import { SearchTypeSelector } from 'components/SearchTypeSelector/SearchTypeSelector';
 
 import { useMediaQuery } from 'react-responsive';
 

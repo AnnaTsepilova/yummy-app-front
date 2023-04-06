@@ -9,9 +9,9 @@ import {
   getRecipesByIngredientAPI,
 } from 'service/API/dishesApi';
 
-const setToken = token => {
-  if (token) {
-    axios.defaults.headers.common.authorization = `Bearer ${token}`;
+const setToken = accessToken => {
+  if (accessToken) {
+    axios.defaults.headers.common.authorization = `Bearer ${accessToken}`;
   } else {
     delete axios.defaults.headers.common.authorization;
   }
@@ -21,7 +21,7 @@ export const getCategoryList = createAsyncThunk(
   'commonRecipes/categoryList',
   async (_, { rejectWithValue }) => {
     setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ1MzJjY2M5M2ExNTRlZWQ3OGQ2NSIsImlhdCI6MTY4MDY5MjAzOCwiZXhwIjoxNjgxMDUyMDM4fQ.WQy4eJg73FBrTJ0b786cxoeWCx9QXS8-pb0il5gXjig'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ5YzIyZDA2NTA1NzhkYjEzZTNiMyIsImlhdCI6MTY4MDcxMDY5MCwiZXhwIjoxNjgwNzE0MjkwfQ.n0ZTeHXnHHTCXJJebTbX_oSs8oq2CCrLdgdADj_MRqs'
     );
     try {
       const data = await getCategoryListAPI();
@@ -36,7 +36,7 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
   'outerRecipes/limitedRecipes',
   async (params, { rejectWithValue }) => {
     setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ1MzJjY2M5M2ExNTRlZWQ3OGQ2NSIsImlhdCI6MTY4MDY5MjAzOCwiZXhwIjoxNjgxMDUyMDM4fQ.WQy4eJg73FBrTJ0b786cxoeWCx9QXS8-pb0il5gXjig'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ5YzIyZDA2NTA1NzhkYjEzZTNiMyIsImlhdCI6MTY4MDcxMDY5MCwiZXhwIjoxNjgwNzE0MjkwfQ.n0ZTeHXnHHTCXJJebTbX_oSs8oq2CCrLdgdADj_MRqs'
     );
     try {
       const { category, limit } = params;
@@ -47,12 +47,11 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
     }
   }
 );
-
 export const getAllRecipesByCategory = createAsyncThunk(
   'outerRecipes/allRecipes',
   async (category, { rejectWithValue }) => {
     setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ1MzJjY2M5M2ExNTRlZWQ3OGQ2NSIsImlhdCI6MTY4MDY5MjAzOCwiZXhwIjoxNjgxMDUyMDM4fQ.WQy4eJg73FBrTJ0b786cxoeWCx9QXS8-pb0il5gXjig'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ5YzIyZDA2NTA1NzhkYjEzZTNiMyIsImlhdCI6MTY4MDcxMDY5MCwiZXhwIjoxNjgwNzE0MjkwfQ.n0ZTeHXnHHTCXJJebTbX_oSs8oq2CCrLdgdADj_MRqs'
     );
     try {
       const data = await getAllRecipesByCategoryAPI(category);
@@ -67,7 +66,7 @@ export const getRecipesByQuery = createAsyncThunk(
   'outerRecipes/recipesByQuery',
   async (params, { rejectWithValue }) => {
     setToken(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ1MzJjY2M5M2ExNTRlZWQ3OGQ2NSIsImlhdCI6MTY4MDY5MjAzOCwiZXhwIjoxNjgxMDUyMDM4fQ.WQy4eJg73FBrTJ0b786cxoeWCx9QXS8-pb0il5gXjig'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ5YzIyZDA2NTA1NzhkYjEzZTNiMyIsImlhdCI6MTY4MDcxMDY5MCwiZXhwIjoxNjgwNzE0MjkwfQ.n0ZTeHXnHHTCXJJebTbX_oSs8oq2CCrLdgdADj_MRqs'
     );
     try {
       const { query } = params;
@@ -83,7 +82,7 @@ export const getRecipesByQuery = createAsyncThunk(
 //   'outerRecipes/recipesByQuery',
 //   async (params, { rejectWithValue }) => {
 //     setToken(
-//       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ1MzJjY2M5M2ExNTRlZWQ3OGQ2NSIsImlhdCI6MTY4MDY5MjAzOCwiZXhwIjoxNjgxMDUyMDM4fQ.WQy4eJg73FBrTJ0b786cxoeWCx9QXS8-pb0il5gXjig'
+//       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ4YTJjNjU2NTMxYzYzZDdiOTc2YSIsImlhdCI6MTY4MDcwNjA5MiwiZXhwIjoxNjgwNzA5NjkyfQ.IxuBF3Pm_Q-IZv9g6EdYplkNFvIYgasXbgT-zDi2Zkc'
 //     );
 //     try {
 //       const { query } = params;

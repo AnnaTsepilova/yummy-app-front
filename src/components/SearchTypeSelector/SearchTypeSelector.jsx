@@ -23,6 +23,9 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
         defaultValue={{
           value: startType,
           label: startType.charAt(0).toUpperCase() + startType.slice(1),
+          // label: startType
+          //   ? startType.charAt(0).toUpperCase() + startType.slice(1)
+          //   : '',
         }}
         onChange={setSelectedOption}
         options={options}
