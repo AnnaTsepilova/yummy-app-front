@@ -7,7 +7,7 @@ import {
   Input,
   Button,
   InputWrap,
-} from './SubscribeForm.styled';
+} from './subscribeForm.styled';
 
 const SubscribeForm = () => {
   const [email, setEmail] = useState('');
