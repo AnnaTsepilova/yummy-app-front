@@ -1,55 +1,71 @@
 
 import styled from 'styled-components';
-import iconMail from '../../images/Subscribe/icon-mail-sub-mob.svg';
+import icoMailMob from '../../images/Subscribe/icon-mail-sub-mob.svg';
+import icoMailTab from '../../images/Subscribe/icon-mail-sub-tab.svg';
 
 const formInputStyles = `
+font-family: 'Poppins';
+font-size: 10px;
+color: var(--primary-white);
+caret-color: var(--primary-white);
+outline: none;
+
+&::placeholder {
   font-family: 'Poppins';
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--primary-white);
+}
+
+@media (min-width: 768px) {
   font-size: 14px;
-  color: #fafafa;
-  caret-color: #fafafa;
-  outline: none;
-  ::placeholder {
-    font-family: 'Poppins';
-    font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    color: #FAFAFA;
+  &::placeholder {
+    font-size: 14px;
   }
-  @media screen and (max-width: 767px) {
-    font-family: 'Poppins';
+}
+
+@media (min-width: 1440px) {
+  font-size: 18px;
+  &::placeholder {
+    font-size: 18px;
   }
+}
 `;
 
 export const FormWrapper = styled.div`
-  /* margin-top: 200px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #22252A; */
+  margin: 32px auto 0;
+
+  @media (min-width: 768px) {
+    margin-top: 72px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 0;
+  }
 `;
+
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding: 0;
+  gap: 8px;
 
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     flex-direction: row;
+    align-items: flex-start;
     gap: 12px;
-    align-items: normal;
-    margin-top: 72px;
-    padding: 0;
   }
 
-  @media only screen and (min-width: 1440px) {
+  @media (min-width: 1440px) {
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    align-items: center;
     gap: 0;
   }
 `;
+
 
 export const InputWrap = styled.div`
   position: relative;
@@ -57,17 +73,14 @@ export const InputWrap = styled.div`
   border-radius: 6px;
   width: 204px;
   height: 38px;
-  margin-bottom: 8px;
-  font-family: 'Poppins';
   padding: 12px;
-  font-size: 10px;
-  color: var(--primary-white);
-  caret-color: var(--primary-white);
   transition: border 250ms ease;
-  :hover {
+
+  &:hover {
     border: 2px solid var(--white);
   }
-  ::before {
+
+  &::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -75,24 +88,40 @@ export const InputWrap = styled.div`
     left: 14px;
     width: 16px;
     height: 12px;
-    background-image: url(${iconMail});
+    background-image: url(${icoMailMob});
     background-size: contain;
     background-repeat: no-repeat;
   }
+
   ${formInputStyles}
 
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     height: 50px;
     width: 259px;
     margin: 0;
+
+    &::before {
+      left: 15px;
+      width: 20px;
+      height: 16px;
+      background-image: url(${icoMailTab});
+    }
   }
 
-  @media only screen and (min-width: 1440px) {
+  @media (min-width: 1440px) {
     height: 59px;
     width: 338px;
     margin-bottom: 16px;
+
+    &::before {
+      left: 16px;
+      width: 20px;
+      height: 16px;
+      background-image: url(${icoMailTab});
+    }
   }
 `;
+
 
 export const Input = styled.input`
   position: absolute;
@@ -100,13 +129,23 @@ export const Input = styled.input`
   transform: translateY(-50%);
   width: 100%;
   height: 100%;
-  margin-left: -12px;
   padding: 12px 0 12px 42px;
+  margin-left: -12px;
   border-radius: 6px;
   border: none;
-  background-color: transparent;
+  background: transparent;
+
   ${formInputStyles}
+
+  @media (min-width: 768px) {
+    padding: 15px 0 14px 51px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 18px 0 17px 52px;
+  }
 `;
+
 
 export const Button = styled.button`
   display: flex;
@@ -115,7 +154,6 @@ export const Button = styled.button`
   border: none;
   width: 204px;
   height: 38px;
-  background: var(--primary-green);
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Poppins';
@@ -123,25 +161,25 @@ export const Button = styled.button`
   line-height: 1.14;
   text-align: center;
   color: var(--primary-white);
+  background-color: var(--primary-green);
   transition: color 250ms ease;
 
   &:hover {
     color: var(--secondary-black);
   }
 
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     height: 50px;
     width: 171px;
-
     font-size: 16px;
     line-height: 1.12;
   }
 
-  @media only screen and (min-width: 1440px) {
+  @media (min-width: 1440px) {
     height: 60px;
     width: 339px;
-
     font-size: 16px;
     line-height: 1.12;
   }
 `;
+
