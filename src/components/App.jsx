@@ -53,8 +53,6 @@ export const App = () => {
   // }, [dispatch]);
 
   useEffect(() => {
-    console.log('App', accessToken);
-    console.log('App', location.pathname);
     if (accessToken) {
       authOperations.setAuthHeader(accessToken);
       dispatch(setAccessToken(accessToken));
