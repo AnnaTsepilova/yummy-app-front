@@ -2,11 +2,11 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
 
-// export const getCategoryListAPI = () => {
-//   return axios.get('/recipes/category-list').then(({ data }) => {
-//     return data;
-//   });
-// };
+export const getCategoryListAPI = () => {
+  return axios.get('/recipes/category-list').then(({ data }) => {
+    return data;
+  });
+};
 
 export const getLimitedRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
@@ -39,9 +39,15 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
-export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
   return axios
-    .get(`/recipes/search/${query}?page=${page}&per_page=${per_page}`)
+    .get(`/recipes/search/recipes`, {
+      params: {
+        q: query,
+        _page: page,
+        _limit: perPage,
+      },
+    })
     .then(({ data }) => {
       return data;
     });
@@ -79,4 +85,16 @@ export const getFavoriteRecipesAPI = () => {
 
 export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+export const getRecipesByIngredientAPI = (
+  ingredientTtl,
+  page = 1,
+  per_page = 12
+) => {
+  return axios
+    .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
+    .then(({ data }) => {
+      return data;
+    });
 };

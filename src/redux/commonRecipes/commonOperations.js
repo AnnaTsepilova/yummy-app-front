@@ -2,10 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import {
-  // getCategoryListAPI,
+  getCategoryListAPI,
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
+  // getRecipesByIngredientAPI,
 } from 'service/API/dishesApi';
 
 const token = {
@@ -19,29 +20,21 @@ const token = {
 
 export const getCategoryList = createAsyncThunk(
   'commonRecipes/categoryList',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    token.set(state.auth.accessToken);
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
     try {
-      const { data } = await axios.get('/recipes/category-list');
+      const data = await getCategoryListAPI();
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.status);
+      return rejectWithValue(error.response.status);
     }
   }
 );
-
-// export const getCategoryList = createAsyncThunk(
-//   'commonRecipes/categoryList',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const data = await getCategoryListAPI();
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.response.status);
-//     }
-//   }
-// );
 
 export const getMainPage = createAsyncThunk(
   'commonRecipes/mainPage',
@@ -59,7 +52,13 @@ export const getMainPage = createAsyncThunk(
 
 export const getLimitedRecipesByCategory = createAsyncThunk(
   'outerRecipes/limitedRecipes',
-  async (params, { rejectWithValue }) => {
+  async (params, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
     try {
       const { category, limit } = params;
       const data = await getLimitedRecipesByCategoryAPI(category, limit);
@@ -72,7 +71,13 @@ export const getLimitedRecipesByCategory = createAsyncThunk(
 
 export const getAllRecipesByCategory = createAsyncThunk(
   'outerRecipes/allRecipes',
-  async (category, { rejectWithValue }) => {
+  async (category, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
     try {
       const data = await getAllRecipesByCategoryAPI(category);
       return data;
@@ -82,12 +87,37 @@ export const getAllRecipesByCategory = createAsyncThunk(
   }
 );
 
+// export const getRecipesByQuery = createAsyncThunk(
+//   'outerRecipes/recipesByQuery',
+//   async (params, { rejectWithValue, getState }) => {
+//     const state = getState();
+//     const persistedAccessToken = state.auth.accessToken;
+//     if (!persistedAccessToken) {
+//       return rejectWithValue();
+//     }
+//     token.set(persistedAccessToken);
+//     try {
+//       const { query, page, per_page } = params;
+//       const data = await getRecipesByQueryAPI(query, page, per_page);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.status);
+//     }
+//   }
+// );
+
 export const getRecipesByQuery = createAsyncThunk(
   'outerRecipes/recipesByQuery',
-  async (params, { rejectWithValue }) => {
+  async (params, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
     try {
-      const { query, page, per_page } = params;
-      const data = await getRecipesByQueryAPI(query, page, per_page);
+      const { query, page, perPage } = params;
+      const data = await getRecipesByQueryAPI(query, page, perPage);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
