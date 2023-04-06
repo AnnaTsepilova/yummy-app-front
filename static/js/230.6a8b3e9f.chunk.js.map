@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/230.6a8b3e9f.chunk.js","mappings":"mJAUA,UARsB,WACpB,OACE,kBAIH,C","sources":["pages/AddRecipePage/AddRecipePage.jsx"],"sourcesContent":["import React from 'react'\n\nconst AddRecipePage = () => {\n  return (\n    <div>\n\n    </div>\n  )\n}\n\nexport default AddRecipePage\n"],"names":[],"sourceRoot":""}
