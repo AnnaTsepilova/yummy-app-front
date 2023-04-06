@@ -33,25 +33,25 @@ const IngredientsShoppingList = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const handleDeleteIngridient = async (id, item, e) => {
-    console.log(id, item);
-    // if (e.target.disabled) return;
-    // e.target.disabled = true;
-    // await patchShoppingList({ productId: Id, measure: item })
-    //   .then(({ shoppingList }) => {
-    //     setList(shoppingList);
-    //     Notify.success('You removed ingridient from shopping list', {
-    //       NotiflixId: '1234',
-    //     });
-    //   })
-    //   .catch(error => console.log(error.message));
+    // console.log(id, item);
+    if (e.target.disabled) return;
+    e.target.disabled = true;
+    await patchShoppingList({ productId: id, measure: item })
+      .then(({ shoppingList }) => {
+        setList(shoppingList);
+        Notify.success('You removed ingridient from shopping list', {
+          NotiflixId: '1234',
+        });
+      })
+      .catch(error => console.log(error.message));
   };
 
   useEffect(() => {
     dispatch(getUserShoppingList());
   }, [dispatch]);
 
-  console.log(shoppingList);
   // useEffect(() => {
+
   //   setIsLoading(true);
   //   setTimeout(async () => {
   //     await getShoppingList()
@@ -66,7 +66,6 @@ const IngredientsShoppingList = () => {
   // }, []);
 
   // console.log(list);
-  console.log(shoppingList.length);
   return (
     <DivContainer>
       <BGDots />
