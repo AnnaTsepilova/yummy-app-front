@@ -14,13 +14,6 @@ export const getLimitedRecipesByCategoryAPI = category => {
   });
 };
 
-// export const getMainPageAPI = () => {
-//   return axios.get('/recipes/main-page').then(({ data }) => {
-//     console.log('api', data);
-//     return data;
-//   });
-// };
-
 export const getAllRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
     return data;
@@ -44,8 +37,6 @@ export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
     .get(`/recipes/search/recipes`, {
       params: {
         q: query,
-        _page: page,
-        _limit: perPage,
       },
     })
     .then(({ data }) => {

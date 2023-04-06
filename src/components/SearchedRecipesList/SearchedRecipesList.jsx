@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 import { SearchNotFound } from './SearchNotFound';
 import Notiflix from 'notiflix';
-import { useMediaQuery } from 'react-responsive';
-
 import { getRecipesByQuery } from 'redux/commonRecipes/commonOperations';
 import { getRecipesByIngredient } from 'redux/searchByIngredients/ingredientsOperations';
 import {
@@ -21,7 +19,7 @@ const SearchedRecipesList = () => {
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(false);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   // const { isTablet, isDesktop } = useMediaRules();
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getError);
@@ -51,12 +49,8 @@ const SearchedRecipesList = () => {
         type: type1,
       })
     );
-    setPage(1);
+    // setPage(1);
   };
-
-  // const handleChange = (event, value) => {
-  //   setPage(value);
-  // };
 
   useEffect(() => {
     if (query === '' || type === '') return;
