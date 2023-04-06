@@ -120,7 +120,7 @@ export const StyledLogOutBtn = styled.button`
 export const StyledCancelBtn = styled.button`
   background: var(--light-gray);
   border-radius: 6px;
-  border: none;
+  border: 1px solid var(--light-gray);
 
   min-width: 137px;
   padding: 14px 18px;
