@@ -5,10 +5,7 @@ import { lazy, Suspense } from 'react';
 
 import * as authOperations from 'redux/auth/authOperations';
 
-import {
-  selectToken,
-  // selectIsFetchingCurrentUser,
-} from 'redux/auth/authSelectors';
+import { selectToken } from 'redux/auth/authSelectors';
 import { setAccessToken } from 'redux/auth/authSlice';
 
 import Loader from 'components/Loader/Loader';
@@ -42,32 +39,28 @@ export const App = () => {
   const accessToken = useSelector(selectToken);
   const location = window.location;
 
+  // код ниже для Google авторизации
   // useEffect(() => {
   //   if (!token) {
   //     return;
   //   }
-  //   // console.log(token);
-
   //   dispatch(authOperations.refreshToken());
-  //   // dispatch(authOperations.getAllUserInfo());
   // }, [dispatch]);
 
   useEffect(() => {
     if (accessToken) {
       authOperations.setAuthHeader(accessToken);
       dispatch(setAccessToken(accessToken));
-      // dispatch(authOperations.getAllUserInfo());
       if (
         location.pathname === '/yummy-app-front/signin' ||
         location.pathname === '/yummy-app-front/register'
       ) {
         location.pathname = '/yummy-app-front/main';
-        // dispatch(authOperations.getAllUserInfo());
       }
     }
   }, [accessToken, dispatch, location]);
 
-  // TODO убрать /yummy-app-front/ из location.pathname и перед деплоем на Netlify
+  // TODO убрать /yummy-app-front/ из location.pathname перед деплоем на Netlify
 
   return (
     <BrowserRouter basename="/yummy-app-front">

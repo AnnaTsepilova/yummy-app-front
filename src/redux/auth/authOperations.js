@@ -74,49 +74,49 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-// export const getUserById = createAsyncThunk(
-//   'auth/user',
-//   async (userId, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     token.set(state.auth.accessToken);
-//     try {
-//       const { data } = await axios.get(`/auth/${userId}`);
-//       return data;
-//     } catch (error) {
-//       Notify.warning(error.response.data.message, {
-//         fontSize: '16px',
-//         width: '350px',
-//       });
+export const getUserById = createAsyncThunk(
+  'auth/user',
+  async (userId, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
+    try {
+      const { data } = await axios.get(`/auth/${userId}`);
+      return data;
+    } catch (error) {
+      Notify.warning(error.response.data.message, {
+        fontSize: '16px',
+        width: '350px',
+      });
 
-//       return thunkAPI.rejectWithValue({
-//         message: error.message,
-//         code: error.response.status,
-//       });
-//     }
-//   }
-// );
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
+    }
+  }
+);
 
-// export const updateUserById = createAsyncThunk(
-//   'auth/user',
-//   async (userId, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     token.set(state.auth.accessToken);
-//     try {
-//       const { data } = await axios.put(`/auth/${userId}`);
-//       return data;
-//     } catch (error) {
-//       Notify.warning(error.response.data.message, {
-//         fontSize: '16px',
-//         width: '350px',
-//       });
+export const updateUserById = createAsyncThunk(
+  'auth/updateUser',
+  async (user, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
+    try {
+      const { data } = await axios.put(`/auth/${state.auth.userId}`, user);
+      return data;
+    } catch (error) {
+      Notify.warning(error.response.data.message, {
+        fontSize: '16px',
+        width: '350px',
+      });
 
-//       return thunkAPI.rejectWithValue({
-//         message: error.message,
-//         code: error.response.status,
-//       });
-//     }
-//   }
-// );
+      return thunkAPI.rejectWithValue({
+        message: error.message,
+        code: error.response.status,
+      });
+    }
+  }
+);
 
 // export const upLoadAvatar = createAsyncThunk(
 //   'auth/user',
