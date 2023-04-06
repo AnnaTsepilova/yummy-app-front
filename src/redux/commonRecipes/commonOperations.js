@@ -2,32 +2,61 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import {
-  getCategoryListAPI,
+  // getCategoryListAPI,
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
   getRecipesByIngredientAPI,
 } from 'service/API/dishesApi';
 
-const setToken = accessToken => {
-  if (accessToken) {
-    axios.defaults.headers.common.authorization = `Bearer ${accessToken}`;
-  } else {
-    delete axios.defaults.headers.common.authorization;
-  }
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset(token) {
+    axios.defaults.headers.common.Authorization = '';
+  },
 };
 
 export const getCategoryList = createAsyncThunk(
   'commonRecipes/categoryList',
-  async (_, { rejectWithValue }) => {
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
+    try {
+      const { data } = await axios.get('/recipes/category-list');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.status);
+    }
+  }
+);
+
+// export const getCategoryList = createAsyncThunk(
+//   'commonRecipes/categoryList',
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const data = await getCategoryListAPI();
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.status);
+//     }
+//   }
+// );
+
+export const getMainPage = createAsyncThunk(
+  'commonRecipes/mainPage',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
     setToken(
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmQ4YTE2NjU2NTMxYzYzZDdiOTc2NyIsInNpZCI6IjY0MmQ5YzIyZDA2NTA1NzhkYjEzZTNiMyIsImlhdCI6MTY4MDcxMDY5MCwiZXhwIjoxNjgwNzE0MjkwfQ.n0ZTeHXnHHTCXJJebTbX_oSs8oq2CCrLdgdADj_MRqs'
     );
     try {
-      const data = await getCategoryListAPI();
+      const { data } = await axios.get('/recipes/main-page');
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.status);
+      return thunkAPI.rejectWithValue(error.response.status);
     }
   }
 );

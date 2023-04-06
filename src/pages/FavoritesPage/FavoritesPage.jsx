@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
-import Header from 'components/Header/Header';
 import PageHeader from 'components/PageHeader/PageHeader';
 import {
   removeRecipeFromFavorite,
@@ -14,12 +13,13 @@ import {
   selectUserError,
 } from 'redux/userRecipes/userRecipesSelectors';
 import Loader from 'components/Loader/Loader';
-import NotFound from 'components/NotFound/NotFound';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectUserError);
+
+  console.log(error);
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,6 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <Header />
       <PageHeader>Favorites</PageHeader>
       {isLoading ? (
         <Loader />
@@ -40,7 +39,6 @@ const FavoritesPage = () => {
           removeFnc={removeRecipeFromFavorite}
         />
       )}
-      {error && <NotFound />}
     </>
   );
 };

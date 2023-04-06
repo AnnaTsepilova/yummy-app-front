@@ -6,7 +6,6 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   height: auto;
-  padding-top: 18px;
 
   @media screen and (min-width: 768px) {
     padding-top: 19px;
