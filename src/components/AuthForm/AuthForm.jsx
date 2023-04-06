@@ -8,6 +8,9 @@ import * as authOperations from 'redux/auth/authOperations';
 import iconUser from 'images/AuthImages/icon-user-mob.svg';
 import iconMail from 'images/AuthImages/icon-mail-mob.svg';
 import iconLock from 'images/AuthImages/icon-lock-mob.svg';
+import iconUserTab from 'images/AuthImages/icon-user-tab.svg';
+import iconMailTab from 'images/AuthImages/icon-mail-tab.svg';
+import iconLockTab from 'images/AuthImages/icon-lock-tab.svg';
 import {
   FormContainer,
   FormWrapper,
@@ -140,7 +143,7 @@ const RegisterForm = () => {
             autoComplete="on"
           >
             {!isLogin && (
-              <InputWrap iconUrl={iconUser}>
+              <InputWrap iconUrl={iconUser} iconTabUrl={iconUserTab}>
                 <FormInput
                   placeholder="Name"
                   onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
@@ -154,7 +157,7 @@ const RegisterForm = () => {
                 />
               </InputWrap>
             )}
-            <InputWrap iconUrl={iconMail}>
+            <InputWrap iconUrl={iconMail} iconTabUrl={iconMailTab}>
               <FormInput
                 placeholder="Email"
                 onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
@@ -167,7 +170,7 @@ const RegisterForm = () => {
                 value={email}
               />
             </InputWrap>
-            <InputWrap iconUrl={iconLock}>
+            <InputWrap iconUrl={iconLock} iconTabUrl={iconLockTab}>
               <FormInput
                 placeholder="Password"
                 onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
