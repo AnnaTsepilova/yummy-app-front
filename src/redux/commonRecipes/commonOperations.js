@@ -1,20 +1,58 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 import {
-  getCategoryListAPI,
+  // getCategoryListAPI,
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
 } from 'service/API/dishesApi';
 
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset(token) {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
 export const getCategoryList = createAsyncThunk(
   'commonRecipes/categoryList',
-  async (_, { rejectWithValue }) => {
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
     try {
-      const data = await getCategoryListAPI();
+      const { data } = await axios.get('/recipes/category-list');
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.status);
+      return thunkAPI.rejectWithValue(error.response.status);
+    }
+  }
+);
+
+// export const getCategoryList = createAsyncThunk(
+//   'commonRecipes/categoryList',
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const data = await getCategoryListAPI();
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.status);
+//     }
+//   }
+// );
+
+export const getMainPage = createAsyncThunk(
+  'commonRecipes/mainPage',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    token.set(state.auth.accessToken);
+    try {
+      const { data } = await axios.get('/recipes/main-page');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.status);
     }
   }
 );
