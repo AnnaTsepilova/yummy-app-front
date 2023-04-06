@@ -38,7 +38,7 @@ const authSlice = createSlice({
     builder
       .addCase(authOperations.signUp.pending, handlePending)
       .addCase(authOperations.signUp.fulfilled, (state, action) => {
-        state.userId = action.payload.id;
+        state.userId = action.payload.user.id;
       })
       .addCase(authOperations.signUp.rejected, handleRejected)
 
@@ -47,7 +47,9 @@ const authSlice = createSlice({
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.sid = action.payload.sid;
+        state.userId = action.payload.user.id;
         state.userEmail = action.payload.user.email;
+        state.userName = action.payload.user.name;
         state.isLoggedIn = true;
       })
       .addCase(authOperations.signIn.rejected, handleRejected)
@@ -70,14 +72,22 @@ const authSlice = createSlice({
         state.sid = action.payload.newSid;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.refreshToken.rejected, (state, action) => {});
+      .addCase(authOperations.refreshToken.rejected, (state, action) => {})
 
-    // .addCase(authOperations.getUserById.pending, handlePending)
-    // .addCase(authOperations.getUserById.fulfilled, (state, action) => {
-    //   state.userEmail = action.payload.email;
-    //   state.isLoggedIn = true;
-    // })
-    // .addCase(authOperations.getUserById.rejected, handleRejected);
+      .addCase(authOperations.getUserById.pending, handlePending)
+      .addCase(authOperations.getUserById.fulfilled, (state, action) => {
+        state.userEmail = action.payload.email;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.getUserById.rejected, handleRejected)
+
+      .addCase(authOperations.updateUserById.pending, handlePending)
+      .addCase(authOperations.updateUserById.fulfilled, (state, action) => {
+        state.userEmail = action.payload.email;
+        state.userName = action.payload.name;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.updateUserById.rejected, handleRejected);
   },
 });
 
