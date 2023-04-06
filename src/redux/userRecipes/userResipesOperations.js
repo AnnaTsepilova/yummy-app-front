@@ -36,9 +36,10 @@ export const addUserShoppingList = createAsyncThunk(
 
 export const removeFromShoppingList = createAsyncThunk(
   'shopping-list/remove',
-  async (id, obj, { rejectWithValue }) => {
+  async (obj, { rejectWithValue, dispatch }) => {
     try {
-      const data = await deleteShoppingList(id, obj);
+      const data = await deleteShoppingList(obj);
+      dispatch(getUserShoppingList());
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

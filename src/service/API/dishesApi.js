@@ -54,9 +54,12 @@ export const addShoppingList = async obj => {
   }
 };
 
-export const deleteShoppingList = async (id, obj) => {
+export const deleteShoppingList = async (obj) => {
+  setToken(
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
+  );
   try {
-    const { data } = await axios.delete(`/shopping-list/${id}`, obj);
+    const { data } = await axios.delete(`/shopping-list/remove/${obj.id}?measure=${obj.measure}`);
     return data;
   } catch (error) {
     console.log(error.message);

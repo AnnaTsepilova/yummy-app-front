@@ -1,6 +1,5 @@
 import React from 'react';
-import { Notify } from 'notiflix';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import {
   BGDots,
@@ -10,7 +9,6 @@ import {
   EmptyShoppingListImg,
   EmptyShoppingListText,
 } from './IngredientsShoppingList.styled';
-import { patchShoppingList, getShoppingList } from 'service/API/dishesApi';
 import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
 import Loader from 'components/Loader/Loader';
 import ShoppingItem from './ShoppingItem/ShoppingItem';
@@ -26,46 +24,22 @@ import {
 } from 'redux/userRecipes/userRecipesSelectors';
 
 const IngredientsShoppingList = () => {
-  const [list, setList] = useState({ id: '', measure: '' });
-  // const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const shoppingList = useSelector(selectShoppingList);
   const isLoading = useSelector(selectIsLoading);
 
-  const handleDeleteIngridient = async (id, item, e) => {
-    // console.log(id, item);
-    if (e.target.disabled) return;
-    e.target.disabled = true;
-    await patchShoppingList({ productId: id, measure: item })
-      .then(({ shoppingList }) => {
-        setList(shoppingList);
-        Notify.success('You removed ingridient from shopping list', {
-          NotiflixId: '1234',
-        });
-      })
-      .catch(error => console.log(error.message));
+  const handleDeleteIngridient = (id, item, e) => {
+    const list = {
+      id: id,
+      measure: item,
+    };
+    // console.log(list);
+    dispatch(removeFromShoppingList(list));
   };
-
   useEffect(() => {
     dispatch(getUserShoppingList());
   }, [dispatch]);
 
-  // useEffect(() => {
-
-  //   setIsLoading(true);
-  //   setTimeout(async () => {
-  //     await getShoppingList()
-  //       .then(({ shoppingList }) => {
-  //         setList(shoppingList);
-  //         console.log(shoppingList);
-  //       })
-  //       .catch(error => console.log(error));
-  //     setIsLoading(false);
-  //   }, 1000);
-  //   return;
-  // }, []);
-
-  // console.log(list);
   return (
     <DivContainer>
       <BGDots />

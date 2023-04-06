@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import img from 'images/Search/not-found-img.png';
 
 export const BGDots = styled.div`
-  /* z-index: -1; */
   position: absolute;
   width: 345px;
   height: 192px;
@@ -16,7 +15,6 @@ export const BGDots = styled.div`
 `;
 
 export const DivContainer = styled.div`
-  /* z-index: -1; */
   position: relative;
   margin-bottom: 400px;
   width: 345px;
