@@ -76,7 +76,7 @@ export const InputWrap = styled.div`
   }
   &::placeholder {
     margin-left: 40px;
-    font-family: 'Poppins';
+
     font-size: 14px;
     line-height: 1.5;
     color: var(--primary-white);
@@ -129,7 +129,7 @@ export const FormInput = styled.input`
 
   &::placeholder {
     margin-left: 40px;
-    font-family: 'Poppins';
+
     font-size: 14px;
     line-height: 1.5;
     color: var(--primary-white);
