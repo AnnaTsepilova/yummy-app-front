@@ -36,10 +36,11 @@ export const Right = styled.div`
   width: 375px;
   height: 824px;
   background-image: url('${rightBcgMob}');
-  background-size: cover;
+  background-repeat: no-repeat;
   @media screen and (min-width: 768px) {
     top: 0;
-    width: 596px;
+    right: 0;
+    width: 580px;
     height: 789px;
     background-image: url('${rightBcgTab}');
   }

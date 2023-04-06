@@ -7,7 +7,6 @@ export const PopUp = styled.div`
   width: 225px;
   margin-left: 100px;
   background-color: var(--primary-white);
-  /* background-color: yellow; */
 
   margin-bottom: 115px;
   @media screen and (min-width: 768px) {
@@ -60,4 +59,7 @@ export const RecipeLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  &:hover {
+    color: #8baa36;
+  }
 `;

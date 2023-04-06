@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Input = styled.input`
   border-radius: 18px 44px;
   background-color: var(--primary-white);
-  padding: 17px 32px;
+  padding: 16px 31px;
   border: none;
 
   width: 295px;
@@ -15,10 +15,10 @@ export const Input = styled.input`
   @media screen and (min-width: 768px) {
     width: 362px;
     font-size: 16px;
-    padding: 18px 38px;
+    padding: 17px 37px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 23px 48px;
+    padding: 22px 47px;
     width: 510px;
   }
 `;
@@ -48,7 +48,7 @@ export const BtnWrapper = styled.div`
   top: -1px;
   right: 7%;
   @media screen and (min-width: 768px) {
-    top: -1px;
+    /* top: -1px; */
     right: -1px;
   }
 `;
