@@ -15,40 +15,58 @@ import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
 import Loader from 'components/Loader/Loader';
 import ShoppingItem from './ShoppingItem/ShoppingItem';
 import Title from 'components/IngredientsShoppingList/Title/Title';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getUserShoppingList,
+  removeFromShoppingList,
+} from 'redux/userRecipes/userResipesOperations';
+import {
+  selectIsLoading,
+  selectShoppingList,
+} from 'redux/userRecipes/userRecipesSelectors';
 
 const IngredientsShoppingList = () => {
-  const [list, setList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [list, setList] = useState({ id: '', measure: '' });
+  // const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const shoppingList = useSelector(selectShoppingList);
+  const isLoading = useSelector(selectIsLoading);
 
-  const handleDeleteIngridient = async (productId, item, e) => {
-    if (e.target.disabled) return;
-    e.target.disabled = true;
-    await patchShoppingList({ productId: productId, measure: item })
-      .then(({ shoppingList }) => {
-        setList(shoppingList);
-        Notify.success('You removed ingridient from shopping list', {
-          NotiflixId: '1234',
-        });
-      })
-      .catch(error => console.log(error.message));
+  const handleDeleteIngridient = async (id, item, e) => {
+    console.log(id, item);
+    // if (e.target.disabled) return;
+    // e.target.disabled = true;
+    // await patchShoppingList({ productId: Id, measure: item })
+    //   .then(({ shoppingList }) => {
+    //     setList(shoppingList);
+    //     Notify.success('You removed ingridient from shopping list', {
+    //       NotiflixId: '1234',
+    //     });
+    //   })
+    //   .catch(error => console.log(error.message));
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(async () => {
-      await getShoppingList()
-        .then(({ shoppingList }) => {
-          setList(shoppingList);
-          console.log(shoppingList);
-        })
-        .catch(error => console.log(error));
-      setIsLoading(false);
-    }, 1000);
-    return;
-  }, []);
+    dispatch(getUserShoppingList());
+  }, [dispatch]);
+
+  console.log(shoppingList);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setTimeout(async () => {
+  //     await getShoppingList()
+  //       .then(({ shoppingList }) => {
+  //         setList(shoppingList);
+  //         console.log(shoppingList);
+  //       })
+  //       .catch(error => console.log(error));
+  //     setIsLoading(false);
+  //   }, 1000);
+  //   return;
+  // }, []);
 
   // console.log(list);
-
+  console.log(shoppingList.length);
   return (
     <DivContainer>
       <BGDots />
@@ -56,16 +74,16 @@ const IngredientsShoppingList = () => {
       <TitleShoppingList />
       {isLoading ? (
         <Loader />
-      ) : list.length > 0 ? (
+      ) : shoppingList.length > 0 ? (
         <ShoppingItemList>
-          {list.map(({ thumb, title, messure, productId }, index) => (
+          {shoppingList.map(({ thb, ttl, measure, id }, index) => (
             <ShoppingItem
               key={nanoid()}
-              image={thumb}
-              name={title}
-              messure={messure}
-              id={productId}
-              onDelete={(item, e) => handleDeleteIngridient(productId, item, e)}
+              image={thb}
+              name={ttl}
+              measure={measure}
+              id={id}
+              onDelete={(item, e) => handleDeleteIngridient(id, item, e)}
             />
           ))}
         </ShoppingItemList>

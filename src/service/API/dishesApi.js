@@ -2,7 +2,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
 
-<<<<<<< HEAD
 const setToken = accessToken => {
   if (accessToken) {
     axios.defaults.headers.common.authorization = `Bearer ${accessToken}`;
@@ -16,13 +15,6 @@ export const getCategoryListAPI = () => {
     return data;
   });
 };
-=======
-// export const getCategoryListAPI = () => {
-//   return axios.get('/recipes/category-list').then(({ data }) => {
-//     return data;
-//   });
-// };
->>>>>>> 82fb8964833f8341a9628d08c538f6a40c9cf481
 
 export const patchShoppingList = async info => {
   try {
@@ -36,20 +28,35 @@ export const patchShoppingList = async info => {
 
 export const getShoppingList = async () => {
   setToken(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MjgzZTIwNTg4MmM5MTRkZGIzNTQ3YiIsInNpZCI6IjY0MmQ5OWMxZDA2NTA1NzhkYjEzZTM4NyIsImlhdCI6MTY4MDcxMDA4MSwiZXhwIjoxNjgwNzEzNjgxfQ.q5PQPDheFX_sQbx7CW_jqSm4AHR1JNoMPEIkSeO6w_I'
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
   );
   try {
     const { data } = await axios.get(`/shopping-list/`);
-    return data;
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
   } catch (error) {
     console.log(error.message);
     return null;
   }
 };
 
-export const deleteShoppingList = async id => {
+export const addShoppingList = async obj => {
+  setToken(
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
+  );
   try {
-    const { data } = await axios.delete(`/shopping-list/${id}`);
+    const { data } = await axios.post(`/shopping-list/add`, obj);
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const deleteShoppingList = async (id, obj) => {
+  try {
+    const { data } = await axios.delete(`/shopping-list/${id}`, obj);
     return data;
   } catch (error) {
     console.log(error.message);

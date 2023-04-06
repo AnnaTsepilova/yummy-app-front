@@ -5,6 +5,9 @@ import {
   getMyRecipe,
   removeMyRecipe,
   removeRecipeFromFavorite,
+  getUserShoppingList,
+  addUserShoppingList,
+  removeFromShoppingList,
 } from './userResipesOperations';
 
 const pending = state => {
@@ -18,6 +21,7 @@ const rejected = (state, { payload }) => {
 
 const initialState = {
   myRecipes: [],
+  shoppingList: [],
   favorite: [],
   isLoading: false,
   error: null,
@@ -58,7 +62,31 @@ const userResipesSlice = createSlice({
         const index = state.myRecipes.findIndex(item => item.id === payload);
         state.myRecipes.splice(index, 1);
       })
-      .addCase(removeMyRecipe.rejected, rejected),
+      .addCase(removeMyRecipe.rejected, rejected)
+      .addCase(getUserShoppingList.pending, pending)
+      .addCase(getUserShoppingList.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.shoppingList = payload.shoppingList;
+        // console.log('payload', payload.shoppingList);
+      })
+      .addCase(getUserShoppingList.rejected, rejected)
+      .addCase(addUserShoppingList.pending, pending)
+      .addCase(addUserShoppingList.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.shoppingList = payload.shoppingList;
+        // console.log('payload', payload.shoppingList);
+      })
+      .addCase(addUserShoppingList.rejected, rejected)
+      .addCase(removeFromShoppingList.pending, pending)
+      .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.shoppingList = payload.shoppingList;
+        // console.log('payload', payload.shoppingList);
+      })
+      .addCase(removeFromShoppingList.rejected, rejected),
 });
 
 export default userResipesSlice.reducer;

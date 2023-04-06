@@ -7,7 +7,7 @@ import ShoppingItemNumber from '../ShoppingItemNumber/ShoppingItemNumber';
 import { ReactComponent as CloseIcon } from '../../../images/AddRecipe/close.svg';
 import defaultImage from '../../../images/HeaderMenu/header-menu.svg';
 
-const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
+const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
   return (
     <WrapperLi>
       <ShoppingItemPhoto image={image ? image : defaultImage} />
@@ -15,7 +15,7 @@ const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
         <ShoppingItemDescription name={name} />
       </div>
       <div>
-        {messure.map(item => (
+        {[measure].map(item => (
           <RightWrapper key={nanoid()}>
             <ShoppingItemNumber text={item} />
             <Button
@@ -24,7 +24,6 @@ const ShoppingItem = ({ image, name, messure, id, onDelete }) => {
                 onDelete(item, e);
               }}
             >
-              KNOPKA
               <CloseIcon width="18px" height="18px" />
             </Button>
           </RightWrapper>
