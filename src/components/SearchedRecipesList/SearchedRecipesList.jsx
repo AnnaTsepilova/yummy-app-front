@@ -6,18 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 import { SearchNotFound } from './SearchNotFound';
 import Notiflix from 'notiflix';
+import { useMediaQuery } from 'react-responsive';
 
+import { getRecipesByQuery } from 'redux/commonRecipes/commonOperations';
+import { getRecipesByIngredient } from 'redux/searchByIngredients/ingredientsOperations';
 import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
-import {
-  getRecipesByQuery,
-  getRecipesByIngredient,
-} from 'redux/commonRecipes/commonOperations';
-import { SearchTypeSelector } from 'components/SearchTypeSelector/SearchTypeSelector';
-
-import { useMediaQuery } from 'react-responsive';
 
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,7 +24,6 @@ const SearchedRecipesList = () => {
   const [page, setPage] = useState(1);
   // const { isTablet, isDesktop } = useMediaRules();
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
-
   const errorSearch = useSelector(getError);
   // const totalQuery = recipesBySearchQuery.totalHits;
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
@@ -70,8 +65,7 @@ const SearchedRecipesList = () => {
       dispatch(getRecipesByQuery({ query }));
       setRequest(true);
     } else {
-      dispatch();
-      // getRecipesByIngredient({ ingredient: query });
+      dispatch(getRecipesByIngredient({ ingredientTtl: query }));
       setRequest(true);
     }
   }, [dispatch, type, query]);

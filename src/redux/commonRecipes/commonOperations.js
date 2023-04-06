@@ -87,6 +87,25 @@ export const getAllRecipesByCategory = createAsyncThunk(
   }
 );
 
+// export const getRecipesByQuery = createAsyncThunk(
+//   'outerRecipes/recipesByQuery',
+//   async (params, { rejectWithValue, getState }) => {
+//     const state = getState();
+//     const persistedAccessToken = state.auth.accessToken;
+//     if (!persistedAccessToken) {
+//       return rejectWithValue();
+//     }
+//     token.set(persistedAccessToken);
+//     try {
+//       const { query, page, per_page } = params;
+//       const data = await getRecipesByQueryAPI(query, page, per_page);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.status);
+//     }
+//   }
+// );
+
 export const getRecipesByQuery = createAsyncThunk(
   'outerRecipes/recipesByQuery',
   async (params, { rejectWithValue, getState }) => {
@@ -97,8 +116,8 @@ export const getRecipesByQuery = createAsyncThunk(
     }
     token.set(persistedAccessToken);
     try {
-      const { query, page, per_page } = params;
-      const data = await getRecipesByQueryAPI(query, page, per_page);
+      const { query, page, perPage } = params;
+      const data = await getRecipesByQueryAPI(query, page, perPage);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
