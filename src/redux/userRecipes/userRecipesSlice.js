@@ -83,7 +83,6 @@ const userResipesSlice = createSlice({
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.shoppingList = payload.shoppingList;
         // console.log('payload', payload.shoppingList);
       })
       .addCase(removeFromShoppingList.rejected, rejected),
