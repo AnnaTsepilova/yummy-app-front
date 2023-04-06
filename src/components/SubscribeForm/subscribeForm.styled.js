@@ -91,6 +91,11 @@ export const InputWrap = styled.div`
     background-image: url(${icoMailMob});
     background-size: contain;
     background-repeat: no-repeat;
+
+    @media only screen and (min-width: 768px) {
+      width: 20px;
+      height: 16px;
+    }
   }
 
   ${formInputStyles}
@@ -136,13 +141,19 @@ export const Input = styled.input`
   background: transparent;
 
   ${formInputStyles}
+  ::placeholder {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--primary-white);
 
-  @media (min-width: 768px) {
-    padding: 15px 0 14px 51px;
-  }
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
 
-  @media (min-width: 1440px) {
-    padding: 18px 0 17px 52px;
+    @media only screen and (min-width: 1440px) {
+      font-size: 18px;
+    }
   }
 `;
 
