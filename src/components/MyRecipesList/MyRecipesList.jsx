@@ -7,7 +7,7 @@ const MyRecipesList = ({ items, btnStyle, removeFnc }) => {
   return (
     <>
       {items.length === 0 ? (
-        <SearchNotFound text={'Thre will be your recipes here'} />
+        <SearchNotFound text={'Your recipes will be soon here.'} />
       ) : (
         <RecipeList>
           {items.map(item => {
