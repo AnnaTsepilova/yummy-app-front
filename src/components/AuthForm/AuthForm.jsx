@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import * as authOperations from 'redux/auth/authOperations';
-
 import iconUser from 'images/AuthImages/icon-user-mob.svg';
 import iconMail from 'images/AuthImages/icon-mail-mob.svg';
 import iconLock from 'images/AuthImages/icon-lock-mob.svg';
+import iconUserTab from 'images/AuthImages/icon-user-tab.svg';
+import iconMailTab from 'images/AuthImages/icon-mail-tab.svg';
+import iconLockTab from 'images/AuthImages/icon-lock-tab.svg';
+import iconError from 'images/AuthImages/error.svg';
+import iconUserTabE from 'images/AuthImages/icon-user-tab-e.svg';
+import iconMailTabE from 'images/AuthImages/icon-mail-tab-e.svg';
+import iconLockTabE from 'images/AuthImages/icon-lock-tab-e.svg';
+
 import {
   FormContainer,
   FormWrapper,
@@ -18,178 +26,156 @@ import {
   FormSwitch,
   FormLink,
   InputWrap,
+  Error,
+  Correct,
 } from 'components/AuthForm/AuthForm.styled';
-
 const RegisterForm = () => {
   const { pathname } = useLocation();
   const isLogin = pathname === '/signin';
-
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  /* eslint-disable-next-line */
-  const [errors, setErrors] = useState([]);
-  /* eslint-disable-next-line */
-  const [emailInvalid, setEmailInvalid] = useState(false);
-  /* eslint-disable-next-line */
-  const [passwordInvalid, setPasswordInvalid] = useState(false);
-
-  const reset = () => {
-    setEmail('');
-    setPassword('');
-  };
-
-  const handleChangeSignUp = event => {
-    const {
-      target: { name, value },
-    } = event;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        break;
-    }
-    // handleValidation(event);
-  };
-
-  const handleChangeSignIn = event => {
-    const {
-      target: { name, value },
-    } = event;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'password':
-        setPassword(value);
-        break;
-      default:
-        break;
-    }
-    // handleValidation(event);
-  };
-
-  const handleSubmitSignUp = event => {
-    event.preventDefault();
-    // handleValidation(event);
-    const data = new FormData(event.currentTarget);
-    console.log(data.get('name'));
-    dispatch(
-      authOperations.signUp({
-        name: data.get('name'),
-        email: data.get('email'),
-        password: data.get('password'),
-      })
-    ).then(result => {
-      if (result.type === 'auth/signup/rejected') {
-        return;
-      }
-      Notify.success('Your registration is successful', {
-        fontSize: '16px',
-        width: '350px',
-        padding: '10px',
-      });
-      dispatch(
-        authOperations.signIn({
-          email: data.get('email'),
-          password: data.get('password'),
-        })
+  const [nameError, setNameError] = useState(false);
+  const [nameCorrect, setNameCorrect] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const nameValidation = !isLogin
+    ? Yup.string().nullable().required('Name is required')
+    : Yup.string().test(
+        'len',
+        'Name must be at least 3 characters long',
+        value => !value || value.length >= 3
       );
-      reset();
-    });
-  };
-
-  const handleSubmitSignIn = event => {
-    event.preventDefault();
-    // handleValidation(event);
-    const data = new FormData(event.currentTarget);
-
-    dispatch(
-      authOperations.signIn({
-        email: data.get('email'),
-        password: data.get('password'),
-      })
-    ).then(result => {
-      if (result.type === 'auth/signin/rejected') {
-        return;
+  const registrationSchema = Yup.object({
+    name: nameValidation,
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(5, 'Password must be at least 5 characters')
+      .required('Enter a valid Password'),
+  });
+  const initialValues = { name: '', email: '', password: '' };
+  const formik = useFormik({
+    initialValues,
+    validationSchema: registrationSchema,
+    onSubmit: values => {
+      if (isLogin) {
+        dispatch(authOperations.signIn(values));
+      } else {
+        dispatch(authOperations.signUp(values)).then(result => {
+          if (result.type === 'auth/signup/rejected') {
+            return;
+          }
+          Notify.success('Your registration is successful', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
+          dispatch(authOperations.signIn(values));
+          formik.resetForm();
+        });
       }
-    });
-    reset();
+    },
+  });
+  useEffect(() => {
+    setIsFormValid(formik.isValid);
+  }, [formik.isValid]);
+
+  const handleNameChange = e => {
+    formik.handleChange(e);
+    const value = e.target.value.trim();
+    if (value.length === 0) {
+      setNameError(true);
+      setNameCorrect(false);
+    } else if (value.length < 3) {
+      setNameError(true);
+      setNameCorrect(false);
+    } else {
+      setNameError(false);
+      setNameCorrect(true);
+    }
   };
 
   return (
-    <>
-      <FormContainer>
-        <FormWrapper>
-          <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
-          <Form
-            className={isLogin ? 'signin' : ''}
-            onSubmit={isLogin ? handleSubmitSignIn : handleSubmitSignUp}
-            autoComplete="on"
+    <FormContainer>
+      <FormWrapper>
+        <FormTitle>{isLogin ? 'Sign In' : 'Registration'}</FormTitle>
+        <Form
+          className={isLogin ? 'signin' : ''}
+          onSubmit={formik.handleSubmit}
+        >
+          {!isLogin && (
+            <InputWrap
+              iconUrl={iconUser}
+              iconTabUrl={iconUserTab}
+              iconTabUrlE={iconUserTabE}
+              iconError={iconError}
+              {...formik.getFieldProps('name')}
+              error={Boolean(formik.touched.name && formik.errors.name)}
+            >
+              <FormInput
+                placeholder="Name"
+                onChange={handleNameChange}
+                onBlur={formik.handleBlur}
+                type="text"
+                name="name"
+                autoComplete="name"
+                value={formik.values.name}
+              />
+            </InputWrap>
+          )}
+          <InputWrap
+            iconUrl={iconMail}
+            iconTabUrl={iconMailTab}
+            iconTabUrlE={iconMailTabE}
+            iconError={iconError}
+            {...formik.getFieldProps('email')}
+            error={Boolean(formik.touched.email && formik.errors.email)}
           >
-            {!isLogin && (
-              <InputWrap iconUrl={iconUser}>
-                <FormInput
-                  placeholder="Name"
-                  onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
-                  // onBlur={handleValidation}
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  required
-                  autoFocus
-                  value={name}
-                />
-              </InputWrap>
+            <FormInput
+              placeholder="Email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="email"
+              name="email"
+              autoComplete="email"
+              value={formik.values.email}
+            />
+          </InputWrap>
+          <InputWrap
+            iconUrl={iconLock}
+            iconTabUrl={iconLockTab}
+            iconTabUrlE={iconLockTabE}
+            iconError={iconError}
+            {...formik.getFieldProps('password')}
+            error={Boolean(formik.touched.password && formik.errors.password)}
+          >
+            <FormInput
+              placeholder="Password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              type="password"
+              name="password"
+              autoComplete="current-password"
+              value={formik.values.password}
+            />
+            {formik.touched.password && formik.errors.password && (
+              <Error>{formik.errors.password}</Error>
             )}
-            <InputWrap iconUrl={iconMail}>
-              <FormInput
-                placeholder="Email"
-                onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
-                // onBlur={handleValidation}
-                type="email"
-                name="email"
-                autoComplete="email"
-                required
-                autoFocus
-                value={email}
-              />
-            </InputWrap>
-            <InputWrap iconUrl={iconLock}>
-              <FormInput
-                placeholder="Password"
-                onChange={isLogin ? handleChangeSignIn : handleChangeSignUp}
-                // onBlur={handleValidation}
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                required
-                autoFocus
-                value={password}
-              />
-            </InputWrap>
-            <FormButton>{isLogin ? 'Sign in' : 'Sign up'}</FormButton>
-          </Form>
-        </FormWrapper>
-        <FormSwitch>
-          <FormLink exact to={isLogin ? '/register' : '/signin'}>
-            {isLogin ? 'Registration' : 'Sign in'}
-          </FormLink>
-        </FormSwitch>
-      </FormContainer>
-    </>
+            {nameCorrect && <Correct>Password is correct</Correct>}
+            {nameError && (
+              <Error>Password must be at least 5 characters long</Error>
+            )}
+          </InputWrap>
+          <FormButton disabled={!isFormValid}>
+            {isLogin ? 'Sign in' : 'Sign up'}
+          </FormButton>
+        </Form>
+      </FormWrapper>
+      <FormSwitch>
+        <FormLink exact to={isLogin ? '/register' : '/signin'}>
+          {isLogin ? 'Registration' : 'Sign in'}
+        </FormLink>
+      </FormSwitch>
+    </FormContainer>
   );
 };
 

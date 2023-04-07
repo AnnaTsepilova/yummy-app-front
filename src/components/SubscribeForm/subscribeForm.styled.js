@@ -4,33 +4,33 @@ import icoMailMob from '../../images/Subscribe/icon-mail-sub-mob.svg';
 import icoMailTab from '../../images/Subscribe/icon-mail-sub-tab.svg';
 
 const formInputStyles = `
-font-family: 'Poppins';
-font-size: 10px;
-color: var(--primary-white);
-caret-color: var(--primary-white);
-outline: none;
-
-&::placeholder {
   font-family: 'Poppins';
   font-size: 10px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: var(--primary-white);
-}
+  caret-color: var(--primary-white);
+  outline: none;
 
-@media (min-width: 768px) {
-  font-size: 14px;
   &::placeholder {
+    font-family: 'Poppins';
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--primary-white);
+  }
+
+  @media (min-width: 768px) {
     font-size: 14px;
+    &::placeholder {
+      font-size: 14px;
+    }
   }
-}
 
-@media (min-width: 1440px) {
-  font-size: 18px;
-  &::placeholder {
+  @media (min-width: 1440px) {
     font-size: 18px;
+    &::placeholder {
+      font-size: 18px;
+    }
   }
-}
 `;
 
 export const FormWrapper = styled.div`
@@ -51,18 +51,18 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 8px;
+  ${'' /* gap: 8px; */}
 
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    gap: 12px;
+    ${'' /* gap: 12px; */}
   }
 
   @media (min-width: 1440px) {
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    ${'' /* gap: 0; */}
   }
 `;
 
@@ -75,6 +75,7 @@ export const InputWrap = styled.div`
   height: 38px;
   padding: 12px;
   transition: border 250ms ease;
+  margin-bottom: 8px;
 
   &:hover {
     border: 2px solid var(--white);
@@ -95,6 +96,7 @@ export const InputWrap = styled.div`
     @media only screen and (min-width: 768px) {
       width: 20px;
       height: 16px;
+      margin-bottom: 0;
     }
   }
 
@@ -104,6 +106,7 @@ export const InputWrap = styled.div`
     height: 50px;
     width: 259px;
     margin: 0;
+    margin-right: 12px;
 
     &::before {
       left: 15px;
@@ -117,6 +120,7 @@ export const InputWrap = styled.div`
     height: 59px;
     width: 338px;
     margin-bottom: 16px;
+    margin-right: 0px;
 
     &::before {
       left: 16px;

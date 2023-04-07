@@ -1,14 +1,9 @@
 import { useMediaQuery } from '@mui/material';
-// import { useState } from 'react';
-
+import UserInformation from './UserInformation/UserInformation';
 import MobileHeader from './MobileHeader/MobileHeader';
 
-// import Modal from 'reusableComponents/Modal/Modal';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 import HeaderNavigation from './HeaderNavigation/HeaderNavigation';
-// import MobileNavMenu from './MobileNavMenu/MobileNavMenu';
-// import MobMenuBurgerBtn from './MobileNavMenu/MobMenuBurgerBtn/MobMenuBurgerBtn';
-// import UserMenu from './UserMenu/UserMenu';
 
 import { HeaderWrapper, LogoWrapper } from './Header.styled';
 
@@ -24,20 +19,11 @@ const Header = () => {
               <HeaderLogo width={'44px'} height={'44px'} />
             </LogoWrapper>
             <HeaderNavigation />
+            <UserInformation />
           </>
         ) : (
           <MobileHeader />
         )}
-
-        {/* <UserMenu /> */}
-        {/* <MenuBurgerWrapper>
-          {isMobile && <MobMenuBurgerBtn openMenu={openMenu} />}
-        </MenuBurgerWrapper> */}
-        {/* {isMobile && mobMenu && (
-          <Modal onClose={closeMenu}>
-            <MobileNavMenu closeMenu={closeMenu} />
-          </Modal>
-        )} */}
       </HeaderWrapper>
     </>
   );

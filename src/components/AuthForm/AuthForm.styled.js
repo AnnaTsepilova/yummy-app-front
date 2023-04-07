@@ -4,28 +4,24 @@ import { NavLink } from 'react-router-dom';
 export const FormContainer = styled.div`
   margin-top: -32px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: -24px;
   }
-  @media screen and (min-width: 1440px) {
+  @media (min-width: 1440px) {
     margin-top: 0;
   }
 `;
 
 export const FormWrapper = styled.div`
   margin: 0 auto;
-  width: 100%;
+  width: 335px;
   min-height: 315px;
-  padding: 32px 28px 40px 28px;
+  padding: 32px 28px 40px;
   background: var(--modal-background);
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  @media screen and (min-width: 375px) {
-    width: 335px;
-  }
-
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     width: 500px;
     min-height: 419px;
     padding: 44px 50px;
@@ -34,13 +30,12 @@ export const FormWrapper = styled.div`
 
 export const FormTitle = styled.h1`
   margin-bottom: 18px;
-
   font-weight: 600;
   font-size: 24px;
   line-height: 1.17;
   color: var(--primary-white);
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-bottom: 32px;
     font-size: 28px;
     line-height: 1.07;
@@ -53,56 +48,85 @@ export const Form = styled.form`
 
   &.signin {
     margin-top: 43px;
+
+    @media (min-width: 768px) {
+      margin-top: 53px;
+    }
   }
 `;
 
 export const InputWrap = styled.div`
   display: flex;
   position: relative;
-
   width: 100%;
   height: 45px;
   margin-bottom: 12px;
   padding: 12px;
-
   border-radius: 6px;
-  border: 1px solid rgba(250, 250, 250, 0.3);
-  outline: none;
+  /* border: 1px solid ${({ error }) => (error ? 'red' : '#ccc')}; */
+  border: 1px solid ${props =>
+    props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3);'};
+  /* border: 1px solid ${props =>
+    props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
 
   font-size: 18px;
   color: var(--primary-white);
-
   transition: border 250ms var(--transition-function);
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover {
     border: 1px solid var(--primary-white);
   }
 
-  ::before {
+
+
+  &::placeholder {
+    margin-left: 40px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--primary-white);
+    opacity: 0.8;
+    letter-spacing: -0.02em;
+  }
+
+  &::before {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
     width: 18px;
     height: 18px;
+background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
+    background-size: contain;
+    background-repeat: no-repeat;
+   }
 
-    background-image: url(${props => props.iconUrl});
+   &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    right: 19px;
+    background-image: ${props =>
+    props.error ? `url(${props.iconError})` : ''};
     background-size: contain;
     background-repeat: no-repeat;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-bottom: 24px;
     height: 59px;
 
-    ::before {
+    &::before {
       width: 24px;
       height: 24px;
+      background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
+
     }
   }
+
 `;
 
 export const FormInput = styled.input`
@@ -112,7 +136,7 @@ export const FormInput = styled.input`
 
   width: 100%;
   height: 100%;
-  margin-left: -14px;
+  margin-left: -12px;
   padding: 12px 5px 12px 40px;
 
   background-color: transparent;
@@ -124,9 +148,9 @@ export const FormInput = styled.input`
   line-height: 1.5;
   color: var(--primary-white);
 
-  ::placeholder {
+  &::placeholder {
     margin-left: 40px;
-    font-family: 'Poppins';
+
     font-size: 14px;
     line-height: 1.5;
     color: var(--primary-white);
@@ -134,11 +158,11 @@ export const FormInput = styled.input`
     letter-spacing: -0.02em;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 18px;
     padding: 16px 10px 16px 50px;
 
-    ::placeholder {
+    &::placeholder {
       font-size: 18px;
     }
   }
@@ -168,9 +192,9 @@ export const FormButton = styled.button`
     color: var(--secondary-black);
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: 26px;
-    padding: 20px 24px;
+    padding: 19px 24px;
   }
 `;
 
@@ -192,7 +216,29 @@ export const FormLink = styled(NavLink)`
     color: var(--primary-green);
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 16px;
   }
+`;
+
+export const Error = styled.div`
+  font-size: 10px;
+  color: #e74a3b;
+  position: relative;
+  left: -13px;
+  bottom: -190%;
+
+    @media (min-width: 768px) {
+  font-size: 14px;
+  left: -13px;
+  bottom: -160%;
+  }
+`;
+
+export const Correct = styled.div`
+  font-size: 14px;
+  color: green;
+  position: relative;
+  left: -13px;
+  bottom: -160%;
 `;
