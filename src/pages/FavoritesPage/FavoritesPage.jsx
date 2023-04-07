@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 
+import Loader from 'components/Loader/Loader';
+import MainTitle from 'components/MainTitle/MainTitle';
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
-import PageHeader from 'components/PageHeader/PageHeader';
+
+import { useDispatch, useSelector } from 'react-redux';
 import {
   removeRecipeFromFavorite,
   getFavoriteRecipes,
 } from 'redux/userRecipes/userResipesOperations';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteRecipes,
   selectIsLoading,
   // selectUserError,
 } from 'redux/userRecipes/userRecipesSelectors';
-import Loader from 'components/Loader/Loader';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
@@ -27,7 +28,7 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <PageHeader>Favorites</PageHeader>
+      <MainTitle title="Favorites" />
       {isLoading ? (
         <Loader />
       ) : (

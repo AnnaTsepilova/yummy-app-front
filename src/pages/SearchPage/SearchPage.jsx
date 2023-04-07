@@ -1,15 +1,14 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { TitleBox, Title } from '../CategoriesPage/CategoriesPage.styled';
+
+import { Title } from 'pages/SearchPage/SearchPage.styled';
 import SearchedRecipesList from 'components/SearchedRecipesList/SearchedRecipesList';
 import Loader from 'components/Loader/Loader';
 
 const SearchPage = () => {
   return (
     <>
-      <TitleBox>
-        <Title>Search</Title>
-      </TitleBox>
+      <Title>Search</Title>
       <SearchedRecipesList />
       <Suspense fallback={<Loader />}>
         <Outlet />

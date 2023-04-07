@@ -1,18 +1,18 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { nanoid } from 'nanoid';
+
+import Loader from 'components/Loader/Loader';
+import TitleShoppingList from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList';
+import ShoppingItem from 'components/IngredientsShoppingList/ShoppingItem/ShoppingItem';
+
 import {
   ShoppingItemList,
   EmptyShoppingList,
   DivContainer,
   EmptyShoppingListImg,
   EmptyShoppingListText,
-  BGDots,
-} from './IngredientsShoppingList.styled';
-import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
-import Loader from 'components/Loader/Loader';
-import ShoppingItem from './ShoppingItem/ShoppingItem';
-import Title from 'components/IngredientsShoppingList/Title/Title';
+} from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserShoppingList,
@@ -42,9 +42,7 @@ const IngredientsShoppingList = () => {
 
   return (
     <>
-      <BGDots />
       <DivContainer>
-        <Title text={'Shopping list'} />
         <TitleShoppingList />
         {isLoading ? (
           <Loader />
