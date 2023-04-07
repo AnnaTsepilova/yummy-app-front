@@ -18,10 +18,9 @@ export const patchShoppingList = async info => {
   }
 };
 
-export const getShoppingList = async () => {  
+export const getShoppingList = async () => {
   try {
     const { data } = await axios.get(`/shopping-list/`);
-    console.log({ shoppingList: data });
     return { shoppingList: data };
   } catch (error) {
     console.log(error.message);
@@ -64,8 +63,8 @@ export const getAllRecipesByCategoryAPI = category => {
   });
 };
 
-export const getRecipeByIdAPI = () => {
-  return axios.get('/recipes/:id').then(({ data }) => {
+export const getRecipeByIdAPI = id => {
+  return axios.get(`/recipes/id/${id}`).then(({ data }) => {
     return data;
   });
 };
