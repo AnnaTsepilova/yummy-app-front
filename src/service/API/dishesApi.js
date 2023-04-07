@@ -18,7 +18,7 @@ export const patchShoppingList = async info => {
   }
 };
 
-export const getShoppingList = async () => {
+export const getShoppingList = async () => {  
   try {
     const { data } = await axios.get(`/shopping-list/`);
     console.log({ shoppingList: data });
