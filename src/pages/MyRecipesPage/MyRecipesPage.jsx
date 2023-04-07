@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
-import PageTitle from 'components/PageTitle/PageTitle';
+import MainTitle from 'components/MainTitle/MainTitle';
 import {
   selectMyRecipes,
   selectIsLoading,
@@ -29,7 +29,7 @@ const MyRecipesPage = () => {
 
   return (
     <>
-      <PageTitle>My recipes</PageTitle>
+      <MainTitle title="My recipes" />
       {isLoading ? (
         <Loader />
       ) : (

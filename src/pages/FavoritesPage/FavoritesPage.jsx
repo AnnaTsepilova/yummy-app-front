@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
-import PageTitle from 'components/PageTitle/PageTitle';
+import MainTitle from 'components/MainTitle/MainTitle';
 import {
   removeRecipeFromFavorite,
   getFavoriteRecipes,
@@ -27,7 +27,7 @@ const FavoritesPage = () => {
 
   return (
     <>
-      <PageTitle>Favorites</PageTitle>
+      <MainTitle title="Favorites" />
       {isLoading ? (
         <Loader />
       ) : (
