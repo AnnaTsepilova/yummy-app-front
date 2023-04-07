@@ -32,18 +32,6 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
-export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
-  return axios
-    .get(`/recipes/search/recipes`, {
-      params: {
-        q: query,
-      },
-    })
-    .then(({ data }) => {
-      return data;
-    });
-};
-
 export const getMyRecipeAPI = () => {
   return axios.get('/recipes').then(({ data }) => {
     return data;
@@ -78,13 +66,23 @@ export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+  return axios
+    .get(
+      `/recipes/search/recipes?title=${query}&ingredient=${query}&page=${page}&per_page=${per_page}`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 export const getRecipesByIngredientAPI = (
-  ingredientTtl,
+  ingredient,
   page = 1,
   per_page = 12
 ) => {
   return axios
-    .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
+    .get(`/ingredients/${ingredient}?page=${page}&per_page=${per_page}`)
     .then(({ data }) => {
       return data;
     });
