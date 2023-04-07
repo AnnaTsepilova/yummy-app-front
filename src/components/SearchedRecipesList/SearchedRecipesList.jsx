@@ -6,12 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 import { SearchNotFound } from './SearchNotFound';
 import Notiflix from 'notiflix';
-import { getRecipesByQuery } from 'redux/commonRecipes/commonOperations';
-import { getRecipesByIngredient } from 'redux/searchByIngredients/ingredientsOperations';
+import {
+  getRecipesByQuery,
+  getRecipesByIngredient,
+} from 'redux/commonRecipes/commonOperations';
+
 import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
+
+import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
 
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,24 +24,9 @@ const SearchedRecipesList = () => {
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
   const [request, setRequest] = useState(false);
-  // const [page, setPage] = useState(1);
-  // const { isTablet, isDesktop } = useMediaRules();
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getError);
-  // const totalQuery = recipesBySearchQuery.totalHits;
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
-
-  // const isTab = useMediaQuery({ minWidth: 768 });
-  // const isDesc = useMediaQuery({ minWidth: 1440 });
-
-  // let perPage;
-  // if (isDesc) {
-  //   perPage = 12;
-  // } else if (isTab) {
-  //   perPage = 6;
-  // } else {
-  //   perPage = 6;
-  // }
 
   const handleOnSubmit = (query1, type1) => {
     if (query1 === '') {
@@ -59,7 +49,7 @@ const SearchedRecipesList = () => {
       dispatch(getRecipesByQuery({ query }));
       setRequest(true);
     } else {
-      dispatch(getRecipesByIngredient({ ingredientTtl: query }));
+      dispatch(getRecipesByIngredient({ ingredient: query }));
       setRequest(true);
     }
   }, [dispatch, type, query]);
@@ -74,11 +64,17 @@ const SearchedRecipesList = () => {
       {isPending ? (
         <Loader />
       ) : (
-        <ul>
-          {recipesBySearchQuery?.data?.map(el => (
-            <RecipeCard card={el} key={el.id} />
+        <Table>
+          {console.log(recipesBySearchQuery)}
+          {recipesBySearchQuery?.results?.map(result => (
+            <RecipeCard
+              key={result._id}
+              id={result._id}
+              image={result.preview}
+              text={result.title}
+            />
           ))}
-        </ul>
+        </Table>
       )}
       {/* {totalQuery > 0 && (
         <PaginationComp

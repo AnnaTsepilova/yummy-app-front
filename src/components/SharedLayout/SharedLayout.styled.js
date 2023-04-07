@@ -39,7 +39,7 @@ export const Container = styled.div`
     padding-right: 100px;
 
     background-image: url('${DotsDesc}');
-    background-position: 320px 150px;
+    background-position: 330px 110px;
     background-size: 940px 98px;
   }
 `;

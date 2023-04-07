@@ -8,6 +8,50 @@ export const getCategoryListAPI = () => {
   });
 };
 
+export const patchShoppingList = async info => {
+  try {
+    const { data } = await axios.patch(`/shoping-list/`, info);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const getShoppingList = async () => {  
+  try {
+    const { data } = await axios.get(`/shopping-list/`);
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const addShoppingList = async obj => {
+  try {
+    const { data } = await axios.post(`/shopping-list/add`, obj);
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const deleteShoppingList = async obj => {
+  try {
+    const { data } = await axios.delete(
+      `/shopping-list/remove/${obj.id}?measure=${obj.measure}`
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
 export const getLimitedRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
     return data;
@@ -30,18 +74,6 @@ export const getRecipeByCategoryAPI = () => {
   return axios.get('/recipes/:category').then(({ data }) => {
     return data;
   });
-};
-
-export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
-  return axios
-    .get(`/recipes/search/recipes`, {
-      params: {
-        q: query,
-      },
-    })
-    .then(({ data }) => {
-      return data;
-    });
 };
 
 export const getMyRecipeAPI = () => {
@@ -78,13 +110,21 @@ export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const getRecipesByIngredientAPI = (
-  ingredientTtl,
-  page = 1,
-  per_page = 12
-) => {
+export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
   return axios
-    .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
+    .get(
+      `/recipes/search/recipes?title=${query}&ingredient=${query}&page=${page}&per_page=${per_page}`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
+  return axios
+    .get(
+      `/recipes/search/recipes?ingredient=${query}&page=${page}&per_page=${per_page}`
+    )
     .then(({ data }) => {
       return data;
     });
