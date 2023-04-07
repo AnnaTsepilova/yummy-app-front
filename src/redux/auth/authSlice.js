@@ -89,7 +89,13 @@ const authSlice = createSlice({
         state.userName = action.payload.name;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.updateUserById.rejected, handleRejected);
+      .addCase(authOperations.updateUserById.rejected, handleRejected)
+
+      .addCase(authOperations.upLoadAvatar.pending, handlePending)
+      .addCase(authOperations.upLoadAvatar.fulfilled, (state, action) => {
+        state.userAvatar = action.payload.user.avatar;
+      })
+      .addCase(authOperations.upLoadAvatar.rejected, handleRejected);
   },
 });
 

@@ -119,7 +119,7 @@ export const updateUserById = createAsyncThunk(
 );
 
 export const upLoadAvatar = createAsyncThunk(
-  'auth/user',
+  'auth/upLoadAvatar',
   async (file, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
@@ -132,7 +132,6 @@ export const upLoadAvatar = createAsyncThunk(
         },
         data: file,
       });
-      // const { data } = await axios.post('/auth/avatars', { file });
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
