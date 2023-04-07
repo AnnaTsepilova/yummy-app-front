@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { RecipeBcg } from './RecipePageHero.styled';
 import { createPortal } from 'react-dom';
 import RecipeHeroTextAdd from './RecipeHeroTextAdd/RecipeHeroTextAdd';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 // import {
 //   selectIsLoading,
 //   selectRecipe,
 // } from 'redux/userRecipes/userRecipesSelectors';
-import { getRecipeByIdAPI, getShoppingList } from 'service/API/dishesApi';
+// import { getRecipeByIdAPI, getShoppingList } from 'service/API/dishesApi';
 import RecipeInngredientsList from 'components/RecipeInngredientsList/RecipeInngredientsList';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 

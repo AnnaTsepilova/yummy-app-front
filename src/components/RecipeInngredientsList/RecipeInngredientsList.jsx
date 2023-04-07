@@ -29,7 +29,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
           </div>
         </ListItemHeader>
         {ingredients?.map(({ _id, ttl, desc, thb, measure }) => {
-          const isChecked = list?.some(item => item._id === _id);
+          const isChecked = list?.some(item => item._id === _id); // eslint-disable-line
           if (!_id) {
             return null;
           }
