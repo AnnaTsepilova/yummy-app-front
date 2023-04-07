@@ -18,6 +18,19 @@ import {
 
 import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
 
+import { MuiPag } from 'components/MuiPagination/MuiPag';
+import { useMediaQuery } from 'react-responsive';
+
+export const useMediaRules = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 768px) and (max-width: 1439px)',
+  });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
+
+  return { isMobile, isDesktop, isTablet };
+};
+
 const SearchedRecipesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -27,6 +40,23 @@ const SearchedRecipesList = () => {
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getError);
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
+
+  const totalQuery = recipesBySearchQuery.totalHits;
+  const { isTablet, isDesktop } = useMediaRules();
+  const [page, setPage] = useState(1);
+
+  let perPage;
+  if (isDesktop) {
+    perPage = 12;
+  } else if (isTablet) {
+    perPage = 6;
+  } else {
+    perPage = 6;
+  }
+
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   const handleOnSubmit = (query1, type1) => {
     if (query1 === '') {
@@ -39,20 +69,22 @@ const SearchedRecipesList = () => {
         type: type1,
       })
     );
-    // setPage(1);
+    setPage(1);
   };
 
   useEffect(() => {
     if (query === '' || type === '') return;
 
     if (type === 'title') {
-      dispatch(getRecipesByQuery({ query }));
+      dispatch(getRecipesByQuery({ query, page, per_page: perPage }));
       setRequest(true);
     } else {
-      dispatch(getRecipesByIngredient({ ingredient: query }));
+      dispatch(
+        getRecipesByIngredient({ ingredient: query, page, per_page: perPage })
+      );
       setRequest(true);
     }
-  }, [dispatch, type, query]);
+  }, [dispatch, type, query, page, perPage]);
 
   return (
     <>
@@ -76,13 +108,13 @@ const SearchedRecipesList = () => {
           ))}
         </Table>
       )}
-      {/* {totalQuery > 0 && (
-        <PaginationComp
+      {totalQuery > 0 && (
+        <MuiPag
           count={Math.ceil(totalQuery / perPage)}
           page={page}
           handleChange={handleChange}
         />
-      )} */}
+      )}
       {!request && (
         <SearchNotFound text={`You haven't searched for anything yet...`} />
       )}
