@@ -29,7 +29,6 @@ const UserProfileForm = () => {
   const dispatch = useDispatch();
 
   const onSubmitFnc = ({ password, userName, image }) => {
-    console.log(userEmail);
     const user = {
       email: userEmail,
       password,

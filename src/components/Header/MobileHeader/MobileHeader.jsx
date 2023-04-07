@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
-import { BurgerBtn, MobileHeaderWrp, UserWrp } from './MobileHeader.styled';
+import {
+  BurgerBtn,
+  MobileHeaderWrp,
+  UserWrp,
+  LogoWrp,
+} from './MobileHeader.styled';
 import { ReactComponent as MobileLogo } from 'images/Logo/logo-header.svg';
 import { ReactComponent as BurgerIcon } from 'images/HeaderMenu/header-menu.svg';
 import { useState } from 'react';
@@ -17,9 +21,9 @@ const MobileHeader = () => {
     <>
       <MobileNavMenu isOpen={isOpen} closeMenu={openNav} />
       <MobileHeaderWrp>
-        <Link to={'/main'}>
+        <LogoWrp to={'/main'}>
           <MobileLogo />
-        </Link>
+        </LogoWrp>
         <UserWrp>
           <UserIformation />
           <BurgerBtn onClick={openNav}>

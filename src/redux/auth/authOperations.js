@@ -103,6 +103,7 @@ export const updateUserById = createAsyncThunk(
     token.set(state.auth.accessToken);
     try {
       const { data } = await axios.put(`/auth/${state.auth.userId}`, user);
+      Notify.success('Name was changed');
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
@@ -132,6 +133,7 @@ export const upLoadAvatar = createAsyncThunk(
         },
         data: file,
       });
+      Notify.success('Avatar was changed');
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {

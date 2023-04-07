@@ -12,6 +12,8 @@ const authPersistConfig = {
   whitelist: [
     'accessToken',
     'userEmail',
+    'userName',
+    'userAvatar',
     'isLoggedIn',
     'sid',
     'refreshToken',

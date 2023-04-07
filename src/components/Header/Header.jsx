@@ -16,7 +16,7 @@ const Header = () => {
         {!isMobile ? (
           <>
             <LogoWrapper to="/main">
-              <HeaderLogo width={'44px'} height={'44px'} />
+              <HeaderLogo width={'40px'} height={'40px'} />
             </LogoWrapper>
             <HeaderNavigation />
             <UserInformation />
