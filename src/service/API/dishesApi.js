@@ -77,7 +77,6 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
 };
 
 export const getRecipesByIngredientAPI = (
-  // ingredientTtl,
   ingredient,
   page = 1,
   per_page = 12

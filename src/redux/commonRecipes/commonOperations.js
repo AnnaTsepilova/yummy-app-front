@@ -6,7 +6,6 @@ import {
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
-  // getRecipesByIngredientAPI,
 } from 'service/API/dishesApi';
 
 const token = {
