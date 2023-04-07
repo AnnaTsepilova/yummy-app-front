@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkyummy_app_front=self.webpackChunkyummy_app_front||[]).push([[848],{9848:function(e,n,s){s.r(n);var t=s(2791),r=s(9434),u=s(9245),c=s(5025),f=s(3370),a=s(3490),o=s(9519),i=s(184);n.default=function(){var e=(0,r.v9)(a.mQ),n=(0,r.v9)(a.xU),s=(0,r.v9)(a.VF);console.log(s);var m=(0,r.I0)();return(0,t.useEffect)((function(){m((0,o.SL)())}),[m]),(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(f.Z,{title:"My recipes"}),n?(0,i.jsx)(u.Z,{}):(0,i.jsx)(c.Z,{items:e,removeFnc:o.$E})]})}}}]);
+//# sourceMappingURL=848.07f7bbd6.chunk.js.map
