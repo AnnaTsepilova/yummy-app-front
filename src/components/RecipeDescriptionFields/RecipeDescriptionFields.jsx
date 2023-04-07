@@ -5,7 +5,7 @@ import { ImageInput } from './RecipeDescriptionFields.styled';
 //  import { Field } from 'formik';
 
 const RecipeDescriptionFields = ({ dataRecipe }  ) => {
-  const { srcImg, itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe } = dataRecipe; 
+  const { srcImg, category, cookingTimeRecipe } = dataRecipe; 
 
   return (
     <>
