@@ -28,7 +28,10 @@ export const getUserShoppingList = createAsyncThunk(
 
 export const addUserShoppingList = createAsyncThunk(
   'shopping-list/add',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
     try {
       const data = await getShoppingList();
       return data;
@@ -40,7 +43,10 @@ export const addUserShoppingList = createAsyncThunk(
 
 export const removeFromShoppingList = createAsyncThunk(
   'shopping-list/remove',
-  async (obj, { rejectWithValue, dispatch }) => {
+  async (obj, { rejectWithValue, dispatch, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
     try {
       const data = await deleteShoppingList(obj);
       dispatch(getUserShoppingList());
