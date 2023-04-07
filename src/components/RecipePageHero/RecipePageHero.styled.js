@@ -2,13 +2,19 @@ import styled from 'styled-components';
 import imgBg1x from 'images/Recipe/recipie-bgd-desc@1x.png';
 import imgBg2x from 'images/Recipe/recipie-bgd-desc@2x.png';
 
-export const HeroBackground = styled.div`
-  width: 100%;
+export const RecipeBcg = styled.div`
   width: 1440px;
-  height: 455px;
-  position: relative;
+  height: 493px;
+  position: absolute;
+  top: 0%;
+  left: 5%;
+
+  width: 100%;
+  /* width: 1440px;
+  height: 455px; */
+  /* position: relative; */
   margin: 0 auto;
-  z-index: -1;
+  z-index: -2;
   /* background-position: center center; */
   background-position: -220px -150px;
 
