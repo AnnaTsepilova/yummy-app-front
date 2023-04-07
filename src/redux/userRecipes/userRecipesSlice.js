@@ -47,14 +47,14 @@ const userResipesSlice = createSlice({
       .addCase(getFavoriteRecipes.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.favorite = payload;
+        state.favorite = payload.results;
       })
       .addCase(getFavoriteRecipes.rejected, rejected)
       .addCase(getMyRecipe.pending, pending)
       .addCase(getMyRecipe.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.myRecipes = payload;
+        state.myRecipes = payload.results;
       })
       .addCase(getMyRecipe.rejected, rejected)
       .addCase(removeMyRecipe.pending, pending)

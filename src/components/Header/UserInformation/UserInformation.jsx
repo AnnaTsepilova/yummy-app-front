@@ -26,7 +26,6 @@ const UserIformation = () => {
   const userName = useSelector(selectUserName);
   const avatar = useSelector(selectUserAvatar);
 
-  console.log(userName);
   const openPopUp = () => {
     setPopUpIsOpen(!popUpIsOpen);
   };

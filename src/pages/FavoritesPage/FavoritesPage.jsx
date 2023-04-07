@@ -10,16 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteRecipes,
   selectIsLoading,
-  selectUserError,
+  // selectUserError,
 } from 'redux/userRecipes/userRecipesSelectors';
 import Loader from 'components/Loader/Loader';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectUserError);
-
-  console.log(error);
+  // const error = useSelector(selectUserError);
 
   const dispatch = useDispatch();
 

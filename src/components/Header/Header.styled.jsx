@@ -18,6 +18,8 @@ export const LogoWrapper = styled(NavLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
+
+  height: 40px;
 `;
 
 export const MenuBurgerWrapper = styled.div`
