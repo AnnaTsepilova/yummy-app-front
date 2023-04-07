@@ -3,13 +3,30 @@ import { setAuthHeader } from 'redux/auth/authOperations';
 
 import {
   addRecipeTofavoriteAPI,
+  addShoppingList,
   deleteShoppingList,
   getFavoriteRecipesAPI,
   getMyRecipeAPI,
+  getRecipeByIdAPI,
   getShoppingList,
   removeMyRecipeAPI,
   removeRecipeFromFavoriteAPI,
 } from 'service/API/dishesApi';
+
+export const getRecipeById = createAsyncThunk(
+  'getRecipeById',
+  async (id, { rejectWithValue, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
+    try {
+      const data = await getRecipeByIdAPI(id);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
 
 export const getUserShoppingList = createAsyncThunk(
   'shopping-list',
@@ -28,12 +45,12 @@ export const getUserShoppingList = createAsyncThunk(
 
 export const addUserShoppingList = createAsyncThunk(
   'shopping-list/add',
-  async (_, { rejectWithValue, getState }) => {
+  async (obj, { rejectWithValue, getState }) => {
     const state = getState();
     const token = state.auth.accessToken;
     setAuthHeader(token);
     try {
-      const data = await getShoppingList();
+      const data = await addShoppingList(obj);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
