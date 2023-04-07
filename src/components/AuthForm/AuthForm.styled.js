@@ -96,22 +96,22 @@ export const InputWrap = styled.div`
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    background-image: url(${props => props.iconUrl});
+background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
     background-size: contain;
     background-repeat: no-repeat;
    }
 
    &::after {
- content: '';
+    content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
     right: 19px;
-      background-image: ${props =>
+    background-image: ${props =>
     props.error ? `url(${props.iconError})` : ''};
-background-size: contain;
+    background-size: contain;
     background-repeat: no-repeat;
   }
 
@@ -122,7 +122,8 @@ background-size: contain;
     &::before {
       width: 24px;
       height: 24px;
-      background-image: url(${props => props.iconTabUrl});
+      background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
+
     }
   }
 
@@ -221,11 +222,17 @@ export const FormLink = styled(NavLink)`
 `;
 
 export const Error = styled.div`
-  font-size: 14px;
+  font-size: 10px;
   color: #e74a3b;
   position: relative;
   left: -13px;
+  bottom: -190%;
+
+    @media (min-width: 768px) {
+  font-size: 14px;
+  left: -13px;
   bottom: -160%;
+  }
 `;
 
 export const Correct = styled.div`

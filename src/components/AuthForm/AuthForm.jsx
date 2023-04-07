@@ -11,7 +11,11 @@ import iconLock from 'images/AuthImages/icon-lock-mob.svg';
 import iconUserTab from 'images/AuthImages/icon-user-tab.svg';
 import iconMailTab from 'images/AuthImages/icon-mail-tab.svg';
 import iconLockTab from 'images/AuthImages/icon-lock-tab.svg';
-import iconUserTabEr from 'images/AuthImages/error.svg';
+import iconError from 'images/AuthImages/error.svg';
+import iconUserTabE from 'images/AuthImages/icon-user-tab-e.svg';
+import iconMailTabE from 'images/AuthImages/icon-mail-tab-e.svg';
+import iconLockTabE from 'images/AuthImages/icon-lock-tab-e.svg';
+
 import {
   FormContainer,
   FormWrapper,
@@ -102,7 +106,8 @@ const RegisterForm = () => {
             <InputWrap
               iconUrl={iconUser}
               iconTabUrl={iconUserTab}
-              iconError={iconUserTabEr}
+              iconTabUrlE={iconUserTabE}
+              iconError={iconError}
               {...formik.getFieldProps('name')}
               error={Boolean(formik.touched.name && formik.errors.name)}
             >
@@ -120,7 +125,8 @@ const RegisterForm = () => {
           <InputWrap
             iconUrl={iconMail}
             iconTabUrl={iconMailTab}
-            iconError={iconUserTabEr}
+            iconTabUrlE={iconMailTabE}
+            iconError={iconError}
             {...formik.getFieldProps('email')}
             error={Boolean(formik.touched.email && formik.errors.email)}
           >
@@ -137,7 +143,8 @@ const RegisterForm = () => {
           <InputWrap
             iconUrl={iconLock}
             iconTabUrl={iconLockTab}
-            iconError={iconUserTabEr}
+            iconTabUrlE={iconLockTabE}
+            iconError={iconError}
             {...formik.getFieldProps('password')}
             error={Boolean(formik.touched.password && formik.errors.password)}
           >
