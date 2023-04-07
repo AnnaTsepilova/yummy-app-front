@@ -81,7 +81,7 @@ export const App = () => {
                 />
               </Route>
               <Route path="/recipe/:recipeId" element={<RecipePage />} />
-              <Route path="/add " element={<AddRecipePage />} />
+              <Route path="/add" element={<AddRecipePage />} />
               <Route path="/my" element={<MyRecipesPage />} />
               <Route path="/favorite" element={<FavoritesPage />} />
               <Route path="/shopping-list" element={<ShoppingListPage />} />
