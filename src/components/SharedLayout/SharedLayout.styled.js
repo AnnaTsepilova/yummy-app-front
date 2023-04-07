@@ -16,21 +16,25 @@ export const Container = styled.div`
   padding: 18px 16px 0 16px;
   margin: 0 auto;
 
-  background-image: url('${DotsMob}');
+  /* background-image: url('${DotsMob}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 70% 76px;
-  background-size: 240px 74px;
-  z-index: -2;
+  background-size: 240px 74px; */
+  // z-index: -1;
+
+  @media screen and (min-width: 500px) and (max-width: 767px) {
+    width: 475px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
 
-    background-image: url('${DotsTab}');
+    /* background-image: url('${DotsTab}');
     background-position: 210px 95px;
-    background-size: 525px 85px;
+    background-size: 525px 85px; */
   }
 
   @media screen and (min-width: 1440px) {
@@ -38,9 +42,9 @@ export const Container = styled.div`
     padding-left: 100px;
     padding-right: 100px;
 
-    background-image: url('${DotsDesc}');
+    /* background-image: url('${DotsDesc}');
     background-position: 330px 110px;
-    background-size: 940px 98px;
+    background-size: 940px 98px; */
   }
 `;
 
