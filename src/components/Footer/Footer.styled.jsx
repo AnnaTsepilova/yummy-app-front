@@ -4,7 +4,7 @@ import LeavesBgRightBottomMob from 'images/FooterBackground/footer-background-mo
 import LeavesBgRightBottomMob2 from 'images/FooterBackground/footer-background-mob@2x.png';
 import LeavesBgRightBottomTab from 'images/FooterBackground/footer-background-tab@1x.png';
 import LeavesBgRightBottomTab2 from 'images/FooterBackground/footer-background-tab@2x.png';
-import LeavesBgRightBottomDesc from 'images/FooterBackground/footer-background-desc@2x.png';
+import LeavesBgRightBottomDesc from 'images/FooterBackground/footer-background-desc@1x.png';
 import LeavesBgRightBottomDesc2 from 'images/FooterBackground/footer-background-desc@2x.png';
 
 export const FooterWrapper = styled.footer`
