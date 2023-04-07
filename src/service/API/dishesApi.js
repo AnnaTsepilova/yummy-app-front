@@ -30,8 +30,13 @@ export const getShoppingList = async () => {
 
 export const addShoppingList = async obj => {
   try {
-    const { data } = await axios.post(`/shopping-list/add`, obj);
-    console.log({ shoppingList: data });
+    console.log(obj);
+
+    const { data } = await axios.post(
+      `/shopping-list/add?recipeId=${obj[1]}`,
+      obj[0]
+    );
+
     return { shoppingList: data };
   } catch (error) {
     console.log(error.message);

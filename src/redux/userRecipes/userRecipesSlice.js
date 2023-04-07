@@ -77,7 +77,7 @@ const userResipesSlice = createSlice({
       .addCase(addUserShoppingList.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.shoppingList = payload.shoppingList;
+        // state.shoppingList = payload.shoppingList;
         // console.log('payload', payload.shoppingList);
       })
       .addCase(addUserShoppingList.rejected, rejected)
@@ -92,7 +92,8 @@ const userResipesSlice = createSlice({
       .addCase(getRecipeById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        console.log('payload', payload);
+        state.recipeById = payload;
+        // console.log(state.recipeById);
       })
       .addCase(getRecipeById.rejected, rejected),
 });

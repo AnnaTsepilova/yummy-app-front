@@ -28,8 +28,9 @@ const RecipePageHero = () => {
   const { pathname } = useLocation();
   const id = pathname.split('/')[2];
   const recipe = useSelector(selectRecipe);
+  const ingredients = recipe.ingredients;
+
   // const { title, description, time } = useSelector(selectRecipe);
-  // console.log(recipe);
 
   useEffect(() => {
     dispatch(getUserShoppingList());
@@ -38,26 +39,19 @@ const RecipePageHero = () => {
 
   return (
     <>
-      <RecipeBckg>
-        {recipe?.length > 0 && recipe.map(item => <div>{item.title}</div>)}
-        {/* {recipe?.length > 0 &&
-          recipe.map(item => (
-            <RecipeHeroTextAdd
-              title={item.title}
-              description={item.description}
-              time={item.time}
-              id={item.id}
-            />
-          ))} */}
-        {/* <RecipeHeroTextAdd
-          title={title}
-          description={description}
-          time={time}
-          id={id}
-        /> */}
-      </RecipeBckg>
-      <RecipeInngredientsList />
-      <RecipePreparation />
+      <RecipeBckg></RecipeBckg>
+      <RecipeHeroTextAdd
+        title={recipe.title}
+        description={recipe.description}
+        time={recipe.time}
+        id={recipe.id}
+      />
+      <RecipeInngredientsList ingredients={ingredients} recipeId={id} />
+      <RecipePreparation
+        preview={recipe.preview}
+        title={recipe.title}
+        instructions={recipe.instructions}
+      />
     </>
   );
 };

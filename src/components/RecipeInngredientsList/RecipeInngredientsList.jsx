@@ -16,7 +16,7 @@ import CustomCheckbox from './CheckBox/CheckBox';
 import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
-  const list = useSelector(selectRecipe);
+  const list = useSelector(selectRecipe); // eslint-disable-line
 
   return (
     <Box>
@@ -29,7 +29,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
           </div>
         </ListItemHeader>
         {ingredients?.map(({ _id, ttl, desc, thb, measure }) => {
-          const isChecked = list?.some(item => item._id === _id); // eslint-disable-line
+          const isChecked = ingredients?.some(item => item._id === _id); // eslint-disable-line
           if (!_id) {
             return null;
           }
@@ -42,9 +42,10 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
               <ButtonWrapper>
                 <Measure>{measure}</Measure>
                 <CustomCheckbox
-                // recipeId={recipeId}
-                // ingredientId={_id}
-                // isChecked={isChecked}
+                  recipeId={recipeId}
+                  ingredientId={_id}
+                  measure={measure}
+                  // isChecked={isChecked}
                 />
               </ButtonWrapper>
             </ListItem>
