@@ -64,9 +64,18 @@ export const InputWrap = styled.div`
   padding: 12px;
   border-radius: 6px;
   /* border: 1px solid ${({ error }) => (error ? 'red' : '#ccc')}; */
-  border: 1px solid ${props =>
-    props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3);'};
-  /* border: 1px solid ${props =>
+
+
+border: 1px solid ${props =>
+    props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
+  };
+
+
+  /* border: 1px solid ${props => props.correct && '#3CBC81'};
+  border: 1px solid ${props => props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)'}; */
+
+
+    /* border: 1px solid ${props =>
     props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
 
   font-size: 18px;
@@ -96,8 +105,15 @@ export const InputWrap = styled.div`
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
-    background-size: contain;
+/* background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
+    background-image: url(${props => props.correct && props.iconTabUrlG}); */
+
+    background-image: url(${props =>
+    props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconUrl)
+  });
+
+
+background-size: contain;
     background-repeat: no-repeat;
    }
 
@@ -122,8 +138,10 @@ background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl
     &::before {
       width: 24px;
       height: 24px;
-      background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
-
+      /* background-image: url(${props => props.error ? props.iconTabUrlE : props.iconTabUrl}); */
+   background-image: url(${props =>
+    props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconTabUrl)
+  });
     }
   }
 
@@ -226,7 +244,7 @@ export const Error = styled.div`
   color: #e74a3b;
   position: relative;
   left: -13px;
-  bottom: -190%;
+  bottom: -170%;
 
     @media (min-width: 768px) {
   font-size: 14px;
@@ -236,9 +254,14 @@ export const Error = styled.div`
 `;
 
 export const Correct = styled.div`
-  font-size: 14px;
-  color: green;
+  font-size: 10px;
+  color: #3CBC81;
   position: relative;
   left: -13px;
+  bottom: -170%;
+    @media (min-width: 768px) {
+  font-size: 14px;
+  left: -13px;
   bottom: -160%;
+  }
 `;

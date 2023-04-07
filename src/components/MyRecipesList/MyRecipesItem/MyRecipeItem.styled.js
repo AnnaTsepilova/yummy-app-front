@@ -17,6 +17,8 @@ export const Item = styled.li`
 
   display: flex;
   gap: 14px;
+  margin-right: auto;
+  margin-left: auto;
 
   background: var(--white);
   border-radius: 8px;
@@ -25,6 +27,8 @@ export const Item = styled.li`
     width: 704px;
     gap: 24px;
     padding: 28px 24px;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   @media screen and (min-width: 1440px) {

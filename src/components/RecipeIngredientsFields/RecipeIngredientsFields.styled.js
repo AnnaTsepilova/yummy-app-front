@@ -17,9 +17,14 @@ export const TitleWraper = styled.div`
   align-items: center;
 `;
 
+export const ListIngredientsItem = styled.li`
+  display: flex;
+`;
+
 export const InputIngredWraper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 18px;
 `;
 
 export const DeleteButton = styled.button`
@@ -113,7 +118,7 @@ export const SelectIngredStyled = styled(Select)`
 
   & .react-select__single-value {
     font-family: Poppins, sans-serif;
-    font-weight: [400, 500, 600, 700];
+    font-weight: 400;
     text-align: left;
     font-size: 14px;
     line-height: 1;
@@ -221,7 +226,7 @@ export const SelectIngredUnit = styled(Select)`
 
   & .react-select__single-value {
     font-family: Poppins, sans-serif;
-    font-weight: [400, 500, 600, 700];
+    font-weight: 400;
     text-align: left;
     font-size: 14px;
     line-height: 1;

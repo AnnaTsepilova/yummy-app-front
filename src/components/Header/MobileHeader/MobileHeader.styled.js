@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const MobileHeaderWrp = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const LogoWrp = styled(Link)`
+  height: 40px;
 `;
 
 export const UserWrp = styled.div`
