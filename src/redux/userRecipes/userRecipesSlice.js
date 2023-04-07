@@ -8,6 +8,7 @@ import {
   getUserShoppingList,
   addUserShoppingList,
   removeFromShoppingList,
+  getRecipeById,
 } from './userResipesOperations';
 
 const pending = state => {
@@ -25,6 +26,7 @@ const initialState = {
   favorite: [],
   isLoading: false,
   error: null,
+  recipeById: [],
 };
 
 const userResipesSlice = createSlice({
@@ -75,7 +77,7 @@ const userResipesSlice = createSlice({
       .addCase(addUserShoppingList.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.shoppingList = payload.shoppingList;
+        // state.shoppingList = payload.shoppingList;
         // console.log('payload', payload.shoppingList);
       })
       .addCase(addUserShoppingList.rejected, rejected)
@@ -85,7 +87,15 @@ const userResipesSlice = createSlice({
         state.error = null;
         // console.log('payload', payload.shoppingList);
       })
-      .addCase(removeFromShoppingList.rejected, rejected),
+      .addCase(removeFromShoppingList.rejected, rejected)
+      .addCase(getRecipeById.pending, pending)
+      .addCase(getRecipeById.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipeById = payload;
+        // console.log(state.recipeById);
+      })
+      .addCase(getRecipeById.rejected, rejected),
 });
 
 export default userResipesSlice.reducer;
