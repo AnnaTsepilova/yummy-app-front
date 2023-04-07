@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Loader from 'components/Loader/Loader';
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
 import MainTitle from 'components/MainTitle/MainTitle';
+
 import {
   selectMyRecipes,
   selectIsLoading,
   selectUserError,
 } from 'redux/userRecipes/userRecipesSelectors';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   getMyRecipe,
   removeMyRecipe,
 } from 'redux/userRecipes/userResipesOperations';
-import Loader from 'components/Loader/Loader';
 
 const MyRecipesPage = () => {
   const recipes = useSelector(selectMyRecipes);

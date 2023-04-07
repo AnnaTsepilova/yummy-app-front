@@ -1,13 +1,14 @@
 import React from 'react';
-import { RecipeList } from './MyRecipeList.styled.js';
+
+import { RecipeList } from 'components/MyRecipesList/MyRecipeList.styled';
 import MyRecipesItem from 'components/MyRecipesList/MyRecipesItem/MyRecipesItem';
-import { SearchNotFound } from 'components/SearchedRecipesList/SearchNotFound.jsx';
+import NotFound from 'components/NotFound/NotFound.jsx';
 
 const MyRecipesList = ({ items, btnStyle, removeFnc }) => {
   return (
     <>
       {items.length === 0 ? (
-        <SearchNotFound text={'Your recipes will be soon here.'} />
+        <NotFound text={'Your recipes will be soon here.'} />
       ) : (
         <RecipeList>
           {items.map(item => {

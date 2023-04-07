@@ -1,19 +1,18 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Loader from 'components/Loader/Loader';
+import NotFound from 'components/NotFound/NotFound.jsx';
+import ShoppingItem from 'components/IngredientsShoppingList/ShoppingItem/ShoppingItem';
 import {
   ShoppingItemList,
   EmptyShoppingList,
   DivContainer,
   EmptyShoppingListImg,
-  EmptyShoppingListText,
-  BGDots,
-} from './IngredientsShoppingList.styled';
-import TitleShoppingList from './TitleShoppingList/TitleShoppingList';
-import Loader from 'components/Loader/Loader';
-import ShoppingItem from './ShoppingItem/ShoppingItem';
-import Title from 'components/IngredientsShoppingList/Title/Title';
-import { useDispatch, useSelector } from 'react-redux';
+  // EmptyShoppingListText,
+} from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
+
 import {
   getUserShoppingList,
   removeFromShoppingList,
@@ -42,10 +41,7 @@ const IngredientsShoppingList = () => {
 
   return (
     <>
-      <BGDots />
-      <DivContainer>
-        <Title text={'Shopping list'} />
-        <TitleShoppingList />
+      <div>
         {isLoading ? (
           <Loader />
         ) : shoppingList.length > 0 ? (
@@ -62,14 +58,15 @@ const IngredientsShoppingList = () => {
             ))}
           </ShoppingItemList>
         ) : (
-          <EmptyShoppingList>
-            <EmptyShoppingListImg />
-            <EmptyShoppingListText>
-              Shopping list is empty
-            </EmptyShoppingListText>
-          </EmptyShoppingList>
+          // <EmptyShoppingList>
+          //   <EmptyShoppingListImg />
+          //   <EmptyShoppingListText>
+          //     Shopping list is empty
+          //   </EmptyShoppingListText>
+          //     </EmptyShoppingList>
+          <NotFound text={'Shopping list is empty.'} />
         )}
-      </DivContainer>
+      </div>
     </>
   );
 };
