@@ -63,17 +63,22 @@ export const InputWrap = styled.div`
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid rgba(250, 250, 250, 0.3);
+  /* border: 1px solid ${({ error }) => (error ? 'red' : '#ccc')}; */
+  border: 1px solid ${props =>
+    props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3);'};
+  /* border: 1px solid ${props =>
+    props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
 
   font-size: 18px;
   color: var(--primary-white);
   transition: border 250ms var(--transition-function);
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover {
     border: 1px solid var(--primary-white);
   }
+
+
+
   &::placeholder {
     margin-left: 40px;
 
@@ -94,6 +99,20 @@ export const InputWrap = styled.div`
     background-image: url(${props => props.iconUrl});
     background-size: contain;
     background-repeat: no-repeat;
+   }
+
+   &::after {
+ content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    right: 19px;
+      background-image: ${props =>
+    props.error ? `url(${props.iconError})` : ''};
+background-size: contain;
+    background-repeat: no-repeat;
   }
 
   @media (min-width: 768px) {
@@ -106,6 +125,7 @@ export const InputWrap = styled.div`
       background-image: url(${props => props.iconTabUrl});
     }
   }
+
 `;
 
 export const FormInput = styled.input`
@@ -198,4 +218,20 @@ export const FormLink = styled(NavLink)`
   @media (min-width: 768px) {
     font-size: 16px;
   }
+`;
+
+export const Error = styled.div`
+  font-size: 14px;
+  color: #e74a3b;
+  position: relative;
+  left: -13px;
+  bottom: -160%;
+`;
+
+export const Correct = styled.div`
+  font-size: 14px;
+  color: green;
+  position: relative;
+  left: -13px;
+  bottom: -160%;
 `;
