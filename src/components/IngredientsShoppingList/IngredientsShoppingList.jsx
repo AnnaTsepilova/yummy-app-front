@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from 'components/Loader/Loader';
-import NotFound from 'components/NotFound/NotFound.jsx';
+import TitleShoppingList from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList';
 import ShoppingItem from 'components/IngredientsShoppingList/ShoppingItem/ShoppingItem';
+
 import {
   ShoppingItemList,
   EmptyShoppingList,
   DivContainer,
   EmptyShoppingListImg,
-  // EmptyShoppingListText,
+  EmptyShoppingListText,
 } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserShoppingList,
   removeFromShoppingList,
@@ -41,7 +42,8 @@ const IngredientsShoppingList = () => {
 
   return (
     <>
-      <div>
+      <DivContainer>
+        <TitleShoppingList />
         {isLoading ? (
           <Loader />
         ) : shoppingList.length > 0 ? (
@@ -58,15 +60,14 @@ const IngredientsShoppingList = () => {
             ))}
           </ShoppingItemList>
         ) : (
-          // <EmptyShoppingList>
-          //   <EmptyShoppingListImg />
-          //   <EmptyShoppingListText>
-          //     Shopping list is empty
-          //   </EmptyShoppingListText>
-          //     </EmptyShoppingList>
-          <NotFound text={'Shopping list is empty.'} />
+          <EmptyShoppingList>
+            <EmptyShoppingListImg />
+            <EmptyShoppingListText>
+              Shopping list is empty
+            </EmptyShoppingListText>
+          </EmptyShoppingList>
         )}
-      </div>
+      </DivContainer>
     </>
   );
 };

@@ -13,4 +13,8 @@ export const Title = styled(MainTitleStyled)`
   @media screen and (min-width: 768px) {
     padding-bottom: 72px;
   }
+
+  @media screen and (min-width: 1440px) {
+    padding-bottom: 72px;
+  }
 `;

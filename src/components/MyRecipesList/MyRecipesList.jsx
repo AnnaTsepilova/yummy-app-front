@@ -2,7 +2,7 @@ import React from 'react';
 
 import { RecipeList } from 'components/MyRecipesList/MyRecipeList.styled';
 import MyRecipesItem from 'components/MyRecipesList/MyRecipesItem/MyRecipesItem';
-import NotFound from 'components/NotFound/NotFound.jsx';
+import NotFound from 'components/NotFound/NotFound';
 
 const MyRecipesList = ({ items, btnStyle, removeFnc }) => {
   return (
