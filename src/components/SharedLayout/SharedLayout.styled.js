@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-import DotsMob from 'images/Search/dots-mob.svg';
-import DotsTab from 'images/Search/dots-tab.svg';
-import DotsDesc from 'images/Search/dots-desc.svg';
-
 import LeavesBgLeftMob from 'images/LeavesOnMainBottom/leaves-on-main-bottom-mob-cut@1x.png';
 import LeavesBgLeftMob2 from 'images/LeavesOnMainBottom/leaves-on-main-bottom-mob-cut@2x.png';
 import LeavesBgLeftTab from 'images/LeavesOnMainBottom/leaves-on-main-bottom-tab-cut@1x.png';
@@ -16,31 +12,20 @@ export const Container = styled.div`
   padding: 18px 16px 0 16px;
   margin: 0 auto;
 
-  background-image: url('${DotsMob}');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 70% 76px;
-  background-size: 240px 74px;
-  z-index: -2;
+  @media screen and (min-width: 500px) and (max-width: 767px) {
+    width: 475px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-
-    background-image: url('${DotsTab}');
-    background-position: 210px 95px;
-    background-size: 525px 85px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
     padding-left: 100px;
     padding-right: 100px;
-
-    background-image: url('${DotsDesc}');
-    background-position: 330px 110px;
-    background-size: 940px 98px;
   }
 `;
 

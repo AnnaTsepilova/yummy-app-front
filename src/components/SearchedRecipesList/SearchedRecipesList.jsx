@@ -1,25 +1,26 @@
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
+import Notiflix from 'notiflix';
+
+import Loader from 'components/Loader/Loader';
+//import { SearchNotFound } from './SearchNotFound';
+import NotFound from 'components/NotFound/NotFound';
+
 import SearchBar from 'components/SearchBar/SearchBar';
 import { RecipeCard } from 'components/Main/PreviewCategories/RecipeCard';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from 'components/Loader/Loader';
-import { SearchNotFound } from './SearchNotFound';
-import Notiflix from 'notiflix';
+import { MuiPag } from 'components/MuiPagination/MuiPag';
+import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
+
 import {
   getRecipesByQuery,
   getRecipesByIngredient,
 } from 'redux/commonRecipes/commonOperations';
-
 import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
-
-import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
-
-import { MuiPag } from 'components/MuiPagination/MuiPag';
-import { useMediaQuery } from 'react-responsive';
 
 export const useMediaRules = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
@@ -116,11 +117,9 @@ const SearchedRecipesList = () => {
         />
       )}
       {!request && (
-        <SearchNotFound text={`You haven't searched for anything yet...`} />
+        <NotFound text={`You haven't searched for anything yet...`} />
       )}
-      {errorSearch && (
-        <SearchNotFound text={'Try looking for something else...'} />
-      )}
+      {errorSearch && <NotFound text={'Try looking for something else...'} />}
     </>
   );
 };

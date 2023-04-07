@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const TitleWrapper = styled.div`
   padding-bottom: 20px;
-  padding-top: 50px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 72px;
     padding-bottom: 38px;
   }
 `;
