@@ -2,14 +2,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
 
-const setToken = accessToken => {
-  if (accessToken) {
-    axios.defaults.headers.common.authorization = `Bearer ${accessToken}`;
-  } else {
-    delete axios.defaults.headers.common.authorization;
-  }
-};
-
 export const getCategoryListAPI = () => {
   return axios.get('/recipes/category-list').then(({ data }) => {
     return data;
@@ -27,9 +19,6 @@ export const patchShoppingList = async info => {
 };
 
 export const getShoppingList = async () => {
-  setToken(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
-  );
   try {
     const { data } = await axios.get(`/shopping-list/`);
     console.log({ shoppingList: data });
@@ -41,9 +30,6 @@ export const getShoppingList = async () => {
 };
 
 export const addShoppingList = async obj => {
-  setToken(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
-  );
   try {
     const { data } = await axios.post(`/shopping-list/add`, obj);
     console.log({ shoppingList: data });
@@ -54,12 +40,11 @@ export const addShoppingList = async obj => {
   }
 };
 
-export const deleteShoppingList = async (obj) => {
-  setToken(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmU4ZWI4MzM2MzM4ZDQxZDc2MTVkOCIsInNpZCI6IjY0MmU4ZWM4MzM2MzM4ZDQxZDc2MTVkYiIsImlhdCI6MTY4MDc3MjgwOCwiZXhwIjoxNjgxMTMyODA4fQ.7WdNpk_KDuq93OMpcEnjw6mdZlB_yV4W2z8JnzYYWaQ'
-  );
+export const deleteShoppingList = async obj => {
   try {
-    const { data } = await axios.delete(`/shopping-list/remove/${obj.id}?measure=${obj.measure}`);
+    const { data } = await axios.delete(
+      `/shopping-list/remove/${obj.id}?measure=${obj.measure}`
+    );
     return data;
   } catch (error) {
     console.log(error.message);
@@ -72,13 +57,6 @@ export const getLimitedRecipesByCategoryAPI = category => {
     return data;
   });
 };
-
-// export const getMainPageAPI = () => {
-//   return axios.get('/recipes/main-page').then(({ data }) => {
-//     console.log('api', data);
-//     return data;
-//   });
-// };
 
 export const getAllRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
@@ -98,9 +76,13 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
-export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
+export const getRecipesByQueryAPI = (query, page = 1, perPage = 10) => {
   return axios
-    .get(`/recipes/search/${query}?page=${page}&per_page=${per_page}`)
+    .get(`/recipes/search/recipes`, {
+      params: {
+        q: query,
+      },
+    })
     .then(({ data }) => {
       return data;
     });
@@ -138,4 +120,16 @@ export const getFavoriteRecipesAPI = () => {
 
 export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+export const getRecipesByIngredientAPI = (
+  ingredientTtl,
+  page = 1,
+  per_page = 12
+) => {
+  return axios
+    .get(`/ingredients/${ingredientTtl}?page=${page}&per_page=${per_page}`)
+    .then(({ data }) => {
+      return data;
+    });
 };

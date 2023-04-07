@@ -2,7 +2,7 @@ import React from 'react';
 
 import AuthContent from 'components/AuthContent/AuthContent';
 
-const RegisterPage = () => {
+const AuthPage = () => {
   return (
     <>
       <AuthContent />
@@ -10,4 +10,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default AuthPage;

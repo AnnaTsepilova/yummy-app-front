@@ -38,7 +38,7 @@ const authSlice = createSlice({
     builder
       .addCase(authOperations.signUp.pending, handlePending)
       .addCase(authOperations.signUp.fulfilled, (state, action) => {
-        state.userId = action.payload.id;
+        state.userId = action.payload.user.id;
       })
       .addCase(authOperations.signUp.rejected, handleRejected)
 
@@ -47,36 +47,47 @@ const authSlice = createSlice({
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.sid = action.payload.sid;
+        state.userId = action.payload.user.id;
         state.userEmail = action.payload.user.email;
+        state.userName = action.payload.user.name;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.signIn.rejected, handleRejected);
+      .addCase(authOperations.signIn.rejected, handleRejected)
 
-    // .addCase(authOperations.logOut.pending, handlePending)
-    // .addCase(authOperations.logOut.fulfilled, (state, action) => {
-    //   state.userId = null;
-    //   state.accessToken = null;
-    //   state.refreshToken = null;
-    //   state.sid = null;
-    //   state.isLoggedIn = false;
-    // })
-    // .addCase(authOperations.logOut.rejected, handleRejected)
+      .addCase(authOperations.logOut.pending, handlePending)
+      .addCase(authOperations.logOut.fulfilled, (state, action) => {
+        state.userId = null;
+        state.accessToken = null;
+        state.refreshToken = null;
+        state.sid = null;
+        state.userEmail = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(authOperations.logOut.rejected, handleRejected)
 
-    // .addCase(authOperations.refreshToken.pending, (state, action) => {})
-    // .addCase(authOperations.refreshToken.fulfilled, (state, action) => {
-    //   state.accessToken = action.payload.newAccessToken;
-    //   state.refreshToken = action.payload.newRefreshToken;
-    //   state.sid = action.payload.newSid;
-    //   state.isLoggedIn = true;
-    // })
-    // .addCase(authOperations.refreshToken.rejected, (state, action) => {})
+      .addCase(authOperations.refreshToken.pending, (state, action) => {})
+      .addCase(authOperations.refreshToken.fulfilled, (state, action) => {
+        state.accessToken = action.payload.newAccessToken;
+        state.refreshToken = action.payload.newRefreshToken;
+        state.sid = action.payload.newSid;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.refreshToken.rejected, (state, action) => {})
 
-    // .addCase(authOperations.getUserById.pending, handlePending)
-    // .addCase(authOperations.getUserById.fulfilled, (state, action) => {
-    //   state.userEmail = action.payload.email;
-    //   state.isLoggedIn = true;
-    // })
-    // .addCase(authOperations.getUserById.rejected, handleRejected);
+      .addCase(authOperations.getUserById.pending, handlePending)
+      .addCase(authOperations.getUserById.fulfilled, (state, action) => {
+        state.userEmail = action.payload.email;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.getUserById.rejected, handleRejected)
+
+      .addCase(authOperations.updateUserById.pending, handlePending)
+      .addCase(authOperations.updateUserById.fulfilled, (state, action) => {
+        state.userEmail = action.payload.email;
+        state.userName = action.payload.name;
+        state.isLoggedIn = true;
+      })
+      .addCase(authOperations.updateUserById.rejected, handleRejected);
   },
 });
 

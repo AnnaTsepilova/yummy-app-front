@@ -22,7 +22,10 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
       <SelectStyled
         defaultValue={{
           value: startType,
-          label: startType.charAt(0).toUpperCase() + startType.slice(1),
+          // label: startType.charAt(0).toUpperCase() + startType.slice(1),
+          label: startType
+            ? startType.charAt(0).toUpperCase() + startType.slice(1)
+            : 'Title',
         }}
         onChange={setSelectedOption}
         options={options}

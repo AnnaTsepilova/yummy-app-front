@@ -1,7 +1,7 @@
 import { BtnWrapper, Form, Input } from 'components/Main/Search/Search.styled';
 import { Wrapper } from './SearchForm.styled';
 
-import { SearchBlackBtn } from 'components/Buttons/Buttons';
+import { SearchGreenBtn } from 'components/Buttons/Buttons';
 import React, { useState } from 'react';
 
 export const SearchForm = ({
@@ -27,7 +27,7 @@ export const SearchForm = ({
         <Form onSubmit={handleSubmit}>
           <Input type="text" value={searchValue} onChange={handleInputChange} />
           <BtnWrapper>
-            <SearchBlackBtn type="submit">Search</SearchBlackBtn>{' '}
+            <SearchGreenBtn type="submit">Search</SearchGreenBtn>{' '}
           </BtnWrapper>
         </Form>
       </Wrapper>
