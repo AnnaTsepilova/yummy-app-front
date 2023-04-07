@@ -2,11 +2,50 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
   addRecipeTofavoriteAPI,
+  deleteShoppingList,
   getFavoriteRecipesAPI,
   getMyRecipeAPI,
+  getShoppingList,
   removeMyRecipeAPI,
   removeRecipeFromFavoriteAPI,
 } from 'service/API/dishesApi';
+
+export const getUserShoppingList = createAsyncThunk(
+  'shopping-list',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await getShoppingList();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const addUserShoppingList = createAsyncThunk(
+  'shopping-list/add',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await getShoppingList();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const removeFromShoppingList = createAsyncThunk(
+  'shopping-list/remove',
+  async (obj, { rejectWithValue, dispatch }) => {
+    try {
+      const data = await deleteShoppingList(obj);
+      dispatch(getUserShoppingList());
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
 
 export const addRecipeToFavorite = createAsyncThunk(
   'userResipes/addToFavorite',
