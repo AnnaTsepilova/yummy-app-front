@@ -129,3 +129,13 @@ export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
       return data;
     });
 };
+
+export const getIngredientsList = async () => {
+  try {
+    const ingredientsList = await axios.get(`/ingredients/list`);
+    return ingredientsList;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
