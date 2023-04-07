@@ -76,13 +76,11 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
     });
 };
 
-export const getRecipesByIngredientAPI = (
-  ingredient,
-  page = 1,
-  per_page = 12
-) => {
+export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
   return axios
-    .get(`/ingredients/${ingredient}?page=${page}&per_page=${per_page}`)
+    .get(
+      `/recipes/search/recipes?ingredient=${query}&page=${page}&per_page=${per_page}`
+    )
     .then(({ data }) => {
       return data;
     });

@@ -6,6 +6,7 @@ import {
   getLimitedRecipesByCategoryAPI,
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
+  getRecipesByIngredientAPI,
 } from 'service/API/dishesApi';
 
 const token = {
@@ -98,6 +99,25 @@ export const getRecipesByQuery = createAsyncThunk(
     try {
       const data = await getRecipesByQueryAPI(query, page, per_page);
       console.log('recipes by search query', data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const getRecipesByIngredient = createAsyncThunk(
+  'outerRecipes/recipes',
+  async ({ ingredient, page, per_page }, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedAccessToken = state.auth.accessToken;
+    if (!persistedAccessToken) {
+      return rejectWithValue();
+    }
+    token.set(persistedAccessToken);
+    try {
+      const data = await getRecipesByIngredientAPI(ingredient, page, per_page);
+      console.log('recipes by search ingredients', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

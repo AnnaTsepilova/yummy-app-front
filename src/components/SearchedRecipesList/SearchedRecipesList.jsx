@@ -6,14 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 import { SearchNotFound } from './SearchNotFound';
 import Notiflix from 'notiflix';
-import { getRecipesByQuery } from 'redux/commonRecipes/commonOperations';
+import {
+  getRecipesByQuery,
+  getRecipesByIngredient,
+} from 'redux/commonRecipes/commonOperations';
 
 import {
   getError,
   getRecipesBySearchQuery,
 } from 'redux/commonRecipes/commonSelectors';
-
-import { getRecipesByIngredient } from 'redux/ingredients/ingredientsOperations';
 
 import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
 
