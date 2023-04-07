@@ -118,7 +118,7 @@ export const SelectIngredStyled = styled(Select)`
 
   & .react-select__single-value {
     font-family: Poppins, sans-serif;
-    font-weight: [400, 500, 600, 700];
+    font-weight: 400;
     text-align: left;
     font-size: 14px;
     line-height: 1;
@@ -226,7 +226,7 @@ export const SelectIngredUnit = styled(Select)`
 
   & .react-select__single-value {
     font-family: Poppins, sans-serif;
-    font-weight: [400, 500, 600, 700];
+    font-weight: 400;
     text-align: left;
     font-size: 14px;
     line-height: 1;

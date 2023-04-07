@@ -1,4 +1,4 @@
-export const initCookingTimeRecipe = [
+export const cookingTimeRecipe = [
     { value: '5', label: '5 min' },
     { value: '10', label: '10 min' },
     { value: '15', label: '15 min' },
@@ -24,3 +24,10 @@ export const initCookingTimeRecipe = [
     { value: '115', label: '115 min' },
     { value: '120', label: '120 min' },
 ];
+
+export const listUnits = [
+    {value: 'tbs', label: 'tbs'},
+    {value: 'tsp', label: 'tsp'},
+    {value: 'kg', label: 'kg'},
+    { value: 'g', label: 'g' },
+  ];
