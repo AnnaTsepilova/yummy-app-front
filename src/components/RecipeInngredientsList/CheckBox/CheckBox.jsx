@@ -1,11 +1,14 @@
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { deleteIngredient, updateShoppinList } from 'redux/shopping/operations';
 import { SvgCheck, Box } from './CheckBox.styled';
 const { useState } = require('react');
 
 const CustomCheckbox = ({ recipeId, ingredientId, isChecked }) => {
   //   const dispatch = useDispatch();
-  const [checked, setChecked] = useState(isChecked);
+  const [
+    checked,
+    // setChecked
+  ] = useState(isChecked);
 
   const handleChange = () => {
     // if (!checked) {
