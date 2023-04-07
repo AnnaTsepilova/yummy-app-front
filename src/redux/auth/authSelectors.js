@@ -9,3 +9,7 @@ export const selectUserId = store => store.auth.userId;
 export const selectUserEmail = store => store.auth.userEmail;
 
 export const selectIsLoggedIn = store => store.auth.isLoggedIn;
+
+export const selectUserName = store => store.auth.userName;
+
+export const selectUserAvatar = store => store.auth.userAvatar;
