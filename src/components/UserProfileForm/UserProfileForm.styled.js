@@ -34,6 +34,13 @@ export const AvatarWrapper = styled.div`
   background: #d9d9d9;
   overflow: hidden;
 
+  background-image: ${props =>
+    props.avatar ? `url(${props.avatar})` : 'none'};
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   @media screen and (min-width: 768px) {
     width: 103px;
     height: 103px;

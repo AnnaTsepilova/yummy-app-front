@@ -21,6 +21,12 @@ export const UserAvatarWrp = styled.div`
   overflow: hidden;
 
   background-color: var(--light-gray);
+  background-image: ${props =>
+    props.avatar ? `url(${props.avatar})` : 'none'};
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   @media screen and (min-width: 768px) {
     width: 44px;
@@ -29,8 +35,8 @@ export const UserAvatarWrp = styled.div`
 `;
 
 export const UserAvatar = styled.img`
-  width: 34px;
-  height: 34px;
+  width: 100%;
+  height: auto;
 `;
 
 export const UserWithoutAvatar = styled(NotFoundAvatar)`
