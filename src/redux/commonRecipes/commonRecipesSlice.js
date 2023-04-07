@@ -4,9 +4,8 @@ import {
   getLimitedRecipesByCategory,
   getAllRecipesByCategory,
   getRecipesByQuery,
+  getRecipesByIngredient,
 } from './commonOperations';
-
-import { getRecipesByIngredient } from 'redux/ingredients/ingredientsOperations';
 
 const pending = state => {
   state.isCategoryFetching = true;
@@ -50,9 +49,8 @@ export const commmonRecipesSlice = createSlice({
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
-        state.recipesByQuery.payload = payload;
-        // state.recipesByQuery.results = payload.results;
-        // state.recipesByQuery.totalHits = payload.totalHits;
+        state.recipesByQuery.results = payload.results;
+        state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
       })
       .addCase(getLimitedRecipesByCategory.pending, pending)
