@@ -17,7 +17,8 @@ const useValidationSchema = () => {
       : Yup.string(),
     email: Yup.string()
       .email('Invalid email address')
-      .required('Email is required'),
+      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email address')
+      .required(' '),
     password: Yup.string()
       .min(5, 'Password must be at least 5 characters long')
       .matches(
@@ -30,4 +31,11 @@ const useValidationSchema = () => {
   return validationSchema;
 };
 
-export default useValidationSchema;
+const passwordSchema = Yup.string()
+  .required('Пароль обязателен')
+  .matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/,
+    'Пароль должен содержать как минимум одну букву в нижнем регистре, одну букву в верхнем регистре, одну цифру и один специальный символ, и иметь длину не менее 8 символов'
+  );
+
+export { useValidationSchema, passwordSchema };

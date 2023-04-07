@@ -249,7 +249,7 @@ export const Error = styled.div`
     @media (min-width: 768px) {
   font-size: 14px;
   left: -13px;
-  bottom: -160%;
+  bottom: -150%;
   }
 `;
 
