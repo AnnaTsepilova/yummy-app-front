@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/502.74e36556.chunk.js","mappings":"mJAUA,UARyB,WACvB,OACEA,EAAAA,EAAAA,KAAA,SAIJ,C","sources":["pages/ShoppingListPage/ShoppingListPage.jsx"],"sourcesContent":["import React from 'react'\n\nconst ShoppingListPage = () => {\n  return (\n    <div>\n\n    </div>\n  )\n}\n\nexport default ShoppingListPage\n"],"names":["_jsx"],"sourceRoot":""}
