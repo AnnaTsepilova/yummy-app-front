@@ -17,9 +17,14 @@ export const TitleWraper = styled.div`
   align-items: center;
 `;
 
+export const ListIngredientsItem = styled.li`
+  display: flex;
+`;
+
 export const InputIngredWraper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 18px;
 `;
 
 export const DeleteButton = styled.button`
