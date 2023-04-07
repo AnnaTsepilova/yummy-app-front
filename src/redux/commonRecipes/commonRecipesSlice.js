@@ -4,9 +4,8 @@ import {
   getLimitedRecipesByCategory,
   getAllRecipesByCategory,
   getRecipesByQuery,
+  getRecipesByIngredient,
 } from './commonOperations';
-
-import { getRecipesByIngredient } from 'redux/searchByIngredients/ingredientsOperations';
 
 const pending = state => {
   state.isCategoryFetching = true;
@@ -21,7 +20,7 @@ const initialState = {
   limitedRecipesByCategory: [],
   allRecipesByCategory: [],
   recipesByQuery: {
-    recipes: [],
+    results: [],
     totalHits: 0,
   },
 };
@@ -43,14 +42,14 @@ export const commmonRecipesSlice = createSlice({
         state.isCategoryFetching = false;
       })
       .addCase(getRecipesByQuery.fulfilled, (state, { payload }) => {
-        state.recipesByQuery.recipes = payload.recipes;
+        state.recipesByQuery.results = payload.results;
         state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
         state.isError = false;
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
-        state.recipesByQuery.recipes = payload.recipes;
+        state.recipesByQuery.results = payload.results;
         state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
       })
@@ -63,13 +62,13 @@ export const commmonRecipesSlice = createSlice({
       .addCase(getRecipesByQuery.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
-        state.recipesByQuery.recipes = [];
+        state.recipesByQuery.results = [];
         state.recipesByQuery.totalHits = 0;
       })
       .addCase(getRecipesByIngredient.rejected, state => {
         state.isCategoryFetching = false;
         state.isError = true;
-        state.recipesByQuery.recipes = [];
+        state.recipesByQuery.results = [];
         state.recipesByQuery.totalHits = 0;
       }),
 });

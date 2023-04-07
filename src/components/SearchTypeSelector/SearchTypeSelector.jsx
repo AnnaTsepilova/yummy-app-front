@@ -9,7 +9,7 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
 
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingredients', label: 'Ingredients' },
+    { value: 'ingredient', label: 'Ingredient' },
   ];
 
   useEffect(() => {
