@@ -50,8 +50,9 @@ export const commmonRecipesSlice = createSlice({
       })
       .addCase(getRecipesByIngredient.fulfilled, (state, { payload }) => {
         state.isError = false;
-        state.recipesByQuery.results = payload.results;
-        state.recipesByQuery.totalHits = payload.totalHits;
+        state.recipesByQuery.payload = payload;
+        // state.recipesByQuery.results = payload.results;
+        // state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
       })
       .addCase(getLimitedRecipesByCategory.pending, pending)
