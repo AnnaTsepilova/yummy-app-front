@@ -1,10 +1,13 @@
 import React from 'react'
+import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
+import MainTitle from 'components/MainTitle/MainTitle';
 
 const AddRecipePage = () => {
   return (
-    <div>
-
-    </div>
+    <>
+        <MainTitle title="Add recipe"/>
+        <AddRecipeForm/>
+    </>
   )
 }
 

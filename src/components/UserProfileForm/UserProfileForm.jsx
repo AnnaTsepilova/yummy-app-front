@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
+import { object, mixed } from 'yup';
 import {
   StyledForm,
-  Avatar,
   AvatarLabel,
   AvatarWrapper,
   ProfileIcon,
@@ -14,31 +14,66 @@ import {
   PasswordInputIcon,
   PlusFileIcon,
 } from './UserProfileForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectUserAvatar,
+  selectUserEmail,
+  selectUserName,
+} from 'redux/auth/authSelectors';
+import { updateUserById, upLoadAvatar } from 'redux/auth/authOperations';
 
 const UserProfileForm = () => {
+  const userName = useSelector(selectUserName);
+  const userEmail = useSelector(selectUserEmail);
+  const userAvatar = useSelector(selectUserAvatar);
+  const dispatch = useDispatch();
+
+  const onSubmitFnc = ({ password, userName, image }) => {
+    console.log(userEmail);
+    const user = {
+      email: userEmail,
+      password,
+      name: userName,
+    };
+
+    if (!password) {
+      const formData = new FormData();
+      formData.append('image', image);
+
+      dispatch(upLoadAvatar(formData));
+
+      return;
+    }
+
+    dispatch(updateUserById(user));
+  };
+
   const formik = useFormik({
     initialValues: {
-      file: '',
-      userName: '',
+      userName,
       password: '',
+      image: '',
     },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit: onSubmitFnc,
+    validationSchema: object({
+      image: mixed(),
+    }),
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <AvatarLabel htmlFor="file">
-        <AvatarWrapper>
-          {<Avatar src="#" alt="#" /> && <ProfileIcon />}
+      <AvatarLabel htmlFor="image">
+        <AvatarWrapper avatar={userAvatar}>
+          {userAvatar ? '' : <ProfileIcon />}
         </AvatarWrapper>
         <PlusFileIcon />
         <FileInput
-          id="file"
-          name="file"
+          id="image"
+          name="image"
           type="file"
-          onChange={formik.handleChange}
-          value={formik.values.file}
+          onChange={event => {
+            console.log(event.currentTarget.files[0]);
+            formik.setFieldValue('image', event.target.files[0]);
+          }}
         />
       </AvatarLabel>
       <NameLabel htmlFor="userName">
@@ -51,7 +86,7 @@ const UserProfileForm = () => {
           placeholder="name"
           autoComplete="off"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.userName}
         />
       </NameLabel>
       <NameLabel htmlFor="password">
@@ -63,7 +98,7 @@ const UserProfileForm = () => {
           placeholder="password"
           autoComplete="off"
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.password}
         />
       </NameLabel>
 

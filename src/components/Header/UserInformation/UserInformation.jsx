@@ -15,12 +15,18 @@ import { useState } from 'react';
 import UserProfileForm from 'components/UserProfileForm/UserProfileForm';
 import OurModal from 'components/Modal/OurModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
+import { useSelector } from 'react-redux';
+import { selectUserName, selectUserAvatar } from 'redux/auth/authSelectors';
 
 const UserIformation = () => {
   const [popUpIsOpen, setPopUpIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isOpenLogOutModal, setIsOpenLogOutBtn] = useState(false);
 
+  const userName = useSelector(selectUserName);
+  const avatar = useSelector(selectUserAvatar);
+
+  console.log(userName);
   const openPopUp = () => {
     setPopUpIsOpen(!popUpIsOpen);
   };
@@ -36,12 +42,11 @@ const UserIformation = () => {
   return (
     <>
       <UserInform onClick={openPopUp}>
-        <UserAvatarWrp>
-          <UserWithoutAvatar />
-          {/* <img src={NotFoundAvatar} alt="avatar" /> */}
+        <UserAvatarWrp avatar={avatar}>
+          {avatar ? '' : <UserWithoutAvatar />}
         </UserAvatarWrp>
 
-        <UserName>Name</UserName>
+        <UserName>{userName || 'User Name'}</UserName>
         {popUpIsOpen && (
           <PopUp>
             <EditWrapper>

@@ -8,6 +8,50 @@ export const getCategoryListAPI = () => {
   });
 };
 
+export const patchShoppingList = async info => {
+  try {
+    const { data } = await axios.patch(`/shoping-list/`, info);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const getShoppingList = async () => {  
+  try {
+    const { data } = await axios.get(`/shopping-list/`);
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const addShoppingList = async obj => {
+  try {
+    const { data } = await axios.post(`/shopping-list/add`, obj);
+    console.log({ shoppingList: data });
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const deleteShoppingList = async obj => {
+  try {
+    const { data } = await axios.delete(
+      `/shopping-list/remove/${obj.id}?measure=${obj.measure}`
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
 export const getLimitedRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
     return data;
