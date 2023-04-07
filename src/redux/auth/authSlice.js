@@ -8,6 +8,7 @@ const initialState = {
   userId: null,
   userName: '',
   userEmail: '',
+  userAvatar: '',
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -50,6 +51,7 @@ const authSlice = createSlice({
         state.userId = action.payload.user.id;
         state.userEmail = action.payload.user.email;
         state.userName = action.payload.user.name;
+        state.userAvatar = action.payload.user.avatarURL;
         state.isLoggedIn = true;
       })
       .addCase(authOperations.signIn.rejected, handleRejected)
