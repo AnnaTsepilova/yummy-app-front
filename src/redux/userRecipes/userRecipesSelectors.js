@@ -8,4 +8,4 @@ export const selectUserError = state => state.userRecipes.error;
 
 export const selectShoppingList = state => state.userRecipes.shoppingList;
 
-export const selectRecipe = state => state.userRecipes.selectRecipe;
+export const selectRecipe = state => state.userRecipes.recipeById;

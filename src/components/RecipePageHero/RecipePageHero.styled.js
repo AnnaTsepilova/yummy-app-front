@@ -13,9 +13,9 @@ export const RecipeBcg = styled.div`
   /* width: 1440px;
   height: 455px; */
   /* position: relative; */
-  margin: 0 auto;
-  z-index: -2;
   /* background-position: center center; */
+  margin: 0 auto;
+  z-index: -5;
   background-position: -220px -150px;
 
   background-size: cover;

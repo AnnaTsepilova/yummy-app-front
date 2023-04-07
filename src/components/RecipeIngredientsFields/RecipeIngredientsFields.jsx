@@ -1,45 +1,38 @@
 import React from 'react'
 import { ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
 
-const RecipeIngredientsFields = ({ingredientsList, handleIncIngredient, handleDecIngredient}) => {
-  // const { category} = dataIngredient; 
+const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngredient, handleOndeleteContact}) => {
+  const {userIngredientsList, listUnits } = dataRecipe;
 
-
-  const handleOnDelete = async () => { 
-    console.log("Press Delete");
-  }
   return (
-
     <>
       <FormWrapper>
         <TitleWraper>
               <TitleStyled>Ingredients</TitleStyled>
               <IncDecWraper>
                 <IncDecButton type='button'onClick={handleDecIngredient}>-</IncDecButton>
-            <IncDecCounter>{ ingredientsList.length}</IncDecCounter>
+                <IncDecCounter>{ userIngredientsList.length}</IncDecCounter>
                 <IncDecButton type='button' onClick={handleIncIngredient}>+</IncDecButton>
               </IncDecWraper>
         </TitleWraper>  
           <ul>
-            {ingredientsList.map((e, index) => {
+            {userIngredientsList.map((e, index) => {
               return (
                 <ListIngredientsItem key={e.id}>
                     <InputIngredWraper>
                           <SelectIngredStyled
                             // defaultValue={colourOptions}
                             // options={category}
-                            isSearchable={false}
-                            // placeholder="Category"
+                            isSearchable={true}
                             classNamePrefix="react-select"
                           />
                           <SelectIngredUnit
                             // defaultValue={colourOptions}
-                            // options={category}
+                            options={listUnits}
                             isSearchable={false}
-                            // placeholder="Category"
                             classNamePrefix="react-select"
                           />
-                     <DeleteButton onClick={handleOnDelete}>X</DeleteButton>
+                     <DeleteButton onClick={handleOndeleteContact}>X</DeleteButton>
                     </InputIngredWraper>
                 </ListIngredientsItem>
               )
