@@ -125,8 +125,23 @@ background-size: contain;
     width: 18px;
     height: 18px;
     right: 19px;
-    background-image: ${props =>
-    props.error ? `url(${props.iconError})` : ''};
+
+background-image: ${props =>
+    props.error
+      ? `url(${props.iconError})`
+      : props.correct
+        ? `url(${props.iconCorrect})`
+        : props.warning
+          ? `url(${props.iconWarning})`
+          : ''};
+
+
+
+
+/* background-image: ${props =>
+    props.error ? `url(${props.iconError})` : (props.correct ? `url(${props.iconCorrect})` : '')}; */
+
+
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -262,6 +277,24 @@ export const Correct = styled.div`
     @media (min-width: 768px) {
   font-size: 14px;
   left: -13px;
-  bottom: -160%;
+  bottom: -150%;
   }
 `;
+
+export const Warning = styled.div`
+  font-size: 10px;
+  color: #F6C23E;
+  position: relative;
+  left: -13px;
+  bottom: -170%;
+    @media (min-width: 768px) {
+  font-size: 14px;
+  left: -13px;
+  bottom: -150%;
+  }
+`
+
+export const IconWarning = styled.div`
+
+
+`
