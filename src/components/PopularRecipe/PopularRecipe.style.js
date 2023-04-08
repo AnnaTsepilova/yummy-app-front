@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
   width: 343px;
-  /* display: flex;
-  flex-direction: column; */
   margin-top: 72px;
   margin-bottom: 100px;
 `;
@@ -21,6 +19,8 @@ export const PopularRecipeItem = styled.div`
   width: 343px;
   display: flex;
   margin-bottom: 24px;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.17);
+  padding-bottom: 13px;
 `;
 
 export const ImgStyled = styled.img`
@@ -28,7 +28,7 @@ export const ImgStyled = styled.img`
   height: 85px;
   border-radius: 8px;
   margin-right: 12px;
-  border: 1px solid black;
+  border: none;
 `;
 
 export const DescriptionWraper = styled.div`

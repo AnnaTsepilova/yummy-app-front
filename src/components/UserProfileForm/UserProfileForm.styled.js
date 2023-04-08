@@ -51,7 +51,6 @@ export const PlusFileIcon = styled(PlusIcon)`
   position: absolute;
   right: 13px;
   bottom: -6px;
-
   width: 24px;
   height: 24px;
 `;

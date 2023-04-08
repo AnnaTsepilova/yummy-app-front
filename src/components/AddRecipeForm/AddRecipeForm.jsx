@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect} from "react";
 // import ReactDOM from 'react-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, Form } from 'formik';
 import { nanoid } from 'nanoid'
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
@@ -13,11 +14,6 @@ import { cookingTimeRecipe, listUnits } from './AddRecipeForm.const';
 
 import { getCategoryListAPI, getIngredientsList, getPopularRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
-  // const [imgURL, setImgURL] = useState('');
-  // const [imgTitle, setImgTitle] = useState('');
-  // const [itemAboutRecipe, setItemAboutRecipe] = useState('');
-  // const [itemCategories, setItemCategories] = useState('');
-  // const [cookingTimeRecipe, setCookingTimeRecipe] = useState('');
   const [categoryList, setCategoryList] = useState([]);
   const [userIngredientsList, setUserIngredientList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
@@ -45,13 +41,15 @@ const AddRecipeForm = () => {
       getIngredientsList().then(initIngredientFunc);
       getPopularRecipe().then(initPopularFunc);
     } catch (error) {
-      console.log(error);
+       Notify.failure('Error database connection!', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
     }
 
   }, []);
   
-
-
   const handleIncIngredient = () => {
     const ingredient = {
       id: nanoid(),
