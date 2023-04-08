@@ -5,6 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useFormik } from 'formik';
 import useValidationSchema from './ValidationSchema';
 import * as authOperations from 'redux/auth/authOperations';
+import checkPasswordStrength from './StrengthSchema';
 import iconUser from 'images/AuthImages/icon-user-mob.svg';
 import iconMail from 'images/AuthImages/icon-mail-mob.svg';
 import iconLock from 'images/AuthImages/icon-lock-mob.svg';
@@ -18,6 +19,8 @@ import iconLockTabE from 'images/AuthImages/icon-lock-tab-e.svg';
 import iconUserTabG from 'images/AuthImages/icon-user-tab-g.svg';
 import iconMailTabG from 'images/AuthImages/icon-mail-tab-g.svg';
 import iconLockTabG from 'images/AuthImages/icon-lock-tab-g.svg';
+import iconWarning from 'images/AuthImages/warning.svg';
+import iconCorrect from 'images/AuthImages/success.svg';
 import {
   FormContainer,
   FormWrapper,
@@ -30,6 +33,8 @@ import {
   InputWrap,
   Error,
   Correct,
+  Warning,
+  IconWarning,
 } from 'components/AuthForm/AuthForm.styled';
 
 const RegisterForm = () => {
@@ -44,12 +49,15 @@ const RegisterForm = () => {
   const [emailCorrect, setEmailCorrect] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordCorrect, setPasswordCorrect] = useState(false);
+  const [passwordStrength, setPasswordStrength] = useState(false);
+
   const initialValues = { name: '', email: '', password: '' };
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: async values => {
+      console.log(values);
       try {
         if (isLogin) {
           await dispatch(authOperations.signIn(values));
@@ -80,11 +88,19 @@ const RegisterForm = () => {
         });
       }
     },
+    validate: values => {
+      let errors = {};
+      return errors;
+    },
   });
 
   const handleInputChange = e => {
     formik.handleChange(e);
     const { name, value } = e.target;
+
+    const strength = checkPasswordStrength(formik.values.password);
+    setPasswordStrength(strength);
+
     const regex = {
       name: /^[a-zA-Z\s-]+$/,
       email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -117,6 +133,16 @@ const RegisterForm = () => {
         break;
     }
   };
+
+  const showError = formik.touched.password && formik.errors.password;
+  const showWarning =
+    passwordStrength === 'weak' && !showError && passwordStrength !== 'strong';
+  const showCorrect =
+    passwordStrength === 'strong' &&
+    passwordCorrect &&
+    !showError &&
+    !showWarning;
+
   return (
     <FormContainer>
       <FormWrapper>
@@ -132,6 +158,7 @@ const RegisterForm = () => {
               iconTabUrlE={iconUserTabE}
               iconTabUrlG={iconUserTabG}
               iconError={iconError}
+              iconCorrect={iconCorrect}
               {...formik.getFieldProps('name')}
               error={Boolean(formik.touched.name && formik.errors.name)}
               correct={Boolean(formik.touched.name && !formik.errors.name)}
@@ -159,6 +186,7 @@ const RegisterForm = () => {
             iconTabUrlE={iconMailTabE}
             iconTabUrlG={iconMailTabG}
             iconError={iconError}
+            iconCorrect={iconCorrect}
             {...formik.getFieldProps('email')}
             error={Boolean(formik.touched.email && formik.errors.email)}
             correct={Boolean(formik.touched.email && !formik.errors.email)}
@@ -174,6 +202,9 @@ const RegisterForm = () => {
               error={emailError}
               correct={emailCorrect}
             />
+            {formik.touched.email && formik.errors.email && (
+              <Error>{formik.errors.email}</Error>
+            )}
             {emailCorrect && <Correct></Correct>}
           </InputWrap>
           <InputWrap
@@ -182,11 +213,12 @@ const RegisterForm = () => {
             iconTabUrlE={iconLockTabE}
             iconTabUrlG={iconLockTabG}
             iconError={iconError}
+            iconWarning={iconWarning}
+            iconCorrect={iconCorrect}
             {...formik.getFieldProps('password')}
             error={Boolean(formik.touched.password && formik.errors.password)}
-            correct={Boolean(
-              formik.touched.password && !formik.errors.password
-            )}
+            warning={Boolean(passwordStrength === 'weak')}
+            correct={Boolean(passwordStrength === 'strong' && passwordCorrect)}
           >
             <FormInput
               placeholder="Password"
@@ -198,12 +230,16 @@ const RegisterForm = () => {
               value={formik.values.password}
               error={passwordError}
               correct={passwordCorrect}
+              warning={passwordStrength}
             />
-            {formik.touched.password && formik.errors.password && (
-              <Error>{formik.errors.password}</Error>
+            {showError && <Error>{formik.errors.password}</Error>}
+            {showWarning && passwordStrength && (
+              <Warning>Your password is little secure</Warning>
             )}
-            {passwordCorrect && <Correct>Password is secure</Correct>}
-            {passwordError && <Error></Error>}
+            {passwordStrength === 'weak' && showWarning && (
+              <IconWarning iconWarning={iconWarning} />
+            )}
+            {showCorrect && <Correct>Password is secure</Correct>}
           </InputWrap>
           <FormButton type="submit">
             {isLogin ? 'Sign in' : 'Sign up'}
