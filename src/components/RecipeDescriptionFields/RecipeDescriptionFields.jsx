@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getCategoryListAPI } from 'service/API/dishesApi';
 import { cookingTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
 
-import { NoImageStyled, ImgStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput } from './RecipeDescriptionFields.styled';
+import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput } from './RecipeDescriptionFields.styled';
 
 //  import { Field } from 'formik';
 

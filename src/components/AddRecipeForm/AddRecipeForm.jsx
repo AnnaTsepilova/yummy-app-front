@@ -85,6 +85,7 @@ const AddRecipeForm = () => {
     setItemTitleRecipe(values.itemTitleRecipe);
     setAboutRecipe(values.aboutRecipe);
     console.log(userIngredientsList);
+    console.log(itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe);
   }
 
   return (
@@ -95,7 +96,7 @@ const AddRecipeForm = () => {
             handleOnCategory={setCategory}
             handleOnCookingTimeRecipe={setCookingTimeRecipe} />
           <RecipeIngredientsFields
-            userList={ userIngredientsList}
+            userList={{ userIngredientsList }}
             handleOnUserIngredientsList={setUserIngredientList}
             handleIncIngredient={handleIncIngredient}
             handleDecIngredient={handleDecIngredient}
