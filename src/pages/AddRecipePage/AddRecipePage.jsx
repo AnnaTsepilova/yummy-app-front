@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
-import MainTitle from 'components/MainTitle/MainTitle';
+import { Title } from 'pages/AddRecipePage/AddRecipePage.styled';
 
 const AddRecipePage = () => {
   return (
     <>
-        <MainTitle title="Add recipe"/>
-        <AddRecipeForm/>
+      <Title>Add recipe</Title>
+      <AddRecipeForm />
     </>
-  )
-}
+  );
+};
 
-export default AddRecipePage
+export default AddRecipePage;

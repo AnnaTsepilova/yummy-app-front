@@ -4,7 +4,7 @@ import {
   Title,
   Products,
   RightPartText,
-} from './TitleShoppingList.styled';
+} from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList.styled';
 
 const TitleShoppingList = () => {
   return (

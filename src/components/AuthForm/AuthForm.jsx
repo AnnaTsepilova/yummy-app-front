@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useFormik } from 'formik';
-import validationSchema from './ValidationSchema';
+import useValidationSchema from './ValidationSchema';
 import * as authOperations from 'redux/auth/authOperations';
 import iconUser from 'images/AuthImages/icon-user-mob.svg';
 import iconMail from 'images/AuthImages/icon-mail-mob.svg';
@@ -31,9 +31,12 @@ import {
   Error,
   Correct,
 } from 'components/AuthForm/AuthForm.styled';
+
 const RegisterForm = () => {
   const { pathname } = useLocation();
   const isLogin = pathname === '/signin';
+  const validationSchema = useValidationSchema();
+
   const dispatch = useDispatch();
   const [nameError, setNameError] = useState(false);
   const [nameCorrect, setNameCorrect] = useState(false);
@@ -41,16 +44,22 @@ const RegisterForm = () => {
   const [emailCorrect, setEmailCorrect] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordCorrect, setPasswordCorrect] = useState(false);
-  const [isFormValid, setIsFormValid] = useState(false);
   const initialValues = { name: '', email: '', password: '' };
+
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: values => {
-      if (isLogin) {
-        dispatch(authOperations.signIn(values));
-      } else {
-        dispatch(authOperations.signUp(values)).then(result => {
+    onSubmit: async values => {
+      try {
+        if (isLogin) {
+          await dispatch(authOperations.signIn(values));
+          // Notify.success('You have successfully signed in', {
+          //   fontSize: '16px',
+          //   width: '350px',
+          //   padding: '10px',
+          // });
+        } else {
+          const result = await dispatch(authOperations.signUp(values));
           if (result.type === 'auth/signup/rejected') {
             return;
           }
@@ -59,15 +68,20 @@ const RegisterForm = () => {
             width: '350px',
             padding: '10px',
           });
-          dispatch(authOperations.signIn(values));
+          await dispatch(authOperations.signIn(values));
           formik.resetForm();
+        }
+      } catch (error) {
+        console.error(error);
+        Notify.error('Something went wrong.', {
+          fontSize: '16px',
+          width: '350px',
+          padding: '10px',
         });
       }
     },
   });
-  useEffect(() => {
-    setIsFormValid(formik.isValid);
-  }, [formik.isValid]);
+
   const handleInputChange = e => {
     formik.handleChange(e);
     const { name, value } = e.target;
@@ -191,7 +205,7 @@ const RegisterForm = () => {
             {passwordCorrect && <Correct>Password is secure</Correct>}
             {passwordError && <Error></Error>}
           </InputWrap>
-          <FormButton disabled={!isFormValid}>
+          <FormButton type="submit">
             {isLogin ? 'Sign in' : 'Sign up'}
           </FormButton>
         </Form>
