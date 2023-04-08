@@ -9,10 +9,10 @@ import {
   TimeBox,
   Time,
   ClockSvg,
-} from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
+} from 'components/RecipePageHero/RecipeHeroContent/RecipeHeroContent.styled';
 import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
 
-import ButtonLoader from 'components/RecipePageHero/RecipeHeroTextAdd/ButtonLoader/ButtonLoader';
+import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 
 import {
   addRecipeToFavorite,

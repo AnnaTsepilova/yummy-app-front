@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RecipeBgHero } from 'components/RecipePageHero/RecipePageHero.styled';
-import RecipeHeroContent from './RecipeHeroTextAdd/RecipeHeroContent';
+import RecipeHeroContent from './RecipeHeroContent/RecipeHeroContent';
 // import {
 //   selectIsLoading,
 //   selectRecipe,
