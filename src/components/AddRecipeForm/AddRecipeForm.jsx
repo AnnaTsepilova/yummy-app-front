@@ -11,7 +11,7 @@ import RecipePreparationFields from 'components/RecipePreparationFields/RecipePr
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
 import { cookingTimeRecipe, listUnits } from './AddRecipeForm.const';
 
-import { getCategoryListAPI, getIngredientsList } from 'service/API/dishesApi';
+import { getCategoryListAPI, getIngredientsList, getPopularRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
   // const [imgURL, setImgURL] = useState('');
   // const [imgTitle, setImgTitle] = useState('');
@@ -21,6 +21,7 @@ const AddRecipeForm = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [userIngredientsList, setUserIngredientList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
+  const [popularRecipeList, setPopularRecipeList] = useState([]);
 
   function initCategoryFunc(list) { 
     const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
@@ -34,10 +35,15 @@ const AddRecipeForm = () => {
     setIngredientList(tmp);
   };
 
+  function initPopularFunc(list) {
+    setPopularRecipeList(list);
+   };
+
   useEffect(() => {
     try {
-        getCategoryListAPI().then(list =>initCategoryFunc(list));
-        getIngredientsList().then(initIngredientFunc);
+      getCategoryListAPI().then(initCategoryFunc);
+      getIngredientsList().then(initIngredientFunc);
+      getPopularRecipe().then(initPopularFunc);
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +81,7 @@ const AddRecipeForm = () => {
     cookingTimeRecipe,
     listUnits,
     userIngredientsList,
-    ingredientList
+    ingredientList,
   }
 
   const handleOnSubmit = async (values) => {
@@ -92,7 +98,7 @@ const AddRecipeForm = () => {
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
       </Formik>
-      <PopularRecipe/>
+      <PopularRecipe popularRecipeList={popularRecipeList} />
     </>
   )
 }

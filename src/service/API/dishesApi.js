@@ -143,3 +143,9 @@ export const getIngredientsList = async () => {
     return data;
   });
 };
+
+export const getPopularRecipe = async () => {
+  return axios.get(`popular-recipe`).then(({ data }) => {
+    return data;
+  });
+};

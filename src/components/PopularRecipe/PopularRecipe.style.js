@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
   width: 343px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 72px;
-  /* gap: 24px; */
+  margin-bottom: 100px;
 `;
 
 export const TitleStyled = styled.h3`
@@ -20,6 +20,7 @@ export const TitleStyled = styled.h3`
 export const PopularRecipeItem = styled.div`
   width: 343px;
   display: flex;
+  margin-bottom: 24px;
 `;
 
 export const ImgStyled = styled.img`
