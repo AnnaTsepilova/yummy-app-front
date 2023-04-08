@@ -45,12 +45,13 @@ export const getUserShoppingList = createAsyncThunk(
 
 export const addUserShoppingList = createAsyncThunk(
   'shopping-list/add',
-  async (obj, { rejectWithValue, getState }) => {
+  async (obj, { rejectWithValue, dispatch, getState }) => {
     const state = getState();
     const token = state.auth.accessToken;
     setAuthHeader(token);
     try {
       const data = await addShoppingList(obj);
+      dispatch(getUserShoppingList())
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -76,9 +77,13 @@ export const removeFromShoppingList = createAsyncThunk(
 
 export const addRecipeToFavorite = createAsyncThunk(
   'userResipes/addToFavorite',
-  async (id, { rejectWithValue }) => {
+  async (id, { rejectWithValue, dispatch, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
     try {
       const data = await addRecipeTofavoriteAPI(id);
+      dispatch(getFavoriteRecipes());
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -88,9 +93,13 @@ export const addRecipeToFavorite = createAsyncThunk(
 
 export const removeRecipeFromFavorite = createAsyncThunk(
   'userRecipes/removeFromFavorite',
-  async (id, { rejectWithValue }) => {
+  async (id, { rejectWithValue, dispatch, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
     try {
       const data = await removeRecipeFromFavoriteAPI(id);
+      dispatch(getFavoriteRecipes());
       return data.id;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -100,7 +109,10 @@ export const removeRecipeFromFavorite = createAsyncThunk(
 
 export const getFavoriteRecipes = createAsyncThunk(
   'userRecipes/getFavoriteRecipes',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const token = state.auth.accessToken;
+    setAuthHeader(token);
     try {
       const data = await getFavoriteRecipesAPI();
       return data;

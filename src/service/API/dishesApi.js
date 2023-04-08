@@ -30,7 +30,6 @@ export const getShoppingList = async () => {
 
 export const addShoppingList = async obj => {
   try {
-    console.log(obj);
 
     const { data } = await axios.post(
       `/shopping-list/add?recipeId=${obj[1]}`,
@@ -46,6 +45,12 @@ export const addShoppingList = async obj => {
 
 export const deleteShoppingList = async obj => {
   try {
+    if (obj.length > 0) {
+      const { data } = await axios.delete(
+        `/shopping-list/remove/${obj[0].ingredientId}?measure=${obj[0].measure}&recipeId=${obj[1]}`
+      );
+      return data;
+    }
     const { data } = await axios.delete(
       `/shopping-list/remove/${obj.id}?measure=${obj.measure}`
     );
