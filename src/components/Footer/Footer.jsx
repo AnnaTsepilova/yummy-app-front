@@ -9,6 +9,7 @@ import {
   FooterBottomContainer,
   SocialLinksContainer,
 } from 'components/Footer/Footer.styled';
+import { FooterBgLeaves } from 'components/SharedLayout/SharedLayout.styled';
 
 const Footer = () => {
   return (
@@ -18,6 +19,7 @@ const Footer = () => {
         <SocialLinksContainer>
           <SocialLinks />
         </SocialLinksContainer>
+        <FooterBgLeaves />
       </FooterTopContainer>
       <FooterBottomContainer>
         <span>© 2023 All Rights Reserved.</span>

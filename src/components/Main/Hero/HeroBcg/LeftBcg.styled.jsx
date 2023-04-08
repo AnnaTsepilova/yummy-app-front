@@ -10,7 +10,7 @@ export const Left = styled.div`
   position: absolute;
   top: 50px;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   width: 48px;
   height: 202px;
   background-image: url('${leftBcgMob}');
