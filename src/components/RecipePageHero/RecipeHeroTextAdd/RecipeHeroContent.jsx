@@ -5,7 +5,7 @@ import {
   RecipeHeroContentWrapper,
   PageTitle,
   Text,
-  Button,
+  // Button,
   Box,
   Time,
 } from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
@@ -53,22 +53,22 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
     <RecipeHeroContentWrapper>
       <PageTitle>{title}</PageTitle>
       <Text>{description}</Text>
-      <Button
+      <StyledAddRecipeBtn
         disabled={isLoading}
-        whileHover={{
-          backgroundColor: '#8BAA36',
-          borderColor: '#8BAA36',
-        }}
+        // whileHover={{
+        //   backgroundColor: '#8BAA36',
+        //   borderColor: '#8BAA36',
+        // }}
         onClick={() => handleFavoriteButton(id)}
       >
         {isLoading ? (
           <ButtonLoader color="white" width={25} />
         ) : isFavorite ? (
-          'Remove to favorite recipes'
+          'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
-      </Button>
+      </StyledAddRecipeBtn>
       <Box>
         {/* <ClockSvg /> */}
         <Time>{time} min</Time>

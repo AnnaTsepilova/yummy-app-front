@@ -5,11 +5,14 @@ import styled from 'styled-components';
 // import backgroundTablet from 'images/Recipe/recipie-bgd-tab@1x.png';
 
 export const RecipeHeroContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 303px;
   height: auto;
   margin: 0 auto;
   padding: 80px 0 40px;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     padding: 72px 0 32px;
@@ -71,32 +74,32 @@ export const Text = styled.p`
 //   }
 // `;
 
-export const Button = styled.button`
-  /* position: relative;
-  z-index: 3; */
+// export const Button = styled.button`
+//   /* position: relative;
+//   z-index: 3; */
 
-  min-width: 200px;
-  margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 35px;
-  font-size: 10px;
-  line-height: 1.5;
-  display: block;
-  background-color: transparent;
-  padding: 0 18px;
-  border-radius: 24px 44px;
-  border: 1px solid #8baa36;
+//   min-width: 200px;
+//   margin-top: 24px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   height: 35px;
+//   font-size: 10px;
+//   line-height: 1.5;
+//   display: block;
+//   background-color: transparent;
+//   padding: 0 18px;
+//   border-radius: 24px 44px;
+//   border: 1px solid #8baa36;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
-    height: 59px;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 0 44px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     height: 59px;
+//     font-size: 16px;
+//     line-height: 1.5;
+//     padding: 0 44px;
+//   }
+// `;
 
 export const Box = styled.div`
   position: relative;
