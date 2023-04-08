@@ -10,7 +10,7 @@ export const Left = styled.div`
   position: absolute;
   top: 50px;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   width: 48px;
   height: 202px;
   background-image: url('${leftBcgMob}');
@@ -45,7 +45,7 @@ export const Right = styled.div`
     background-image: url('${rightBcgTab}');
   }
   @media screen and (min-width: 1440px) {
-    width: 918px;
+    width: 913px;
     height: 833px;
     background-image: url('${rightBcgDesc}');
   }

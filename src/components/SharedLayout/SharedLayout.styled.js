@@ -30,6 +30,9 @@ export const Container = styled.div`
 `;
 
 export const FooterBgLeaves = styled.div`
+  position: absolute;
+  top: -27%;
+  left: 0;
   min-width: 320px;
   background-image: url('${LeavesBgLeftMob}');
   /* width: 256px; */
@@ -37,7 +40,7 @@ export const FooterBgLeaves = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left;
-  z-index: -1;
+  z-index: -2;
 
   @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -48,8 +51,9 @@ export const FooterBgLeaves = styled.div`
   @media screen and (min-width: 768px) {
     background-image: url('${LeavesBgLeftTab}');
     /* height: 646px; */
-    height: 260px;
 
+    top: -28%;
+    left: 0;
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -60,7 +64,10 @@ export const FooterBgLeaves = styled.div`
   @media screen and (min-width: 1440px) {
     background-image: url('${LeavesBgLeftDesc}');
     /* height: 852px; */
-    height: 280px;
+
+    top: -60%;
+    left: 0;
+    width: 696px;
 
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
