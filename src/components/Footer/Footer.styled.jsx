@@ -48,6 +48,10 @@ export const FooterTopContainer = styled.div`
   background-color: var(--secondary-black);
   position: relative;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const SocialLinksContainer = styled.div`

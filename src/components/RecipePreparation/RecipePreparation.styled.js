@@ -58,13 +58,13 @@ export const Item = styled.li`
 
 export const SpanBox = styled.div`
   color: white;
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--primary-green);
-  display: "flex",
-    justify-Content: "center",
-    align-Items: "center",;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const Span = styled.span`
   padding: 8px;

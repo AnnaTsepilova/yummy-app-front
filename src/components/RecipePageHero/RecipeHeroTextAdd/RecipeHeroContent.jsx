@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -9,11 +9,22 @@ import {
   Box,
   Time,
 } from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
+
+import {
+  // MainPageTitle,
+  // Text,
+  // Button,
+  // Box,
+  // Time,
+  ClockSvg,
+} from './RecipeHeroTextAdd.styled';
+
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroTextAdd/ButtonLoader/ButtonLoader';
 import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
 
 import {
   addRecipeToFavorite,
+  getFavoriteRecipes,
   removeRecipeFromFavorite,
 } from 'redux/userRecipes/userResipesOperations';
 import {
@@ -21,27 +32,31 @@ import {
   selectIsLoading,
   selectRecipe,
 } from 'redux/userRecipes/userRecipesSelectors';
+import ClockIconPng from 'images/Recipe/clock.png';
 
 const RecipeHeroContent = ({ title, description, time, id }) => {
   const recipe = useSelector(selectRecipe); // eslint-disable-line
 
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
-  const [isFavorite, setIsFavorite] = useState();
   const dispatch = useDispatch();
-
   const isLoading = useSelector(selectIsLoading);
-
   useEffect(() => {
-    setIsFavorite(userFavouritesRecipes.includes(id));
-  }, [userFavouritesRecipes, id]);
-
-  const handleFavoriteButton = id => {
-    if (isFavorite) {
-      dispatch(removeRecipeFromFavorite(id));
-    } else {
-      dispatch(addRecipeToFavorite(id));
+    // setIsFavorite(userFavouritesRecipes.includes(id));
+    dispatch(getFavoriteRecipes());
+  }, [dispatch]);
+  const func = () => {
+    const check = userFavouritesRecipes.filter(item => item._id === recipe._id);
+    if (check.length > 0) {
+      return true;
     }
-    setIsFavorite(!isFavorite);
+    return false;
+  };
+  const handleFavoriteButton = id => {
+    const check = func();
+    if (check) {
+      return dispatch(removeRecipeFromFavorite(id));
+    }
+    return dispatch(addRecipeToFavorite(id));
   };
 
   return (
@@ -59,18 +74,18 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
         //   backgroundColor: '#8BAA36',
         //   borderColor: '#8BAA36',
         // }}
-        onClick={() => handleFavoriteButton(id)}
+        onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
           <ButtonLoader color="white" width={25} />
-        ) : isFavorite ? (
+        ) : func() ? (
           'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
       </StyledAddRecipeBtn>
       <Box>
-        {/* <ClockSvg /> */}
+        <ClockSvg src={ClockIconPng} alt="Clock" />
         <Time>{time} min</Time>
       </Box>
     </RecipeHeroContentWrapper>
