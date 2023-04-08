@@ -10,6 +10,7 @@ import {
   Button,
   Box,
   Time,
+  ClockSvg,
 } from './RecipeHeroTextAdd.styled';
 import {
   addRecipeToFavorite,
@@ -17,6 +18,7 @@ import {
 } from 'redux/userRecipes/userResipesOperations';
 import { useEffect, useState } from 'react';
 import ButtonLoader from './ButtonLoader/ButtonLoader';
+import ClockIconPng from 'images/Recipe/clock.png';
 
 const RecipeHeroTextAdd = ({ title, description, time, id }) => {
   const recipe = useSelector(selectRecipe); // eslint-disable-line
@@ -60,13 +62,13 @@ const RecipeHeroTextAdd = ({ title, description, time, id }) => {
         {isLoading ? (
           <ButtonLoader color="white" width={25} />
         ) : isFavorite ? (
-          'Remove to favorite recipes'
+          'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
       </Button>
       <Box>
-        {/* <ClockSvg /> */}
+        <ClockSvg src={ClockIconPng} alt="Clock" />
         <Time>{time} min</Time>
       </Box>
     </>

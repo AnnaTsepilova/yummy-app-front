@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import ClockIcon from 'images/Recipe/clock.png';
 import backgroundDesktop from 'images/Recipe/recipie-bgd-desc@1x.png';
 import backgroundMobile from 'images/Recipe/recipie-bgd-mob@1x.png';
 import backgroundTablet from 'images/Recipe/recipie-bgd-tab@1x.png';
@@ -108,14 +107,14 @@ export const Box = styled.div`
   }
 `;
 
-// export const ClockSvg = styled(ClockIcon)`
-//   width: 18px;
-//   height: 18px;
-//   @media screen and (min-width: 768px) {
-//     width: 24px;
-//     height: 24px;
-//   }
-// `;
+export const ClockSvg = styled.img`
+  width: 18px;
+  height: 18px;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+`;
 export const Time = styled.span`
   margin-left: 5px;
    color: var(--secondary-black);
