@@ -2,7 +2,7 @@ import React from 'react'
 import { ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
 
 const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngredient, handleOndeleteContact}) => {
-  const {userIngredientsList, listUnits } = dataRecipe;
+  const {ingredientList, userIngredientsList, listUnits } = dataRecipe;
 
   return (
     <>
@@ -22,7 +22,7 @@ const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngr
                     <InputIngredWraper>
                           <SelectIngredStyled
                             // defaultValue={colourOptions}
-                            // options={category}
+                            options={ingredientList}
                             isSearchable={true}
                             classNamePrefix="react-select"
                           />

@@ -20,7 +20,7 @@ const AddRecipeForm = () => {
   // const [cookingTimeRecipe, setCookingTimeRecipe] = useState('');
   const [categoryList, setCategoryList] = useState([]);
   const [userIngredientsList, setUserIngredientList] = useState([]);
-  // const [ingredientList, setIngredientList] = useState([]);
+  const [ingredientList, setIngredientList] = useState([]);
 
   function initCategoryFunc(list) { 
     const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
@@ -28,12 +28,20 @@ const AddRecipeForm = () => {
   };
 
   function initIngredientFunc(list) { 
-    console.log("🚀 ~ file: AddRecipeForm.jsx:31 ~ initIngredientFunc ~ list:", list);
+    const tmp = list.map(e => {
+      return ({ value: e._id, label: `${e.ttl}` })
+    });
+    setIngredientList(tmp);
   };
 
   useEffect(() => {
-    getCategoryListAPI().then(list =>initCategoryFunc(list));
-    getIngredientsList().then(list => initIngredientFunc(list));
+    try {
+        getCategoryListAPI().then(list =>initCategoryFunc(list));
+        getIngredientsList().then(initIngredientFunc);
+    } catch (error) {
+      console.log(error);
+    }
+
   }, []);
   
 
@@ -67,6 +75,7 @@ const AddRecipeForm = () => {
     cookingTimeRecipe,
     listUnits,
     userIngredientsList,
+    ingredientList
   }
 
   const handleOnSubmit = async (values) => {

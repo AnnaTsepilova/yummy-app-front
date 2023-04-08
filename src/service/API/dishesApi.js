@@ -30,7 +30,6 @@ export const getShoppingList = async () => {
 
 export const addShoppingList = async obj => {
   try {
-
     const { data } = await axios.post(
       `/shopping-list/add?recipeId=${obj[1]}`,
       obj[0]
@@ -140,11 +139,7 @@ export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
 };
 
 export const getIngredientsList = async () => {
-  try {
-    const ingredientsList = await axios.get(`/ingredients/list`);
-    return ingredientsList;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
+  return axios.get(`/ingredients/list`).then(({ data }) => {
+    return data;
+  });
 };
