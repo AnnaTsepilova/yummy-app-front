@@ -1,26 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import ClockIconPng from 'images/Recipe/clock.png';
 import {
   RecipeHeroContentWrapper,
   PageTitle,
   Text,
-  // Button,
-  Box,
+  TimeBox,
   Time,
-} from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
-
-import {
-  // MainPageTitle,
-  // Text,
-  // Button,
-  // Box,
-  // Time,
   ClockSvg,
-} from './RecipeHeroTextAdd.styled';
+} from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
+import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
 
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroTextAdd/ButtonLoader/ButtonLoader';
-import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
 
 import {
   addRecipeToFavorite,
@@ -32,7 +24,6 @@ import {
   selectIsLoading,
   selectRecipe,
 } from 'redux/userRecipes/userRecipesSelectors';
-import ClockIconPng from 'images/Recipe/clock.png';
 
 const RecipeHeroContent = ({ title, description, time, id }) => {
   const recipe = useSelector(selectRecipe); // eslint-disable-line
@@ -77,17 +68,17 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
         onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
-          <ButtonLoader color="white" width={25} />
+          <ButtonLoader color="white" width={15} />
         ) : func() ? (
           'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
       </StyledAddRecipeBtn>
-      <Box>
+      <TimeBox>
         <ClockSvg src={ClockIconPng} alt="Clock" />
         <Time>{time} min</Time>
-      </Box>
+      </TimeBox>
     </RecipeHeroContentWrapper>
   );
 };

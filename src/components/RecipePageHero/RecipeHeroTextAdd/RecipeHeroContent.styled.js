@@ -51,84 +51,44 @@ export const Text = styled.p`
   }
 `;
 
-// export const ImgBox = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: -2;
-//   background-repeat: no-repeat;
-//   background-size: 100% 100%;
-//   background-position: center center;
-//   width: 100%;
-//   height: 455px;
-
-//   background-image: url(${backgroundMobile});
-//   @media screen and (min-width: 768px) {
-//     height: 495px;
-//     background-image: url(${backgroundTablet});
-//   }
-
-//   @media screen and (min-width: 1440px) {
-//     height: 493px;
-//     background-image: url(${backgroundDesktop});
-//   }
-// `;
-
-// export const Button = styled.button`
-//   /* position: relative;
-//   z-index: 3; */
-
-//   min-width: 200px;
-//   margin-top: 24px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   height: 35px;
-//   font-size: 10px;
-//   line-height: 1.5;
-//   display: block;
-//   background-color: transparent;
-//   padding: 0 18px;
-//   border-radius: 24px 44px;
-//   border: 1px solid #8baa36;
-
-//   cursor: pointer;
-
-//   @media screen and (min-width: 768px) {
-//     height: 59px;
-//     font-size: 16px;
-//     line-height: 1.5;
-//     padding: 0 44px;
-//   }
-// `;
-
-export const Box = styled.div`
-  position: relative;
-  z-index: 3;
-
-  margin-top: 42px;
+export const TimeBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
+  width: 100%;
+  margin-top: 42px;
+
   @media screen and (min-width: 768px) {
     margin-top: 60px;
   }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 48px;
+  }
 `;
 
-// export const ClockSvg = styled(ClockIcon)`
-//   width: 18px;
-//   height: 18px;
-//   @media screen and (min-width: 768px) {
-//     width: 24px;
-//     height: 24px;
-//   }
-// `;
+export const ClockSvg = styled.img`
+  width: 14px;
+  height: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
 export const Time = styled.span`
   margin-left: 5px;
-  color: var(--secondary-black);
+
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.43;
-  // letter-spacing: -0.24px;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: var(--primary-black);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.43;
+  }
 `;

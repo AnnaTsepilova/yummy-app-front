@@ -28,6 +28,11 @@ export const RecipeBgHero = styled.div`
     background-position: center -165px;
   }
 
+  @media screen and (min-width: 1500px) {
+    background-size: 100% auto;
+    background-position: center -210px;
+  }
+
   @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {

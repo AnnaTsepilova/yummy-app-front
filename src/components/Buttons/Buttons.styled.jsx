@@ -211,11 +211,11 @@ export const StyledAddRecipeBtn = styled.button`
 
   cursor: pointer;
 
-  /* @media screen and (min-width: 768px) {
-    padding: 18px 24px;
-    min-width: 239px;
+  @media screen and (min-width: 768px) {
+    min-width: 280px;
+    padding: 18px 20px;
     font-size: 16px;
-  } */
+  }
 
   &:hover {
     background-color: var(--primary-green);
