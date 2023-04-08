@@ -8,11 +8,17 @@ export const FooterNavigationDiv = styled.div`
 
   color: white;
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   @media screen and (min-width: 768px) {
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     padding-top: 50px;
+    width: 768px;
 
     & > :not(first-child) {
       margin-bottom: 0px;
@@ -22,11 +28,7 @@ export const FooterNavigationDiv = styled.div`
   @media screen and (min-width: 1440px) {
     flex-wrap: no-wrap;
     align-items: start;
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    width: 1440px;
   }
 `;
 
