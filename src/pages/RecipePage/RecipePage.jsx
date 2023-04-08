@@ -1,11 +1,11 @@
-import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 import React from 'react';
+import RecipePageHero from 'components/RecipePageHero/RecipePageHero';
 
 const RecipePage = () => {
   return (
-    <div>
+    <>
       <RecipePageHero />
-    </div>
+    </>
   );
 };
 
