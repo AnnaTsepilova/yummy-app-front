@@ -1,31 +1,36 @@
 import styled from 'styled-components';
-import imgBg1x from 'images/Recipe/recipie-bgd-desc@1x.png';
-import imgBg2x from 'images/Recipe/recipie-bgd-desc@2x.png';
 
-export const RecipeBcg = styled.div`
-  width: 1440px;
-  height: 493px;
+import imgBg1x from 'images/Recipe/flat-lay-assortment-vegetables@1x.jpg';
+import imgBg2x from 'images/Recipe/flat-lay-assortment-vegetables@2x.jpg';
+
+export const RecipeBgHero = styled.div`
   position: absolute;
-  top: 0%;
-  left: 5%;
+  top: 0;
 
   width: 100%;
-  /* width: 1440px;
-  height: 455px; */
-  /* position: relative; */
-  /* background-position: center center; */
+  height: 455px;
   margin: 0 auto;
-  z-index: -5;
-  background-position: -220px -150px;
+  z-index: -1;
 
-  background-size: cover;
-  background-repeat: no-repeat;
   background-image: url(${imgBg1x});
+  background-repeat: no-repeat;
+  background-size: 750px auto;
+  background-position: center top;
 
   @media screen and (min-width: 768px) {
-    /* .HeroBackground {
-      top: -68px;
-    } */
+    height: 495px;
+    background-size: 1020px auto;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 493px;
+    background-size: 1530px auto;
+    background-position: center -165px;
+  }
+
+  @media screen and (min-width: 1500px) {
+    background-size: 100% auto;
+    background-position: center -210px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),

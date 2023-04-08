@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 // import { Field } from 'formik';
-// import { ReactComponent as decreaseIcon } from 'images/AddRecipe/decrease.svg';
+import { ReactComponent as DecreaseIcon } from 'images/AddRecipe/decrease.svg';
+import { ReactComponent as IncreaseIcon } from 'images/AddRecipe/increase.svg';
+import { ReactComponent as CloseIcon } from 'images/AddRecipe/close.svg';
 
 export const FormWrapper = styled.div`
   width: 343px;
@@ -27,10 +29,29 @@ export const InputIngredWraper = styled.div`
   margin-bottom: 18px;
 `;
 
+export const DecrIconButton = styled(DecreaseIcon)`
+  width: 14px;
+  height: 14px;
+`;
+
+export const IncIconButton = styled(IncreaseIcon)`
+  width: 14px;
+  height: 14px;
+`;
+
+export const CloseIconButton = styled(CloseIcon)`
+  width: 18px;
+  height: 18px;
+`;
+
 export const DeleteButton = styled.button`
   width: 18px;
   height: 18px;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
 
 export const TitleStyled = styled.h3`
@@ -49,21 +70,19 @@ export const IncDecWraper = styled.div`
   border: 1px solid #e0e0e0;
   border-radius: 20px;
   justify-content: space-around;
+  align-items: center;
 `;
 
 export const IncDecButton = styled.button`
-  /* background-color: var(--background-light-green); */
-  /* background-image: url('images/AddRecipe/decrease.png'); */
-  background-repeat: no-repeat;
   width: 14px;
   height: 14px;
-  padding: 14px 7px 14px 7px;
+  /* padding: 14px 7px 14px 7px; */
   border: none;
   color: #8baa36;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  background-color: transparent;
 `;
 
 export const IncDecCounter = styled.p`

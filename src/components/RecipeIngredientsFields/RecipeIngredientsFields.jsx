@@ -1,19 +1,24 @@
 import React from 'react'
-import { ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
+import { CloseIconButton, IncIconButton, DecrIconButton,ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
 
 const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngredient, handleOndeleteContact}) => {
-  const {userIngredientsList, listUnits } = dataRecipe;
+  const {ingredientList, userIngredientsList, listUnits } = dataRecipe;
 
   return (
     <>
       <FormWrapper>
         <TitleWraper>
               <TitleStyled>Ingredients</TitleStyled>
-              <IncDecWraper>
-                <IncDecButton type='button'onClick={handleDecIngredient}>-</IncDecButton>
-                <IncDecCounter>{ userIngredientsList.length}</IncDecCounter>
-                <IncDecButton type='button' onClick={handleIncIngredient}>+</IncDecButton>
-              </IncDecWraper>
+          <IncDecWraper>
+
+              <IncDecButton type='button' onClick={handleDecIngredient}>
+                  <DecrIconButton/>
+              </IncDecButton>
+              <IncDecCounter>{ userIngredientsList.length}</IncDecCounter>
+              <IncDecButton type='button' onClick={handleIncIngredient}>
+                  <IncIconButton/>
+              </IncDecButton>
+          </IncDecWraper>
         </TitleWraper>  
           <ul>
             {userIngredientsList.map((e, index) => {
@@ -22,7 +27,7 @@ const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngr
                     <InputIngredWraper>
                           <SelectIngredStyled
                             // defaultValue={colourOptions}
-                            // options={category}
+                            options={ingredientList}
                             isSearchable={true}
                             classNamePrefix="react-select"
                           />
@@ -32,7 +37,9 @@ const RecipeIngredientsFields = ({dataRecipe, handleIncIngredient, handleDecIngr
                             isSearchable={false}
                             classNamePrefix="react-select"
                           />
-                     <DeleteButton onClick={handleOndeleteContact}>X</DeleteButton>
+                    <DeleteButton onClick={handleOndeleteContact}>
+                          <CloseIconButton/>
+                    </DeleteButton>
                     </InputIngredWraper>
                 </ListIngredientsItem>
               )
