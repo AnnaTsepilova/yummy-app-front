@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { RecipeBcg } from './RecipePageHero.styled';
+import { useLocation } from 'react-router';
 import { createPortal } from 'react-dom';
-import RecipeHeroTextAdd from './RecipeHeroTextAdd/RecipeHeroTextAdd';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { RecipeBgHero } from 'components/RecipePageHero/RecipePageHero.styled';
+import RecipeHeroContent from './RecipeHeroContent/RecipeHeroContent';
 // import {
 //   selectIsLoading,
 //   selectRecipe,
@@ -10,17 +12,17 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { getRecipeByIdAPI, getShoppingList } from 'service/API/dishesApi';
 import RecipeInngredientsList from 'components/RecipeInngredientsList/RecipeInngredientsList';
 import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
+
 import {
   getRecipeById,
   getUserShoppingList,
 } from 'redux/userRecipes/userResipesOperations';
-import { useLocation } from 'react-router';
 import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
 
-const mainRoot = document.querySelector('#racipe_bcg');
+const mainRoot = document.querySelector('#racipe_bg');
 
-const RecipeBckg = () => {
-  return createPortal(<RecipeBcg></RecipeBcg>, mainRoot);
+const RecipeBg = () => {
+  return createPortal(<RecipeBgHero></RecipeBgHero>, mainRoot);
 };
 
 const RecipePageHero = () => {
@@ -39,8 +41,8 @@ const RecipePageHero = () => {
 
   return (
     <>
-      <RecipeBckg></RecipeBckg>
-      <RecipeHeroTextAdd
+      <RecipeBg />
+      <RecipeHeroContent
         title={recipe.title}
         description={recipe.description}
         time={recipe.time}

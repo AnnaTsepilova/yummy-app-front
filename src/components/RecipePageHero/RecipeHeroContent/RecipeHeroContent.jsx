@@ -1,27 +1,31 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import ClockIconPng from 'images/Recipe/clock.png';
 import {
-  selectFavoriteRecipes,
-  selectIsLoading,
-  selectRecipe,
-} from 'redux/userRecipes/userRecipesSelectors';
-import {
-  MainPageTitle,
+  RecipeHeroContentWrapper,
+  PageTitle,
   Text,
-  Button,
-  Box,
+  TimeBox,
   Time,
   ClockSvg,
-} from './RecipeHeroTextAdd.styled';
+} from 'components/RecipePageHero/RecipeHeroContent/RecipeHeroContent.styled';
+import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
+
+import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
+
 import {
   addRecipeToFavorite,
   getFavoriteRecipes,
   removeRecipeFromFavorite,
 } from 'redux/userRecipes/userResipesOperations';
-import { useEffect } from 'react';
-import ButtonLoader from './ButtonLoader/ButtonLoader';
-import ClockIconPng from 'images/Recipe/clock.png';
+import {
+  selectFavoriteRecipes,
+  selectIsLoading,
+  selectRecipe,
+} from 'redux/userRecipes/userRecipesSelectors';
 
-const RecipeHeroTextAdd = ({ title, description, time, id }) => {
+const RecipeHeroContent = ({ title, description, time, id }) => {
   const recipe = useSelector(selectRecipe); // eslint-disable-line
 
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
@@ -52,31 +56,31 @@ const RecipeHeroTextAdd = ({ title, description, time, id }) => {
     //   <p>{description}</p>
     //   <button>knopka</button>
     // </div>
-    <>
-      <MainPageTitle>{title}</MainPageTitle>
+    <RecipeHeroContentWrapper>
+      <PageTitle>{title}</PageTitle>
       <Text>{description}</Text>
-      <Button
+      <StyledAddRecipeBtn
         disabled={isLoading}
-        whileHover={{
-          backgroundColor: '#8BAA36',
-          borderColor: '#8BAA36',
-        }}
+        // whileHover={{
+        //   backgroundColor: '#8BAA36',
+        //   borderColor: '#8BAA36',
+        // }}
         onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
-          <ButtonLoader color="white" width={25} />
+          <ButtonLoader color="white" width={15} />
         ) : func() ? (
           'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
-      </Button>
-      <Box>
+      </StyledAddRecipeBtn>
+      <TimeBox>
         <ClockSvg src={ClockIconPng} alt="Clock" />
         <Time>{time} min</Time>
-      </Box>
-    </>
+      </TimeBox>
+    </RecipeHeroContentWrapper>
   );
 };
 
-export default RecipeHeroTextAdd;
+export default RecipeHeroContent;

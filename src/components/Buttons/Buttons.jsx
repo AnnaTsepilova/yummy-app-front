@@ -8,6 +8,7 @@ import {
   StyledCancelBtn,
   StyledSeeAllBtn,
   StyledOtherCatBtn,
+  StyledAddRecipeBtn,
 } from 'components/Buttons/Buttons.styled';
 
 export const SearchBlackBtn = ({ children }) => {
@@ -44,4 +45,8 @@ export const OtherCatBtn = ({ children }) => {
       </Link>
     </StyledOtherCatBtn>
   );
+};
+
+export const AddRecipeBtn = ({ children }) => {
+  return <StyledAddRecipeBtn>{children}</StyledAddRecipeBtn>;
 };

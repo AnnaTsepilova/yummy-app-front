@@ -191,3 +191,34 @@ export const StyledOtherCatBtn = styled.div`
     color: var(--primary-white);
   }
 `;
+
+export const StyledAddRecipeBtn = styled.button`
+  min-width: 150px;
+  padding: 10px 18px;
+
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: transparent;
+  border-radius: 18px 44px;
+  border: 1px solid var(--primary-green);
+
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--secondary-black);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    min-width: 280px;
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+  }
+`;
