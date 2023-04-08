@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 import { Field } from 'formik';
+import { ReactComponent as NoImage } from 'images/AddRecipe/img-input.svg';
+
+export const NoImageStyled = styled(NoImage)`
+  margin: auto;
+`;
 
 export const FormWrapper = styled.div`
   width: 343px;
@@ -10,11 +15,39 @@ export const FormWrapper = styled.div`
   margin-bottom: 44px;
 `;
 
-export const ImageInput = styled.button`
+export const ImgLabel = styled.label`
+  margin-left: auto;
+  margin-right: auto;
   width: 279px;
   height: 268px;
-  border: solid 1px black;
-  align-self: center;
+  display: flex;
+  background: #8baa36;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+export const ImgStyled = styled.img`
+  width: 279px;
+  height: 268px;
+  border-radius: 8px;
+  /* background: #8baa36; */
+`;
+
+export const ImageInput = styled.button`
+  /* width: 279px;
+  height: 268px; */
+  /* border: solid 1px black; */
+  /* align-self: center; */
+  /* position: absolute; */
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  /* margin: -1px; */
 `;
 
 export const FieldStyled = styled(Field)`
