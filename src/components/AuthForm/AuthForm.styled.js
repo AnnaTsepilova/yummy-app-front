@@ -63,20 +63,11 @@ export const InputWrap = styled.div`
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  /* border: 1px solid ${({ error }) => (error ? 'red' : '#ccc')}; */
 
 
 border: 1px solid ${props =>
     props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
   };
-
-
-  /* border: 1px solid ${props => props.correct && '#3CBC81'};
-  border: 1px solid ${props => props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)'}; */
-
-
-    /* border: 1px solid ${props =>
-    props.correct ? 'green' : 'rgba(250, 250, 250, 0.3);'}; */
 
   font-size: 18px;
   color: var(--primary-white);
@@ -126,20 +117,20 @@ background-size: contain;
     height: 18px;
     right: 19px;
 
-background-image: ${props =>
+/* background-image: ${props =>
     props.error
       ? `url(${props.iconError})`
       : props.correct
         ? `url(${props.iconCorrect})`
         : props.warning
           ? `url(${props.iconWarning})`
-          : ''};
+          : ' '}; */
 
 
 
 
-/* background-image: ${props =>
-    props.error ? `url(${props.iconError})` : (props.correct ? `url(${props.iconCorrect})` : '')}; */
+background-image: ${props =>
+    props.error ? `url(${props.iconError})` : (props.correct ? `url(${props.iconCorrect})` : '')};
 
 
     background-size: contain;
@@ -153,7 +144,6 @@ background-image: ${props =>
     &::before {
       width: 24px;
       height: 24px;
-      /* background-image: url(${props => props.error ? props.iconTabUrlE : props.iconTabUrl}); */
    background-image: url(${props =>
     props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconTabUrl)
   });
@@ -296,5 +286,4 @@ export const Warning = styled.div`
 
 export const IconWarning = styled.div`
 
-
-`
+`;

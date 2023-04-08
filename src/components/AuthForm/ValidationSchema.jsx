@@ -22,6 +22,7 @@ const useValidationSchema = () => {
     password: !isLogin
       ? Yup.string()
           .min(5, 'Password must be at least 5 characters long')
+          .max(20, 'Password must be no more than 20 characters long')
           .matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,}$/,
             'Password must contain at least one uppercase letter, one lowercase letter, and one number'
@@ -29,6 +30,7 @@ const useValidationSchema = () => {
           .required('Enter a valid Password')
       : Yup.string()
           .min(5, 'Password must be at least 5 characters long')
+          .max(20, 'Password must be no more than 20 characters long')
           .required('Enter a valid Password'),
   });
 
