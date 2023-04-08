@@ -9,7 +9,7 @@ import LeavesBgLeftDesc2 from 'images/LeavesOnMainBottom/leaves-on-main-bottom-d
 
 export const Container = styled.div`
   min-width: 320px;
-  padding: 18px 16px 0 16px;
+  padding: 18px 16px 100px 16px;
   margin: 0 auto;
 
   @media screen and (min-width: 500px) and (max-width: 767px) {
@@ -20,6 +20,7 @@ export const Container = styled.div`
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 200px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -31,14 +32,13 @@ export const Container = styled.div`
 
 export const FooterBgLeaves = styled.div`
   position: absolute;
-  top: -27%;
+  top: -23%;
   left: 0;
   min-width: 320px;
-  background-image: url('${LeavesBgLeftMob}');
-  /* width: 256px; */
   height: 125px;
+  background-image: url('${LeavesBgLeftMob}');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 320px 125px;
   background-position: left;
   z-index: -2;
 
@@ -49,11 +49,13 @@ export const FooterBgLeaves = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    background-image: url('${LeavesBgLeftTab}');
-    /* height: 646px; */
-
-    top: -28%;
+    top: -48%;
     left: 0;
+    width: 500px;
+    height: 227px;
+    background-image: url('${LeavesBgLeftTab}');
+    background-size: 500px 227px;
+
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -62,12 +64,12 @@ export const FooterBgLeaves = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url('${LeavesBgLeftDesc}');
-    /* height: 852px; */
-
-    top: -60%;
+    top: -70%;
     left: 0;
     width: 696px;
+    height: 290px;
+    background-image: url('${LeavesBgLeftDesc}');
+    background-size: 696px 290px;
 
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
