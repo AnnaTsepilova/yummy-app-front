@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect} from "react";
 // import ReactDOM from 'react-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, Form } from 'formik';
 import { nanoid } from 'nanoid'
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
@@ -11,16 +12,12 @@ import RecipePreparationFields from 'components/RecipePreparationFields/RecipePr
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
 import { cookingTimeRecipe, listUnits } from './AddRecipeForm.const';
 
-import { getCategoryListAPI, getIngredientsList } from 'service/API/dishesApi';
+import { getCategoryListAPI, getIngredientsList, getPopularRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
-  // const [imgURL, setImgURL] = useState('');
-  // const [imgTitle, setImgTitle] = useState('');
-  // const [itemAboutRecipe, setItemAboutRecipe] = useState('');
-  // const [itemCategories, setItemCategories] = useState('');
-  // const [cookingTimeRecipe, setCookingTimeRecipe] = useState('');
   const [categoryList, setCategoryList] = useState([]);
   const [userIngredientsList, setUserIngredientList] = useState([]);
-  // const [ingredientList, setIngredientList] = useState([]);
+  const [ingredientList, setIngredientList] = useState([]);
+  const [popularRecipeList, setPopularRecipeList] = useState([]);
 
   function initCategoryFunc(list) { 
     const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
@@ -28,16 +25,31 @@ const AddRecipeForm = () => {
   };
 
   function initIngredientFunc(list) { 
-    console.log("🚀 ~ file: AddRecipeForm.jsx:31 ~ initIngredientFunc ~ list:", list);
+    const tmp = list.map(e => {
+      return ({ value: e._id, label: `${e.ttl}` })
+    });
+    setIngredientList(tmp);
   };
 
+  function initPopularFunc(list) {
+    setPopularRecipeList(list);
+   };
+
   useEffect(() => {
-    getCategoryListAPI().then(list =>initCategoryFunc(list));
-    getIngredientsList().then(list => initIngredientFunc(list));
+    try {
+      getCategoryListAPI().then(initCategoryFunc);
+      getIngredientsList().then(initIngredientFunc);
+      getPopularRecipe().then(initPopularFunc);
+    } catch (error) {
+       Notify.failure('Error database connection!', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
+    }
+
   }, []);
   
-
-
   const handleIncIngredient = () => {
     const ingredient = {
       id: nanoid(),
@@ -67,6 +79,7 @@ const AddRecipeForm = () => {
     cookingTimeRecipe,
     listUnits,
     userIngredientsList,
+    ingredientList,
   }
 
   const handleOnSubmit = async (values) => {
@@ -83,7 +96,7 @@ const AddRecipeForm = () => {
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
       </Formik>
-      <PopularRecipe/>
+      <PopularRecipe popularRecipeList={popularRecipeList} />
     </>
   )
 }
