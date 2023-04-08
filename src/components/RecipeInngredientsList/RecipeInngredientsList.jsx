@@ -45,7 +45,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                   recipeId={recipeId}
                   ingredientId={_id}
                   measure={measure}
-                  // isChecked={isChecked}
+                  isChecked={isChecked}
                 />
               </ButtonWrapper>
             </ListItem>

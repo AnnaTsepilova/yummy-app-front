@@ -10,34 +10,40 @@ import {
   Button,
   Box,
   Time,
+  ClockSvg,
 } from './RecipeHeroTextAdd.styled';
 import {
   addRecipeToFavorite,
+  getFavoriteRecipes,
   removeRecipeFromFavorite,
 } from 'redux/userRecipes/userResipesOperations';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ButtonLoader from './ButtonLoader/ButtonLoader';
+import ClockIconPng from 'images/Recipe/clock.png';
 
 const RecipeHeroTextAdd = ({ title, description, time, id }) => {
   const recipe = useSelector(selectRecipe); // eslint-disable-line
 
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
-  const [isFavorite, setIsFavorite] = useState();
   const dispatch = useDispatch();
-
   const isLoading = useSelector(selectIsLoading);
-
   useEffect(() => {
-    setIsFavorite(userFavouritesRecipes.includes(id));
-  }, [userFavouritesRecipes, id]);
-
-  const handleFavoriteButton = id => {
-    if (isFavorite) {
-      dispatch(removeRecipeFromFavorite(id));
-    } else {
-      dispatch(addRecipeToFavorite(id));
+    // setIsFavorite(userFavouritesRecipes.includes(id));
+    dispatch(getFavoriteRecipes());
+  }, [dispatch]);
+  const func = () => {
+    const check = userFavouritesRecipes.filter(item => item._id === recipe._id);
+    if (check.length > 0) {
+      return true;
     }
-    setIsFavorite(!isFavorite);
+    return false;
+  };
+  const handleFavoriteButton = id => {
+    const check = func();
+    if (check) {
+      return dispatch(removeRecipeFromFavorite(id));
+    }
+    return dispatch(addRecipeToFavorite(id));
   };
 
   return (
@@ -55,18 +61,18 @@ const RecipeHeroTextAdd = ({ title, description, time, id }) => {
           backgroundColor: '#8BAA36',
           borderColor: '#8BAA36',
         }}
-        onClick={() => handleFavoriteButton(id)}
+        onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
           <ButtonLoader color="white" width={25} />
-        ) : isFavorite ? (
-          'Remove to favorite recipes'
+        ) : func() ? (
+          'Remove from favorite recipes'
         ) : (
           'Add to favorite recipes'
         )}
       </Button>
       <Box>
-        {/* <ClockSvg /> */}
+        <ClockSvg src={ClockIconPng} alt="Clock" />
         <Time>{time} min</Time>
       </Box>
     </>
