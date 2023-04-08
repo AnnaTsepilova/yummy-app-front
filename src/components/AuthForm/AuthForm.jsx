@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useFormik } from 'formik';
-import { useValidationSchema, passwordSchema } from './ValidationSchema';
+import useValidationSchema from './ValidationSchema';
 import * as authOperations from 'redux/auth/authOperations';
 import iconUser from 'images/AuthImages/icon-user-mob.svg';
 import iconMail from 'images/AuthImages/icon-mail-mob.svg';
@@ -49,7 +49,6 @@ const RegisterForm = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    passwordSchema,
     onSubmit: async values => {
       try {
         if (isLogin) {
