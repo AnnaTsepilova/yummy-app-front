@@ -45,7 +45,7 @@ export const Right = styled.div`
     background-image: url('${rightBcgTab}');
   }
   @media screen and (min-width: 1440px) {
-    width: 918px;
+    width: 913px;
     height: 833px;
     background-image: url('${rightBcgDesc}');
   }
