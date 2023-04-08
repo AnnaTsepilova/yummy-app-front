@@ -64,7 +64,7 @@ export const FooterBgLeaves = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: -70%;
+    top: -60%;
     left: 0;
     width: 696px;
     height: 290px;
