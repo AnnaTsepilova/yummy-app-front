@@ -10,6 +10,7 @@ import {
   Time,
 } from 'components/RecipePageHero/RecipeHeroTextAdd/RecipeHeroContent.styled';
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroTextAdd/ButtonLoader/ButtonLoader';
+import { StyledAddRecipeBtn } from 'components/Buttons/Buttons.styled';
 
 import {
   addRecipeToFavorite,

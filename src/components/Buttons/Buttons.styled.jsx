@@ -191,3 +191,30 @@ export const StyledOtherCatBtn = styled.div`
     color: var(--primary-white);
   }
 `;
+
+export const StyledAddRecipeBtn = styled.button`
+  background-color: transparent;
+  border-radius: 18px 44px;
+  border: 2px solid var(--primary-green);
+
+  padding: 14px 24px;
+  min-width: 195px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--secondary-black);
+  text-align: center;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 39px;
+    min-width: 239px;
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+  }
+`;

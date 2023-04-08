@@ -1,69 +1,46 @@
 import styled from 'styled-components';
 // import ClockIcon from 'images/Recipe/clock.png';
-import backgroundDesktop from 'images/Recipe/recipie-bgd-desc@1x.png';
-import backgroundMobile from 'images/Recipe/recipie-bgd-mob@1x.png';
-import backgroundTablet from 'images/Recipe/recipie-bgd-tab@1x.png';
+// import backgroundDesktop from 'images/Recipe/recipie-bgd-desc@1x.png';
+// import backgroundMobile from 'images/Recipe/recipie-bgd-mob@1x.png';
+// import backgroundTablet from 'images/Recipe/recipie-bgd-tab@1x.png';
 
 export const RecipeHeroContentWrapper = styled.div`
-  padding: 80px 36px 90px;
-`;
-
-export const ImgBox = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center center;
   width: 100%;
-  height: 455px;
+  max-width: 303px;
+  height: auto;
+  margin: 0 auto;
+  padding: 80px 0 40px;
 
-  background-image: url(${backgroundMobile});
   @media screen and (min-width: 768px) {
-    height: 495px;
-    background-image: url(${backgroundTablet});
+    padding: 72px 0 32px;
+    max-width: 506px;
   }
+
   @media screen and (min-width: 1440px) {
-    height: 493px;
-    background-image: url(${backgroundDesktop});
+    padding-top: 100px;
+    max-width: 656px;
   }
 `;
 
 export const PageTitle = styled.h1`
-  /* position: relative;
-  z-index: 3; */
-
-  padding-top: 30px;
-  color: var(--primary-green);
-  text-align: center;
+  font-weight: 600;
   font-size: 24px;
   line-height: 1;
-
-  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--primary-green);
 
   @media screen and (min-width: 768px) {
-    font-size: 44px;
-  }
-
-  @media screen and (min-width: 1440px) {
     font-size: 44px;
   }
 `;
 
 export const Text = styled.p`
-  position: relative;
-  z-index: 3;
-
-  width: 100%;
-  max-width: 656px;
-  margin: 0 auto;
   margin-top: 18px;
-  color: var(--secondary-black);
+
   font-size: 12px;
   line-height: 1.33;
   text-align: center;
-  letter-spacing: -0.02em;
+  color: var(--secondary-black);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -71,9 +48,32 @@ export const Text = styled.p`
   }
 `;
 
+// export const ImgBox = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: -2;
+//   background-repeat: no-repeat;
+//   background-size: 100% 100%;
+//   background-position: center center;
+//   width: 100%;
+//   height: 455px;
+
+//   background-image: url(${backgroundMobile});
+//   @media screen and (min-width: 768px) {
+//     height: 495px;
+//     background-image: url(${backgroundTablet});
+//   }
+
+//   @media screen and (min-width: 1440px) {
+//     height: 493px;
+//     background-image: url(${backgroundDesktop});
+//   }
+// `;
+
 export const Button = styled.button`
-  position: relative;
-  z-index: 3;
+  /* position: relative;
+  z-index: 3; */
 
   min-width: 200px;
   margin-top: 24px;

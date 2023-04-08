@@ -14,15 +14,18 @@ export const RecipeBgHero = styled.div`
 
   background-image: url(${imgBg1x});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 750px auto;
   background-position: center top;
 
   @media screen and (min-width: 768px) {
     height: 495px;
+    background-size: 1020px auto;
   }
 
   @media screen and (min-width: 1440px) {
     height: 493px;
+    background-size: 1530px auto;
+    background-position: center -165px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
