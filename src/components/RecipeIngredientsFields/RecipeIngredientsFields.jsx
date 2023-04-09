@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+// import { Field } from 'formik';
 import { listUnits } from 'components/AddRecipeForm/AddRecipeForm.const';
 import {getIngredientsList} from 'service/API/dishesApi';
-import { CloseIconButton, IncIconButton, DecrIconButton,ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
+import { UnitCount, UnitWrapper, CloseIconButton, IncIconButton, DecrIconButton,ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
 
-const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngredient, handleOnDeleteContact, handleOnChangeIngName, handleOnChangeIngUnit}) => {
+const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngredient, handleOnDeleteContact, handleOnChangeIngName, handleOnChangeIngUnit, handleOnChangeUnitCount}) => {
   const {userIngredientsList} = userList;
   const [ingredientList, setIngredientList] = useState([]);
 
@@ -39,7 +39,7 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
               <IncDecButton type='button' onClick={handleDecIngredient}>
                   <DecrIconButton/>
               </IncDecButton>
-              <IncDecCounter>{ userList.length}</IncDecCounter>
+              <IncDecCounter>{ userIngredientsList.length}</IncDecCounter>
               <IncDecButton type='button' onClick={handleIncIngredient}>
                   <IncIconButton/>
               </IncDecButton>
@@ -56,15 +56,22 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
                             classNamePrefix="react-select"
                             onChange={e => { handleOnChangeIngName(e, index) }}
                           />
-                          <SelectIngredUnit
-                            options={listUnits}
-                            isSearchable={false}
-                            classNamePrefix="react-select"
-                            onChange={e => { handleOnChangeIngUnit(e,index) }}
-                          />
-                    <DeleteButton onClick={handleOnDeleteContact}>
-                          <CloseIconButton/>
-                    </DeleteButton>
+                          <UnitWrapper>
+                            <UnitCount type="text"
+                              onChange={e => { handleOnChangeUnitCount(e.currentTarget.value, index)}} 
+                              name={`uniCount${index}`}
+                              placeholder="0"
+                            />
+                            <SelectIngredUnit
+                              options={listUnits}
+                              isSearchable={false}
+                               classNamePrefix="react-select"
+                              onChange={e => { handleOnChangeIngUnit(e,index) }}
+                            />
+                            </UnitWrapper>
+                            <DeleteButton onClick={handleOnDeleteContact}>
+                                <CloseIconButton/>
+                            </DeleteButton>
                     </InputIngredWraper>
                 </ListIngredientsItem>
               )
