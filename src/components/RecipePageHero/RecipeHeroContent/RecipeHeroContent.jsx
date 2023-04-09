@@ -51,20 +51,11 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
   };
 
   return (
-    // <div>
-    //   <h1>{title}</h1>
-    //   <p>{description}</p>
-    //   <button>knopka</button>
-    // </div>
     <RecipeHeroContentWrapper>
       <PageTitle>{title}</PageTitle>
       <Text>{description}</Text>
       <StyledAddRecipeBtn
         disabled={isLoading}
-        // whileHover={{
-        //   backgroundColor: '#8BAA36',
-        //   borderColor: '#8BAA36',
-        // }}
         onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (

@@ -1,26 +1,60 @@
 import React from 'react'
-import { FormWrapper, FieldStyled } from './RecipeDescriptionFields.styled';
-import { SelectStyled } from './RecipeDescriptionFields.styled';
-import { ImageInput } from './RecipeDescriptionFields.styled';
+import { useState, useEffect } from "react";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { getCategoryListAPI } from 'service/API/dishesApi';
+import { cookingTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
+
+import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput } from './RecipeDescriptionFields.styled';
+
 //  import { Field } from 'formik';
 
-const RecipeDescriptionFields = ({ dataRecipe }  ) => {
-  const { srcImg, category, cookingTimeRecipe } = dataRecipe; 
+const RecipeDescriptionFields = ({ handleOnCategory, handleOnCookingTimeRecipe } ) => {
+  const [categoryList, setCategoryList] = useState([]);
+
+  function initCategoryFunc(list) { 
+    const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
+    setCategoryList(newList);
+  };
+
+  useEffect(() => {
+    try {
+      getCategoryListAPI().then(initCategoryFunc);
+    } catch (error) {
+       Notify.failure('Error database connection!', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
+    }
+
+  }, []);
 
   return (
     <>
       <FormWrapper>
-        <ImageInput type="button">
-          <img src={srcImg} alt=""/>
-        </ImageInput>
-        <FieldStyled name="itemTitleRecipe"  placeholder="Enter item title" />
+        <ImgLabel htmlFor="image">
+          {/* <ImgStyled/> */}
+          <NoImageStyled/>
+          <ImageInput
+              // id="image"
+              name="image"
+              type="file"
+              onChange={event => {
+               console.log(event);
+               // formik.setFieldValue('image', event.target.files[0]);
+              }}>
+          </ImageInput>
+        </ImgLabel>
+        <FieldStyled name="itemTitleRecipe" placeholder="Enter item title"/>
         <FieldStyled name="aboutRecipe" placeholder="Enter about recipe" />
         <SelectStyled
-          // defaultValue={colourOptions}
-          options={category}
+          name="category"
+          options={categoryList}
           isSearchable={false}
           placeholder="Category"
           classNamePrefix="react-select"
+          onChange={handleOnCategory}
         />
         <SelectStyled
           // defaultValue={colourOptions}
@@ -28,6 +62,7 @@ const RecipeDescriptionFields = ({ dataRecipe }  ) => {
           isSearchable={false}
           placeholder="Cooking time"
           classNamePrefix="react-select"
+          onChange={handleOnCookingTimeRecipe}
         />
       </FormWrapper>
     </>

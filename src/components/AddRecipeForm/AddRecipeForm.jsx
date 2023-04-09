@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect} from "react";
 // import ReactDOM from 'react-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, Form } from 'formik';
 import { nanoid } from 'nanoid'
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
@@ -9,35 +10,38 @@ import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDe
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
-import { cookingTimeRecipe, listUnits } from './AddRecipeForm.const';
 
-import { getCategoryListAPI, getIngredientsList } from 'service/API/dishesApi';
+
+import {getPopularRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
-  // const [imgURL, setImgURL] = useState('');
-  // const [imgTitle, setImgTitle] = useState('');
-  // const [itemAboutRecipe, setItemAboutRecipe] = useState('');
-  // const [itemCategories, setItemCategories] = useState('');
-  // const [cookingTimeRecipe, setCookingTimeRecipe] = useState('');
-  const [categoryList, setCategoryList] = useState([]);
+
+  const [popularRecipeList, setPopularRecipeList] = useState([]);
+
+  const [itemTitleRecipe, setItemTitleRecipe] = useState('');
+  const [aboutRecipe, setAboutRecipe] = useState('');
+  const [category, setCategory] = useState({ value: '', label: '' });
+  const [cookingTimeRecipe, setCookingTimeRecipe] = useState({ value: '', label: '' })
+
   const [userIngredientsList, setUserIngredientList] = useState([]);
-  // const [ingredientList, setIngredientList] = useState([]);
-
-  function initCategoryFunc(list) { 
-    const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
-    setCategoryList(newList);
-  };
-
-  function initIngredientFunc(list) { 
-    console.log("🚀 ~ file: AddRecipeForm.jsx:31 ~ initIngredientFunc ~ list:", list);
-  };
+  
+  function initPopularFunc(list) {
+    setPopularRecipeList(list);
+   };
 
   useEffect(() => {
-    getCategoryListAPI().then(list =>initCategoryFunc(list));
-    getIngredientsList().then(list => initIngredientFunc(list));
+    try {
+      getPopularRecipe().then(initPopularFunc);
+    } catch (error) {
+       Notify.failure('Error database connection!', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
+    }
+
   }, []);
   
-
-
+  
   const handleIncIngredient = () => {
     const ingredient = {
       id: nanoid(),
@@ -58,32 +62,50 @@ const AddRecipeForm = () => {
     newIngredientsList.splice(index, 1);
     setUserIngredientList(newIngredientsList);
   };
+  // let initialValues = {
+  //   image: '',
+  //   itemTitleRecipe: '',
+  //   aboutRecipe: '',
+  //   // category: [...categoryList],
+  //   category: '',
+  //   cookingTimeRecipe,
+  //   listUnits,
+  //   userIngredientsList,
+  //   ingredientList,
+  // }
+
 
   let initialValues = {
-    srcImg: '',
+    image: '',
     itemTitleRecipe: '',
     aboutRecipe: '',
-    category: [...categoryList],
-    cookingTimeRecipe,
-    listUnits,
-    userIngredientsList,
   }
 
   const handleOnSubmit = async (values) => {
-      console.log(values);
+    setItemTitleRecipe(values.itemTitleRecipe);
+    setAboutRecipe(values.aboutRecipe);
+    console.log(userIngredientsList);
+    console.log(itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe);
   }
 
   return (
     <>
       <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <Form autoComplete="off">
-          <RecipeDescriptionFields dataRecipe={initialValues}/>
-          <RecipeIngredientsFields dataRecipe={initialValues} handleIncIngredient={handleIncIngredient} handleDecIngredient={handleDecIngredient} handleOndeleteContact={handleOndeleteContact} />
+          <RecipeDescriptionFields
+            handleOnCategory={setCategory}
+            handleOnCookingTimeRecipe={setCookingTimeRecipe} />
+          <RecipeIngredientsFields
+            userList={{ userIngredientsList }}
+            handleOnUserIngredientsList={setUserIngredientList}
+            handleIncIngredient={handleIncIngredient}
+            handleDecIngredient={handleDecIngredient}
+            handleOndeleteContact={handleOndeleteContact} />
           <RecipePreparationFields/>
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
       </Formik>
-      <PopularRecipe/>
+      <PopularRecipe popularRecipeList={popularRecipeList} />
     </>
   )
 }
