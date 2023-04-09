@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   border-radius: 8px;
-  width: 343px;
+  width: 100%;
   height: 323px;
   position: relative;
   overflow: hidden;
