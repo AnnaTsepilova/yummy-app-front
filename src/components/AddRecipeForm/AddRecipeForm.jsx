@@ -10,35 +10,26 @@ import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDe
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
-import { cookingTimeRecipe, listUnits } from './AddRecipeForm.const';
 
-import { getCategoryListAPI, getIngredientsList, getPopularRecipe } from 'service/API/dishesApi';
+
+import {getPopularRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
-  const [categoryList, setCategoryList] = useState([]);
-  const [userIngredientsList, setUserIngredientList] = useState([]);
-  const [ingredientList, setIngredientList] = useState([]);
+
   const [popularRecipeList, setPopularRecipeList] = useState([]);
 
-  function initCategoryFunc(list) { 
-    const newList = list.map(e => { return ({value: `${e}`, label: `${e}`}) })
-    setCategoryList(newList);
-  };
+  const [itemTitleRecipe, setItemTitleRecipe] = useState('');
+  const [aboutRecipe, setAboutRecipe] = useState('');
+  const [category, setCategory] = useState({ value: '', label: '' });
+  const [cookingTimeRecipe, setCookingTimeRecipe] = useState({ value: '', label: '' })
 
-  function initIngredientFunc(list) { 
-    const tmp = list.map(e => {
-      return ({ value: e._id, label: `${e.ttl}` })
-    });
-    setIngredientList(tmp);
-  };
-
+  const [userIngredientsList, setUserIngredientList] = useState([]);
+  
   function initPopularFunc(list) {
     setPopularRecipeList(list);
    };
 
   useEffect(() => {
     try {
-      getCategoryListAPI().then(initCategoryFunc);
-      getIngredientsList().then(initIngredientFunc);
       getPopularRecipe().then(initPopularFunc);
     } catch (error) {
        Notify.failure('Error database connection!', {
@@ -49,6 +40,7 @@ const AddRecipeForm = () => {
     }
 
   }, []);
+  
   
   const handleIncIngredient = () => {
     const ingredient = {
@@ -70,28 +62,45 @@ const AddRecipeForm = () => {
     newIngredientsList.splice(index, 1);
     setUserIngredientList(newIngredientsList);
   };
+  // let initialValues = {
+  //   image: '',
+  //   itemTitleRecipe: '',
+  //   aboutRecipe: '',
+  //   // category: [...categoryList],
+  //   category: '',
+  //   cookingTimeRecipe,
+  //   listUnits,
+  //   userIngredientsList,
+  //   ingredientList,
+  // }
+
 
   let initialValues = {
-    srcImg: '',
+    image: '',
     itemTitleRecipe: '',
     aboutRecipe: '',
-    category: [...categoryList],
-    cookingTimeRecipe,
-    listUnits,
-    userIngredientsList,
-    ingredientList,
   }
 
   const handleOnSubmit = async (values) => {
-      console.log(values);
+    setItemTitleRecipe(values.itemTitleRecipe);
+    setAboutRecipe(values.aboutRecipe);
+    console.log(userIngredientsList);
+    console.log(itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe);
   }
 
   return (
     <>
       <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <Form autoComplete="off">
-          <RecipeDescriptionFields dataRecipe={initialValues}/>
-          <RecipeIngredientsFields dataRecipe={initialValues} handleIncIngredient={handleIncIngredient} handleDecIngredient={handleDecIngredient} handleOndeleteContact={handleOndeleteContact} />
+          <RecipeDescriptionFields
+            handleOnCategory={setCategory}
+            handleOnCookingTimeRecipe={setCookingTimeRecipe} />
+          <RecipeIngredientsFields
+            userList={{ userIngredientsList }}
+            handleOnUserIngredientsList={setUserIngredientList}
+            handleIncIngredient={handleIncIngredient}
+            handleDecIngredient={handleDecIngredient}
+            handleOndeleteContact={handleOndeleteContact} />
           <RecipePreparationFields/>
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    

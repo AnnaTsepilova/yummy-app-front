@@ -1,8 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import {
   Box,
   List,
-  ListItemHeader,
+  ListHeader,
   ListHeaderText,
   ListItem,
   Wrapper,
@@ -10,9 +12,8 @@ import {
   Measure,
   Img,
   Title,
-} from './RecipeInngredientsList.styled';
-import { useSelector } from 'react-redux';
-import CustomCheckbox from './CheckBox/CheckBox';
+} from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
+import CustomCheckbox from 'components/RecipeInngredientsList/CheckBox/CheckBox';
 import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
@@ -20,14 +21,14 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
 
   return (
     <Box>
+      <ListHeader>
+        <ListHeaderText>Ingredients</ListHeaderText>
+        <div>
+          <ListHeaderText>Number</ListHeaderText>
+          <ListHeaderText>Add to list</ListHeaderText>
+        </div>
+      </ListHeader>
       <List>
-        <ListItemHeader>
-          <ListHeaderText>Product</ListHeaderText>
-          <div>
-            <ListHeaderText>Number</ListHeaderText>
-            <ListHeaderText>Add to list</ListHeaderText>
-          </div>
-        </ListItemHeader>
         {ingredients?.map(({ _id, ttl, desc, thb, measure }) => {
           const isChecked = ingredients?.some(item => item._id === _id); // eslint-disable-line
           if (!_id) {
