@@ -120,6 +120,9 @@ const SearchedRecipesList = () => {
         <NotFound text={`You haven't searched for anything yet...`} />
       )}
       {errorSearch && <NotFound text={'Try looking for something else...'} />}
+      {totalQuery === 0 && !errorSearch && (
+        <NotFound text={`No results found for "${query}"`} />
+      )}
     </>
   );
 };
