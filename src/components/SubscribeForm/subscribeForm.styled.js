@@ -1,7 +1,5 @@
 
 import styled from 'styled-components';
-import icoMailMob from '../../images/Subscribe/icon-mail-sub-mob.svg';
-import icoMailTab from '../../images/Subscribe/icon-mail-sub-tab.svg';
 
 const formInputStyles = `
   font-family: 'Poppins';
@@ -69,10 +67,6 @@ export const Form = styled.form`
 
 export const InputWrap = styled.div`
   position: relative;
-  /* border: 1px solid var(--primary-white);
-  ${({ error }) => error && 'border-color: red;'}
-  ${({ correct }) => correct && 'border-color: green;'} */
-
   border: 1px solid ${props =>
     props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
   };
@@ -84,7 +78,26 @@ export const InputWrap = styled.div`
   margin-bottom: 8px;
 
   &:hover {
-    border: 2px solid var(--white);
+    border: 1px solid var(--white);
+  }
+ &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    right: 19px;
+    background-image: ${props =>
+    props.error
+      ? `url(${props.iconError})`
+      : props.warning
+        ? `url(${props.iconWarning})`
+        : props.correct
+          ? `url(${props.iconCorrect})`
+          : ''};
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   &::before {
@@ -96,9 +109,11 @@ export const InputWrap = styled.div`
     width: 16px;
     height: 12px;
      background-image: url(${props =>
-    props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconTabUrl)
-  });
-    /* background-image: url(${icoMailMob}); */
+    props.correct
+      ? props.iconTabUrlG
+      : props.error
+        ? props.iconTabUrlE
+        : props.iconUrl});
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -120,8 +135,7 @@ export const InputWrap = styled.div`
     &::before {
       left: 15px;
       width: 20px;
-      height: 16px;
-      background-image: url(${icoMailTab});
+      height: 20px;
     }
   }
 
@@ -133,9 +147,8 @@ export const InputWrap = styled.div`
 
     &::before {
       left: 16px;
-      width: 20px;
-      height: 16px;
-      background-image: url(${icoMailTab});
+      width: 25px;
+      height: 25px;
     }
   }
 `;
@@ -147,12 +160,15 @@ export const Input = styled.input`
   transform: translateY(-50%);
   width: 100%;
   height: 100%;
-  padding: 12px 0 12px 42px;
+  padding: 12px 10px 12px 42px;
   margin-left: -12px;
   border-radius: 6px;
   border: none;
   background: transparent;
 
+  @media only screen and (min-width: 1440px) {
+      padding-left: 50px;
+    }
   ${formInputStyles}
   ::placeholder {
     font-size: 10px;
@@ -180,7 +196,6 @@ export const Button = styled.button`
   height: 38px;
   border-radius: 6px;
   cursor: pointer;
-  font-family: 'Poppins';
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
@@ -212,11 +227,16 @@ export const Error = styled.div`
   color: #e74a3b;
   position: relative;
   left: -13px;
-  bottom: -170%;
+  bottom: 230%;
 
     @media (min-width: 768px) {
   font-size: 14px;
   left: -13px;
   bottom: -160%;
+  }
+    @media (min-width: 1440px) {
+  font-size: 14px;
+  left: -13px;
+  bottom: 100%;
   }
 `;
