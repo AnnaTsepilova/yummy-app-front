@@ -44,7 +44,8 @@ const AddRecipeForm = () => {
   
   const handleIncIngredient = () => {
     const ingredient = {
-      id: nanoid(),
+      _id: nanoid(),
+      id: '',
       name: '',
       unit: '',
     }
@@ -57,23 +58,24 @@ const AddRecipeForm = () => {
     setUserIngredientList(newIngredientsList);
   };
 
-  const handleOndeleteContact = (index) => {
+  const handleOnDeleteContact = (index) => {
     const newIngredientsList = [...userIngredientsList];
     newIngredientsList.splice(index, 1);
     setUserIngredientList(newIngredientsList);
   };
-  // let initialValues = {
-  //   image: '',
-  //   itemTitleRecipe: '',
-  //   aboutRecipe: '',
-  //   // category: [...categoryList],
-  //   category: '',
-  //   cookingTimeRecipe,
-  //   listUnits,
-  //   userIngredientsList,
-  //   ingredientList,
-  // }
 
+  const handleOnChangeIngName = (e, i) => {
+    const tmpList = [...userIngredientsList];
+    tmpList[i].id = e.value;
+    tmpList[i].name = e.label;
+    setUserIngredientList(tmpList);
+  };
+
+  const handleOnChangeIngUnit = (e, i) => {
+    const tmpList = [...userIngredientsList];
+    tmpList[i].unit = e.value;
+    setUserIngredientList(tmpList);
+  };
 
   let initialValues = {
     image: '',
@@ -97,10 +99,12 @@ const AddRecipeForm = () => {
             handleOnCookingTimeRecipe={setCookingTimeRecipe} />
           <RecipeIngredientsFields
             userList={{ userIngredientsList }}
-            handleOnUserIngredientsList={setUserIngredientList}
             handleIncIngredient={handleIncIngredient}
             handleDecIngredient={handleDecIngredient}
-            handleOndeleteContact={handleOndeleteContact} />
+            handleOnDeleteContact={handleOnDeleteContact} 
+            handleOnChangeIngName={handleOnChangeIngName}
+            handleOnChangeIngUnit={handleOnChangeIngUnit}
+          />
           <RecipePreparationFields/>
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
