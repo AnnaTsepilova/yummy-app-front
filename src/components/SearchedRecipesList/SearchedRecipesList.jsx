@@ -115,13 +115,13 @@ const SearchedRecipesList = () => {
           handleChange={handleChange}
         />
       )}
-      {!request && (
+      {!request ? (
         <NotFound text={`You haven't searched for anything yet...`} />
-      )}
-      {errorSearch && <NotFound text={`No results found for "${query}"`} />}
-      {totalQuery === 0 && !errorSearch && (
+      ) : errorSearch ? (
         <NotFound text={`No results found for "${query}"`} />
-      )}
+      ) : totalQuery === 0 ? (
+        <NotFound text={`No results found for "${query}"`} />
+      ) : null}
     </>
   );
 };
