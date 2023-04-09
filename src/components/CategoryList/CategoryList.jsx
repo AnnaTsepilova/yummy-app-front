@@ -25,8 +25,8 @@ export const CategoryList = () => {
     if (fullCategoryList.length === 0) return;
 
     const newArray = fullCategoryList.map((e, index) => {
-      if (index === 3) {
-        return 'dessert';
+      if (index === 0) {
+        return 'beef';
       }
       return e;
     });

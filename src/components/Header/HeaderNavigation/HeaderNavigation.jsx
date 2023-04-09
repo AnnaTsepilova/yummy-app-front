@@ -6,7 +6,11 @@ import { NavMenu } from './HeaderNavigation.styled';
 const HeaderNavigation = ({ closeMenu }) => {
   return (
     <NavMenu>
-      <MainNavLink to="/categories" title="Categories" closeMenu={closeMenu} />
+      <MainNavLink
+        to="/categories/beef"
+        title="Categories"
+        closeMenu={closeMenu}
+      />
       <MainNavLink to="/add" title="Add recipes" closeMenu={closeMenu} />
       <MainNavLink to="/my" title="My recipes" closeMenu={closeMenu} />
       <MainNavLink to="/favorite" title="Favorites" closeMenu={closeMenu} />
