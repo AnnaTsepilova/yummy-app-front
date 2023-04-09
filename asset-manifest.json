@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yummy-app-front/static/css/main.c98f1f1b.css",
-    "main.js": "/yummy-app-front/static/js/main.28542368.js",
+    "main.js": "/yummy-app-front/static/js/main.fc5fd8cb.js",
     "static/js/773.da45f42e.chunk.js": "/yummy-app-front/static/js/773.da45f42e.chunk.js",
     "static/js/237.92099d2f.chunk.js": "/yummy-app-front/static/js/237.92099d2f.chunk.js",
     "static/js/113.c1d1743d.chunk.js": "/yummy-app-front/static/js/113.c1d1743d.chunk.js",
@@ -72,7 +72,7 @@
     "static/media/user-icon.svg": "/yummy-app-front/static/media/user-icon.e00953f01aee21957c05af8a930ecec9.svg",
     "static/media/icon-mail-sub-mob.svg": "/yummy-app-front/static/media/icon-mail-sub-mob.0e48dfc2de2773925067e084ff3cbafd.svg",
     "static/media/Icon.svg": "/yummy-app-front/static/media/Icon.43dd7c1c5f66c7a23d7e6323e9fc024d.svg",
-    "static/media/edit-profile-pen.svg": "/yummy-app-front/static/media/edit-profile-pen.74bf6552ec98c99b7deafd730ed53b47.svg",
+    "static/media/edit-profile-pen.svg": "/yummy-app-front/static/media/edit-profile-pen.4ce3ce646a0475746d3fcccb3eb5a2a9.svg",
     "static/media/icon-mail-sub-tab.svg": "/yummy-app-front/static/media/icon-mail-sub-tab.dbfc5931fda463c93c23facf6a49dd35.svg",
     "static/media/icon-user-mob.svg": "/yummy-app-front/static/media/icon-user-mob.2050c7f694e4127fe46cfed5efd56905.svg",
     "static/media/warning.svg": "/yummy-app-front/static/media/warning.e0b8838cef8aa334e62f5a69bf5558fe.svg",
@@ -94,10 +94,10 @@
     "static/media/close.svg": "/yummy-app-front/static/media/close.a4fa4b781ec8efd974608a11c930d19c.svg",
     "static/media/footer-bg-auth-desc.svg": "/yummy-app-front/static/media/footer-bg-auth-desc.d5d5440654b186017ddacb2e9f52c512.svg",
     "static/media/decrease.svg": "/yummy-app-front/static/media/decrease.fc2439265e0e7f523ec586d3ebb41865.svg",
-    "static/media/header-menu.svg": "/yummy-app-front/static/media/header-menu.03946b1d0051aebc6abfeb3aeac74e41.svg",
     "static/media/increase.svg": "/yummy-app-front/static/media/increase.41c21a02084792062685394d4d64f5c1.svg",
+    "static/media/header-menu.svg": "/yummy-app-front/static/media/header-menu.a47f4f8aa102a482f2f8be136b8c316c.svg",
     "main.c98f1f1b.css.map": "/yummy-app-front/static/css/main.c98f1f1b.css.map",
-    "main.28542368.js.map": "/yummy-app-front/static/js/main.28542368.js.map",
+    "main.fc5fd8cb.js.map": "/yummy-app-front/static/js/main.fc5fd8cb.js.map",
     "773.da45f42e.chunk.js.map": "/yummy-app-front/static/js/773.da45f42e.chunk.js.map",
     "237.92099d2f.chunk.js.map": "/yummy-app-front/static/js/237.92099d2f.chunk.js.map",
     "113.c1d1743d.chunk.js.map": "/yummy-app-front/static/js/113.c1d1743d.chunk.js.map",
@@ -119,6 +119,6 @@
   },
   "entrypoints": [
     "static/css/main.c98f1f1b.css",
-    "static/js/main.28542368.js"
+    "static/js/main.fc5fd8cb.js"
   ]
 }
