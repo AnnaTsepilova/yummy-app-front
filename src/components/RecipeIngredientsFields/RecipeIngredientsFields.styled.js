@@ -21,6 +21,8 @@ export const TitleWraper = styled.div`
 
 export const ListIngredientsItem = styled.li`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const InputIngredWraper = styled.div`
@@ -97,15 +99,15 @@ export const IncDecCounter = styled.p`
 `;
 
 export const SelectIngredStyled = styled(Select)`
+  width: 194px;
+  height: 53px;
   & .react-select__control {
-    background-color: #d9d9d9;
-    /* border: 1px solid #f0f0f0; */
+    background: #f5f5f5;
     border: none;
     outline: none;
+    /* display: none; */
     box-shadow: none;
     border-radius: 6px;
-    width: 194px;
-    height: 53px;
     font-size: 14px;
     line-height: 14px;
     letter-spacing: -0.02em;
@@ -140,7 +142,7 @@ export const SelectIngredStyled = styled(Select)`
     font-weight: 400;
     text-align: left;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     letter-spacing: -0.02em;
     /* color: #fafafa; */
   }
@@ -184,7 +186,6 @@ export const SelectIngredStyled = styled(Select)`
   }
 
   & .react-select__dropdown-indicator {
-    /* color: #8baa36; */
     display: none;
   }
 
@@ -198,27 +199,43 @@ export const SelectIngredStyled = styled(Select)`
   }
 
   & .react-select__placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    display: none;
   }
+`;
+
+export const UnitWrapper = styled.div`
+  width: 100px;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 6px;
+  margin-right: 14px;
+`;
+export const UnitCount = styled.input`
+  width: 25px;
+  height: 53px;
+  font-size: 14px;
+  /* border: 1px solid red; */
+  border: none;
+  background: #f5f5f5;
 `;
 
 export const SelectIngredUnit = styled(Select)`
   & .react-select__control {
-    background-color: #d9d9d9;
-    /* border: 1px solid #d9d9d9; */
+    background-color: #f5f5f5;
+
     border: none;
     outline: none;
     box-shadow: none;
-    border-radius: 6px;
-    width: 84px;
+    width: 80px;
     height: 53px;
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     letter-spacing: -0.02em;
-    color: #fafafa;
-    margin-right: 14px;
 
     &--is-focused,
     &--menu-is-open {
@@ -248,7 +265,7 @@ export const SelectIngredUnit = styled(Select)`
     font-weight: 400;
     text-align: left;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     letter-spacing: -0.02em;
     /* color: #fafafa; */
   }
@@ -305,8 +322,6 @@ export const SelectIngredUnit = styled(Select)`
   }
 
   & .react-select__placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    display: none;
   }
 `;

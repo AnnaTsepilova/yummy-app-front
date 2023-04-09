@@ -47,7 +47,6 @@ export const ImageInput = styled.button`
   padding: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  /* margin: -1px; */
 `;
 
 export const FieldStyled = styled(Field)`
@@ -56,7 +55,7 @@ export const FieldStyled = styled(Field)`
   font-size: 14px;
   border: none;
   background: #ececec;
-  border-bottom: solid 1px; ;
+  border-bottom: 1px solid #e0e0e0;
 `;
 
 export const SelectStyled = styled(Select)`
