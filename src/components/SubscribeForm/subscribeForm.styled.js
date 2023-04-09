@@ -95,7 +95,10 @@ export const InputWrap = styled.div`
     left: 14px;
     width: 16px;
     height: 12px;
-    background-image: url(${icoMailMob});
+     background-image: url(${props =>
+    props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconTabUrl)
+  });
+    /* background-image: url(${icoMailMob}); */
     background-size: contain;
     background-repeat: no-repeat;
 
