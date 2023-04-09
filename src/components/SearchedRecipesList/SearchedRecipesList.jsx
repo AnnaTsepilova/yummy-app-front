@@ -109,7 +109,7 @@ const SearchedRecipesList = () => {
           ))}
         </Table>
       )}
-      {totalQuery > 0 && (
+      {totalQuery > perPage && (
         <MuiPag
           count={Math.ceil(totalQuery / perPage)}
           page={page}
