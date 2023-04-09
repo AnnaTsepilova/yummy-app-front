@@ -106,7 +106,7 @@ export const updateUserById = createAsyncThunk(
       Notify.success('Name was changed');
       return data;
     } catch (error) {
-      Notify.warning(error.response.data.message, {
+      Notify.warning('Please enter a password and try again', {
         fontSize: '16px',
         width: '350px',
       });

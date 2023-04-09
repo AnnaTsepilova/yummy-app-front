@@ -55,6 +55,7 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
                             isSearchable={true}
                             classNamePrefix="react-select"
                             onChange={e => { handleOnChangeIngName(e, index) }}
+                            required
                           />
                           <UnitWrapper>
                             <UnitCount type="text"
@@ -65,8 +66,9 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
                             <SelectIngredUnit
                               options={listUnits}
                               isSearchable={false}
-                               classNamePrefix="react-select"
-                              onChange={e => { handleOnChangeIngUnit(e,index) }}
+                              classNamePrefix="react-select"
+                              onChange={e => { handleOnChangeIngUnit(e, index) }}
+                              required
                             />
                             </UnitWrapper>
                             <DeleteButton onClick={handleOnDeleteContact}>

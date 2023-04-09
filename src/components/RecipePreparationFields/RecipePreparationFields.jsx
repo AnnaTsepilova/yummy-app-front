@@ -8,10 +8,10 @@ const RecipePreparationFields = ({handleOnRecipePreperation}) => {
         <TextAreaStyled
           as="textarea"
           name="text"
-          onChange={e=>{handleOnRecipePreperation(e.currentTarget.value)}}>
-        </TextAreaStyled>
+          onChange={e => { handleOnRecipePreperation(e.currentTarget.value) }}
+          required
+        />
       </FormWrapper>
-
     </>
   )
 }
