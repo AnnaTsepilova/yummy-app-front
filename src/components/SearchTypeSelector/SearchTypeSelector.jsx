@@ -21,7 +21,6 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
       <span>Search by:</span>
       <SelectStyled
         defaultValue={{
-          value: startType,
           // label: startType.charAt(0).toUpperCase() + startType.slice(1),
           label: startType
             ? startType.charAt(0).toUpperCase() + startType.slice(1)
@@ -31,6 +30,7 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
         options={options}
         isSearchable={false}
         classNamePrefix="react-select"
+        startType="title"
       />
     </SelectCon>
   );
