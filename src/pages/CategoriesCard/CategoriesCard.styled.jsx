@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const Table = styled.div`
   display: grid;
-  gap: 14px;
+  gap: 32px;
   margin-top: 50px;
-  max-width: calc(100vw - 48px);
+
   grid-template-columns: 1fr;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
     margin-top: 50px;
   }
 

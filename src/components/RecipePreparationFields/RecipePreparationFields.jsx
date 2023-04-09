@@ -1,11 +1,15 @@
 import React from 'react'
 import { FormWrapper, TitleStyled, TextAreaStyled } from './RecipePreparationFields.styled'
-const RecipePreparationFields = () => {
+const RecipePreparationFields = ({handleOnRecipePreperation}) => {
   return (
     <>
       <FormWrapper>
         <TitleStyled>Recipe Preparation</TitleStyled>
-        <TextAreaStyled rows="20" cols="45" name="text"></TextAreaStyled>
+        <TextAreaStyled
+          as="textarea"
+          name="text"
+          onChange={e=>{handleOnRecipePreperation(e.currentTarget.value)}}>
+        </TextAreaStyled>
       </FormWrapper>
 
     </>

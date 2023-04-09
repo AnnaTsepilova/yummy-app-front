@@ -9,7 +9,7 @@ import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageI
 
 //  import { Field } from 'formik';
 
-const RecipeDescriptionFields = ({ handleOnCategory, handleOnCookingTimeRecipe } ) => {
+const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, handleOnCategory, handleOnCookingTimeRecipe } ) => {
   const [categoryList, setCategoryList] = useState([]);
 
   function initCategoryFunc(list) { 
@@ -46,8 +46,17 @@ const RecipeDescriptionFields = ({ handleOnCategory, handleOnCookingTimeRecipe }
               }}>
           </ImageInput>
         </ImgLabel>
-        <FieldStyled name="itemTitleRecipe" placeholder="Enter item title"/>
-        <FieldStyled name="aboutRecipe" placeholder="Enter about recipe" />
+        <FieldStyled
+          as="input"
+          name="itemTitleRecipe"
+          placeholder="Enter item title"
+          onChange={e => { handleOnTitleRecipe(e.currentTarget.value) }}
+        />
+        <FieldStyled
+          as="input"
+          name="aboutRecipe"
+          placeholder="Enter about recipe"
+          onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }} />
         <SelectStyled
           name="category"
           options={categoryList}
@@ -57,7 +66,6 @@ const RecipeDescriptionFields = ({ handleOnCategory, handleOnCookingTimeRecipe }
           onChange={handleOnCategory}
         />
         <SelectStyled
-          // defaultValue={colourOptions}
           options={cookingTimeRecipe}
           isSearchable={false}
           placeholder="Cooking time"

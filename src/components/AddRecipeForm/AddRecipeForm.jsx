@@ -21,9 +21,9 @@ const AddRecipeForm = () => {
   const [aboutRecipe, setAboutRecipe] = useState('');
   const [category, setCategory] = useState({ value: '', label: '' });
   const [cookingTimeRecipe, setCookingTimeRecipe] = useState({ value: '', label: '' })
-
   const [userIngredientsList, setUserIngredientList] = useState([]);
-  
+  const [recipePreparation, setRecipePreperation] = useState('');
+
   function initPopularFunc(list) {
     setPopularRecipeList(list);
    };
@@ -47,6 +47,7 @@ const AddRecipeForm = () => {
       _id: nanoid(),
       id: '',
       name: '',
+      unitCount: '',
       unit: '',
     }
     setUserIngredientList([ingredient, ...userIngredientsList]);
@@ -77,17 +78,31 @@ const AddRecipeForm = () => {
     setUserIngredientList(tmpList);
   };
 
+  const handleOnChangeUnitCount = (e, i) => {
+    const tmpList = [...userIngredientsList];
+    tmpList[i].unitCount = e;
+    setUserIngredientList(tmpList);
+  };
+
   let initialValues = {
     image: '',
     itemTitleRecipe: '',
     aboutRecipe: '',
   }
 
-  const handleOnSubmit = async (values) => {
-    setItemTitleRecipe(values.itemTitleRecipe);
-    setAboutRecipe(values.aboutRecipe);
-    console.log(userIngredientsList);
-    console.log(itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe);
+  const handleOnSubmit = async () => {
+    const recipeItem = {
+      title: itemTitleRecipe,
+      description: aboutRecipe,
+      category: category.value,
+      cockingTime: cookingTimeRecipe.value,
+      ingredients: userIngredientsList.map(e =>
+      { return { id: e.id, measure: `${e.unitCount}/${e.unit}` } }),
+      preparation: recipePreparation,
+    }
+
+    console.log(recipeItem);
+
   }
 
   return (
@@ -95,17 +110,20 @@ const AddRecipeForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <Form autoComplete="off">
           <RecipeDescriptionFields
+            handleOnTitleRecipe={setItemTitleRecipe}
+            handleOnAboutRecipe={setAboutRecipe}
             handleOnCategory={setCategory}
             handleOnCookingTimeRecipe={setCookingTimeRecipe} />
           <RecipeIngredientsFields
             userList={{ userIngredientsList }}
             handleIncIngredient={handleIncIngredient}
             handleDecIngredient={handleDecIngredient}
-            handleOnDeleteContact={handleOnDeleteContact} 
+            handleOnDeleteContact={handleOnDeleteContact}
             handleOnChangeIngName={handleOnChangeIngName}
             handleOnChangeIngUnit={handleOnChangeIngUnit}
+            handleOnChangeUnitCount={handleOnChangeUnitCount}
           />
-          <RecipePreparationFields/>
+          <RecipePreparationFields handleOnRecipePreperation={setRecipePreperation} />
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
       </Formik>

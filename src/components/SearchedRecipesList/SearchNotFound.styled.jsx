@@ -24,7 +24,7 @@ export const SearchText = styled.p`
 `;
 
 export const SearchImage = styled.div`
-  margin: 50px auto 24px;
+  margin: 0px auto 24px;
   width: 208px;
   height: 133px;
 
