@@ -6,21 +6,7 @@ import { useFormik } from 'formik';
 import useValidationSchema from './ValidationSchema';
 import * as authOperations from 'redux/auth/authOperations';
 import checkPasswordStrength from './StrengthSchema';
-import iconUser from 'images/AuthImages/icon-user-mob.svg';
-import iconMail from 'images/AuthImages/icon-mail-mob.svg';
-import iconLock from 'images/AuthImages/icon-lock-mob.svg';
-import iconUserTab from 'images/AuthImages/icon-user-tab.svg';
-import iconMailTab from 'images/AuthImages/icon-mail-tab.svg';
-import iconLockTab from 'images/AuthImages/icon-lock-tab.svg';
-import iconError from 'images/AuthImages/error.svg';
-import iconUserTabE from 'images/AuthImages/icon-user-tab-e.svg';
-import iconMailTabE from 'images/AuthImages/icon-mail-tab-e.svg';
-import iconLockTabE from 'images/AuthImages/icon-lock-tab-e.svg';
-import iconUserTabG from 'images/AuthImages/icon-user-tab-g.svg';
-import iconMailTabG from 'images/AuthImages/icon-mail-tab-g.svg';
-import iconLockTabG from 'images/AuthImages/icon-lock-tab-g.svg';
-import iconWarning from 'images/AuthImages/warning.svg';
-import iconCorrect from 'images/AuthImages/success.svg';
+import * as img from 'images/AuthImages';
 import {
   FormContainer,
   FormWrapper,
@@ -34,10 +20,9 @@ import {
   Error,
   Correct,
   Warning,
-  IconWarning,
 } from 'components/AuthForm/AuthForm.styled';
 
-const RegisterForm = () => {
+const AuthForm = () => {
   const { pathname } = useLocation();
   const isLogin = pathname === '/signin';
   const validationSchema = useValidationSchema();
@@ -135,13 +120,8 @@ const RegisterForm = () => {
   };
 
   const showError = formik.touched.password && formik.errors.password;
-  const showWarning =
-    passwordStrength === 'weak' && !showError && passwordStrength !== 'strong';
-  const showCorrect =
-    passwordStrength === 'strong' &&
-    passwordCorrect &&
-    !showError &&
-    !showWarning;
+  const showWarning = passwordStrength === 'weak' && !showError;
+  const showCorrect = passwordCorrect && !showError && !showWarning;
 
   return (
     <FormContainer>
@@ -153,12 +133,12 @@ const RegisterForm = () => {
         >
           {!isLogin && (
             <InputWrap
-              iconUrl={iconUser}
-              iconTabUrl={iconUserTab}
-              iconTabUrlE={iconUserTabE}
-              iconTabUrlG={iconUserTabG}
-              iconError={iconError}
-              iconCorrect={iconCorrect}
+              iconUrl={img.iconUser}
+              iconTabUrl={img.iconUserTab}
+              iconTabUrlE={img.iconUserTabE}
+              iconTabUrlG={img.iconUserTabG}
+              iconError={img.iconError}
+              iconCorrect={img.iconCorrect}
               {...formik.getFieldProps('name')}
               error={Boolean(formik.touched.name && formik.errors.name)}
               correct={Boolean(formik.touched.name && !formik.errors.name)}
@@ -181,12 +161,12 @@ const RegisterForm = () => {
             </InputWrap>
           )}
           <InputWrap
-            iconUrl={iconMail}
-            iconTabUrl={iconMailTab}
-            iconTabUrlE={iconMailTabE}
-            iconTabUrlG={iconMailTabG}
-            iconError={iconError}
-            iconCorrect={iconCorrect}
+            iconUrl={img.iconMail}
+            iconTabUrl={img.iconMailTab}
+            iconTabUrlE={img.iconMailTabE}
+            iconTabUrlG={img.iconMailTabG}
+            iconError={img.iconError}
+            iconCorrect={img.iconCorrect}
             {...formik.getFieldProps('email')}
             error={Boolean(formik.touched.email && formik.errors.email)}
             correct={Boolean(formik.touched.email && !formik.errors.email)}
@@ -208,17 +188,22 @@ const RegisterForm = () => {
             {emailCorrect && <Correct></Correct>}
           </InputWrap>
           <InputWrap
-            iconUrl={iconLock}
-            iconTabUrl={iconLockTab}
-            iconTabUrlE={iconLockTabE}
-            iconTabUrlG={iconLockTabG}
-            iconError={iconError}
-            iconWarning={iconWarning}
-            iconCorrect={iconCorrect}
+            iconUrl={img.iconLock}
+            iconTabUrl={img.iconLockTab}
+            iconTabUrlE={img.iconLockTabE}
+            iconTabUrlG={img.iconLockTabG}
+            iconError={img.iconError}
+            iconWarning={img.iconWarning}
+            iconCorrect={img.iconCorrect}
             {...formik.getFieldProps('password')}
             error={Boolean(formik.touched.password && formik.errors.password)}
-            warning={Boolean(passwordStrength === 'weak')}
-            correct={Boolean(passwordStrength === 'strong' && passwordCorrect)}
+            correct={Boolean(
+              formik.touched.password && !formik.errors.password
+            )}
+            warning={
+              Boolean(formik.touched.password && !formik.errors.password) &&
+              !passwordStrength
+            }
           >
             <FormInput
               placeholder="Password"
@@ -233,11 +218,8 @@ const RegisterForm = () => {
               warning={passwordStrength}
             />
             {showError && <Error>{formik.errors.password}</Error>}
-            {showWarning && passwordStrength && (
+            {showWarning && !showCorrect && (
               <Warning>Your password is little secure</Warning>
-            )}
-            {passwordStrength === 'weak' && showWarning && (
-              <IconWarning iconWarning={iconWarning} />
             )}
             {showCorrect && <Correct>Password is secure</Correct>}
           </InputWrap>
@@ -254,4 +236,4 @@ const RegisterForm = () => {
     </FormContainer>
   );
 };
-export default RegisterForm;
+export default AuthForm;
