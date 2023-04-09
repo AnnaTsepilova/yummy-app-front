@@ -1,19 +1,25 @@
 import React from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-import { WrapperLi, RightWrapper, Button } from './ShoppingItem.styled';
-import ShoppingItemPhoto from '../ShoppingItemFoto/ShoppingItemFoto';
-import ShoppingItemDescription from '../ShoppingItemDescription/ShoppingItemDescription';
-import ShoppingItemNumber from '../ShoppingItemNumber/ShoppingItemNumber';
-import { ReactComponent as CloseIcon } from '../../../images/AddRecipe/close.svg';
-import defaultImage from '../../../images/HeaderMenu/header-menu.svg';
+
+import defaultImage from 'images/HeaderMenu/header-menu.svg';
+
+import {
+  ListItemSL,
+  Wrapper,
+  RightWrapper,
+  Button,
+} from 'components/IngredientsShoppingList/ShoppingItem/ShoppingItem.styled';
+import ShoppingItemPhoto from 'components/IngredientsShoppingList/ShoppingItemFoto/ShoppingItemFoto';
+import ShoppingItemTitle from 'components/IngredientsShoppingList/ShoppingItemTitle/ShoppingItemTitle';
+import ShoppingItemNumber from 'components/IngredientsShoppingList/ShoppingItemNumber/ShoppingItemNumber';
 
 const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
   return (
-    <WrapperLi>
-      <ShoppingItemPhoto image={image ? image : defaultImage} />
-      <div>
-        <ShoppingItemDescription name={name} />
-      </div>
+    <ListItemSL>
+      <Wrapper>
+        <ShoppingItemPhoto image={image ? image : defaultImage} />
+        <ShoppingItemTitle name={name} />
+      </Wrapper>
       <div>
         {[measure].map(item => (
           <RightWrapper key={nanoid()}>
@@ -23,13 +29,11 @@ const ShoppingItem = ({ image, name, measure, id, onDelete }) => {
               onClick={e => {
                 onDelete(item, e);
               }}
-            >
-              <CloseIcon width="18px" height="18px" />
-            </Button>
+            ></Button>
           </RightWrapper>
         ))}
       </div>
-    </WrapperLi>
+    </ListItemSL>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Wrapper } from './ShoppingItemNumber.styled';
+import { Measure } from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
 
 const ShoppingItemNumber = ({ text }) => {
-  return <Wrapper>{text}</Wrapper>;
+  return <Measure>{text}</Measure>;
 };
 
 export default ShoppingItemNumber;
