@@ -88,7 +88,10 @@ const userResipesSlice = createSlice({
         // console.log('payload', payload.shoppingList);
       })
       .addCase(removeFromShoppingList.rejected, rejected)
-      .addCase(getRecipeById.pending, pending)
+      .addCase(getRecipeById.pending, (state, { payload }) => {
+        state.recipeById = [];
+        state.isLoading = true;
+      })
       .addCase(getRecipeById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
