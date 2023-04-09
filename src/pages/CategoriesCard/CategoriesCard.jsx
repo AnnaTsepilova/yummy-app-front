@@ -11,7 +11,6 @@ import { getLimitedRecipesByCategory } from 'redux/commonRecipes/commonOperation
 const CategoriesCard = () => {
   const dispatch = useDispatch();
   const { categoryName } = useParams();
-
   const limitedRecipes = useSelector(getLimitedRecipes);
   const isPending = useSelector(state => state.outerRecipes.isCategoryFetching);
 

@@ -18,10 +18,6 @@ export const CategoryList = () => {
   const fullCategoryList = useSelector(getFullCategoryList);
 
   useEffect(() => {
-    navigate('/categories/Beef');
-  }, [navigate]);
-
-  useEffect(() => {
     dispatcher(getCategoryList());
   }, [dispatcher]);
 
