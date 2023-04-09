@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import {
@@ -7,50 +6,64 @@ import {
   Input,
   Button,
   InputWrap,
+  Error,
 } from './subscribeForm.styled';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const SubscribeForm = () => {
-  const [email, setEmail] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email address').required(' '),
+  });
 
-  const handleSubmit = async event => {
-    event.preventDefault();
-    try {
-      await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
-        email,
-      });
-      Notiflix.Notify.success('Great! You signed up!');
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        Notiflix.Notify.info('A user with this email is already signed');
-      } else {
-        Notiflix.Notify.failure('There was an error, try again later');
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema,
+    onSubmit: async values => {
+      try {
+        await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
+          email: values.email,
+        });
+        Notiflix.Notify.success('Great! You signed up!');
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          Notiflix.Notify.info('A user with this email is already signed');
+        } else {
+          Notiflix.Notify.failure('There was an error, try again later');
+        }
       }
-    }
-  };
-
-  const handleChange = event => {
-    setEmail(event.target.value);
-    setIsDisabled(event.target.value === '');
-  };
+    },
+  });
 
   return (
     <FormWrapper>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={formik.handleSubmit}>
         <label htmlFor="email"></label>
-        <InputWrap>
+        <InputWrap
+          iconUrl={img.iconMail}
+          iconTabUrl={img.iconMailTab}
+          iconTabUrlE={img.iconMailTabE}
+          iconTabUrlG={img.iconMailTabG}
+          iconError={img.iconError}
+          iconCorrect={img.iconCorrect}
+          error={Boolean(formik.touched.email && formik.errors.email)}
+          correct={Boolean(formik.touched.email && !formik.errors.email)}
+          {...formik.getFieldProps('email')}
+        >
           <Input
+            placeholder="Email"
             type="email"
-            id="email"
             name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Enter your email address"
-            required
-            autoComplete="off"
+            autoComplete="email"
           />
+          {formik.touched.email && formik.errors.email && (
+            <Error>{formik.errors.email}</Error>
+          )}
         </InputWrap>
-        <Button type="submit" disabled={isDisabled}>
+
+        <Button type="submit" disabled={!formik.isValid}>
           Subscribe
         </Button>
       </Form>

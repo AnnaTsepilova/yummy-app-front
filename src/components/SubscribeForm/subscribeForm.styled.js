@@ -69,7 +69,13 @@ export const Form = styled.form`
 
 export const InputWrap = styled.div`
   position: relative;
-  border: 1px solid var(--primary-white);
+  /* border: 1px solid var(--primary-white);
+  ${({ error }) => error && 'border-color: red;'}
+  ${({ correct }) => correct && 'border-color: green;'} */
+
+  border: 1px solid ${props =>
+    props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
+  };
   border-radius: 6px;
   width: 204px;
   height: 38px;
@@ -195,5 +201,19 @@ export const Button = styled.button`
     width: 339px;
     font-size: 16px;
     line-height: 1.12;
+  }
+`;
+
+export const Error = styled.div`
+  font-size: 10px;
+  color: #e74a3b;
+  position: relative;
+  left: -13px;
+  bottom: -170%;
+
+    @media (min-width: 768px) {
+  font-size: 14px;
+  left: -13px;
+  bottom: -160%;
   }
 `;
