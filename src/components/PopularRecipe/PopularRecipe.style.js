@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormWrapper = styled.div`
   width: 343px;
   margin-top: 72px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
 `;
 
 export const TitleStyled = styled.h3`

@@ -1,8 +1,10 @@
 import React from 'react';
+import { nanoid } from '@reduxjs/toolkit';
+
 import {
   MainBox,
-  Title,
   Box,
+  Title,
   List,
   Item,
   SpanBox,
@@ -10,7 +12,6 @@ import {
   Text,
   Img,
 } from './RecipePreparation.styled';
-import { nanoid } from '@reduxjs/toolkit';
 
 const RecipePreparation = ({ preview, title, instructions }) => {
   const cleanedInstructions = instructions?.replace(/^\d+\)\s*/gm, '');
@@ -21,8 +22,8 @@ const RecipePreparation = ({ preview, title, instructions }) => {
 
   return (
     <MainBox>
-      <Title>Recipe Preparation</Title>
       <Box>
+        <Title>Recipe Preparation</Title>
         <List>
           {steps?.map((el, idx) => (
             <Item key={nanoid()}>
@@ -33,8 +34,8 @@ const RecipePreparation = ({ preview, title, instructions }) => {
             </Item>
           ))}
         </List>
-        <Img alt={title} src={preview} width={343} />
       </Box>
+      <Img alt={title} src={preview} width={433} />
     </MainBox>
   );
 };

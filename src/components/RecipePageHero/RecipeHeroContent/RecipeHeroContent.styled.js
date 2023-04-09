@@ -1,27 +1,25 @@
 import styled from 'styled-components';
-// import ClockIcon from 'images/Recipe/clock.png';
-// import backgroundDesktop from 'images/Recipe/recipie-bgd-desc@1x.png';
-// import backgroundMobile from 'images/Recipe/recipie-bgd-mob@1x.png';
-// import backgroundTablet from 'images/Recipe/recipie-bgd-tab@1x.png';
 
 export const RecipeHeroContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 303px;
-  height: auto;
+  height: 397px;
   margin: 0 auto;
-  padding: 80px 0 40px;
+  padding: 80px 0 90px;
   align-items: center;
 
   @media screen and (min-width: 768px) {
     padding: 72px 0 32px;
     max-width: 506px;
+    height: 433px;
   }
 
   @media screen and (min-width: 1440px) {
     padding-top: 100px;
     max-width: 656px;
+    height: 431px;
   }
 `;
 
