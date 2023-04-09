@@ -4,7 +4,7 @@ import {
   FooterBgImage,
   HeroImage,
 } from 'components/AuthContent/AuthContent.styled';
-import RegisterForm from 'components/AuthForm/AuthForm';
+import AuthForm from 'components/AuthForm/AuthForm';
 
 const AuthContent = () => {
   return (
@@ -12,7 +12,7 @@ const AuthContent = () => {
       <FooterBgImage />
       <ContentContainer>
         <HeroImage />
-        <RegisterForm />
+        <AuthForm />
       </ContentContainer>
     </PageWrapper>
   );
