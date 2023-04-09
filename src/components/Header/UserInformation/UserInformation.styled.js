@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { StyledSearchGreenBtn } from '../../Buttons/Buttons.styled';
 import { ReactComponent as NotFoundAvatar } from 'images/InputsState/user.svg';
 
+import { ReactComponent as EditIcon } from 'images/EditProfilePen/edit-profile-pen.svg';
+
 export const UserInform = styled.div`
   position: relative;
   display: flex;
@@ -18,6 +20,7 @@ export const UserAvatarWrp = styled.div`
   padding: 5px;
   margin-right: 14px;
   border-radius: 50%;
+
   overflow: hidden;
 
   background-color: var(--light-gray);
@@ -51,6 +54,11 @@ export const UserName = styled.p`
   line-height: 1.7;
 
   color: var(--secondary-black);
+  transition: color var(--transition-function);
+
+  &:hover {
+    color: var(--primary-green);
+  }
 
   @media screen and (min-width: 768px) {
     margin-right: 50px;
@@ -70,8 +78,8 @@ export const PopUp = styled.div`
 
   padding: 18px;
 
-  background: #fafafa;
-  border: 1px solid #8baa36;
+  background: var(--primary-white);
+  border: 1px solid var(--primary-green);
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
@@ -97,16 +105,33 @@ export const EditText = styled.p`
   font-size: 14px;
   line-height: 1.6;
 
-  color: #23262a;
+  color: var(--primary-black);
+  transition: color var(--transition-function);
+
+  ${EditWrapper}:hover & {
+    color: var(--primary-green);
+  }
 `;
 
 export const EditBtn = styled.button`
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: none;
   background-color: transparent;
+`;
+
+export const EditPen = styled(EditIcon)`
+  stroke: var(--primary-black);
+
+  transition: stroke var(--transition-function);
+
+  ${EditWrapper}:hover & {
+    stroke: var(--primary-green);
+  }
 `;
 
 export const LogOutBtn = styled(StyledSearchGreenBtn)`
