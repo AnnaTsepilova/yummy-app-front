@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import Loader from 'components/Loader/Loader';
-//import { SearchNotFound } from './SearchNotFound';
 import NotFound from 'components/NotFound/NotFound';
 
 import SearchBar from 'components/SearchBar/SearchBar';
@@ -109,17 +108,20 @@ const SearchedRecipesList = () => {
           ))}
         </Table>
       )}
-      {totalQuery > 0 && (
+      {totalQuery > perPage && (
         <MuiPag
           count={Math.ceil(totalQuery / perPage)}
           page={page}
           handleChange={handleChange}
         />
       )}
-      {!request && (
+      {!request ? (
         <NotFound text={`You haven't searched for anything yet...`} />
-      )}
-      {errorSearch && <NotFound text={'Try looking for something else...'} />}
+      ) : errorSearch ? (
+        <NotFound text={`No results found for "${query}"`} />
+      ) : totalQuery === 0 ? (
+        <NotFound text={`No results found for "${query}"`} />
+      ) : null}
     </>
   );
 };

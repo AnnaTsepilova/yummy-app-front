@@ -6,7 +6,7 @@ import { listUnits } from 'components/AddRecipeForm/AddRecipeForm.const';
 import {getIngredientsList} from 'service/API/dishesApi';
 import { CloseIconButton, IncIconButton, DecrIconButton,ListIngredientsItem, DeleteButton, InputIngredWraper, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit } from './RecipeIngredientsFields.styled'
 
-const RecipeIngredientsFields = ({userList, handleOnUserIngredientsList, handleIncIngredient, handleDecIngredient, handleOndeleteContact}) => {
+const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngredient, handleOnDeleteContact, handleOnChangeIngName, handleOnChangeIngUnit}) => {
   const {userIngredientsList} = userList;
   const [ingredientList, setIngredientList] = useState([]);
 
@@ -48,21 +48,21 @@ const RecipeIngredientsFields = ({userList, handleOnUserIngredientsList, handleI
           <ul>
             {userIngredientsList.map((e, index) => {
               return (
-                <ListIngredientsItem key={e.id}>
+                <ListIngredientsItem key={e._id}>
                     <InputIngredWraper>
                           <SelectIngredStyled
-                            // defaultValue={colourOptions}
                             options={ingredientList}
                             isSearchable={true}
                             classNamePrefix="react-select"
+                            onChange={e => { handleOnChangeIngName(e, index) }}
                           />
                           <SelectIngredUnit
-                            // defaultValue={colourOptions}
                             options={listUnits}
                             isSearchable={false}
                             classNamePrefix="react-select"
+                            onChange={e => { handleOnChangeIngUnit(e,index) }}
                           />
-                    <DeleteButton onClick={handleOndeleteContact}>
+                    <DeleteButton onClick={handleOnDeleteContact}>
                           <CloseIconButton/>
                     </DeleteButton>
                     </InputIngredWraper>
