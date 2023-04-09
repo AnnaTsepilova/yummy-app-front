@@ -20,10 +20,9 @@ import {
   Error,
   Correct,
   Warning,
-  IconWarning,
 } from 'components/AuthForm/AuthForm.styled';
 
-const RegisterForm = () => {
+const AuthForm = () => {
   const { pathname } = useLocation();
   const isLogin = pathname === '/signin';
   const validationSchema = useValidationSchema();
@@ -198,12 +197,13 @@ const RegisterForm = () => {
             iconCorrect={img.iconCorrect}
             {...formik.getFieldProps('password')}
             error={Boolean(formik.touched.password && formik.errors.password)}
-            warning={Boolean(
-              formik.touched.password && !formik.errors.password
-            )}
             correct={Boolean(
               formik.touched.password && !formik.errors.password
             )}
+            warning={
+              Boolean(formik.touched.password && !formik.errors.password) &&
+              !passwordStrength
+            }
           >
             <FormInput
               placeholder="Password"
@@ -218,9 +218,8 @@ const RegisterForm = () => {
               warning={passwordStrength}
             />
             {showError && <Error>{formik.errors.password}</Error>}
-            {showWarning && <Warning>Your password is little secure</Warning>}
-            {!passwordStrength && showWarning && (
-              <IconWarning iconWarning={img.iconWarning} />
+            {showWarning && !showCorrect && (
+              <Warning>Your password is little secure</Warning>
             )}
             {showCorrect && <Correct>Password is secure</Correct>}
           </InputWrap>
@@ -237,4 +236,4 @@ const RegisterForm = () => {
     </FormContainer>
   );
 };
-export default RegisterForm;
+export default AuthForm;
