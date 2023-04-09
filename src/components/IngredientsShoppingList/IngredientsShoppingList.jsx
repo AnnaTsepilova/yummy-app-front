@@ -2,15 +2,13 @@ import React, { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import Loader from 'components/Loader/Loader';
+import NotFound from 'components/NotFound/NotFound';
 import TitleShoppingList from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList';
 import ShoppingItem from 'components/IngredientsShoppingList/ShoppingItem/ShoppingItem';
 
 import {
-  ShoppingItemList,
-  EmptyShoppingList,
-  DivContainer,
-  EmptyShoppingListImg,
-  EmptyShoppingListText,
+  BoxSL,
+  ListSL,
 } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,7 +31,6 @@ const IngredientsShoppingList = () => {
       id: id,
       measure: item,
     };
-    // console.log(list);
     dispatch(removeFromShoppingList(list));
   };
   useEffect(() => {
@@ -42,12 +39,12 @@ const IngredientsShoppingList = () => {
 
   return (
     <>
-      <DivContainer>
+      <BoxSL>
         <TitleShoppingList />
         {isLoading ? (
           <Loader />
         ) : shoppingList.length > 0 ? (
-          <ShoppingItemList>
+          <ListSL>
             {shoppingList.map(({ thb, ttl, measure, id }, index) => (
               <ShoppingItem
                 key={nanoid()}
@@ -58,16 +55,11 @@ const IngredientsShoppingList = () => {
                 onDelete={(item, e) => handleDeleteIngridient(id, item, e)}
               />
             ))}
-          </ShoppingItemList>
+          </ListSL>
         ) : (
-          <EmptyShoppingList>
-            <EmptyShoppingListImg />
-            <EmptyShoppingListText>
-              Shopping list is empty
-            </EmptyShoppingListText>
-          </EmptyShoppingList>
+          <NotFound text={'Shopping list is empty.'} />
         )}
-      </DivContainer>
+      </BoxSL>
     </>
   );
 };

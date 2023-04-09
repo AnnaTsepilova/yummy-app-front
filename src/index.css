@@ -158,6 +158,10 @@ table {
   --background-light-green: #ebf3d4;
   --modal-background: #2a2c36;
 
+  /* LINE */
+
+  --lineColor: #e0e0e0;
+
   /* HOVER/FOCUS */
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }

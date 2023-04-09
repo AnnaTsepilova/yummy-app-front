@@ -92,12 +92,14 @@ export const ListItem = styled.li`
   }
 
   @media screen and (min-width: 768px) {
-    margin-top: 24px;
+    &:not(:first-child) {
+      margin-top: 24px;
+    }
+
     padding: 33px 58px 33px 40px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 24px;
     padding: 27px 70px 27px 58px;
   }
 `;
@@ -172,15 +174,15 @@ export const Measure = styled.span`
   }
 `;
 
-// ??
-export const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  margin-left: 46px;
+// // ??
+// export const Button = styled.button`
+//   background-color: transparent;
+//   border: none;
+//   margin-left: 46px;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
-    margin-left: 110px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     margin-left: 110px;
+//   }
+// `;
