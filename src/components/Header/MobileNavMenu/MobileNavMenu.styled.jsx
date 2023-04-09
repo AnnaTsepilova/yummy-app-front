@@ -52,8 +52,16 @@ export const MobCloseBtn = styled.button`
   align-items: center;
   justify-content: center;
 
+  border-radius: 50%;
+
   border: none;
   background-color: transparent;
+
+  transition: background-color var(--transition-function);
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
 `;
 
 export const StyledLink = styled(Link)`

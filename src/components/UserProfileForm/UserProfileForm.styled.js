@@ -4,6 +4,7 @@ import { ReactComponent as EditPen } from 'images/EditProfilePen/edit-profile-pe
 import { ReactComponent as PasswordIcon } from 'images/UserMenu/locl-icon.svg';
 import { ReactComponent as PlusIcon } from 'images/UserMenu/plus.svg';
 import { StyledSubscribeGreenBtn } from 'components/Buttons/Buttons.styled';
+import { ThumWrp } from './UserAvatarThumb/UserAvatarThumb.styled';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -48,11 +49,22 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const PlusFileIcon = styled(PlusIcon)`
+  transform: scale(1);
   position: absolute;
   right: 13px;
   bottom: -6px;
   width: 24px;
   height: 24px;
+
+  transition: transform var(--transition-function);
+
+  ${AvatarLabel}:hover & {
+    transform: scale(1.5);
+  }
+
+  ${ThumWrp}:hover & {
+    transform: scale(1.5);
+  }
 `;
 
 export const Avatar = styled.img``;
