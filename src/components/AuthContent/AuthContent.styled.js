@@ -5,7 +5,9 @@ import FooterBgDesc from 'images/AuthImages/footer-bg-auth-desc.svg';
 import OrderFoodSvgDesc from 'images/AuthImages/order-food-pana-white.svg';
 import OrderFoodSvg from 'images/AuthImages/order-food-pana-black.svg';
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+  position: relative;
+`;
 
 export const ContentContainer = styled.div`
   display: block;
