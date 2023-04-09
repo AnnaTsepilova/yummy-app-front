@@ -3,21 +3,23 @@ import styled from 'styled-components';
 export const RecipeHeroContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 303px;
   height: 397px;
   margin: 0 auto;
-  padding: 80px 0 90px;
-  align-items: center;
+  padding: 32px 0 75px;
 
   @media screen and (min-width: 768px) {
-    padding: 72px 0 32px;
+    padding: 32px 0;
     max-width: 506px;
     height: 433px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding-top: 100px;
+    // padding-top: 80px;
+    padding: 72px 0 32px;
     max-width: 656px;
     height: 431px;
   }
@@ -55,10 +57,10 @@ export const TimeBox = styled.div`
   align-items: center;
 
   width: 100%;
-  margin-top: 42px;
+  margin-top: 32px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 
   @media screen and (min-width: 1440px) {

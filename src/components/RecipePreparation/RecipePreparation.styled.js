@@ -45,7 +45,8 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: flex;
-  align-items: center;
+  align-items: start;
+
   width: 100%;
 
   :not(:first-child) {
