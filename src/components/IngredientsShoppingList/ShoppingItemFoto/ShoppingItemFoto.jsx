@@ -1,10 +1,12 @@
 import React from 'react';
-import { Wrapper, Image } from './ShoppingItemFoto.styled';
+
+import { Wrapper } from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
+import { ImgSL } from 'components/IngredientsShoppingList/ShoppingItemFoto/ShoppingItemFoto.styled';
 
 const ShoppingItemPhoto = ({ image }) => {
   return (
     <Wrapper>
-      <Image src={image} alt="ingredient" />
+      <ImgSL src={image} alt="ingredient" />
     </Wrapper>
   );
 };

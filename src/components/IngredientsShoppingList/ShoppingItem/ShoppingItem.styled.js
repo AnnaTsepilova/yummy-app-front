@@ -1,67 +1,68 @@
-const { default: styled } = require('styled-components');
+import styled from 'styled-components';
 
-export const WrapperLi = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 343px;
-  min-height: 86px;
-  padding-right: 19px;
-  border-radius: 8px;
+import { ListItem } from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
+import CloseIcon from 'images/AddRecipe/close.svg';
+
+export const ListItemSL = styled(ListItem)`
+  min-height: 84px;
+
+  align-items: flex-start;
+
+  padding: 0 19px 30px 0;
+
+  background-color: var(--primary-white);
   border-bottom: 1px solid var(--lineColor);
-  padding-bottom: 12px;
-  padding-top: 12px;
+  border-radius: 0;
+
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
 
   @media screen and (min-width: 768px) {
-    width: 704px;
-    min-height: 140px;
-    padding-right: 45px;
-    /* margin-top: 24px; */
+    &:not(:first-child) {
+      margin-top: 44px;
+    }
+    padding: 0 45px 50px 0;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1240px;
-    height: 100%;
-    padding-right: 68px;
-    padding-left: 40px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+    max-width: 1160px;
+    padding: 0 28px 50px 0;
   }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: start;
 `;
 
 export const RightWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 147px;
-
-  @media screen and (min-width: 768px) {
-    width: 240px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 401px;
-  }
+  align-items: start;
 `;
 
 export const Button = styled.button`
-  width: 18px;
-  height: 18px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: 0;
-  border: none;
-  background-color: inherit;
-  transition: scale 0.3s;
+  width: 14px;
+  height: 14px;
 
-  .button:hover {
-    scale: 1.4;
+  background-image: url('${CloseIcon}');
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-color: transparent;
+  border: none;
+  margin-left: 46px;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+    margin-left: 120px;
   }
 
-  .button svg path {
-    stroke: var(--closeBtFill);
+  @media screen and (min-width: 1440px) {
+    margin-left: 174px;
   }
 `;

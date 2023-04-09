@@ -1,22 +1,26 @@
 import React from 'react';
+// import {
+//   TitleWrapper,
+//   Title,
+//   Products,
+//   RightPartText,
+// } from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList.styled';
+
 import {
-  TitleWrapper,
-  Title,
-  Products,
-  RightPartText,
-} from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList.styled';
+  ListHeader,
+  ListHeaderText,
+} from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
+import { ListHeaderTextSL } from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList.styled';
 
 const TitleShoppingList = () => {
   return (
-    <TitleWrapper>
-      <Title>
-        <Products>Products</Products>
-        <RightPartText>
-          <span>Number</span>
-          <span>Remove</span>
-        </RightPartText>
-      </Title>
-    </TitleWrapper>
+    <ListHeader>
+      <ListHeaderText>Products</ListHeaderText>
+      <div>
+        <ListHeaderTextSL>Number</ListHeaderTextSL>
+        <ListHeaderTextSL>Remove</ListHeaderTextSL>
+      </div>
+    </ListHeader>
   );
 };
 
