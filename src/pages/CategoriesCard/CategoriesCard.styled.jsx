@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Table = styled.div`
   display: grid;
   gap: 14px;
-  margin: 32 auto 0;
+  margin-top: 50px;
   max-width: calc(100vw - 48px);
   grid-template-columns: 1fr;
 
