@@ -23,6 +23,7 @@ const initialState = {
     results: [],
     totalHits: 0,
   },
+  isError: false,
 };
 
 export const commmonRecipesSlice = createSlice({
