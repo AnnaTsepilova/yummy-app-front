@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 export const SearchTypeSelector = ({ typeSubmit, startType }) => {
   const [selectedOption, setSelectedOption] = useState({
-    value: startType,
-    label: startType,
+    value: 'title',
+    label: 'Title',
   });
 
   const options = [
@@ -21,7 +21,6 @@ export const SearchTypeSelector = ({ typeSubmit, startType }) => {
       <span>Search by:</span>
       <SelectStyled
         defaultValue={{
-          // label: startType.charAt(0).toUpperCase() + startType.slice(1),
           label: startType
             ? startType.charAt(0).toUpperCase() + startType.slice(1)
             : 'Title',
