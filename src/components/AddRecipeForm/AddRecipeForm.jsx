@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect} from "react";
-// import ReactDOM from 'react-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik, Form } from 'formik';
 import { nanoid } from 'nanoid'
@@ -12,7 +11,7 @@ import RecipePreparationFields from 'components/RecipePreparationFields/RecipePr
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
 
 
-import {getPopularRecipe } from 'service/API/dishesApi';
+import {getPopularRecipe, addRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
 
   const [popularRecipeList, setPopularRecipeList] = useState([]);
@@ -38,7 +37,6 @@ const AddRecipeForm = () => {
             padding: '10px',
           });
     }
-
   }, []);
   
   
@@ -90,19 +88,41 @@ const AddRecipeForm = () => {
     aboutRecipe: '',
   }
 
+  const resetForm = () => {
+    setItemTitleRecipe('');
+    setAboutRecipe('');
+    setCategory({ value: '', label: '' });
+    setCookingTimeRecipe({ value: '', label: '' })
+    setUserIngredientList([]);
+    setRecipePreperation('');
+  }
+
   const handleOnSubmit = async () => {
     const recipeItem = {
       title: itemTitleRecipe,
       description: aboutRecipe,
       category: category.value,
       cockingTime: cookingTimeRecipe.value,
-      ingredients: userIngredientsList.map(e =>
-      { return { id: e.id, measure: `${e.unitCount}/${e.unit}` } }),
+      ingredients: userIngredientsList.map(e => { return { [`${e.id}`]: `${e.unitCount}/${e.unit}` } }),
       preparation: recipePreparation,
     }
 
-    console.log(recipeItem);
-
+    try {
+      addRecipe(recipeItem).then(() => {
+        Notify.success('Recipe add to database.', {
+          fontSize: '16px',
+          width: '350px',
+          padding: '10px',
+        });
+        resetForm();}
+      );
+    } catch (error) {
+       Notify.failure('Error database connection!', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
+    }
   }
 
   return (
