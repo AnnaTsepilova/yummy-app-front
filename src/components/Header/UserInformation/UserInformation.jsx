@@ -8,8 +8,8 @@ import {
   EditBtn,
   EditText,
   LogOutBtn,
+  EditPen,
 } from './UserInformation.styled';
-import { ReactComponent as EditIcon } from 'images/EditProfilePen/edit-profile-pen.svg';
 import { ReactComponent as ErrowRight } from 'images/UserMenu/arrow-right.svg';
 import { useState } from 'react';
 import UserProfileForm from 'components/UserProfileForm/UserProfileForm';
@@ -48,10 +48,10 @@ const UserIformation = () => {
         <UserName>{userName || 'User Name'}</UserName>
         {popUpIsOpen && (
           <PopUp>
-            <EditWrapper>
+            <EditWrapper onClick={togleModal}>
               <EditText>Edit profile</EditText>
-              <EditBtn type="button" onClick={togleModal}>
-                <EditIcon />
+              <EditBtn type="button">
+                <EditPen />
               </EditBtn>
             </EditWrapper>
             <LogOutBtn onClick={togleLogOutModal}>
