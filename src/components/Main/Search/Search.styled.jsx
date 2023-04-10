@@ -45,10 +45,10 @@ export const Wrapper = styled.div`
 `;
 export const BtnWrapper = styled.div`
   position: absolute;
-  top: -1px;
-  right: 7%;
+  top: 0;
+  right: 0;
   @media screen and (min-width: 768px) {
-    /* top: -1px; */
-    right: -1px;
+    /* top: 0; */
+    right: 2px;
   }
 `;

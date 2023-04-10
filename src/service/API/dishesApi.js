@@ -84,8 +84,8 @@ export const getRecipeByCategoryAPI = () => {
   });
 };
 
-export const getMyRecipeAPI = () => {
-  return axios.get('/recipes').then(({ data }) => {
+export const getMyRecipeAPI = page => {
+  return axios.get(`/recipes?page=${page}`).then(({ data }) => {
     return data;
   });
 };
@@ -108,8 +108,8 @@ export const removeMyRecipeAPI = id => {
   });
 };
 
-export const getFavoriteRecipesAPI = () => {
-  return axios.get('/favorite/list').then(({ data }) => {
+export const getFavoriteRecipesAPI = page => {
+  return axios.get(`/favorite/list?page=${page}`).then(({ data }) => {
     return data;
   });
 };

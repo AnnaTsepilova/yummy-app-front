@@ -170,6 +170,11 @@ export const RegistrationLink = styled(NavLink)`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--secondary-black);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 22px 24px;
@@ -178,10 +183,6 @@ export const RegistrationLink = styled(NavLink)`
   }
   @media screen and (min-width: 1440px) {
     padding: 23px 24px;
-  }
-
-  &:hover {
-    background-color: var(--secondary-black);
   }
 `;
 
@@ -199,15 +200,17 @@ export const SignInLink = styled(NavLink)`
   text-align: center;
 
   cursor: pointer;
+  transition: border 250ms var(--transition-function),
+    color 250ms var(--transition-function);
+
+  &:hover {
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 22px 24px;
     min-width: 141px;
     font-size: 16px;
-  }
-
-  &:hover {
-    border: 2px solid var(--primary-green);
-    color: var(--primary-green);
   }
 `;
