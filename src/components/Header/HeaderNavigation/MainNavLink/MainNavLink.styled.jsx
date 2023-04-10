@@ -11,6 +11,8 @@ export const NavLinkStyle = styled(NavLink)`
 
   transition: color 250ms var(--transition-function);
 
+  cursor: pointer;
+
   &:hover,
   &:focus,
   &:active {
