@@ -9,8 +9,8 @@ import { selectToken } from 'redux/auth/authSelectors';
 import { setAccessToken } from 'redux/auth/authSlice';
 
 import Loader from 'components/Loader/Loader';
-
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 import PublicRoute from 'routes/PublicRoute/PublicRoute';
 import PrivateRoute from 'routes/PrivateRoute/PrivateRoute';
@@ -39,7 +39,7 @@ export const App = () => {
   const accessToken = useSelector(selectToken);
   const location = window.location;
 
-  // код ниже для Google авторизации
+  // for Google authorization
   // useEffect(() => {
   //   if (!token) {
   //     return;
@@ -60,7 +60,7 @@ export const App = () => {
     }
   }, [accessToken, dispatch, location]);
 
-  // TODO убрать /yummy-app-front/ из location.pathname перед деплоем на Netlify
+  // TODO remove /yummy-app-front/ feom location.pathname deploy at Netlify
 
   return (
     <BrowserRouter basename="/yummy-app-front">
@@ -91,6 +91,7 @@ export const App = () => {
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <ScrollToTop />
       </Suspense>
     </BrowserRouter>
   );
