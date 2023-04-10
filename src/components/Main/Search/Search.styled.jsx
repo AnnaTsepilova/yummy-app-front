@@ -46,9 +46,13 @@ export const Wrapper = styled.div`
 export const BtnWrapper = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  left: 60%;
   @media screen and (min-width: 768px) {
-    /* top: 0; */
+    left: 55%;
+    right: 2px;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 68%;
     right: 2px;
   }
 `;
