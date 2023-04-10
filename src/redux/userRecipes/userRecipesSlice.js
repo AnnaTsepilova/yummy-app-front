@@ -52,9 +52,11 @@ const userResipesSlice = createSlice({
         state.favorite.splice(index, 1);
       })
       .addCase(removeRecipeFromFavorite.rejected, rejected)
-      .addCase(getFavoriteRecipes.pending, pending)
+      .addCase(getFavoriteRecipes.pending, state => {
+        state.isLoadBtn = true;
+      })
       .addCase(getFavoriteRecipes.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
+        state.isLoadBtn = false;
         state.error = null;
         state.favorite = payload.results;
       })
@@ -80,16 +82,22 @@ const userResipesSlice = createSlice({
         // console.log('payload', payload.shoppingList);
       })
       .addCase(getUserShoppingList.rejected, rejected)
-      .addCase(addUserShoppingList.pending, pending)
+      .addCase(addUserShoppingList.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(addUserShoppingList.fulfilled, (state, { payload }) => {
+        state.shoppingList = payload.shoppingList.shopingList;
         state.isLoading = false;
         state.error = null;
         // state.shoppingList = payload.shoppingList;
         // console.log('payload', payload.shoppingList);
       })
       .addCase(addUserShoppingList.rejected, rejected)
-      .addCase(removeFromShoppingList.pending, pending)
+      .addCase(removeFromShoppingList.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
+        state.shoppingList = payload.shopingList;
         state.isLoading = false;
         state.error = null;
         // console.log('payload', payload.shoppingList);
