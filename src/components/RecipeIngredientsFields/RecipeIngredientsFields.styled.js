@@ -6,12 +6,20 @@ import { ReactComponent as IncreaseIcon } from 'images/AddRecipe/increase.svg';
 import { ReactComponent as CloseIcon } from 'images/AddRecipe/close.svg';
 
 export const FormWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
+  width: 343px;
   flex-direction: column;
-  gap: 24px;
   margin-bottom: 44px;
   @media screen and (min-width: 768px) {
+    width: 704px;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 100px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 609px;
   }
 `;
 
@@ -82,11 +90,11 @@ export const DeleteButton = styled.button`
 
 export const TitleStyled = styled.h3`
   font-style: normal;
-  color: #3e4462;
   font-weight: 600;
   font-size: 24px;
-  line-height: 24px;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: -0.24px;
+  color: #3e4462;
 `;
 
 export const IncDecWraper = styled.div`

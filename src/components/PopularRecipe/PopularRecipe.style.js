@@ -1,19 +1,29 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
   width: 343px;
   height: 464px;
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 162px;
   }
+  @media screen and (min-width: 1440px) {
+    width: 319px;
+    height: 528px;
+  }
 `;
 
 export const RecipeBox = styled.ul`
+  display: block;
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  @media screen and (min-width: 1440px) {
+    display: block;
   }
 `;
 
@@ -48,6 +58,10 @@ export const ImgStyled = styled.img`
   border-radius: 8px;
   margin-right: 12px;
   border: none;
+  @media screen and (min-width: 1440px) {
+    width: 97px;
+    height: 85px;
+  }
 `;
 
 export const DescriptionWraper = styled.div`

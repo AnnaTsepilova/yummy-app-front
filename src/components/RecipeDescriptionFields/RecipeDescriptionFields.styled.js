@@ -10,13 +10,15 @@ export const NoImageStyled = styled(NoImage)`
 export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
   margin-bottom: 44px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 32px;
     margin-bottom: 100px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
   }
 `;
 
@@ -25,11 +27,11 @@ export const WrapperFieldsInput = styled.div`
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
   width: 343px;
   @media screen and (min-width: 768px) {
     width: 393px;
-    gap: 32px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 `;
 
@@ -42,9 +44,18 @@ export const ImgLabel = styled.label`
   background: #8baa36;
   border-radius: 8px;
   cursor: pointer;
+  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 357px;
+    height: 344px;
+    margin-right: 50px;
   }
 `;
 
@@ -80,10 +91,14 @@ export const FieldStyled = styled(Field)`
   line-height: 1.5;
   letter-spacing: -0.02em;
   border: none;
-  /* background: #ececec; */
   border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
   @media (min-width: 768px) {
     font-size: 16px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 40px;
   }
 `;
 
@@ -92,6 +107,13 @@ export const WrapperSelect = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const LabelSelectStyled = styled.label`

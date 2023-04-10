@@ -3,8 +3,9 @@ import { useState, useEffect} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
 import { nanoid } from 'nanoid'
+// import { SearchBlackBtn } from 'components/Buttons/Buttons';
+import { StyledForm, WrapperSubmitButton, WrapperPage } from './AddRecipeForm.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
-import { StyledForm } from './AddRecipeForm.styled';
 
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields'
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
@@ -129,7 +130,8 @@ const AddRecipeForm = () => {
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+      <WrapperPage>
+            <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <StyledForm autoComplete="off">
           <RecipeDescriptionFields
             dataField={{ itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe }}
@@ -147,10 +149,12 @@ const AddRecipeForm = () => {
             handleOnChangeUnitCount={handleOnChangeUnitCount}
           />
           <RecipePreparationFields dataField={recipePreparation} handleOnRecipePreperation={setRecipePreperation} />
-          <SearchBlackBtn type="submit">Add</SearchBlackBtn>
+          <WrapperSubmitButton><SearchBlackBtn type="submit">Add</SearchBlackBtn></WrapperSubmitButton>
+          
         </StyledForm>    
       </Formik>
       <PopularRecipe popularRecipeList={popularRecipeList} />
+      </WrapperPage>
     </>
   )
 }
