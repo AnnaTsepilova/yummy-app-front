@@ -54,6 +54,10 @@ const SearchedRecipesList = () => {
     perPage = 6;
   }
 
+  useEffect(() => {
+    setSearchParams(new URLSearchParams({ query: '', type: '' }));
+  }, [setSearchParams, query, type]);
+
   const handleChange = (event, value) => {
     setPage(value);
   };

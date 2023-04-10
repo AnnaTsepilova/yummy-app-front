@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Search } from 'images/Search/search.svg';
+import { Search } from './SearchGlass.styled';
 
 const SearchGlass = () => {
   return <Search />;

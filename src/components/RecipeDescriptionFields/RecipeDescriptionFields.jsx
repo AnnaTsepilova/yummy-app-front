@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getCategoryListAPI } from 'service/API/dishesApi';
 import { listTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
 
-import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput } from './RecipeDescriptionFields.styled';
+import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput, WrapperFieldsInput, WrapperSelect, LabelSelectStyled } from './RecipeDescriptionFields.styled';
 
 //  import { Field } from 'formik';
 
@@ -47,40 +47,47 @@ const RecipeDescriptionFields = ({ dataField, handleOnTitleRecipe, handleOnAbout
               }}>
           </ImageInput>
         </ImgLabel>
-        <FieldStyled
-          as="input"
-          name="itemTitleRecipe"
-          value = {itemTitleRecipe}
-          placeholder="Enter item title"
-          onChange={e => { handleOnTitleRecipe(e.currentTarget.value) }}
-          required
-        />
-        <FieldStyled
-          as="input"
-          name="aboutRecipe"
-          value = {aboutRecipe}
-          placeholder="Enter about recipe"
-          onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }}
-          required
-        />
-        <SelectStyled
-          options={categoryList}
-          isSearchable={false}
-          setValue={category}
-          placeholder="Category"
-          classNamePrefix="react-select"
-          onChange={handleOnCategory}
-          required
-        />
-        <SelectStyled
-          options={listTimeRecipe}
-          isSearchable={false}
-          setValue={cookingTimeRecipe}
-          placeholder="Cooking time"
-          classNamePrefix="react-select"
-          onChange={handleOnCookingTimeRecipe}
-          required
-        />
+        <WrapperFieldsInput>
+            <FieldStyled
+              as="input"
+              name="itemTitleRecipe"
+              value = {itemTitleRecipe}
+              placeholder="Enter item title"
+              onChange={e => { handleOnTitleRecipe(e.currentTarget.value) }}
+              required
+            />
+            <FieldStyled
+              as="input"
+              name="aboutRecipe"
+              value = {aboutRecipe}
+              placeholder="Enter about recipe"
+              onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }}
+              required
+            />
+            <WrapperSelect>
+              <LabelSelectStyled>Category</LabelSelectStyled>
+              <SelectStyled
+                options={categoryList}
+                isSearchable={false}
+                setValue={category}
+                classNamePrefix="react-select"
+                onChange={handleOnCategory}
+                required
+              />
+            </WrapperSelect>
+            <WrapperSelect>
+              <LabelSelectStyled>Cooking time</LabelSelectStyled>            
+              <SelectStyled
+                options={listTimeRecipe}
+                isSearchable={false}
+                setValue={cookingTimeRecipe}
+                placeholder="Cooking time"
+                classNamePrefix="react-select"
+                onChange={handleOnCookingTimeRecipe}
+                required
+              />
+          </WrapperSelect>
+        </WrapperFieldsInput>
       </FormWrapper>
     </>
   )

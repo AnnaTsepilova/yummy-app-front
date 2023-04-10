@@ -8,11 +8,31 @@ export const NoImageStyled = styled(NoImage)`
 `;
 
 export const FormWrapper = styled.div`
-  width: 343px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
   margin-bottom: 44px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 100px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+export const WrapperFieldsInput = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  @media screen and (min-width: 768px) {
+    width: 393px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 `;
 
 export const ImgLabel = styled.label`
@@ -24,6 +44,19 @@ export const ImgLabel = styled.label`
   background: #8baa36;
   border-radius: 8px;
   cursor: pointer;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 357px;
+    height: 344px;
+    margin-right: 50px;
+  }
 `;
 
 export const ImgStyled = styled.img`
@@ -50,25 +83,60 @@ export const ImageInput = styled.button`
 `;
 
 export const FieldStyled = styled(Field)`
-  width: 343px;
+  max-width: auto;
   height: 40px;
+  font-style: normal;
+  font-weight: 400;
   font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
   border: none;
-  background: #ececec;
   border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
+`;
+
+export const WrapperSelect = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+`;
+
+export const LabelSelectStyled = styled.label`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const SelectStyled = styled(Select)`
   & .react-select__control {
-    background-color: rgba(217, 217, 217, 0.2);
-    border: 1px solid #f0f0f0;
+    border: none;
+    /* border-bottom: 1px solid #e0e0e0; */
     outline: none;
     box-shadow: none;
-    border-radius: 6px;
-    width: 343px;
+    width: 123px;
     height: 40px;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     letter-spacing: -0.02em;
     color: #fafafa;
 
@@ -88,10 +156,8 @@ export const SelectStyled = styled(Select)`
     }
 
     @media (min-width: 768px) {
-      font-size: 14px;
-      line-height: 21px;
-      /* width: 175px; */
-      height: 41px;
+      font-size: 16px;
+      height: 43px;
     }
   }
 
@@ -100,9 +166,14 @@ export const SelectStyled = styled(Select)`
     font-weight: 400;
     text-align: left;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
+    text-align: center;
     letter-spacing: -0.02em;
-    /* color: #fafafa; */
+    @media (min-width: 768px) {
+      font-size: 16px;
+      height: 43px;
+      text-align: center;
+    }
   }
 
   & .react-select__value-container {
@@ -127,12 +198,16 @@ export const SelectStyled = styled(Select)`
   & .react-select__menu-list {
     background-color: transparent;
     border-radius: 0px 0px 6px 6px;
-
-    line-height: -0.02em;
+    width: 123px;
+    height: 180px;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.02em;
     text-align: left;
 
     @media (min-width: 768px) {
       font-size: 14px;
+      height: 185px;
     }
 
     color: rgba(0, 0, 0, 0.5) !important;
@@ -157,8 +232,6 @@ export const SelectStyled = styled(Select)`
   }
 
   & .react-select__placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    display: none;
   }
 `;

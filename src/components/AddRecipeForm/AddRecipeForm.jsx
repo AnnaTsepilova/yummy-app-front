@@ -1,15 +1,20 @@
 import React from 'react';
 import { useState, useEffect} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { Formik, Form } from 'formik';
+import { Formik} from 'formik';
 import { nanoid } from 'nanoid'
+// import { SearchBlackBtn } from 'components/Buttons/Buttons';
+import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
+// import { SocialLinksContainer } from 'components/Footer/Footer.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
-
+// import SocialLinks from 'components/Footer/SocialLinks/SocialLinks';
+import { TitleStyled } from 'components/PopularRecipe/PopularRecipe.style';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields'
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
-
+import { WrapperSocialLinks } from './SocialLinks/SocialLinks.styled';
+import SocialLinks from './SocialLinks/SocialLinks';
 
 import {getPopularRecipe, addRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
@@ -128,8 +133,9 @@ const AddRecipeForm = () => {
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-        <Form autoComplete="off">
+      <WrapperPage>
+            <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+        <StyledForm autoComplete="off">
           <RecipeDescriptionFields
             dataField={{ itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe }}
             handleOnTitleRecipe={setItemTitleRecipe}
@@ -146,10 +152,18 @@ const AddRecipeForm = () => {
             handleOnChangeUnitCount={handleOnChangeUnitCount}
           />
           <RecipePreparationFields dataField={recipePreparation} handleOnRecipePreperation={setRecipePreperation} />
-          <SearchBlackBtn type="submit">Add</SearchBlackBtn>
-        </Form>    
+          <WrapperSubmitButton><SearchBlackBtn type="submit">Add</SearchBlackBtn></WrapperSubmitButton>
+          
+        </StyledForm>    
       </Formik>
-      <PopularRecipe popularRecipeList={popularRecipeList} />
+      <WrapperPopularRecipe>
+          <WrapperSocialLinks>
+            <TitleStyled>Follow us</TitleStyled>
+              <SocialLinks />
+          </WrapperSocialLinks>
+          <PopularRecipe popularRecipeList={popularRecipeList} />
+      </WrapperPopularRecipe>        
+      </WrapperPage>
     </>
   )
 }
