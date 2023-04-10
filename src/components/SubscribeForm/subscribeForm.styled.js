@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 const formInputStyles = `
@@ -43,7 +42,6 @@ export const FormWrapper = styled.div`
   }
 `;
 
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -64,23 +62,27 @@ export const Form = styled.form`
   }
 `;
 
-
 export const InputWrap = styled.div`
   position: relative;
-  border: 1px solid ${props =>
-    props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
-  };
+  border: 1px solid
+    ${props =>
+      props.correct
+        ? '#3CBC81'
+        : props.error
+        ? '#E74A3B'
+        : 'rgba(250, 250, 250, 0.3)'};
   border-radius: 6px;
   width: 204px;
   height: 38px;
   padding: 12px;
   transition: border 250ms ease;
   margin-bottom: 8px;
+  transition: border 250ms var(--transition-function);
 
   &:hover {
     border: 1px solid var(--white);
   }
- &::after {
+  &::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -89,13 +91,13 @@ export const InputWrap = styled.div`
     height: 18px;
     right: 19px;
     background-image: ${props =>
-    props.error
-      ? `url(${props.iconError})`
-      : props.warning
+      props.error
+        ? `url(${props.iconError})`
+        : props.warning
         ? `url(${props.iconWarning})`
         : props.correct
-          ? `url(${props.iconCorrect})`
-          : ''};
+        ? `url(${props.iconCorrect})`
+        : ''};
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -108,10 +110,10 @@ export const InputWrap = styled.div`
     left: 14px;
     width: 16px;
     height: 12px;
-     background-image: url(${props =>
-    props.correct
-      ? props.iconTabUrlG
-      : props.error
+    background-image: url(${props =>
+      props.correct
+        ? props.iconTabUrlG
+        : props.error
         ? props.iconTabUrlE
         : props.iconUrl});
     background-size: contain;
@@ -153,7 +155,6 @@ export const InputWrap = styled.div`
   }
 `;
 
-
 export const Input = styled.input`
   position: absolute;
   top: 50%;
@@ -167,8 +168,8 @@ export const Input = styled.input`
   background: transparent;
 
   @media only screen and (min-width: 1440px) {
-      padding-left: 50px;
-    }
+    padding-left: 50px;
+  }
   ${formInputStyles}
   ::placeholder {
     font-size: 10px;
@@ -186,7 +187,6 @@ export const Input = styled.input`
   }
 `;
 
-
 export const Button = styled.button`
   display: flex;
   justify-content: center;
@@ -201,7 +201,8 @@ export const Button = styled.button`
   text-align: center;
   color: var(--primary-white);
   background-color: var(--primary-green);
-  transition: color 250ms ease;
+
+  transition: color 250ms var(--transition-function);
 
   &:hover {
     color: var(--secondary-black);
@@ -229,14 +230,14 @@ export const Error = styled.div`
   left: -13px;
   bottom: 230%;
 
-    @media (min-width: 768px) {
-  font-size: 14px;
-  left: -13px;
-  bottom: -160%;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    left: -13px;
+    bottom: -160%;
   }
-    @media (min-width: 1440px) {
-  font-size: 14px;
-  left: -13px;
-  bottom: 100%;
+  @media (min-width: 1440px) {
+    font-size: 14px;
+    left: -13px;
+    bottom: 100%;
   }
 `;

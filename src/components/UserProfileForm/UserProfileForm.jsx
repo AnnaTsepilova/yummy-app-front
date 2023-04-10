@@ -38,7 +38,7 @@ const UserProfileForm = () => {
       name,
     };
 
-    if (image && image.name !== userAvatar && name !== userName) {
+    if (image && name && name !== userName) {
       if (!password) {
         Notify.warning('Please enter a password and try again12');
         return;
@@ -49,7 +49,7 @@ const UserProfileForm = () => {
       dispatch(upLoadAvatar(formData));
       dispatch(updateUserById(user));
 
-      formik.resetForm({ values: { password: '' } });
+      formik.resetForm({ values: { image, password: '' } });
 
       return;
     }
@@ -60,7 +60,7 @@ const UserProfileForm = () => {
 
       dispatch(upLoadAvatar(formData));
 
-      formik.resetForm({ values: { password: '' } });
+      formik.resetForm({ values: { image, password: '' } });
 
       return;
     }
@@ -105,7 +105,6 @@ const UserProfileForm = () => {
           name="image"
           type="file"
           onChange={event => {
-            console.log(event.currentTarget.files[0]);
             formik.setFieldValue('image', event.target.files[0]);
           }}
         />

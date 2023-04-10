@@ -114,7 +114,8 @@ const AddRecipeForm = () => {
           width: '350px',
           padding: '10px',
         });
-        resetForm();}
+        resetForm();
+      }
       );
     } catch (error) {
        Notify.failure('Error database connection!', {
@@ -130,6 +131,7 @@ const AddRecipeForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <Form autoComplete="off">
           <RecipeDescriptionFields
+            dataField={{ itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe }}
             handleOnTitleRecipe={setItemTitleRecipe}
             handleOnAboutRecipe={setAboutRecipe}
             handleOnCategory={setCategory}
@@ -143,7 +145,7 @@ const AddRecipeForm = () => {
             handleOnChangeIngUnit={handleOnChangeIngUnit}
             handleOnChangeUnitCount={handleOnChangeUnitCount}
           />
-          <RecipePreparationFields handleOnRecipePreperation={setRecipePreperation} />
+          <RecipePreparationFields dataField={recipePreparation} handleOnRecipePreperation={setRecipePreperation} />
           <SearchBlackBtn type="submit">Add</SearchBlackBtn>
         </Form>    
       </Formik>

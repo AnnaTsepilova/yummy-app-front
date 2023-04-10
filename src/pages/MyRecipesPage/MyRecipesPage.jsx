@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from 'components/Loader/Loader';
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
 import MainTitle from 'components/MainTitle/MainTitle';
+import { MuiPag } from 'components/MuiPagination/MuiPag';
 
 import {
   selectMyRecipes,
   selectIsLoading,
-  selectUserError,
+  selectTotalMyResipes,
 } from 'redux/userRecipes/userRecipesSelectors';
 import {
   getMyRecipe,
@@ -18,15 +19,21 @@ import {
 const MyRecipesPage = () => {
   const recipes = useSelector(selectMyRecipes);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectUserError);
+  const totalMyRecipes = useSelector(selectTotalMyResipes);
 
-  console.log(error);
+  const [page, setPage] = useState(1);
+  const perPage = 4;
+  const count = Math.ceil(totalMyRecipes / perPage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMyRecipe());
-  }, [dispatch]);
+    dispatch(getMyRecipe(page));
+  }, [dispatch, page]);
+
+  const handleChange = (_, value) => {
+    setPage(value);
+  };
 
   return (
     <>
@@ -35,6 +42,10 @@ const MyRecipesPage = () => {
         <Loader />
       ) : (
         <MyRecipesList items={recipes} removeFnc={removeMyRecipe} />
+      )}
+
+      {count > 1 && (
+        <MuiPag count={count} page={page} handleChange={handleChange} />
       )}
     </>
   );

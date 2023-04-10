@@ -8,7 +8,8 @@ export const NavDiv = styled.nav`
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.02em;
-  ${'' /* margin-bottom: 32px; */}
+
+  transition: color 250ms var(--transition-function);
 
   & > :hover {
     cursor: pointer;
