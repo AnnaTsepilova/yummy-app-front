@@ -5,35 +5,41 @@ import HeroBcg from '../Hero/HeroBcg/LeftBcg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { updateSearchQuery } from 'redux/search/searchSlice';
+import { setSearchResults } from 'redux/formSearch/searchSlice';
 import ChooseYourBreakfast from '../ChooseYourBreakfast/СhooseYourBreakfast';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const Search = () => {
+const Search = ({ startQuery }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchValue, setInputValue] = useState(startQuery ?? '');
 
   const handleQueryChange = e => {
-    setSearchQuery(e.target.value.toLowerCase());
+    setInputValue(e.target.value.toLowerCase());
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (searchQuery.trim() === '') {
-      alert('atatata');
+    if (searchValue.trim() === '') {
+      Notify.warning('Write something.', {
+        fontSize: '16px',
+        width: '350px',
+        padding: '10px',
+      });
       return;
     }
-    dispatch(updateSearchQuery(e.target.value));
-    navigate('/search');
+    dispatch(setSearchResults(e.target.value));
+    navigate(`/search?query=${searchValue}&type=title`);
   };
 
   return (
     <>
       <Wrapper>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} startQuery={startQuery}>
           <Input
             onChange={handleQueryChange}
             searchQuery=""
+            value={searchValue}
             name="search"
             type="text"
             autocomplete="off"
