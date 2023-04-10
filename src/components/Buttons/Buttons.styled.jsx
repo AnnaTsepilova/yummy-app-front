@@ -46,7 +46,7 @@ export const StyledSearchGreenBtn = styled.button`
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    padding: 16px 24px;
+    padding: 18px 24px;
     min-width: 161px;
     font-size: 16px;
   }
