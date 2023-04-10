@@ -62,7 +62,7 @@ const Category = ({ data }) => {
       <Box>
         <SeeAllBtn
           href={`/categories/${
-            data[1].charAt(0).toUpperCase() + data[0].slice(1)
+            data[0].charAt(0).toLowerCase() + data[0].slice(1)
           }`}
         >
           See all
