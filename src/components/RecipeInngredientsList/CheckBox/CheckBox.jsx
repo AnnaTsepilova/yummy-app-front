@@ -10,6 +10,7 @@ import {
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const dispatch = useDispatch(); // eslint-disable-line
   const shoppingList = useSelector(selectShoppingList);
+
   const check = () => {
     const recipesId = shoppingList
       .filter(item => item.id.toString() === ingredientId)

@@ -51,7 +51,7 @@ export const addUserShoppingList = createAsyncThunk(
     setAuthHeader(token);
     try {
       const data = await addShoppingList(obj);
-      dispatch(getUserShoppingList())
+      dispatch(getUserShoppingList());
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

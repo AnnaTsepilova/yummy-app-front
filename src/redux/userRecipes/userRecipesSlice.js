@@ -25,6 +25,7 @@ const initialState = {
   shoppingList: [],
   favorite: [],
   isLoading: false,
+  isLoadBtn: false,
   error: null,
   recipeById: [],
 };
@@ -34,13 +35,19 @@ const userResipesSlice = createSlice({
   initialState,
   extraReducers: builder =>
     builder
-      .addCase(addRecipeToFavorite.pending, pending)
+      .addCase(addRecipeToFavorite.pending, state => {
+        state.isLoadBtn = true;
+      })
       .addCase(addRecipeToFavorite.fulfilled, (state, { payload }) => {
-        state.favorite = payload;
+        state.isLoadBtn = false;
+        // state.favorite = payload;
       })
       .addCase(addRecipeToFavorite.rejected, rejected)
-      .addCase(removeRecipeFromFavorite.pending, pending)
+      .addCase(removeRecipeFromFavorite.pending, state => {
+        state.isLoadBtn = true;
+      })
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
+        state.isLoadBtn = false;
         const index = state.favorite.findIndex(item => item.id === payload);
         state.favorite.splice(index, 1);
       })
