@@ -21,7 +21,7 @@ import {
 } from 'redux/userRecipes/userResipesOperations';
 import {
   selectFavoriteRecipes,
-  selectIsLoading,
+  selectIsLoadBtn,
   selectRecipe,
 } from 'redux/userRecipes/userRecipesSelectors';
 
@@ -30,7 +30,7 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
 
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoadBtn);
   useEffect(() => {
     // setIsFavorite(userFavouritesRecipes.includes(id));
     dispatch(getFavoriteRecipes());
