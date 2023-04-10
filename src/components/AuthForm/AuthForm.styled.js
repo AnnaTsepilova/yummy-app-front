@@ -55,108 +55,6 @@ export const Form = styled.form`
   }
 `;
 
-// export const InputWrap = styled.div`
-//   display: flex;
-//   position: relative;
-//   width: 100%;
-//   height: 45px;
-//   margin-bottom: 12px;
-//   padding: 12px;
-//   border-radius: 6px;
-
-
-// border: 1px solid ${props =>
-//     props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')
-//   };
-
-//   font-size: 18px;
-//   color: var(--primary-white);
-//   transition: border 250ms var(--transition-function);
-
-//   &:hover {
-//     border: 1px solid var(--primary-white);
-//   }
-
-
-
-//   &::placeholder {
-//     margin-left: 40px;
-
-//     font-size: 14px;
-//     line-height: 1.5;
-//     color: var(--primary-white);
-//     opacity: 0.8;
-//     letter-spacing: -0.02em;
-//   }
-
-//   &::before {
-//     content: '';
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     width: 18px;
-//     height: 18px;
-// /* background-image: url(${props => props.error ? props.iconTabUrlE : props.iconUrl});
-//     background-image: url(${props => props.correct && props.iconTabUrlG}); */
-
-//     background-image: url(${props =>
-//     props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconUrl)
-//   });
-
-
-// background-size: contain;
-//     background-repeat: no-repeat;
-//    }
-
-//    &::after {
-//     content: '';
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     width: 18px;
-//     height: 18px;
-//     right: 19px;
-
-
-// background-image: ${props =>
-//     props.error
-//       ? `url(${props.iconError})`
-//       : props.warning
-//         ? `url(${props.iconWarning})`
-//         : props.correct
-//           ? `url(${props.iconCorrect})`
-//           : ''};
-
-
-
-
-
-
-
-// /* background-image: ${props =>
-//     props.error ? `url(${props.iconError})` : (props.correct ? `url(${props.iconCorrect})` : '')}; */
-
-
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//   }
-
-//   @media (min-width: 768px) {
-//     margin-bottom: 24px;
-//     height: 59px;
-
-//     &::before {
-//       width: 24px;
-//       height: 24px;
-//    background-image: url(${props =>
-//     props.correct ? props.iconTabUrlG : (props.error ? props.iconTabUrlE : props.iconTabUrl)
-//   });
-//     }
-//   }
-
-// `;
-
-
 export const InputWrap = styled.div`
   display: flex;
   position: relative;
@@ -217,6 +115,8 @@ export const InputWrap = styled.div`
         : props.correct
           ? `url(${props.iconCorrect})`
           : ''};
+
+
     background-size: contain;
     background-repeat: no-repeat;
   }
