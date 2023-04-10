@@ -9,12 +9,14 @@ export const NavDiv = styled.nav`
   line-height: 18px;
   letter-spacing: -0.02em;
 
-  transition: color 250ms var(--transition-function);
+  & > * {
+    transition: color 250ms var(--transition-function);
+  }
+
+  cursor: pointer;
 
   & > :hover {
-    cursor: pointer;
     color: var(--primary-green);
-    transition: color var(--transition-function);
   }
 
   & > :active {

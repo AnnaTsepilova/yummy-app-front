@@ -9,11 +9,14 @@ export const NavLinkStyle = styled(NavLink)`
   line-height: 18px;
   color: var(--secondary-black);
 
+  transition: color 250ms var(--transition-function);
+
+  cursor: pointer;
+
   &:hover,
   &:focus,
   &:active {
     color: var(--primary-green);
-    transition: color var(--transition-function);
   }
 
   @media screen and (min-width: 768px) {
