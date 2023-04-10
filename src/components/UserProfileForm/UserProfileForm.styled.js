@@ -98,8 +98,34 @@ export const NameLabel = styled.label`
 
   margin-bottom: 24px;
 
+  &:focus-visible {
+    outline: none;
+  }
+
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
+  }
+`;
+
+export const NameInput = styled.input`
+  width: 100%;
+
+  padding: 14px 40px;
+  border: 2px solid var(--light-gray);
+  border-radius: 6px;
+  transition: border var(--transition-function);
+
+  &:focus-visible {
+    outline: none;
+    border: 2px solid var(--primary-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 15px 51px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 17px 51px;
   }
 `;
 
@@ -111,6 +137,39 @@ export const SmallUserIcon = styled(UserIcon)`
 
   width: 18px;
   height: 18px;
+
+  stroke: var(--light-gray);
+
+  transition: stroke var(--transition-function);
+
+  ${NameLabel}:hover & {
+    stroke: var(--primary-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 18px;
+
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const PasswordInputIcon = styled(PasswordIcon)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+
+  width: 17px;
+  height: 17px;
+
+  stroke: var(--light-gray);
+
+  transition: stroke var(--transition-function);
+
+  ${NameLabel}:hover & {
+    stroke: var(--primary-green);
+  }
 
   @media screen and (min-width: 768px) {
     left: 18px;
@@ -129,44 +188,19 @@ export const NameEditIcon = styled(EditPen)`
   width: 17px;
   height: 17px;
 
+  stroke: var(--light-gray);
+
+  transition: stroke var(--transition-function);
+
+  ${NameLabel}:hover & {
+    stroke: var(--primary-green);
+  }
+
   @media screen and (min-width: 768px) {
     right: 18px;
 
     width: 19px;
     height: 19px;
-  }
-`;
-
-export const PasswordInputIcon = styled(PasswordIcon)`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 16px;
-
-  width: 17px;
-  height: 17px;
-
-  @media screen and (min-width: 768px) {
-    left: 18px;
-
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-export const NameInput = styled.input`
-  width: 100%;
-
-  padding: 14px 40px;
-  border: 1px solid #d9d9d9;
-  border-radius: 6px;
-
-  @media screen and (min-width: 768px) {
-    padding: 15px 51px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 17px 51px;
   }
 `;
 
