@@ -9,12 +9,10 @@ export const Search = styled.button`
   background-color: transparent;
   background-image: url('${SearchGlassSvg}');
 
-  & :hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-image: url('${SearchGlassSvgGreen}');
     transition: background-image var(--transition-function);
-  }
-
-  & :active {
-    background-image: url('${SearchGlassSvgGreen}');
   }
 `;
