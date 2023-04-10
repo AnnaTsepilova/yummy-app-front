@@ -14,6 +14,11 @@ export const StyledSearchBlackBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--primary-green);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 24px;
@@ -23,10 +28,6 @@ export const StyledSearchBlackBtn = styled.button`
 
   @media screen and (min-width: 1440px) {
     padding: 23px 24px;
-  }
-
-  &:hover {
-    background-color: var(--primary-green);
   }
 `;
 
@@ -44,6 +45,11 @@ export const StyledSearchGreenBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--secondary-black);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 24px;
@@ -52,10 +58,6 @@ export const StyledSearchGreenBtn = styled.button`
   }
   @media screen and (min-width: 1440px) {
     padding: 23px 24px;
-  }
-
-  &:hover {
-    background-color: var(--secondary-black);
   }
 `;
 
@@ -73,6 +75,11 @@ export const StyledSubscribeGreenBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: color 250ms var(--transition-function);
+
+  &:hover {
+    color: var(--secondary-black);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 16px;
@@ -83,10 +90,6 @@ export const StyledSubscribeGreenBtn = styled.button`
   @media screen and (min-width: 1440px) {
     padding: 21px;
     min-width: 339px;
-  }
-
-  &:hover {
-    color: var(--secondary-black);
   }
 `;
 
@@ -104,16 +107,17 @@ export const StyledLogOutBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--secondary-black);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 39px;
     min-width: 192px;
     font-size: 16px;
     line-height: 1.12;
-  }
-
-  &:hover {
-    background: var(--secondary-black);
   }
 `;
 
@@ -131,17 +135,19 @@ export const StyledCancelBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function),
+    border 250ms var(--transition-function);
+
+  &:hover {
+    border: 1px solid var(--primary-black);
+    background-color: transparent;
+  }
 
   @media screen and (min-width: 768px) {
     padding: 18px 39px;
     min-width: 192px;
     font-size: 16px;
     line-height: 1.12;
-  }
-
-  &:hover {
-    border: 1px solid var(--primary-black);
-    background: transparent;
   }
 `;
 
@@ -159,9 +165,10 @@ export const StyledSeeAllBtn = styled.div`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function);
 
   &:hover {
-    background: var(--secondary-black);
+    background-color: var(--secondary-black);
   }
 `;
 
@@ -179,16 +186,18 @@ export const StyledOtherCatBtn = styled.div`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function),
+    color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+  }
 
   @media screen and (min-width: 768px) {
     padding: 20px 39px;
     min-width: 239px;
     font-size: 16px;
-  }
-
-  &:hover {
-    background-color: var(--primary-green);
-    color: var(--primary-white);
   }
 `;
 
@@ -210,15 +219,17 @@ export const StyledAddRecipeBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  transition: background-color 250ms var(--transition-function),
+    color 250ms var(--transition-function);
+
+  &:hover {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+  }
 
   @media screen and (min-width: 768px) {
     min-width: 280px;
     padding: 18px 20px;
     font-size: 16px;
-  }
-
-  &:hover {
-    background-color: var(--primary-green);
-    color: var(--primary-white);
   }
 `;
