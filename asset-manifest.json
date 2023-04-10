@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yummy-app-front/static/css/main.c98f1f1b.css",
-    "main.js": "/yummy-app-front/static/js/main.b0d34783.js",
+    "main.js": "/yummy-app-front/static/js/main.6a0b9425.js",
     "static/js/773.e3e9f77b.chunk.js": "/yummy-app-front/static/js/773.e3e9f77b.chunk.js",
     "static/js/126.42f7c51f.chunk.js": "/yummy-app-front/static/js/126.42f7c51f.chunk.js",
     "static/js/113.7e94aaed.chunk.js": "/yummy-app-front/static/js/113.7e94aaed.chunk.js",
@@ -94,9 +94,9 @@
     "static/media/footer-bg-auth-desc.svg": "/yummy-app-front/static/media/footer-bg-auth-desc.d5d5440654b186017ddacb2e9f52c512.svg",
     "static/media/decrease.svg": "/yummy-app-front/static/media/decrease.fc2439265e0e7f523ec586d3ebb41865.svg",
     "static/media/increase.svg": "/yummy-app-front/static/media/increase.41c21a02084792062685394d4d64f5c1.svg",
-    "static/media/header-menu.svg": "/yummy-app-front/static/media/header-menu.0e8723f60a3e73b8cf218ddb2a20c796.svg",
+    "static/media/header-menu.svg": "/yummy-app-front/static/media/header-menu.a47f4f8aa102a482f2f8be136b8c316c.svg",
     "main.c98f1f1b.css.map": "/yummy-app-front/static/css/main.c98f1f1b.css.map",
-    "main.b0d34783.js.map": "/yummy-app-front/static/js/main.b0d34783.js.map",
+    "main.6a0b9425.js.map": "/yummy-app-front/static/js/main.6a0b9425.js.map",
     "773.e3e9f77b.chunk.js.map": "/yummy-app-front/static/js/773.e3e9f77b.chunk.js.map",
     "126.42f7c51f.chunk.js.map": "/yummy-app-front/static/js/126.42f7c51f.chunk.js.map",
     "113.7e94aaed.chunk.js.map": "/yummy-app-front/static/js/113.7e94aaed.chunk.js.map",
@@ -118,6 +118,6 @@
   },
   "entrypoints": [
     "static/css/main.c98f1f1b.css",
-    "static/js/main.b0d34783.js"
+    "static/js/main.6a0b9425.js"
   ]
 }
