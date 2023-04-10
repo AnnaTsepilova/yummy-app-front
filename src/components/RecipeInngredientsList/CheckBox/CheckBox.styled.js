@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import CheckIcon from 'images/Recipe/pick-big.png';
 
+export const Svg = styled.svg`
+  width: 17px;
+  height: 17px;
+
+  @media screen and (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
+`;
+
 export const Box = styled.div`
   display: flex;
   justify-content: center;
