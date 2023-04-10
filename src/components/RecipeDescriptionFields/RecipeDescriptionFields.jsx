@@ -51,12 +51,15 @@ const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, han
           name="itemTitleRecipe"
           placeholder="Enter item title"
           onChange={e => { handleOnTitleRecipe(e.currentTarget.value) }}
+          required
         />
         <FieldStyled
           as="input"
           name="aboutRecipe"
           placeholder="Enter about recipe"
-          onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }} />
+          onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }}
+          required
+        />
         <SelectStyled
           name="category"
           options={categoryList}
@@ -64,6 +67,7 @@ const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, han
           placeholder="Category"
           classNamePrefix="react-select"
           onChange={handleOnCategory}
+          required
         />
         <SelectStyled
           options={cookingTimeRecipe}
@@ -71,6 +75,7 @@ const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, han
           placeholder="Cooking time"
           classNamePrefix="react-select"
           onChange={handleOnCookingTimeRecipe}
+          required
         />
       </FormWrapper>
     </>

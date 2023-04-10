@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
-import { object, mixed } from 'yup';
+// import { object, mixed, require } from 'yup';
+import * as Yup from 'yup';
 import {
   StyledForm,
   AvatarLabel,
@@ -21,6 +22,8 @@ import {
   selectUserName,
 } from 'redux/auth/authSelectors';
 import { updateUserById, upLoadAvatar } from 'redux/auth/authOperations';
+import UserAvatarThumb from './UserAvatarThumb/UserAvatarThumb';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const UserProfileForm = () => {
   const userName = useSelector(selectUserName);
@@ -28,42 +31,74 @@ const UserProfileForm = () => {
   const userAvatar = useSelector(selectUserAvatar);
   const dispatch = useDispatch();
 
-  const onSubmitFnc = ({ password, userName, image }) => {
+  const onSubmitFnc = ({ password, name, image }) => {
     const user = {
       email: userEmail,
       password,
-      name: userName,
+      name,
     };
 
-    if (!password) {
+    if (image && image.name !== userAvatar && name !== userName) {
+      if (!password) {
+        Notify.warning('Please enter a password and try again12');
+        return;
+      }
+      const formData = new FormData();
+      formData.append('image', image);
+
+      dispatch(upLoadAvatar(formData));
+      dispatch(updateUserById(user));
+
+      formik.resetForm({ values: { password: '' } });
+
+      return;
+    }
+
+    if (image && image.name !== userAvatar) {
       const formData = new FormData();
       formData.append('image', image);
 
       dispatch(upLoadAvatar(formData));
 
+      formik.resetForm({ values: { password: '' } });
+
       return;
     }
 
-    dispatch(updateUserById(user));
+    if (name !== userName) {
+      if (!password) {
+        Notify.warning('Please enter a password and try again');
+        return;
+      }
+      dispatch(updateUserById(user));
+
+      formik.resetForm({ values: { name, password: '' } });
+    }
   };
 
   const formik = useFormik({
     initialValues: {
-      userName,
+      name: userName,
       password: '',
       image: '',
     },
     onSubmit: onSubmitFnc,
-    validationSchema: object({
-      image: mixed(),
+    validationSchema: Yup.object({
+      image: Yup.mixed(),
+      password: Yup.string(),
     }),
   });
+
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <AvatarLabel htmlFor="image">
-        <AvatarWrapper avatar={userAvatar}>
-          {userAvatar ? '' : <ProfileIcon />}
-        </AvatarWrapper>
+        {formik.values.image ? (
+          <UserAvatarThumb file={formik.values.image} />
+        ) : (
+          <AvatarWrapper avatar={userAvatar}>
+            {userAvatar ? '' : <ProfileIcon />}
+          </AvatarWrapper>
+        )}
         <PlusFileIcon />
         <FileInput
           id="image"
@@ -75,17 +110,17 @@ const UserProfileForm = () => {
           }}
         />
       </AvatarLabel>
-      <NameLabel htmlFor="userName">
+      <NameLabel htmlFor="name">
         <SmallUserIcon />
         <NameEditIcon />
         <NameInput
-          id="userName"
-          name="userName"
+          id="name"
+          name="name"
           type="text"
           placeholder="name"
           autoComplete="off"
           onChange={formik.handleChange}
-          value={formik.values.userName}
+          value={formik.values.name}
         />
       </NameLabel>
       <NameLabel htmlFor="password">

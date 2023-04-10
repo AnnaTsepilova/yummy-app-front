@@ -35,12 +35,20 @@ export const CLoseBtn = styled.button`
   width: 20px;
   height: 20px;
 
+  border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: none;
   background-color: transparent;
+
+  transition: background-color var(--transition-function);
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
 
   @media screen and (min-width: 768px) {
     top: 24px;

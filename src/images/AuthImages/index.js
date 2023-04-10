@@ -1,0 +1,15 @@
+export { default as iconUser } from './icon-user-mob.svg';
+export { default as iconMail } from './icon-mail-mob.svg';
+export { default as iconLock } from './icon-lock-mob.svg';
+export { default as iconUserTab } from './icon-user-tab.svg';
+export { default as iconMailTab } from './icon-mail-tab.svg';
+export { default as iconLockTab } from './icon-lock-tab.svg';
+export { default as iconError } from './error.svg';
+export { default as iconUserTabE } from './icon-user-tab-e.svg';
+export { default as iconMailTabE } from './icon-mail-tab-e.svg';
+export { default as iconLockTabE } from './icon-lock-tab-e.svg';
+export { default as iconUserTabG } from './icon-user-tab-g.svg';
+export { default as iconMailTabG } from './icon-mail-tab-g.svg';
+export { default as iconLockTabG } from './icon-lock-tab-g.svg';
+export { default as iconWarning } from './warning.svg';
+export { default as iconCorrect } from './success.svg';
