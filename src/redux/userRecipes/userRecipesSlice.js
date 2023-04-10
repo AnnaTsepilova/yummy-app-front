@@ -24,6 +24,8 @@ const initialState = {
   myRecipes: [],
   shoppingList: [],
   favorite: [],
+  totalFavorite: 0,
+  totalMyRecipes: 0,
   isLoading: false,
   isLoadBtn: false,
   error: null,
@@ -50,6 +52,7 @@ const userResipesSlice = createSlice({
         state.isLoadBtn = false;
         const index = state.favorite.findIndex(item => item.id === payload);
         state.favorite.splice(index, 1);
+        state.isLoading = false;
       })
       .addCase(removeRecipeFromFavorite.rejected, rejected)
       .addCase(getFavoriteRecipes.pending, state => {
@@ -59,6 +62,7 @@ const userResipesSlice = createSlice({
         state.isLoadBtn = false;
         state.error = null;
         state.favorite = payload.results;
+        state.totalFavorite = payload.totalHits;
       })
       .addCase(getFavoriteRecipes.rejected, rejected)
       .addCase(getMyRecipe.pending, pending)
@@ -66,12 +70,13 @@ const userResipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.myRecipes = payload.results;
+        state.totalMyRecipes = payload.totalHits;
       })
       .addCase(getMyRecipe.rejected, rejected)
-      .addCase(removeMyRecipe.pending, pending)
       .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
         const index = state.myRecipes.findIndex(item => item.id === payload);
         state.myRecipes.splice(index, 1);
+        state.isLoading = false;
       })
       .addCase(removeMyRecipe.rejected, rejected)
       .addCase(getUserShoppingList.pending, pending)

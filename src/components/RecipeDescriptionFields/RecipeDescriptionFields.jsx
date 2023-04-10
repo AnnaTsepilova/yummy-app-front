@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { getCategoryListAPI } from 'service/API/dishesApi';
-import { cookingTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
+import { listTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
 
 import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput } from './RecipeDescriptionFields.styled';
 
 //  import { Field } from 'formik';
 
-const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, handleOnCategory, handleOnCookingTimeRecipe } ) => {
+const RecipeDescriptionFields = ({ dataField, handleOnTitleRecipe, handleOnAboutRecipe, handleOnCategory, handleOnCookingTimeRecipe } ) => {
+  const { itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe } = dataField;
   const [categoryList, setCategoryList] = useState([]);
 
   function initCategoryFunc(list) { 
@@ -49,6 +50,7 @@ const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, han
         <FieldStyled
           as="input"
           name="itemTitleRecipe"
+          value = {itemTitleRecipe}
           placeholder="Enter item title"
           onChange={e => { handleOnTitleRecipe(e.currentTarget.value) }}
           required
@@ -56,22 +58,24 @@ const RecipeDescriptionFields = ({ handleOnTitleRecipe, handleOnAboutRecipe, han
         <FieldStyled
           as="input"
           name="aboutRecipe"
+          value = {aboutRecipe}
           placeholder="Enter about recipe"
           onChange={e => { handleOnAboutRecipe(e.currentTarget.value) }}
           required
         />
         <SelectStyled
-          name="category"
           options={categoryList}
           isSearchable={false}
+          setValue={category}
           placeholder="Category"
           classNamePrefix="react-select"
           onChange={handleOnCategory}
           required
         />
         <SelectStyled
-          options={cookingTimeRecipe}
+          options={listTimeRecipe}
           isSearchable={false}
+          setValue={cookingTimeRecipe}
           placeholder="Cooking time"
           classNamePrefix="react-select"
           onChange={handleOnCookingTimeRecipe}

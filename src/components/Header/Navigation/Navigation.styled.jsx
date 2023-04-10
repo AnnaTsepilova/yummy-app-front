@@ -14,6 +14,8 @@ export const NavItem = styled(NavLink)`
   line-height: 1.6;
   color: var(--secondaryTextColor);
 
+  transition: color 250ms var(--transition-function);
+
   &:hover,
   &:focus {
     color: var(--greenColor);

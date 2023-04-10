@@ -16,6 +16,10 @@ export const ModalContentWrp = styled.div`
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
 
+  &:focus-visible {
+    outline: none;
+  }
+
   @media screen and (min-width: 768px) {
     width: 480px;
     padding: 50px 40px;
