@@ -13,6 +13,7 @@ export const NavDiv = styled.nav`
   & > :hover {
     cursor: pointer;
     color: var(--primary-green);
+    transition: color var(--transition-function);
   }
 
   & > :active {
