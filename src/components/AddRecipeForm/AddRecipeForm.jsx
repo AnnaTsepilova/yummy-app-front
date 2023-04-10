@@ -4,14 +4,17 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
 import { nanoid } from 'nanoid'
 // import { SearchBlackBtn } from 'components/Buttons/Buttons';
-import { StyledForm, WrapperSubmitButton, WrapperPage } from './AddRecipeForm.styled';
+import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
+// import { SocialLinksContainer } from 'components/Footer/Footer.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
-
+// import SocialLinks from 'components/Footer/SocialLinks/SocialLinks';
+import { TitleStyled } from 'components/PopularRecipe/PopularRecipe.style';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields'
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
-
+import { WrapperSocialLinks } from './SocialLinks/SocialLinks.styled';
+import SocialLinks from './SocialLinks/SocialLinks';
 
 import {getPopularRecipe, addRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
@@ -153,7 +156,13 @@ const AddRecipeForm = () => {
           
         </StyledForm>    
       </Formik>
-      <PopularRecipe popularRecipeList={popularRecipeList} />
+      <WrapperPopularRecipe>
+          <WrapperSocialLinks>
+            <TitleStyled>Follow us</TitleStyled>
+              <SocialLinks />
+          </WrapperSocialLinks>
+          <PopularRecipe popularRecipeList={popularRecipeList} />
+      </WrapperPopularRecipe>        
       </WrapperPage>
     </>
   )

@@ -28,3 +28,5 @@ export const WrapperSubmitButton = styled.div`
     width: 704px;
   }
 `;
+
+export const WrapperPopularRecipe = styled.div``;
