@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import { Field } from 'formik';
 
 export const FormWrapper = styled.div`
-  max-width: 343px;
-  max-height: 202px;
+  max-width: auto;
+  max-height: auto;
   margin-bottom: 18px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const TitleStyled = styled.h3`
@@ -14,11 +17,15 @@ export const TitleStyled = styled.h3`
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const TextAreaStyled = styled(Field)`
   width: 343px;
   height: 154px;
+
   resize: none;
   border: none;
   background: #f5f5f5;
@@ -30,4 +37,9 @@ export const TextAreaStyled = styled(Field)`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: rgba(0, 0, 0, 0.5);
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    width: 505px;
+    height: 224px;
+  }
 `;
