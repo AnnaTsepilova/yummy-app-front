@@ -94,8 +94,6 @@ const userResipesSlice = createSlice({
         state.shoppingList = payload.shoppingList.shopingList;
         state.isLoading = false;
         state.error = null;
-        // state.shoppingList = payload.shoppingList;
-        // console.log('payload', payload.shoppingList);
       })
       .addCase(addUserShoppingList.rejected, rejected)
       .addCase(removeFromShoppingList.pending, state => {
@@ -105,7 +103,6 @@ const userResipesSlice = createSlice({
         state.shoppingList = payload.shopingList;
         state.isLoading = false;
         state.error = null;
-        // console.log('payload', payload.shoppingList);
       })
       .addCase(removeFromShoppingList.rejected, rejected)
       .addCase(getRecipeById.pending, (state, { payload }) => {
@@ -116,7 +113,6 @@ const userResipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipeById = payload;
-        // console.log(state.recipeById);
       })
       .addCase(getRecipeById.rejected, rejected),
 });

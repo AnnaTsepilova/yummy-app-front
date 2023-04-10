@@ -5,7 +5,6 @@ import {
   Svg,
 } from 'components/RecipeInngredientsList/CheckBox/CheckBox.styled';
 import {
-  selectIsLoading,
   selectShoppingList,
 } from 'redux/userRecipes/userRecipesSelectors';
 import {
@@ -13,9 +12,8 @@ import {
   removeFromShoppingList,
 } from 'redux/userRecipes/userResipesOperations'; // eslint-disable-line
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
-
+import * as ReactDOMServer from 'react-dom/server';
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
-  const isLosding = useSelector(selectIsLoading);
   const dispatch = useDispatch(); // eslint-disable-line
   const shoppingList = useSelector(selectShoppingList);
 
@@ -29,28 +27,34 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     return false;
   };
 
-  const handleChange = () => {
+  const handleChange = async () => {
     const checked = check();
     if (checked) {
+      const elem = document.getElementById(ingredientId);
+      const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(<ButtonLoader />);
+      elem.insertAdjacentHTML('beforeend', buttonLoaderHtml)
       const arr = [];
       const reqObj = {};
       reqObj['measure'] = measure;
       reqObj['ingredientId'] = ingredientId;
       arr.push(reqObj, recipeId);
-      return dispatch(removeFromShoppingList(arr));
+      await dispatch(removeFromShoppingList(arr));
+      return elem.removeChild(elem.lastChild);
     }
+    const elem = document.getElementById(ingredientId);
+    const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(<ButtonLoader />);
+    elem.insertAdjacentHTML('beforeend', buttonLoaderHtml)
+
     const arr = [];
     const reqObj = {};
     reqObj[ingredientId] = measure;
     arr.push(reqObj, recipeId);
-    return dispatch(addUserShoppingList(arr));
+    await dispatch(addUserShoppingList(arr));
+    return elem.removeChild(elem.firstChild);
   };
-
   return (
     <Box id={ingredientId} onClick={handleChange}>
-      {isLosding ? (
-        <ButtonLoader />
-      ) : (
+      {
         check() && (
           <Svg
             viewBox="0 0 17 17"
@@ -63,7 +67,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
             />
           </Svg>
         )
-      )}
+      }
     </Box>
   );
 };
