@@ -24,6 +24,8 @@ const initialState = {
   myRecipes: [],
   shoppingList: [],
   favorite: [],
+  totalFavorite: 0,
+  totalMyRecipes: 0,
   isLoading: false,
   error: null,
   recipeById: [],
@@ -36,7 +38,8 @@ const userResipesSlice = createSlice({
     builder
       .addCase(addRecipeToFavorite.pending, pending)
       .addCase(addRecipeToFavorite.fulfilled, (state, { payload }) => {
-        state.favorite = payload;
+        state.favorite.push(payload);
+        state.isLoading = false;
       })
       .addCase(addRecipeToFavorite.rejected, rejected)
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
@@ -50,6 +53,7 @@ const userResipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.favorite = payload.results;
+        state.totalFavorite = payload.totalHits;
       })
       .addCase(getFavoriteRecipes.rejected, rejected)
       .addCase(getMyRecipe.pending, pending)
@@ -57,6 +61,7 @@ const userResipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.myRecipes = payload.results;
+        state.totalMyRecipes = payload.totalHits;
       })
       .addCase(getMyRecipe.rejected, rejected)
       .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
