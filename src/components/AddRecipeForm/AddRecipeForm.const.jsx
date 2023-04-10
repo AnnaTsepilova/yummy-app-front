@@ -1,4 +1,4 @@
-export const cookingTimeRecipe = [
+export const listTimeRecipe = [
     { value: '5', label: '5 min' },
     { value: '10', label: '10 min' },
     { value: '15', label: '15 min' },
