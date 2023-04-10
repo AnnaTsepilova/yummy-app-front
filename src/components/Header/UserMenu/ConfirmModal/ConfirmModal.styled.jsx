@@ -51,6 +51,8 @@ export const ConfirmBtn = styled.button`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.28;
+  transition: background-color 250ms var(--transition-function),
+    color 250ms var(--transition-function);
 
   &:hover {
     color: var(--secondaryBlackColor);
