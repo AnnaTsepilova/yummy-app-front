@@ -39,10 +39,10 @@ const userResipesSlice = createSlice({
         state.favorite = payload;
       })
       .addCase(addRecipeToFavorite.rejected, rejected)
-      .addCase(removeRecipeFromFavorite.pending, pending)
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
         const index = state.favorite.findIndex(item => item.id === payload);
         state.favorite.splice(index, 1);
+        state.isLoading = false;
       })
       .addCase(removeRecipeFromFavorite.rejected, rejected)
       .addCase(getFavoriteRecipes.pending, pending)
@@ -59,10 +59,10 @@ const userResipesSlice = createSlice({
         state.myRecipes = payload.results;
       })
       .addCase(getMyRecipe.rejected, rejected)
-      .addCase(removeMyRecipe.pending, pending)
       .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
         const index = state.myRecipes.findIndex(item => item.id === payload);
         state.myRecipes.splice(index, 1);
+        state.isLoading = false;
       })
       .addCase(removeMyRecipe.rejected, rejected)
       .addCase(getUserShoppingList.pending, pending)
