@@ -8,6 +8,7 @@ export const NavLinkStyle = styled(NavLink)`
   font-size: 18px;
   line-height: 18px;
   color: var(--secondary-black);
+  transition: color 250ms var(--transition-function);
 
   &:hover {
     color: var(--primary-green);
@@ -30,9 +31,3 @@ export const SearchGlassWrapper = styled.div`
     left: -5px;
   }
 `;
-
-
-
-
-
-
