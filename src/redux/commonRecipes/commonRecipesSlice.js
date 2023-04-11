@@ -80,7 +80,6 @@ export const commmonRecipesSlice = createSlice({
         action => action.type.endsWith(`/rejected`),
         (_state, { payload }) => {
           if (payload === 401) {
-            console.log('commonRecipes logout', payload);
             return initialState;
           }
         }

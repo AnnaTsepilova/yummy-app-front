@@ -100,7 +100,6 @@ const authSlice = createSlice({
         action => action.type.endsWith(`/rejected`),
         (_state, { payload }) => {
           if (payload === 401) {
-            console.log('global logout', payload);
             return initialState;
           }
         }
