@@ -3,22 +3,17 @@ import {
   UserWithoutAvatar,
   UserName,
   UserInform,
-  PopUp,
-  EditWrapper,
-  EditBtn,
-  EditText,
-  LogOutBtn,
-  EditPen,
 } from './UserInformation.styled';
-import { ReactComponent as ErrowRight } from 'images/UserMenu/arrow-right.svg';
 import { useState } from 'react';
 import UserProfileForm from 'components/UserProfileForm/UserProfileForm';
 import OurModal from 'components/Modal/OurModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
 import { useSelector } from 'react-redux';
 import { selectUserName, selectUserAvatar } from 'redux/auth/authSelectors';
+import PopUp from '../PopUp/PopUp';
 
 const UserIformation = () => {
+  const [openEl, setOpenEl] = useState(null);
   const [popUpIsOpen, setPopUpIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isOpenLogOutModal, setIsOpenLogOutBtn] = useState(false);
@@ -26,8 +21,14 @@ const UserIformation = () => {
   const userName = useSelector(selectUserName);
   const avatar = useSelector(selectUserAvatar);
 
-  const openPopUp = () => {
-    setPopUpIsOpen(!popUpIsOpen);
+  const openPopUp = e => {
+    if (!popUpIsOpen) {
+      setPopUpIsOpen(true);
+      setOpenEl(e.target);
+      return;
+    } else {
+      setPopUpIsOpen(false);
+    }
   };
 
   const togleModal = () => {
@@ -46,19 +47,14 @@ const UserIformation = () => {
         </UserAvatarWrp>
 
         <UserName>{userName || 'User Name'}</UserName>
+
         {popUpIsOpen && (
-          <PopUp>
-            <EditWrapper onClick={togleModal}>
-              <EditText>Edit profile</EditText>
-              <EditBtn type="button">
-                <EditPen />
-              </EditBtn>
-            </EditWrapper>
-            <LogOutBtn onClick={togleLogOutModal}>
-              Log out
-              <ErrowRight />
-            </LogOutBtn>
-          </PopUp>
+          <PopUp
+            openModalFnc={togleModal}
+            openLogOutModalFnc={togleLogOutModal}
+            openPopUpFnc={openPopUp}
+            openEl={openEl}
+          />
         )}
       </UserInform>
 
