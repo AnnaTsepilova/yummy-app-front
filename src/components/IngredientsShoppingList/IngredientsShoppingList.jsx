@@ -20,7 +20,6 @@ import {
   selectIsLoading,
   selectShoppingList,
 } from 'redux/userRecipes/userRecipesSelectors';
-import { ReactComponent as DefaultImage } from 'images/Plugs/image.svg';
 
 const IngredientsShoppingList = () => {
   const dispatch = useDispatch();

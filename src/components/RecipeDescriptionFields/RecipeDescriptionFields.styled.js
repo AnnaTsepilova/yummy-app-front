@@ -293,6 +293,8 @@ export const SelectStyled = styled(Select)`
     padding: 0;
     color: var(--primary-green);
     outline: none;
+    transition: color 250ms var(--transition-function);
+
     &:focus,
     &:active,
     &:hover,

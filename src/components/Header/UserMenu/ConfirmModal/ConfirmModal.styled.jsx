@@ -73,7 +73,7 @@ export const CancelBtn = styled.button`
   border: none;
   border-radius: 6px;
   color: var(--secondaryTextColor);
-  background-color: #d9d9d9;
+  background-color: var(--light-gray);
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;

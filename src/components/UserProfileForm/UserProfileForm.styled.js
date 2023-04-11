@@ -32,7 +32,7 @@ export const AvatarWrapper = styled.div`
   border-radius: 50%;
   padding: 24px;
 
-  background: #d9d9d9;
+  background: var(--light-gray);
   overflow: hidden;
 
   background-image: ${props =>

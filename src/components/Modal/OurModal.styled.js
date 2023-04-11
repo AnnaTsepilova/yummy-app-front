@@ -12,7 +12,7 @@ export const ModalContentWrp = styled.div`
   transform: translate(-50%, -50%);
 
   padding: 32px 24px;
-  background: #fafafa;
+  background: var(--primary-white);
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
 

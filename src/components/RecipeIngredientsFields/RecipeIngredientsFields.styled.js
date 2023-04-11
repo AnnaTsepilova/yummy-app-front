@@ -250,6 +250,7 @@ export const SelectIngredStyled = styled(Select)`
     color: rgba(0, 0, 0, 0.5);
 
     background-color: var(--white);
+    transition: color 250ms var(--transition-function);
 
     @media (min-width: 768px) {
       font-size: 14px;
@@ -334,6 +335,8 @@ export const UnitCount = styled.input`
   background-color: var(--input-bg);
   border-radius: 6px 0 0 6px;
 
+  transition: color 250ms var(--transition-function);
+
   @media (min-width: 768px) {
     width: 52px;
     height: 59px;
@@ -414,7 +417,7 @@ export const SelectIngredUnit = styled(Select)`
     &::selection {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 0 1px transparent;
+      //box-shadow: 0 0 0 1px transparent;
     }
   }
 
@@ -462,6 +465,7 @@ export const SelectIngredUnit = styled(Select)`
     text-align: center;
 
     background-color: var(--white);
+    transition: color 250ms var(--transition-function);
 
     @media (min-width: 768px) {
       font-size: 14px;
@@ -490,6 +494,9 @@ export const SelectIngredUnit = styled(Select)`
     padding: 0 5px 0 0;
     color: var(--primary-green);
     outline: none;
+
+    transition: color 250ms var(--transition-function);
+
     &:focus,
     &:active,
     &:hover,

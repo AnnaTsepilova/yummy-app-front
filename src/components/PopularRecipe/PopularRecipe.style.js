@@ -43,7 +43,7 @@ export const TitleStyled = styled.h3`
   }
 `;
 
-export const PopularRecipeItem = styled.div`
+export const PopularRecipeItem = styled.li`
   display: flex;
   padding-bottom: 13px;
 
@@ -58,9 +58,6 @@ export const PopularRecipeItem = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 336px;
-    /* &:not(:first-child) {
-      margin-top: 40px;
-    } */
     margin-bottom: 40px;
   }
 `;
