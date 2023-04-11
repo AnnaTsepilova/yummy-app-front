@@ -74,7 +74,7 @@ export const InputWrap = styled.div`
   border-radius: 6px;
   width: 204px;
   height: 38px;
-  /* padding: 12px; */
+  /* padding-left: 12px; */
   margin-bottom: 8px;
   transition: border 250ms var(--transition-function);
 
@@ -160,18 +160,18 @@ export const Input = styled.input`
   transform: translateY(-50%);
   width: 100%;
   height: 100%;
-  padding: 12px 10px 12px 42px;
-  margin-left: -12px;
+  padding: 12px 10px 12px 30px;
+  /* margin-left: -12px; */
   border-radius: 6px;
   border: none;
   background: transparent;
 
   @media only screen and (min-width: 768px) {
-    padding-left: 53px;
+    padding-left: 40px;
   }
 
   @media only screen and (min-width: 1440px) {
-    padding-left: 60px;
+    padding-left: 50px;
   }
 
   ${formInputStyles}
@@ -232,7 +232,7 @@ export const Error = styled.div`
   font-size: 10px;
   color: #e74a3b;
   position: relative;
-  left: 0;
+  left: -13px;
   bottom: 40%;
 
   @media (min-width: 768px) {

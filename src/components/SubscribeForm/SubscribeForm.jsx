@@ -55,7 +55,7 @@ const SubscribeForm = () => {
         >
           <Input
             placeholder="Email"
-            type="email"
+            type="text"
             name="email"
             autoComplete="off"
           />
