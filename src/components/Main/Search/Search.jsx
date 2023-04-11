@@ -1,13 +1,19 @@
-import React from 'react';
-import { BtnWrapper, Form, Input, Wrapper } from './Search.styled';
-import { SearchBlackBtn } from '../../Buttons/Buttons';
-import HeroBcg from '../Hero/HeroBcg/LeftBcg';
+import React, { useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
+import {
+  BtnWrapper,
+  Form,
+  Input,
+  Wrapper,
+} from 'components/Main/Search/Search.styled';
+import ChooseYourBreakfast from 'components/Main/ChooseYourBreakfast/ChooseYourBreakfast';
+import { SearchBlackBtn } from 'components/Buttons/Buttons';
+import HeroBcg from 'components/Main/Hero/HeroBcg/LeftBcg';
+
 import { setSearchResults } from 'redux/formSearch/searchSlice';
-import ChooseYourBreakfast from '../ChooseYourBreakfast/СhooseYourBreakfast';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const Search = ({ startQuery }) => {
   const navigate = useNavigate();
