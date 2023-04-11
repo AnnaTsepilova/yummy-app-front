@@ -36,6 +36,7 @@ const SearchedRecipesList = () => {
   const dispatch = useDispatch();
   const query = searchParams.get('query') ?? '';
   const type = searchParams.get('type') ?? '';
+  // eslint-disable-next-line no-unused-vars
   const [request, setRequest] = useState(false);
   const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
   const errorSearch = useSelector(getError);
@@ -119,13 +120,16 @@ const SearchedRecipesList = () => {
           handleChange={handleChange}
         />
       )}
-      {!request ? (
-        <NotFound text={`You haven't searched for anything yet...`} />
-      ) : errorSearch ? (
-        <NotFound text={`No results found for "${query}"`} />
-      ) : totalQuery === 0 ? (
-        <NotFound text={`No results found for "${query}"`} />
-      ) : null}
+      {
+        // !request ? (
+        // <NotFound text={`You haven't searched for anything yet...`} />
+        // ) :
+        errorSearch ? (
+          <NotFound text={`No results`} />
+        ) : totalQuery === 0 ? (
+          <NotFound text={`No results`} />
+        ) : null
+      }
     </>
   );
 };
