@@ -6,7 +6,7 @@ import { listUnits } from 'components/AddRecipeForm/AddRecipeForm.const';
 import {getIngredientsList} from 'service/API/dishesApi';
 import { UnitCount, UnitWrapper, CloseIconButton, IncIconButton, DecrIconButton,ListIngredientsItem, DeleteButton, TitleWraper, FormWrapper, TitleStyled, IncDecWraper, IncDecButton, IncDecCounter, SelectIngredStyled, SelectIngredUnit, WrapperFieldsInput } from './RecipeIngredientsFields.styled'
 
-const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngredient, handleOnDeleteContact, handleOnChangeIngName, handleOnChangeIngUnit, handleOnChangeUnitCount}) => {
+const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngredient, handleOnDeleteIngredient, handleOnChangeIngName, handleOnChangeIngUnit, handleOnChangeUnitCount}) => {
   const {userIngredientsList} = userList;
   const [ingredientList, setIngredientList] = useState([]);
 
@@ -72,7 +72,7 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
                         />
                       </UnitWrapper>
                     </WrapperFieldsInput>
-                    <DeleteButton onClick={handleOnDeleteContact}>
+                    <DeleteButton onClick={handleOnDeleteIngredient}>
                         <CloseIconButton/>
                     </DeleteButton>
                 </ListIngredientsItem>
