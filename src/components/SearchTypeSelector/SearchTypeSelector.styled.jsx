@@ -14,7 +14,7 @@ export const SelectCon = styled.div`
     font-size: 12px;
     line-height: 16px;
     letter-spacing: -0.24px;
-    color: #001833;
+    color: var(--title-color);
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -31,7 +31,7 @@ export const SelectCon = styled.div`
 export const SelectStyled = styled(Select)`
   & .react-select__control {
     background-color: rgba(217, 217, 217, 0.2);
-    border: 1px solid #f0f0f0;
+    border: 1px solid transparent;
     outline: none;
     box-shadow: none;
     border-radius: 6px;
@@ -40,7 +40,7 @@ export const SelectStyled = styled(Select)`
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: #fafafa;
+    color: var(--primary-white);
 
     &--is-focused,
     &--menu-is-open {
@@ -72,11 +72,13 @@ export const SelectStyled = styled(Select)`
     font-size: 12px;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select__value-container {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select-container {
@@ -105,16 +107,18 @@ export const SelectStyled = styled(Select)`
       font-size: 14px;
     }
 
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select__option {
-    background-color: #fafafa;
-    color: rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-white);
+    color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select__dropdown-indicator {
-    color: #8baa36;
+    color: var(--primary-green);
   }
 
   & .react-select__indicator-separator {
@@ -127,6 +131,7 @@ export const SelectStyled = styled(Select)`
   }
 
   & .react-select__placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--black);
+    opacity: 0.5;
   }
 `;
