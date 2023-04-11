@@ -4,7 +4,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
 import { nanoid } from 'nanoid';
 
-
 import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
 import { TitleStyled } from 'components/PopularRecipe/PopularRecipe.style';
@@ -20,6 +19,7 @@ const AddRecipeForm = () => {
 
   const [popularRecipeList, setPopularRecipeList] = useState([]);
   const [imgURL, setImageURL] = useState('');
+  const [imgData, setImageData] = useState(null);
   const [itemTitleRecipe, setItemTitleRecipe] = useState('');
   const [aboutRecipe, setAboutRecipe] = useState('');
   const [category, setCategory] = useState(null);
@@ -115,10 +115,12 @@ const AddRecipeForm = () => {
   }
 
   const handleOnSubmit = async () => {
+    const newUrl = addRecipeImg(imgData);
+
     const recipeItem = {
       title: itemTitleRecipe,
       description: aboutRecipe,
-      recipeImage: imgURL,
+      recipeImage: newUrl,
       category: category.value,
       cockingTime: cookingTimeRecipe.value,
       ingredients: userIngredientsList.map(e => { return { [`${e.id}`]: `${e.unitCount} ${e.unit}` } }),
@@ -146,12 +148,12 @@ const AddRecipeForm = () => {
 
   const handleOnImgSelect = async (e) => {
     const localFile = e.target.files[0];
-    const newURL = await addRecipeImg(localFile);
-    if (newURL) {
-      setImageURL(newURL);
-      return;
-    } 
-    setImageURL('');
+    setImageData(e.target.files[0]);
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      setImageURL(reader.result);
+    });
+    reader.readAsDataURL(localFile);
   }
 
   return (
