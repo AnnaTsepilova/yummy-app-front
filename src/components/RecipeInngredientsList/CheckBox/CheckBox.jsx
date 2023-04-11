@@ -11,6 +11,9 @@ import {
 } from 'redux/userRecipes/userRecipesOperations'; // eslint-disable-line
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 import * as ReactDOMServer from 'react-dom/server';
+import { Notify } from 'notiflix';
+// import { ReactComponent as TrashImage } from 'images/Plugs/trash.svg';
+
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const dispatch = useDispatch(); // eslint-disable-line
   const shoppingList = useSelector(selectShoppingList);
@@ -36,6 +39,8 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
       const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
         <ButtonLoader color="var(--primary-green)" />
       );
+      Notify.success('Ingredient deleted from shopping list.');
+
       elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
       const arr = [];
       const reqObj = {};
@@ -49,6 +54,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
       <ButtonLoader color="var(--primary-green)" width={26} />
     );
+    Notify.success('Ingredient added to shopping list.');
     elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
 
     const arr = [];
