@@ -22,8 +22,8 @@ const AddRecipeForm = () => {
   const [imgURL, setImageURL] = useState('');
   const [itemTitleRecipe, setItemTitleRecipe] = useState('');
   const [aboutRecipe, setAboutRecipe] = useState('');
-  const [category, setCategory] = useState({ value: '', label: '' });
-  const [cookingTimeRecipe, setCookingTimeRecipe] = useState({ value: '', label: '' })
+  const [category, setCategory] = useState(null);
+  const [cookingTimeRecipe, setCookingTimeRecipe] = useState(null);
   const [userIngredientsList, setUserIngredientList] = useState([{
       _id: nanoid(),
       id: '',
@@ -98,12 +98,12 @@ const AddRecipeForm = () => {
     aboutRecipe: '',
   }
 
-  const resetForm = () => {
+  const resetMyForm = () => {
     setImageURL('');
     setItemTitleRecipe('');
     setAboutRecipe('');
-    setCategory({ value: '', label: '' });
-    setCookingTimeRecipe({ value: '', label: '' })
+    setCategory(null);
+    setCookingTimeRecipe(null);
     setUserIngredientList([{
       _id: nanoid(),
       id: '',
@@ -126,7 +126,8 @@ const AddRecipeForm = () => {
     }
 
     // console.log(recipeItem);
-    // resetForm();
+    // resetMyForm();
+    // return;
     try {
       addRecipe(recipeItem).then(() => {
         Notify.success('Recipe add to database.', {
@@ -134,7 +135,7 @@ const AddRecipeForm = () => {
           width: '350px',
           padding: '10px',
         });
-        resetForm();
+        resetMyForm();
       }
       );
     } catch (error) {
