@@ -116,7 +116,6 @@ export const getRecipesByIngredient = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getRecipesByIngredientAPI(ingredient, page, per_page);
-      console.log('recipes by search ingredients', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

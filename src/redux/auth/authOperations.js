@@ -155,13 +155,10 @@ export const refreshToken = createAsyncThunk(
     const state = thunkAPI.getState();
 
     let sid = state.auth.sid;
-    console.log('refreshToken', sid);
     if (!sid) {
-      console.log(sid);
       return thunkAPI.rejectWithValue();
     }
     const update = state.auth.refreshToken;
-    console.log('update', update);
     token.set(update);
     try {
       const { data } = await axios.post('/auth/refresh', {
