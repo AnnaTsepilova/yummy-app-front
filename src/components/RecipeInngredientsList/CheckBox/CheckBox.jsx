@@ -4,22 +4,16 @@ import {
   Box,
   Svg,
 } from 'components/RecipeInngredientsList/CheckBox/CheckBox.styled';
-import {
-  selectIsLoading,
-  selectShoppingList,
-} from 'redux/userRecipes/userRecipesSelectors';
+import { selectShoppingList } from 'redux/userRecipes/userRecipesSelectors';
 import {
   addUserShoppingList,
   removeFromShoppingList,
 } from 'redux/userRecipes/userResipesOperations'; // eslint-disable-line
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 import * as ReactDOMServer from 'react-dom/server';
-import { useState } from 'react';
-import { RotatingLines } from 'react-loader-spinner';
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const dispatch = useDispatch(); // eslint-disable-line
   const shoppingList = useSelector(selectShoppingList);
-  const isLoad = useSelector(selectIsLoading);
 
   const check = () => {
     const recipesId = shoppingList
@@ -40,13 +34,6 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
         elem1.innerHTML = '';
       }
       const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
-        // <RotatingLines
-        //   strokeColor="var(--primary-green)"
-        //   strokeWidth="5"
-        //   animationDuration="0.75"
-        //   width={15}
-        //   visible={true}
-        // />
         <ButtonLoader color="var(--primary-green)" />
       );
       elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
