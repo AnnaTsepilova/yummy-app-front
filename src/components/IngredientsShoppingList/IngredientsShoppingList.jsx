@@ -20,6 +20,7 @@ import {
   selectIsLoading,
   selectShoppingList,
 } from 'redux/userRecipes/userRecipesSelectors';
+import { Notify } from 'notiflix';
 
 const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const IngredientsShoppingList = () => {
       measure: item,
     };
     dispatch(removeFromShoppingList(list));
+    Notify.success('Ingredient deleted from shopping list.');
   };
   useEffect(() => {
     dispatch(getUserShoppingList());
