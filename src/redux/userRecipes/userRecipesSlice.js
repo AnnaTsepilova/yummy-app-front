@@ -11,6 +11,8 @@ import {
   getRecipeById,
 } from 'redux/userRecipes/userRecipesOperations';
 
+import { logOut } from 'redux/auth/authOperations';
+
 const pending = state => {
   state.isLoading = true;
 };
@@ -115,6 +117,18 @@ const userRecipesSlice = createSlice({
         state.recipeById = payload;
       })
       .addCase(getRecipeById.rejected, rejected)
+
+      .addCase(logOut.pending, pending)
+      .addCase(logOut.fulfilled, (state, action) => {
+        state.myRecipes = [];
+        state.shoppingList = [];
+        state.favorite = [];
+        state.totalFavorite = 0;
+        state.totalMyRecipes = 0;
+        state.recipeById = [];
+      })
+      .addCase(logOut.rejected, rejected)
+
       .addMatcher(
         action => action.type.endsWith(`/rejected`),
         (_state, { payload }) => {

@@ -7,6 +7,8 @@ import {
   getRecipesByIngredient,
 } from 'redux/commonRecipes/commonOperations';
 
+import { logOut } from 'redux/auth/authOperations';
+
 const pending = state => {
   state.isCategoryFetching = true;
 };
@@ -76,6 +78,18 @@ export const commmonRecipesSlice = createSlice({
         state.recipesByQuery.results = [];
         state.recipesByQuery.totalHits = 0;
       })
+
+      .addCase(logOut.pending, pending)
+      .addCase(logOut.fulfilled, (state, action) => {
+        state.isCategoryFetching = false;
+        state.categoryList = [];
+        state.limitedRecipesByCategory = [];
+        state.allRecipesByCategory = [];
+        state.recipesByQuery.results = [];
+        state.recipesByQuery.totalHits = 0;
+      })
+      .addCase(logOut.rejected, rejected)
+
       .addMatcher(
         action => action.type.endsWith(`/rejected`),
         (_state, { payload }) => {
