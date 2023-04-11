@@ -117,7 +117,7 @@ const AuthForm = () => {
                 onBlur={formik.handleBlur}
                 type="text"
                 name="name"
-                autoComplete="off"
+                autoComplete="name"
                 value={formik.values.name}
               />
               {formik.touched.name && formik.errors.name && (
@@ -142,7 +142,7 @@ const AuthForm = () => {
               onBlur={formik.handleBlur}
               type="email"
               name="email"
-              autoComplete="off"
+              autoComplete="email"
               value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email && (
@@ -167,7 +167,7 @@ const AuthForm = () => {
               onBlur={formik.handleBlur}
               type="password"
               name="password"
-              autoComplete="off"
+              autoComplete="current-password"
               value={formik.values.password}
             />
             {showError && <Error>{formik.errors.password}</Error>}
