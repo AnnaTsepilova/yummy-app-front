@@ -14,7 +14,7 @@ const ChooseYourBreakfast = () => {
         ingredients in one satisfying meal
       </Title>
       <BoxLink>
-        <RecipeLink to="/categories">
+        <RecipeLink to="/categories/breakfast">
           See recipes
           <Arrow style={{ color: 'inherit' }} />
         </RecipeLink>
