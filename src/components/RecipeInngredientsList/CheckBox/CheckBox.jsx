@@ -8,7 +8,7 @@ import { selectShoppingList } from 'redux/userRecipes/userRecipesSelectors';
 import {
   addUserShoppingList,
   removeFromShoppingList,
-} from 'redux/userRecipes/userResipesOperations'; // eslint-disable-line
+} from 'redux/userRecipes/userRecipesOperations'; // eslint-disable-line
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 import * as ReactDOMServer from 'react-dom/server';
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {

@@ -155,6 +155,7 @@ export const refreshToken = createAsyncThunk(
     const state = thunkAPI.getState();
 
     let sid = state.auth.sid;
+    console.log('refreshToken', sid);
     if (!sid) {
       console.log(sid);
       return thunkAPI.rejectWithValue();

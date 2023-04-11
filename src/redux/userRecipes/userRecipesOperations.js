@@ -77,7 +77,7 @@ export const removeFromShoppingList = createAsyncThunk(
 );
 
 export const addRecipeToFavorite = createAsyncThunk(
-  'userResipes/addToFavorite',
+  'userRecipes/addToFavorite',
   async (id, { rejectWithValue, dispatch, getState }) => {
     const state = getState();
     const token = state.auth.accessToken;

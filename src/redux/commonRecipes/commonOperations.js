@@ -98,7 +98,6 @@ export const getRecipesByQuery = createAsyncThunk(
     token.set(persistedAccessToken);
     try {
       const data = await getRecipesByQueryAPI(query, page, per_page);
-      console.log('recipes by search query', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

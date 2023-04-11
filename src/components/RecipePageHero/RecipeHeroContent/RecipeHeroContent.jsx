@@ -18,7 +18,7 @@ import {
   addRecipeToFavorite,
   getFavoriteRecipes,
   removeRecipeFromFavorite,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 import {
   selectFavoriteRecipes,
   selectIsLoadBtn,
