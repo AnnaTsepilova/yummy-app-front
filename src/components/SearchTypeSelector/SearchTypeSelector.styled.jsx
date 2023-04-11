@@ -78,6 +78,7 @@ export const SelectStyled = styled(Select)`
 
   & .react-select__value-container {
     color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select-container {
@@ -107,6 +108,7 @@ export const SelectStyled = styled(Select)`
     }
 
     color: var(--black);
+    opacity: 0.5;
   }
 
   & .react-select__option {
