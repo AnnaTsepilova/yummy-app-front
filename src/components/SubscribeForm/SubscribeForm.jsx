@@ -27,6 +27,7 @@ const SubscribeForm = () => {
         await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
           email: values.email,
         });
+        formik.resetForm();
         Notiflix.Notify.success('Great! You signed up!');
       } catch (error) {
         if (error.response && error.response.status === 400) {
@@ -41,7 +42,6 @@ const SubscribeForm = () => {
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
-        <label htmlFor="email"></label>
         <InputWrap
           iconUrl={img.iconMail}
           iconTabUrl={img.iconMailTab}
@@ -49,15 +49,15 @@ const SubscribeForm = () => {
           iconTabUrlG={img.iconMailTabG}
           iconError={img.iconError}
           iconCorrect={img.iconCorrect}
+          {...formik.getFieldProps('email')}
           error={Boolean(formik.touched.email && formik.errors.email)}
           correct={Boolean(formik.touched.email && !formik.errors.email)}
-          {...formik.getFieldProps('email')}
         >
           <Input
             placeholder="Email"
             type="email"
             name="email"
-            autoComplete="email"
+            autoComplete="off"
           />
           {formik.touched.email && formik.errors.email && (
             <Error>{formik.errors.email}</Error>
