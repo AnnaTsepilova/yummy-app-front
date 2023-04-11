@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserShoppingList,
   removeFromShoppingList,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 import {
   selectIsLoading,
   selectShoppingList,

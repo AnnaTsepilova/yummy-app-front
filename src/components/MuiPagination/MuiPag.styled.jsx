@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
   border-radius: 26px;
 
-  background-color: #fafafa;
+  background-color: var(--primary-white);
   box-shadow: 0px 4px 4px 0px rgba(135, 135, 135, 0.2);
 
   & nav {
@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
   }
 
   & .MuiPaginationItem-ellipsis {
-    color: black;
+    color: var(--black);
   }
 
   & .MuiPagination-ul {
@@ -52,13 +52,13 @@ export const Wrapper = styled.div`
 
     margin-top: 0;
     gap: 0px;
-    color: #656565;
+    color: var(--pagination-color);
   }
 
   & .MuiPaginationItem-page {
     padding: 0;
     min-width: 27px;
-    color: #656565;
+    color: var(--pagination-color);
   }
 
   & .MuiPaginationItem-page.Mui-selected {
@@ -66,15 +66,15 @@ export const Wrapper = styled.div`
     height: 27px;
 
     background-color: #ebf3d4;
-    color: black;
+    color: var(--black);
 
     transition: var (--transition-function);
 
     &:hover,
     &:focus {
-      color: black;
+      color: var(--black);
 
-      background-color: #ebf3d4;
+      background-color: var(--background-light-green);
     }
   }
 `;

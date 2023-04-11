@@ -5,7 +5,7 @@ import {
   getAllRecipesByCategory,
   getRecipesByQuery,
   getRecipesByIngredient,
-} from './commonOperations';
+} from 'redux/commonRecipes/commonOperations';
 
 const pending = state => {
   state.isCategoryFetching = true;
@@ -54,10 +54,14 @@ export const commmonRecipesSlice = createSlice({
         state.recipesByQuery.totalHits = payload.totalHits;
         state.isCategoryFetching = false;
       })
+
+      .addCase(getCategoryList.pending, pending)
       .addCase(getLimitedRecipesByCategory.pending, pending)
       .addCase(getAllRecipesByCategory.pending, pending)
       .addCase(getRecipesByQuery.pending, pending)
       .addCase(getRecipesByIngredient.pending, pending)
+
+      .addCase(getCategoryList.rejected, rejected)
       .addCase(getLimitedRecipesByCategory.rejected, rejected)
       .addCase(getAllRecipesByCategory.rejected, rejected)
       .addCase(getRecipesByQuery.rejected, state => {
@@ -71,7 +75,15 @@ export const commmonRecipesSlice = createSlice({
         state.isError = true;
         state.recipesByQuery.results = [];
         state.recipesByQuery.totalHits = 0;
-      }),
+      })
+      .addMatcher(
+        action => action.type.endsWith(`/rejected`),
+        (_state, { payload }) => {
+          if (payload === 401) {
+            return initialState;
+          }
+        }
+      ),
 });
 
 export default commmonRecipesSlice.reducer;

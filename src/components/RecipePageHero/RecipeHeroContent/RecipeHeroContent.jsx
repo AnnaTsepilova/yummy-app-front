@@ -18,7 +18,7 @@ import {
   addRecipeToFavorite,
   getFavoriteRecipes,
   removeRecipeFromFavorite,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 import {
   selectFavoriteRecipes,
   selectIsLoadBtn,
@@ -31,9 +31,10 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoadBtn);
+
   useEffect(() => {
     // setIsFavorite(userFavouritesRecipes.includes(id));
-    dispatch(getFavoriteRecipes());
+    dispatch(getFavoriteRecipes('all'));
   }, [dispatch]);
   const func = () => {
     const check = userFavouritesRecipes.filter(item => item._id === recipe._id);
@@ -45,9 +46,11 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
   const handleFavoriteButton = id => {
     const check = func();
     if (check) {
-      return dispatch(removeRecipeFromFavorite(id));
+      dispatch(removeRecipeFromFavorite(id));
+      return dispatch(getFavoriteRecipes('all'));
     }
-    return dispatch(addRecipeToFavorite(id));
+    dispatch(addRecipeToFavorite(id));
+    return dispatch(getFavoriteRecipes('all'));
   };
 
   return (
@@ -59,7 +62,7 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
         onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
-          <ButtonLoader color="white" width={15} />
+          <ButtonLoader color="var(--white)" width={20} />
         ) : func() ? (
           'Remove from favorite recipes'
         ) : (

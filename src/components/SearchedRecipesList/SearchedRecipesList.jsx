@@ -55,10 +55,6 @@ const SearchedRecipesList = () => {
     perPage = 6;
   }
 
-  useEffect(() => {
-    setSearchParams(new URLSearchParams({ query: '', type: '' }));
-  }, [setSearchParams, query, type]);
-
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -120,16 +116,11 @@ const SearchedRecipesList = () => {
           handleChange={handleChange}
         />
       )}
-      {
-        // !request ? (
-        // <NotFound text={`You haven't searched for anything yet...`} />
-        // ) :
-        errorSearch ? (
-          <NotFound text={`No results`} />
-        ) : totalQuery === 0 ? (
-          <NotFound text={`No results`} />
-        ) : null
-      }
+      {errorSearch ? (
+        <NotFound text={`No results`} />
+      ) : totalQuery === 0 ? (
+        <NotFound text={`No results`} />
+      ) : null}
     </>
   );
 };

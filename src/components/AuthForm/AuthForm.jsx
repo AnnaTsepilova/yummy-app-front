@@ -38,8 +38,6 @@ const AuthForm = () => {
     validationSchema,
     onSubmit: async values => {
       const { passwordStrength, ...data } = values;
-
-      console.log(data);
       try {
         if (isLogin) {
           await dispatch(authOperations.signIn(data));

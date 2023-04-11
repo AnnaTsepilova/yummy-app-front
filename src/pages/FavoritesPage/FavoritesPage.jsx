@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   removeRecipeFromFavorite,
   getFavoriteRecipes,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 import {
   selectFavoriteRecipes,
   selectIsLoading,

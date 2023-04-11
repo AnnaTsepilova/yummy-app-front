@@ -109,6 +109,11 @@ export const removeMyRecipeAPI = id => {
 };
 
 export const getFavoriteRecipesAPI = page => {
+  if (page === 'all') {
+    return axios.get(`/favorite/list?all=true`).then(({ data }) => {
+      return data;
+    });
+  }
   return axios.get(`/favorite/list?page=${page}`).then(({ data }) => {
     return data;
   });

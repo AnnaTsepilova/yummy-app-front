@@ -20,9 +20,8 @@ const handlePending = state => {
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload.message;
 
-  if (action.payload.code === 401) {
+  if (action.payload === 401) {
     state.accessToken = '';
   }
 };
@@ -95,7 +94,16 @@ const authSlice = createSlice({
       .addCase(authOperations.upLoadAvatar.fulfilled, (state, action) => {
         state.userAvatar = action.payload.user.avatar;
       })
-      .addCase(authOperations.upLoadAvatar.rejected, handleRejected);
+      .addCase(authOperations.upLoadAvatar.rejected, handleRejected)
+
+      .addMatcher(
+        action => action.type.endsWith(`/rejected`),
+        (_state, { payload }) => {
+          if (payload === 401) {
+            return initialState;
+          }
+        }
+      );
   },
 });
 

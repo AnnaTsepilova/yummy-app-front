@@ -62,7 +62,7 @@ export const FooterBgImage = styled.div`
   background-position: 50% 0;
   bottom: 0;
 
-  position: absolute;
+  position: fixed;
   z-index: -1;
 
   @media screen and (min-width: 1440px) {

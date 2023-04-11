@@ -16,7 +16,7 @@ import RecipePreparation from 'components/RecipePreparation/RecipePreparation';
 import {
   getRecipeById,
   getUserShoppingList,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
 
 const mainRoot = document.querySelector('#racipe_bg');
