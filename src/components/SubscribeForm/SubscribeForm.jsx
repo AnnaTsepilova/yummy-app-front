@@ -22,12 +22,13 @@ const SubscribeForm = () => {
       email: '',
     },
     validationSchema,
-    onSubmit: async values => {
+    onSubmit: async (values, { resetForm }) => {
       try {
         await axios.post('https://y-3wt8.onrender.com/api/subscribe/', {
           email: values.email,
         });
         Notiflix.Notify.success('Great! You signed up!');
+        resetForm();
       } catch (error) {
         if (error.response && error.response.status === 400) {
           Notiflix.Notify.info('A user with this email is already signed');
@@ -37,6 +38,8 @@ const SubscribeForm = () => {
       }
     },
   });
+  const input = document.querySelector('input[type=email]');
+  input.setAttribute('readonly', true);
 
   return (
     <FormWrapper>
@@ -57,7 +60,10 @@ const SubscribeForm = () => {
             placeholder="Email"
             type="email"
             name="email"
-            autoComplete="email"
+            autoComplete="off"
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
           />
           {formik.touched.email && formik.errors.email && (
             <Error>{formik.errors.email}</Error>
