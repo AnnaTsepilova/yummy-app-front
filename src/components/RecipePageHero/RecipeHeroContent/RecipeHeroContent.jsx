@@ -36,6 +36,7 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
     // setIsFavorite(userFavouritesRecipes.includes(id));
     dispatch(getFavoriteRecipes('all'));
   }, [dispatch]);
+
   const func = () => {
     const check = userFavouritesRecipes.filter(item => item._id === recipe._id);
     if (check.length > 0) {
@@ -43,14 +44,17 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
     }
     return false;
   };
+
   const handleFavoriteButton = id => {
     const check = func();
     if (check) {
-      dispatch(removeRecipeFromFavorite(id));
-      return dispatch(getFavoriteRecipes('all'));
+      const obj = {
+        id,
+        page: 'all',
+      };
+      return dispatch(removeRecipeFromFavorite(obj));
     }
-    dispatch(addRecipeToFavorite(id));
-    return dispatch(getFavoriteRecipes('all'));
+    return dispatch(addRecipeToFavorite(id));
   };
 
   return (

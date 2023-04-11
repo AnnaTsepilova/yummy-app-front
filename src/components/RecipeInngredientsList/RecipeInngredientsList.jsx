@@ -20,8 +20,6 @@ import { ReactComponent as DefaultImage } from 'images/Plugs/image.svg';
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const list = useSelector(selectRecipe); // eslint-disable-line
 
-  console.log(ingredients);
-
   return (
     <Box>
       <ListHeader>
