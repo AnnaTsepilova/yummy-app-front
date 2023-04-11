@@ -63,10 +63,10 @@ const RecipeDescriptionFields = ({ dataField, handleOnImgSelect,handleOnTitleRec
             />
             <WrapperSelect>
               <LabelSelectStyled>Category</LabelSelectStyled>
-              <SelectStyled
+            <SelectStyled
                 options={categoryList}
                 isSearchable={false}
-                setValue={category}
+                value={category}
                 classNamePrefix="react-select"
                 onChange={handleOnCategory}
                 required
@@ -77,7 +77,7 @@ const RecipeDescriptionFields = ({ dataField, handleOnImgSelect,handleOnTitleRec
               <SelectStyled
                 options={listTimeRecipe}
                 isSearchable={false}
-                setValue={cookingTimeRecipe}
+                value={cookingTimeRecipe}
                 placeholder="Cooking time"
                 classNamePrefix="react-select"
                 onChange={handleOnCookingTimeRecipe}
