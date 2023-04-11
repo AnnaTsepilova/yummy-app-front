@@ -143,7 +143,6 @@ const AddRecipeForm = () => {
     const newURL = await addRecipeImg(localFile);
     if (newURL) {
       setImageURL(newURL);
-      console.log(newURL);
       return;
     } 
     setImageURL('');
