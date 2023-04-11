@@ -1,13 +1,20 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { NavDiv } from './Navigation.styled';
+import { getRecipesBySearchQuery } from 'redux/commonRecipes/commonSelectors';
 
 const Nav = () => {
+  const recipesBySearchQuery = useSelector(getRecipesBySearchQuery);
+  const resetSearch = () => {
+    recipesBySearchQuery.results = [];
+  };
   return (
     <NavDiv>
       <NavLink
         to="/search?query=&type=ingredients"
         state={{ ingredient: true }}
+        onClick={() => resetSearch()}
       >
         Ingredients
       </NavLink>

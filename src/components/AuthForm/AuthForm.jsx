@@ -117,7 +117,7 @@ const AuthForm = () => {
                 onBlur={formik.handleBlur}
                 type="text"
                 name="name"
-                autoComplete="name"
+                autoComplete="off"
                 value={formik.values.name}
               />
               {formik.touched.name && formik.errors.name && (
@@ -142,7 +142,7 @@ const AuthForm = () => {
               onBlur={formik.handleBlur}
               type="email"
               name="email"
-              autoComplete="email"
+              autoComplete="off"
               value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email && (
@@ -167,7 +167,7 @@ const AuthForm = () => {
               onBlur={formik.handleBlur}
               type="password"
               name="password"
-              autoComplete="current-password"
+              autoComplete="off"
               value={formik.values.password}
             />
             {showError && <Error>{formik.errors.password}</Error>}
@@ -182,7 +182,7 @@ const AuthForm = () => {
         </Form>
       </FormWrapper>
       <FormSwitch>
-        <FormLink exact to={isLogin ? '/register' : '/signin'}>
+        <FormLink exact="true" to={isLogin ? '/register' : '/signin'}>
           {isLogin ? 'Registration' : 'Sign in'}
         </FormLink>
       </FormSwitch>
