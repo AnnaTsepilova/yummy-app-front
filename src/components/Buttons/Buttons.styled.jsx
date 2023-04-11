@@ -14,6 +14,7 @@ export const StyledSearchBlackBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+  
   transition: background-color 250ms var(--transition-function);
 
   &:hover {
