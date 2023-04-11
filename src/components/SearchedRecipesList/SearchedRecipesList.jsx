@@ -98,7 +98,6 @@ const SearchedRecipesList = () => {
         <Loader />
       ) : (
         <Table>
-          {console.log(recipesBySearchQuery)}
           {recipesBySearchQuery?.results?.map(result => (
             <RecipeCard
               key={result._id}
