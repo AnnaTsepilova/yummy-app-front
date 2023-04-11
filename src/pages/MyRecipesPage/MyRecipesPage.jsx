@@ -14,7 +14,7 @@ import {
 import {
   getMyRecipe,
   removeMyRecipe,
-} from 'redux/userRecipes/userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 
 const MyRecipesPage = () => {
   const recipes = useSelector(selectMyRecipes);

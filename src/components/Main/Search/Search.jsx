@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { setSearchResults } from 'redux/formSearch/searchSlice';
-import ChooseYourBreakfast from '../ChooseYourBreakfast/СhooseYourBreakfast';
+import ChooseYourBreakfast from 'components/Main/ChooseYourBreakfast/СhooseYourBreakfast';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const Search = ({ startQuery }) => {

@@ -9,7 +9,7 @@ import {
   addUserShoppingList,
   removeFromShoppingList,
   getRecipeById,
-} from './userResipesOperations';
+} from 'redux/userRecipes/userRecipesOperations';
 
 const pending = state => {
   state.isLoading = true;
@@ -32,8 +32,8 @@ const initialState = {
   recipeById: [],
 };
 
-const userResipesSlice = createSlice({
-  name: 'userResipes',
+const userRecipesSlice = createSlice({
+  name: 'userRecipes',
   initialState,
   extraReducers: builder =>
     builder
@@ -114,7 +114,16 @@ const userResipesSlice = createSlice({
         state.error = null;
         state.recipeById = payload;
       })
-      .addCase(getRecipeById.rejected, rejected),
+      .addCase(getRecipeById.rejected, rejected)
+      .addMatcher(
+        action => action.type.endsWith(`/rejected`),
+        (_state, { payload }) => {
+          if (payload === 401) {
+            console.log('userRecipes logout', payload);
+            return initialState;
+          }
+        }
+      ),
 });
 
-export default userResipesSlice.reducer;
+export default userRecipesSlice.reducer;

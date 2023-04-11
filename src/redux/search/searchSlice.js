@@ -22,6 +22,15 @@ const searchSlice = createSlice({
     clearSearch() {
       return initialState;
     },
+    //     .addMatcher(
+    //   action => action.type.endsWith(`/rejected`),
+    //   (_state, { payload }) => {
+    //     if (payload === 401) {
+    //       console.log('userRecipes logout', payload);
+    //       return initialState;
+    //     }
+    //   }
+    // )
   },
 });
 
