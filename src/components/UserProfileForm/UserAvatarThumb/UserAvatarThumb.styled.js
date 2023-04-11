@@ -10,7 +10,7 @@ export const ThumWrp = styled.div`
 
   border-radius: 50%;
 
-  background: #d9d9d9;
+  background: var(--light-gray);
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
