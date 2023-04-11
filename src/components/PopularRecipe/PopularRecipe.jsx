@@ -5,7 +5,8 @@ import { RecipeBox,DescriptionWraper, RecipeDescription, RecipeHeader, PopularRe
 const PopularRecipe = ({ popularRecipeList }) => {
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
   useEffect(() => {
-      window.onresize = () => {setWindowWidth(window.screen.width)};
+    window.onresize = () => { setWindowWidth(window.screen.width) };
+    console.log(windowWidth);
       return () => {window.onresize = false};
   }, [windowWidth]);
   
