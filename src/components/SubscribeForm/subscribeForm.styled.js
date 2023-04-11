@@ -232,17 +232,14 @@ export const Error = styled.div`
   font-size: 10px;
   color: #e74a3b;
   position: relative;
-  left: -13px;
-  bottom: 230%;
+  left: 0;
+  bottom: 40%;
 
   @media (min-width: 768px) {
     font-size: 14px;
-    left: -13px;
-    bottom: -160%;
+    bottom: -110%;
   }
   @media (min-width: 1440px) {
-    font-size: 14px;
-    left: -13px;
-    bottom: 100%;
+    bottom: 40%;
   }
 `;
