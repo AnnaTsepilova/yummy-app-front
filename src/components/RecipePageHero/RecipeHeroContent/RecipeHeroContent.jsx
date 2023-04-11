@@ -66,7 +66,7 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
         onClick={() => handleFavoriteButton(recipe._id)}
       >
         {isLoading ? (
-          <ButtonLoader color="var(--white)" width={20} />
+          <ButtonLoader color="var(--white)" width={15} />
         ) : func() ? (
           'Remove from favorite recipes'
         ) : (
