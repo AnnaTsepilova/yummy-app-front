@@ -33,7 +33,7 @@ export const TextAreaStyled = styled(Field)`
 
   resize: none;
   border: none;
-  background: #f5f5f5;
+  background: var(--input-bg);
   border-radius: 6px;
 
   font-style: normal;
