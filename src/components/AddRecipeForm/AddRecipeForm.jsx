@@ -2,7 +2,9 @@ import React from 'react';
 import { useState, useEffect} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+
+
 import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
 import { TitleStyled } from 'components/PopularRecipe/PopularRecipe.style';
@@ -12,12 +14,12 @@ import RecipePreparationFields from 'components/RecipePreparationFields/RecipePr
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe'
 import { WrapperSocialLinks } from './SocialLinks/SocialLinks.styled';
 import SocialLinks from './SocialLinks/SocialLinks';
+import { getPopularRecipe, addRecipe, addRecipeImg} from 'service/API/dishesApi';
 
-import {getPopularRecipe, addRecipe } from 'service/API/dishesApi';
 const AddRecipeForm = () => {
 
   const [popularRecipeList, setPopularRecipeList] = useState([]);
-
+  const [imgURL, setImageURL] = useState('');
   const [itemTitleRecipe, setItemTitleRecipe] = useState('');
   const [aboutRecipe, setAboutRecipe] = useState('');
   const [category, setCategory] = useState({ value: '', label: '' });
@@ -107,11 +109,13 @@ const AddRecipeForm = () => {
 
   const handleOnSubmit = async () => {
     const recipeItem = {
+
       title: itemTitleRecipe,
       description: aboutRecipe,
+      recipeImage: imgURL,
       category: category.value,
       cockingTime: cookingTimeRecipe.value,
-      ingredients: userIngredientsList.map(e => { return { [`${e.id}`]: `${e.unitCount}/${e.unit}` } }),
+      ingredients: userIngredientsList.map(e => { return { [`${e.id}`]: `${e.unitCount} ${e.unit}` } }),
       preparation: recipePreparation,
     }
 
@@ -134,13 +138,25 @@ const AddRecipeForm = () => {
     }
   }
 
+  const handleOnImgSelect = async (e) => {
+    const localFile = e.target.files[0];
+    const newURL = await addRecipeImg(localFile);
+    if (newURL) {
+      setImageURL(newURL);
+      console.log(newURL);
+      return;
+    } 
+    setImageURL('');
+  }
+
   return (
     <>
-      <WrapperPage>
-            <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+    <WrapperPage>
+        <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <StyledForm autoComplete="off">
           <RecipeDescriptionFields
-            dataField={{ itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe }}
+            dataField={{ imgURL, itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe }}
+            handleOnImgSelect={handleOnImgSelect}
             handleOnTitleRecipe={setItemTitleRecipe}
             handleOnAboutRecipe={setAboutRecipe}
             handleOnCategory={setCategory}
@@ -166,7 +182,7 @@ const AddRecipeForm = () => {
           </WrapperSocialLinks>
           <PopularRecipe popularRecipeList={popularRecipeList} />
       </WrapperPopularRecipe>        
-      </WrapperPage>
+    </WrapperPage>
     </>
   )
 }

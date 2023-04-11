@@ -73,18 +73,13 @@ export const ImgLabel = styled.label`
 `;
 
 export const ImgStyled = styled.img`
-  width: 279px;
-  height: 268px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  /* background: #8baa36; */
 `;
 
-export const ImageInput = styled.button`
-  /* width: 279px;
-  height: 268px; */
-  /* border: solid 1px black; */
-  /* align-self: center; */
-  /* position: absolute; */
+export const ImageInput = styled.input`
   white-space: nowrap;
   width: 1px;
   height: 1px;

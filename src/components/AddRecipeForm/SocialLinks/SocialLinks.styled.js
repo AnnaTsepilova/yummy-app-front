@@ -15,4 +15,12 @@ export const SocialLinksContainer = styled.div`
   width: 163px;
   margin: 0;
   padding: 0;
+  & > a {
+    transition: background-color 250ms var(--transition-function);
+  }
+
+  & > a :hover {
+    fill: var(--primary-white);
+    background-color: var(--primary-green);
+  }
 `;
