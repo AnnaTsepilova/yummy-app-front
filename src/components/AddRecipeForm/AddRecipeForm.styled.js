@@ -13,8 +13,13 @@ export const FollowUs = styled.div``;
 
 export const StyledForm = styled(Form)`
   margin-bottom: 72px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
   }
 `;
 
