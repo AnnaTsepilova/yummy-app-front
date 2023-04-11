@@ -182,7 +182,7 @@ const AuthForm = () => {
         </Form>
       </FormWrapper>
       <FormSwitch>
-        <FormLink exact to={isLogin ? '/register' : '/signin'}>
+        <FormLink exact="true" to={isLogin ? '/register' : '/signin'}>
           {isLogin ? 'Registration' : 'Sign in'}
         </FormLink>
       </FormSwitch>
