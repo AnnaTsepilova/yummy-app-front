@@ -125,9 +125,6 @@ const AddRecipeForm = () => {
       preparation: recipePreparation,
     }
 
-    // console.log(recipeItem);
-    // resetMyForm();
-    // return;
     try {
       addRecipe(recipeItem).then(() => {
         Notify.success('Recipe add to database.', {
