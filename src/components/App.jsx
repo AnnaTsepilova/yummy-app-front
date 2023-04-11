@@ -22,7 +22,7 @@ const CategoriesPage = lazy(() =>
   import('pages/CategoriesPage/CategoriesPage')
 );
 const CategoriesCard = lazy(() =>
-  import('pages/CategoriesCard/CategoriesCard')
+  import('components/CategoriesCard/CategoriesCard')
 );
 const AddRecipePage = lazy(() => import('pages/AddRecipePage/AddRecipePage'));
 const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));

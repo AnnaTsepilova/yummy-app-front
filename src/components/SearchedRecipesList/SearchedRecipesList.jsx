@@ -10,7 +10,7 @@ import NotFound from 'components/NotFound/NotFound';
 import SearchBar from 'components/SearchBar/SearchBar';
 import { RecipeCard } from 'components/Main/PreviewCategories/RecipeCard';
 import { MuiPag } from 'components/MuiPagination/MuiPag';
-import { Table } from 'pages/CategoriesCard/CategoriesCard.styled';
+import { Table } from 'components/CategoriesCard/CategoriesCard.styled';
 
 import {
   getRecipesByQuery,
