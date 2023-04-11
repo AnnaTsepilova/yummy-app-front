@@ -137,7 +137,7 @@ export const SelectIngredStyled = styled(Select)`
   & .react-select__control {
     margin-right: 14px;
 
-    width: 194px;
+    width: 190px;
     height: 53px;
 
     background: var(--input-bg);
@@ -285,7 +285,7 @@ export const SelectIngredStyled = styled(Select)`
     &:active,
     &:hover,
     &::selection {
-      padding: 0;
+      /* padding: 0; */
       color: var(--primary-green);
       outline: none;
     }
@@ -323,7 +323,7 @@ export const UnitWrapper = styled.div`
 `;
 
 export const UnitCount = styled.input`
-  width: 40px;
+  width: 50px;
   height: 53px;
   //padding-left: 5px;
 
@@ -501,7 +501,7 @@ export const SelectIngredUnit = styled(Select)`
     &:active,
     &:hover,
     &::selection {
-      padding: 0;
+      /* padding: 0; */
       color: var(--primary-green);
       outline: none;
     }

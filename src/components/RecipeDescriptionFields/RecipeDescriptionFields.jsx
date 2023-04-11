@@ -5,12 +5,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getCategoryListAPI } from 'service/API/dishesApi';
 import { listTimeRecipe } from 'components/AddRecipeForm/AddRecipeForm.const';
 
-import { NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput, WrapperFieldsInput, WrapperSelect, LabelSelectStyled } from './RecipeDescriptionFields.styled';
+import { ImgStyled, NoImageStyled, ImgLabel, FormWrapper, FieldStyled, SelectStyled, ImageInput, WrapperFieldsInput, WrapperSelect, LabelSelectStyled } from './RecipeDescriptionFields.styled';
 
 //  import { Field } from 'formik';
 
-const RecipeDescriptionFields = ({ dataField, handleOnTitleRecipe, handleOnAboutRecipe, handleOnCategory, handleOnCookingTimeRecipe } ) => {
-  const { itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe } = dataField;
+const RecipeDescriptionFields = ({ dataField, handleOnImgSelect,handleOnTitleRecipe, handleOnAboutRecipe, handleOnCategory, handleOnCookingTimeRecipe } ) => {
+  const { imgURL, itemTitleRecipe, aboutRecipe, category, cookingTimeRecipe } = dataField;
   const [categoryList, setCategoryList] = useState([]);
 
   function initCategoryFunc(list) { 
@@ -35,16 +35,13 @@ const RecipeDescriptionFields = ({ dataField, handleOnTitleRecipe, handleOnAbout
     <>
       <FormWrapper>
         <ImgLabel htmlFor="image">
-          {/* <ImgStyled/> */}
-          <NoImageStyled/>
+          {imgURL ? <ImgStyled src={ imgURL } /> : <NoImageStyled/>}
           <ImageInput
-              // id="image"
+              as="input"
+              id="image"
               name="image"
               type="file"
-              onChange={event => {
-               console.log(event);
-               // formik.setFieldValue('image', event.target.files[0]);
-              }}>
+          onChange={handleOnImgSelect}>
           </ImageInput>
         </ImgLabel>
         <WrapperFieldsInput>

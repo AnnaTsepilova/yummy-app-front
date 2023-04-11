@@ -160,3 +160,11 @@ export const addRecipe = async data => {
     return result;
   });
 };
+
+export const addRecipeImg = async data => {
+  const formData = new FormData();
+  formData.append('image', data);
+  return axios
+    .post(`/recipes/add/recipeImage`, formData)
+    .then(data => data.data.response);
+};

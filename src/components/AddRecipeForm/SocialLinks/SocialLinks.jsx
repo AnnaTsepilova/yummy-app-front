@@ -14,7 +14,7 @@ const SocialLinks = ({ text }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Facebook width="26" height="26" />
+        <Facebook width="26" height="26"/>
       </a>
       <a
         href="https://www.youtube.com/"

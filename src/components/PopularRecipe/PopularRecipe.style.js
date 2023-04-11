@@ -58,13 +58,22 @@ export const PopularRecipeItem = styled.li`
 
   @media screen and (min-width: 768px) {
     width: 336px;
-    margin-bottom: 40px;
+    &:not(:first-child) {
+      margin-top: 0px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 319px;
+    &:not(:first-child) {
+      margin-top: 24px;
+    }
   }
 `;
 
 export const ImgStyled = styled.img`
   margin-right: 12px;
-
+  object-fit: cover;
   width: 104px;
   height: 85px;
 
