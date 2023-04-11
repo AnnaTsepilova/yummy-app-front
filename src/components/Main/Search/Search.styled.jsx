@@ -12,6 +12,9 @@ export const Input = styled.input`
   font-size: 12px;
   line-height: 1.5;
   border: 1px solid #f0f0f0;
+
+  outline: none;
+
   @media screen and (min-width: 768px) {
     width: 362px;
     font-size: 16px;
