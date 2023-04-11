@@ -276,9 +276,9 @@ export const SelectIngredStyled = styled(Select)`
   } */
 
   & .react-select__dropdown-indicator {
-    display: none;
+    /* display: none; */
 
-    /* padding: 0;
+    /* padding: 0; */
     color: var(--primary-green);
     outline: none;
     &:focus,
@@ -288,7 +288,7 @@ export const SelectIngredStyled = styled(Select)`
       padding: 0;
       color: var(--primary-green);
       outline: none;
-    } */
+    }
   }
   // =========================================
 
