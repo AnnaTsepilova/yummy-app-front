@@ -12,6 +12,7 @@ import {
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 import * as ReactDOMServer from 'react-dom/server';
 import { Notify } from 'notiflix';
+import { ReactComponent as TrashImage } from 'images/Plugs/trash.svg';
 
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const dispatch = useDispatch(); // eslint-disable-line
@@ -53,7 +54,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
       <ButtonLoader color="var(--primary-green)" width={26} />
     );
-    Notify.success('ingredient added to shopping list.');
+    Notify.success('Ingredient added to shopping list.');
     elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
 
     const arr = [];
