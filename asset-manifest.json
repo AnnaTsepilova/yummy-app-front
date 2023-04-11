@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/yummy-app-front/static/css/main.cdc2428b.css",
-    "main.js": "/yummy-app-front/static/js/main.89f3ef24.js",
+    "main.js": "/yummy-app-front/static/js/main.afce65e8.js",
     "static/js/773.e3e9f77b.chunk.js": "/yummy-app-front/static/js/773.e3e9f77b.chunk.js",
     "static/js/126.5efd6db9.chunk.js": "/yummy-app-front/static/js/126.5efd6db9.chunk.js",
-    "static/js/912.57d70dcf.chunk.js": "/yummy-app-front/static/js/912.57d70dcf.chunk.js",
+    "static/js/912.1dfdec62.chunk.js": "/yummy-app-front/static/js/912.1dfdec62.chunk.js",
     "static/js/596.fad48d86.chunk.js": "/yummy-app-front/static/js/596.fad48d86.chunk.js",
     "static/js/4.08ea9b49.chunk.js": "/yummy-app-front/static/js/4.08ea9b49.chunk.js",
     "static/js/778.2027d1be.chunk.js": "/yummy-app-front/static/js/778.2027d1be.chunk.js",
     "static/js/848.9667c0cb.chunk.js": "/yummy-app-front/static/js/848.9667c0cb.chunk.js",
     "static/js/413.91720eb4.chunk.js": "/yummy-app-front/static/js/413.91720eb4.chunk.js",
-    "static/js/226.b5e93f13.chunk.js": "/yummy-app-front/static/js/226.b5e93f13.chunk.js",
+    "static/js/226.d9389ff4.chunk.js": "/yummy-app-front/static/js/226.d9389ff4.chunk.js",
     "static/js/480.144a2846.chunk.js": "/yummy-app-front/static/js/480.144a2846.chunk.js",
-    "static/js/44.feb621be.chunk.js": "/yummy-app-front/static/js/44.feb621be.chunk.js",
+    "static/js/44.a7703cb2.chunk.js": "/yummy-app-front/static/js/44.a7703cb2.chunk.js",
     "static/js/678.3c2ed0bd.chunk.js": "/yummy-app-front/static/js/678.3c2ed0bd.chunk.js",
     "static/js/766.a8dac548.chunk.js": "/yummy-app-front/static/js/766.a8dac548.chunk.js",
     "static/js/958.282ea1be.chunk.js": "/yummy-app-front/static/js/958.282ea1be.chunk.js",
@@ -97,18 +97,18 @@
     "static/media/decrease.svg": "/yummy-app-front/static/media/decrease.fc2439265e0e7f523ec586d3ebb41865.svg",
     "static/media/increase.svg": "/yummy-app-front/static/media/increase.41c21a02084792062685394d4d64f5c1.svg",
     "main.cdc2428b.css.map": "/yummy-app-front/static/css/main.cdc2428b.css.map",
-    "main.89f3ef24.js.map": "/yummy-app-front/static/js/main.89f3ef24.js.map",
+    "main.afce65e8.js.map": "/yummy-app-front/static/js/main.afce65e8.js.map",
     "773.e3e9f77b.chunk.js.map": "/yummy-app-front/static/js/773.e3e9f77b.chunk.js.map",
     "126.5efd6db9.chunk.js.map": "/yummy-app-front/static/js/126.5efd6db9.chunk.js.map",
-    "912.57d70dcf.chunk.js.map": "/yummy-app-front/static/js/912.57d70dcf.chunk.js.map",
+    "912.1dfdec62.chunk.js.map": "/yummy-app-front/static/js/912.1dfdec62.chunk.js.map",
     "596.fad48d86.chunk.js.map": "/yummy-app-front/static/js/596.fad48d86.chunk.js.map",
     "4.08ea9b49.chunk.js.map": "/yummy-app-front/static/js/4.08ea9b49.chunk.js.map",
     "778.2027d1be.chunk.js.map": "/yummy-app-front/static/js/778.2027d1be.chunk.js.map",
     "848.9667c0cb.chunk.js.map": "/yummy-app-front/static/js/848.9667c0cb.chunk.js.map",
     "413.91720eb4.chunk.js.map": "/yummy-app-front/static/js/413.91720eb4.chunk.js.map",
-    "226.b5e93f13.chunk.js.map": "/yummy-app-front/static/js/226.b5e93f13.chunk.js.map",
+    "226.d9389ff4.chunk.js.map": "/yummy-app-front/static/js/226.d9389ff4.chunk.js.map",
     "480.144a2846.chunk.js.map": "/yummy-app-front/static/js/480.144a2846.chunk.js.map",
-    "44.feb621be.chunk.js.map": "/yummy-app-front/static/js/44.feb621be.chunk.js.map",
+    "44.a7703cb2.chunk.js.map": "/yummy-app-front/static/js/44.a7703cb2.chunk.js.map",
     "678.3c2ed0bd.chunk.js.map": "/yummy-app-front/static/js/678.3c2ed0bd.chunk.js.map",
     "766.a8dac548.chunk.js.map": "/yummy-app-front/static/js/766.a8dac548.chunk.js.map",
     "958.282ea1be.chunk.js.map": "/yummy-app-front/static/js/958.282ea1be.chunk.js.map",
@@ -120,6 +120,6 @@
   },
   "entrypoints": [
     "static/css/main.cdc2428b.css",
-    "static/js/main.89f3ef24.js"
+    "static/js/main.afce65e8.js"
   ]
 }
