@@ -3,11 +3,8 @@ import { useState, useEffect} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
 import { nanoid } from 'nanoid'
-// import { SearchBlackBtn } from 'components/Buttons/Buttons';
 import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
-// import { SocialLinksContainer } from 'components/Footer/Footer.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
-// import SocialLinks from 'components/Footer/SocialLinks/SocialLinks';
 import { TitleStyled } from 'components/PopularRecipe/PopularRecipe.style';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields'
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
@@ -25,7 +22,13 @@ const AddRecipeForm = () => {
   const [aboutRecipe, setAboutRecipe] = useState('');
   const [category, setCategory] = useState({ value: '', label: '' });
   const [cookingTimeRecipe, setCookingTimeRecipe] = useState({ value: '', label: '' })
-  const [userIngredientsList, setUserIngredientList] = useState([]);
+  const [userIngredientsList, setUserIngredientList] = useState([{
+      _id: nanoid(),
+      id: '',
+      name: '',
+      unitCount: '',
+      unit: '',
+    }]);
   const [recipePreparation, setRecipePreperation] = useState('');
 
   function initPopularFunc(list) {
@@ -62,7 +65,7 @@ const AddRecipeForm = () => {
     setUserIngredientList(newIngredientsList);
   };
 
-  const handleOnDeleteContact = (index) => {
+  const handleOnDeleteIngredient = (index) => {
     const newIngredientsList = [...userIngredientsList];
     newIngredientsList.splice(index, 1);
     setUserIngredientList(newIngredientsList);
@@ -146,7 +149,7 @@ const AddRecipeForm = () => {
             userList={{ userIngredientsList }}
             handleIncIngredient={handleIncIngredient}
             handleDecIngredient={handleDecIngredient}
-            handleOnDeleteContact={handleOnDeleteContact}
+            handleOnDeleteIngredient={handleOnDeleteIngredient}
             handleOnChangeIngName={handleOnChangeIngName}
             handleOnChangeIngUnit={handleOnChangeIngUnit}
             handleOnChangeUnitCount={handleOnChangeUnitCount}
