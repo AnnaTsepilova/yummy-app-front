@@ -126,7 +126,6 @@ const AddRecipeForm = () => {
       ingredients: userIngredientsList.map(e => { return { [`${e.id}`]: `${e.unitCount} ${e.unit}` } }),
       preparation: recipePreparation,
     }
-    console.log(recipeItem);
     try {
       addRecipe(recipeItem).then(() => {
         Notify.success('Recipe add to database.', {
@@ -144,7 +143,7 @@ const AddRecipeForm = () => {
             padding: '10px',
           });
     }
-    
+
   }
 
   const handleOnImgSelect = async (e) => {
