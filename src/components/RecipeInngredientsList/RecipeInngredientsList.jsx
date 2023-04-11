@@ -15,9 +15,12 @@ import {
 } from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
 import CustomCheckbox from 'components/RecipeInngredientsList/CheckBox/CheckBox';
 import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
+import { ReactComponent as DefaultImage } from 'images/Plugs/image.svg';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const list = useSelector(selectRecipe); // eslint-disable-line
+
+  console.log(ingredients);
 
   return (
     <Box>
@@ -34,10 +37,15 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
           if (!_id) {
             return null;
           }
+
           return (
             <ListItem key={_id}>
               <Wrapper>
-                <Img alt={ttl} src={thb} width={48} height={48} />
+                {thb === '' ? (
+                  <DefaultImage />
+                ) : (
+                  <Img alt={ttl} src={thb} width={48} height={48} />
+                )}
                 <Title>{ttl}</Title>
               </Wrapper>
               <ButtonWrapper>

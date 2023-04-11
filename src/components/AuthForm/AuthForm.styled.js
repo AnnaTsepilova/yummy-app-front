@@ -63,8 +63,13 @@ export const InputWrap = styled.div`
   margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid ${props =>
-    props.correct ? '#3CBC81' : (props.error ? '#E74A3B' : 'rgba(250, 250, 250, 0.3)')};
+  border: 1px solid
+    ${props =>
+      props.correct
+        ? '#3CBC81'
+        : props.error
+        ? '#E74A3B'
+        : 'rgba(250, 250, 250, 0.3)'};
   font-size: 18px;
   color: var(--primary-white);
   transition: border 250ms var(--transition-function);
@@ -90,9 +95,9 @@ export const InputWrap = styled.div`
     width: 18px;
     height: 18px;
     background-image: url(${props =>
-    props.correct
-      ? props.iconTabUrlG
-      : props.error
+      props.correct
+        ? props.iconTabUrlG
+        : props.error
         ? props.iconTabUrlE
         : props.iconUrl});
     background-size: contain;
@@ -108,14 +113,13 @@ export const InputWrap = styled.div`
     height: 18px;
     right: 19px;
     background-image: ${props =>
-    props.error
-      ? `url(${props.iconError})`
-      : props.warning
+      props.error
+        ? `url(${props.iconError})`
+        : props.warning
         ? `url(${props.iconWarning})`
         : props.correct
-          ? `url(${props.iconCorrect})`
-          : ''};
-
+        ? `url(${props.iconCorrect})`
+        : ''};
 
     background-size: contain;
     background-repeat: no-repeat;
@@ -129,15 +133,14 @@ export const InputWrap = styled.div`
       width: 24px;
       height: 24px;
       background-image: url(${props =>
-    props.correct
-      ? props.iconTabUrlG
-      : props.error
-        ? props.iconTabUrlE
-        : props.iconTabUrl});
+        props.correct
+          ? props.iconTabUrlG
+          : props.error
+          ? props.iconTabUrlE
+          : props.iconTabUrl});
     }
   }
 `;
-
 
 export const FormInput = styled.input`
   position: absolute;
@@ -233,34 +236,7 @@ export const FormLink = styled(NavLink)`
 
 export const Error = styled.div`
   font-size: 10px;
-  color: #e74a3b;
-  position: relative;
-  left: -13px;
-  bottom: -170%;
-
-    @media (min-width: 768px) {
-  font-size: 14px;
-  left: -13px;
-  bottom: -150%;
-  }
-`;
-
-export const Correct = styled.div`
-  font-size: 10px;
-  color: #3CBC81;
-  position: relative;
-  left: -13px;
-  bottom: -170%;
-    @media (min-width: 768px) {
-  font-size: 14px;
-  left: -13px;
-  bottom: -150%;
-  }
-`;
-
-export const Warning = styled.div`
-  font-size: 10px;
-  color: #F6C23E;
+  color: var(--input-red);
   position: relative;
   left: -13px;
   bottom: -170%;
@@ -272,4 +248,29 @@ export const Warning = styled.div`
   }
 `;
 
+export const Correct = styled.div`
+  font-size: 10px;
+  color: var(--input-green);
+  position: relative;
+  left: -13px;
+  bottom: -170%;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    left: -13px;
+    bottom: -150%;
+  }
+`;
 
+export const Warning = styled.div`
+  font-size: 10px;
+  color: var(--input-yellow);
+  position: relative;
+  left: -13px;
+  bottom: -170%;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    left: -13px;
+    bottom: -150%;
+  }
+`;

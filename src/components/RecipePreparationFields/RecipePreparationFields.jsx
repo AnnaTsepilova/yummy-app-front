@@ -1,5 +1,9 @@
-import React from 'react'
-import { FormWrapper, TitleStyled, TextAreaStyled } from './RecipePreparationFields.styled'
+import React from 'react';
+import {
+  FormWrapper,
+  TitleStyled,
+  TextAreaStyled,
+} from './RecipePreparationFields.styled';
 const RecipePreparationFields = ({ dataField, handleOnRecipePreperation }) => {
   return (
     <>
@@ -8,13 +12,16 @@ const RecipePreparationFields = ({ dataField, handleOnRecipePreperation }) => {
         <TextAreaStyled
           as="textarea"
           name="text"
+          placeholder="Enter recipe"
           value={dataField}
-          onChange={e => { handleOnRecipePreperation(e.currentTarget.value) }}
+          onChange={e => {
+            handleOnRecipePreperation(e.currentTarget.value);
+          }}
           required
         />
       </FormWrapper>
     </>
-  )
-}
+  );
+};
 
-export default RecipePreparationFields
+export default RecipePreparationFields;

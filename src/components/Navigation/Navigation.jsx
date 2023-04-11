@@ -5,7 +5,10 @@ import { NavDiv } from './Navigation.styled';
 const Nav = () => {
   return (
     <NavDiv>
-      <NavLink to="/search" state={{ ingredient: true }}>
+      <NavLink
+        to="/search?query=&type=ingredients"
+        state={{ ingredient: true }}
+      >
         Ingredients
       </NavLink>
       <NavLink to="/add">Add recipes</NavLink>

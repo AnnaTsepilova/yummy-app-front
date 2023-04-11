@@ -14,37 +14,50 @@ export const FormWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
   }
+
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: row;
+    margin-bottom: 100px;
   }
 `;
 
 export const WrapperFieldsInput = styled.div`
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
+
+  margin-left: auto;
+  margin-right: auto;
+
   width: 343px;
+
   @media screen and (min-width: 768px) {
     width: 393px;
     margin-left: 0px;
     margin-right: 0px;
   }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+  }
 `;
 
 export const ImgLabel = styled.label`
+  display: flex;
+
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 32px;
+
   width: 279px;
   height: 268px;
-  display: flex;
-  background: #8baa36;
+
+  background: var(--primary-green);
   border-radius: 8px;
+
   cursor: pointer;
-  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -84,19 +97,32 @@ export const ImageInput = styled.button`
 
 export const FieldStyled = styled(Field)`
   max-width: auto;
-  height: 40px;
-  font-style: normal;
-  font-weight: 400;
+  margin-bottom: 24px;
+  padding: 0 0 18px 0;
+
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 1);
+
   border: none;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 24px;
+  border-bottom: 1px solid var(--lineColor);
+  background-color: var(--primary-white);
+
+  &:focus,
+  &:active,
+  &:hover,
+  &::selection {
+    outline: none;
+    //border-color: transparent;
+    //box-shadow: 0 0 0 1px transparent;
+  }
+
   @media (min-width: 768px) {
     font-size: 16px;
     margin-bottom: 32px;
   }
+
   @media (min-width: 1440px) {
     margin-bottom: 40px;
   }
@@ -106,22 +132,29 @@ export const WrapperSelect = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0;
+
   margin-bottom: 24px;
+
+  border-bottom: 1px solid var(--lineColor);
+
   @media (min-width: 768px) {
     margin-bottom: 32px;
   }
+
   @media (min-width: 768px) {
     margin-bottom: 40px;
   }
 `;
 
 export const LabelSelectStyled = styled.label`
-  font-style: normal;
-  font-weight: 400;
+  padding-bottom: 18px;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
+
+  color: var(--black);
+  opacity: 0.5;
+
   @media (min-width: 768px) {
     font-size: 16px;
   }
@@ -129,21 +162,19 @@ export const LabelSelectStyled = styled.label`
 
 export const SelectStyled = styled(Select)`
   & .react-select__control {
+    width: 123px;
+    height: 25px;
+
     border: none;
     /* border-bottom: 1px solid #e0e0e0; */
     outline: none;
     box-shadow: none;
-    width: 123px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    color: #fafafa;
+    background-color: var(--primary-white);
 
     &--is-focused,
     &--menu-is-open {
       outline: none;
-      border: 1px solid transparent;
+      //border: 1px solid transparent;
     }
 
     &:focus,
@@ -152,38 +183,41 @@ export const SelectStyled = styled(Select)`
     &::selection {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 0 1px transparent;
-    }
-
-    @media (min-width: 768px) {
-      font-size: 16px;
-      height: 43px;
+      //box-shadow: 0 0 0 1px transparent;
     }
   }
 
+  // стилизует инпут выпадающего списка ================
   & .react-select__single-value {
-    font-family: Poppins, sans-serif;
-    font-weight: 400;
-    text-align: left;
+    // стилизует текст ================
+    font-weight: 500;
     font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
+    line-height: 1;
+    text-align: right;
     letter-spacing: -0.02em;
+    color: var(--black);
+
     @media (min-width: 768px) {
       font-size: 16px;
-      height: 43px;
-      text-align: center;
     }
   }
 
   & .react-select__value-container {
-    color: rgba(0, 0, 0, 0.5);
+    // стилизует контейнер ================
+    margin-right: 8px;
+    padding: 0 0 16px 0;
+
+    @media (min-width: 768px) {
+      padding: 0 0 24px 0;
+    }
   }
+  // =========================================
 
   & .react-select-container {
     box-shadow: none;
     outline: none;
     border-color: transparent;
+    // box-shadow: none;
 
     &:focus,
     &:active,
@@ -191,44 +225,90 @@ export const SelectStyled = styled(Select)`
     &::selection {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 0 1px transparent;
+      //box-shadow: 0 0 0 1px transparent;
     }
   }
-
+  // стилизует выпадающий список ================
   & .react-select__menu-list {
-    background-color: transparent;
-    border-radius: 0px 0px 6px 6px;
-    width: 123px;
-    height: 180px;
-    font-size: 12px;
-    line-height: 1;
-    letter-spacing: -0.02em;
+    margin-top: 0;
+    padding: 0;
+
+    height: 140px;
+
     text-align: left;
 
+    border-radius: 6px;
+
     @media (min-width: 768px) {
-      font-size: 14px;
-      height: 185px;
+      margin-left: -8px;
+      //width: 130px;
+      height: 170px;
     }
-
-    color: rgba(0, 0, 0, 0.5) !important;
-  }
-
-  & .react-select__option {
-    background-color: #fafafa;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  & .react-select__dropdown-indicator {
-    color: #8baa36;
-  }
-
-  & .react-select__indicator-separator {
-    display: none;
   }
 
   & .react-select__menu {
-    margin: 0;
-    border-radius: 0px 0px 6px 6px;
+    margin-top: -15px;
+    padding: 2px 0 8px 8px;
+
+    width: 123px;
+
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.03);
+
+    @media (min-width: 768px) {
+      width: 132px;
+      //height: 173px;
+    }
+  }
+
+  // стилизует опции внутри списка ================
+  & .react-select__option {
+    margin-bottom: -12px;
+
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.5);
+
+    background-color: var(--white);
+
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
+  }
+  // =========================================
+
+  // стилизует стрелочку выпадающего списка ================
+  & .react-select__indicators {
+    height: 20px;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      height: 15px;
+    }
+  }
+
+  & .react-select__dropdown-indicator {
+    padding: 0;
+    color: var(--primary-green);
+    outline: none;
+    transition: color 250ms var(--transition-function);
+
+    &:focus,
+    &:active,
+    &:hover,
+    &::selection {
+      padding: 0;
+      color: var(--primary-green);
+      outline: none;
+    }
+  }
+
+  // =========================================
+
+  & .react-select__indicator-separator {
+    display: none;
   }
 
   & .react-select__placeholder {

@@ -47,7 +47,7 @@ export const BoxLink = styled.div`
   transition: color 250ms var(--transition-function);
 
   &:hover {
-    color: #8baa36;
+    color: var(--primary-green);
   }
 `;
 
@@ -66,6 +66,6 @@ export const RecipeLink = styled(Link)`
   transition: color 250ms var(--transition-function);
 
   &:hover {
-    color: #8baa36;
+    color: var(--primary-green);
   }
 `;

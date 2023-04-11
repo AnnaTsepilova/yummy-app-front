@@ -151,6 +151,7 @@ table {
   --input-red: #e74a3b;
   --input-green: #3cbc81;
   --input-yellow: #f6c23e;
+  --input-bg: #f5f5f5;
 
   /* BACKGROUND */
   --background-light: #ececec;

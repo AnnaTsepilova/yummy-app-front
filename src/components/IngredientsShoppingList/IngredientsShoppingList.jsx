@@ -36,7 +36,7 @@ const IngredientsShoppingList = () => {
   useEffect(() => {
     dispatch(getUserShoppingList());
   }, [dispatch]);
-
+  console.log(shoppingList);
   return (
     <>
       <BoxSL>

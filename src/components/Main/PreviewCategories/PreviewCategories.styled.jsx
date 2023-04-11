@@ -15,7 +15,7 @@ export const Box = styled.div`
 `;
 
 export const Section = styled.section`
-  margin-bottom: -100px;
+  //margin-bottom: -100px;
 
   /* @media screen and (min-width: 1440px) {
     margin-bottom: 118px;
