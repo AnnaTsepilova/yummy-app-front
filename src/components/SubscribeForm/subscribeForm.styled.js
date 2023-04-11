@@ -66,15 +66,15 @@ export const InputWrap = styled.div`
   position: relative;
   border: 1px solid
     ${props =>
-    props.correct
-      ? '#3CBC81'
-      : props.error
+      props.correct
+        ? '#3CBC81'
+        : props.error
         ? '#E74A3B'
         : 'rgba(250, 250, 250, 0.3)'};
   border-radius: 6px;
   width: 204px;
   height: 38px;
-  padding: 12px;
+  /* padding: 12px; */
   margin-bottom: 8px;
   transition: border 250ms var(--transition-function);
 
@@ -90,13 +90,13 @@ export const InputWrap = styled.div`
     height: 18px;
     right: 19px;
     background-image: ${props =>
-    props.error
-      ? `url(${props.iconError})`
-      : props.warning
+      props.error
+        ? `url(${props.iconError})`
+        : props.warning
         ? `url(${props.iconWarning})`
         : props.correct
-          ? `url(${props.iconCorrect})`
-          : ''};
+        ? `url(${props.iconCorrect})`
+        : ''};
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -110,9 +110,9 @@ export const InputWrap = styled.div`
     width: 16px;
     height: 12px;
     background-image: url(${props =>
-    props.correct
-      ? props.iconTabUrlG
-      : props.error
+      props.correct
+        ? props.iconTabUrlG
+        : props.error
         ? props.iconTabUrlE
         : props.iconUrl});
     background-size: contain;
@@ -160,16 +160,22 @@ export const Input = styled.input`
   transform: translateY(-50%);
   width: 100%;
   height: 100%;
-  padding: 12px 10px 12px 35px;
+  padding: 12px 10px 12px 42px;
   margin-left: -12px;
   border-radius: 6px;
   border: none;
   background: transparent;
 
-  @media only screen and (min-width: 1440px) {
-    padding-left: 50px;
+  @media only screen and (min-width: 768px) {
+    padding-left: 53px;
   }
+
+  @media only screen and (min-width: 1440px) {
+    padding-left: 60px;
+  }
+
   ${formInputStyles}
+
   ::placeholder {
     font-size: 10px;
     font-weight: 400;
