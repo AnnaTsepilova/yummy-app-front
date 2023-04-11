@@ -58,18 +58,26 @@ Replace `<url repository>` with the URL of your GitHub repository.
 
 # Authors
 
+
+
+
+ |  №  |              Auhors                        | Position        |       Direction     |
+ | ----|--------------------------------------------------|------------|-----------------------|
+ |  1  | [Anna Tsepilova](https://github.com/AnnaTsepilova)| ***Team Lead*** | ***Front-end Developer*** |
+ |  2  | [Oleksandr Soldatchenko](https://github.com/oleksandrsoldatchenko) | ***Scrum Master***  | ***Front-end Developer*** |
+ |  3  | [Volodymyr Sagan (QNe)](https://github.com/QNeee) |    | ***Backend & Front-end Developer*** | 
+ |  4  | [Oksana Hurduz](https://github.com/HurduzOksana) |     |***Front-end Developer*** | 
+ |  5  | [Anna Pohorielova](https://github.com/Pohorielova) |     |***Front-end Developer*** | 
+ |  6  | [Oleksii Onufriienko](https://github.com/Oleksii-onufriienko) |     |***Backend & Front-end Developer*** | 
+ |  7  | [Ruslan Tendora (TnRuslan)](https://github.com/TnRuslan) |      |***Front-end Developer*** | 
+ |  8  | [Kulik Viktor](https://github.com/Victor1988V) |       |***Front-end Developer*** |
+ |  9  | [Denys Yefimov (EfirNet)](https://github.com/EfirNet) |       |***Backend & Front-end Developer*** |  
+ |  10  | [Inna Konokh]() | ***Team Lead*** | ***Quality Assurance Engineer*** | 
+
+
 </div>
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-
+______
 
 <div align='justify'>
 
