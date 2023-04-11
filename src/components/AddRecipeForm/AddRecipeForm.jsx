@@ -3,6 +3,7 @@ import { useState, useEffect} from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Formik} from 'formik';
 import { nanoid } from 'nanoid';
+import { useNavigate } from "react-router-dom";
 
 import { StyledForm, WrapperSubmitButton, WrapperPage, WrapperPopularRecipe } from './AddRecipeForm.styled';
 import { SearchBlackBtn } from 'components/Buttons/Buttons';
@@ -16,7 +17,7 @@ import SocialLinks from './SocialLinks/SocialLinks';
 import { getPopularRecipe, addRecipe, addRecipeImg} from 'service/API/dishesApi';
 
 const AddRecipeForm = () => {
-
+  const navigate = useNavigate();
   const [popularRecipeList, setPopularRecipeList] = useState([]);
   const [imgURL, setImageURL] = useState('');
   const [imgData, setImageData] = useState(null);
@@ -134,6 +135,7 @@ const AddRecipeForm = () => {
           padding: '10px',
         });
         resetMyForm();
+        navigate("/my", { replace: true })
       }
       );
     } catch (error) {
