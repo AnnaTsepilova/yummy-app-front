@@ -99,17 +99,23 @@ const AddRecipeForm = () => {
   }
 
   const resetForm = () => {
+    setImageURL('');
     setItemTitleRecipe('');
     setAboutRecipe('');
     setCategory({ value: '', label: '' });
     setCookingTimeRecipe({ value: '', label: '' })
-    setUserIngredientList([]);
+    setUserIngredientList([{
+      _id: nanoid(),
+      id: '',
+      name: '',
+      unitCount: '',
+      unit: '',
+    }]);
     setRecipePreperation('');
   }
 
   const handleOnSubmit = async () => {
     const recipeItem = {
-
       title: itemTitleRecipe,
       description: aboutRecipe,
       recipeImage: imgURL,
@@ -119,6 +125,8 @@ const AddRecipeForm = () => {
       preparation: recipePreparation,
     }
 
+    // console.log(recipeItem);
+    // resetForm();
     try {
       addRecipe(recipeItem).then(() => {
         Notify.success('Recipe add to database.', {
