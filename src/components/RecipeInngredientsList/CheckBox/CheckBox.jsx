@@ -12,7 +12,7 @@ import {
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
 import * as ReactDOMServer from 'react-dom/server';
 import { Notify } from 'notiflix';
-import { ReactComponent as TrashImage } from 'images/Plugs/trash.svg';
+// import { ReactComponent as TrashImage } from 'images/Plugs/trash.svg';
 
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const dispatch = useDispatch(); // eslint-disable-line

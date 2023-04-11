@@ -49,7 +49,7 @@ const Search = ({ startQuery }) => {
             name="search"
             type="text"
             autocomplete="off"
-            placeholder="Beef |"
+            placeholder="Search..."
           />
           <BtnWrapper>
             <SearchBlackBtn type="submit">Search</SearchBlackBtn>{' '}
