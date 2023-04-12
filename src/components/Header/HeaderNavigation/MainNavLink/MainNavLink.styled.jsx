@@ -13,6 +13,10 @@ export const NavLinkStyle = styled(NavLink)`
 
   cursor: pointer;
 
+  &.active {
+    color: var(--primary-green);
+  }
+
   &:hover,
   &:focus,
   &:active {
