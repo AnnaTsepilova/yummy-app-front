@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect} from "react";
-import { RecipeBox,DescriptionWraper, RecipeDescription, RecipeHeader, PopularRecipeItem, ImgStyled, FormWrapper, TitleStyled } from './PopularRecipe.style'
+import { LinkStyled, RecipeBox,DescriptionWraper, RecipeDescription, RecipeHeader, PopularRecipeItem, ImgStyled, FormWrapper, TitleStyled } from './PopularRecipe.style'
+
 
 const PopularRecipe = ({ popularRecipeList }) => {
   const [windowWidth, setWindowWidth] = useState(window.screen.width);
@@ -17,12 +18,15 @@ const PopularRecipe = ({ popularRecipeList }) => {
           {popularRecipeList.map((e, index) => {
             if (windowWidth < 1440 && windowWidth > 768 && index > 1) return(<div key={e._id}></div>);
             return (
+              
               <PopularRecipeItem key={e._id}>
-                <ImgStyled src={e.preview} alt={e.title} />
-                  <DescriptionWraper>
-                  <RecipeHeader>{ e.title}</RecipeHeader>
-                    <RecipeDescription>{ e.description }</RecipeDescription>
-                  </DescriptionWraper>
+                <LinkStyled to={`recipe/${e._id}`}>
+                  <ImgStyled src={e.preview} alt={e.title} />
+                    <DescriptionWraper>
+                      <RecipeHeader>{ e.title}</RecipeHeader>
+                      <RecipeDescription>{ e.description }</RecipeDescription>
+                    </DescriptionWraper>
+                </LinkStyled>
                 </PopularRecipeItem>
             )
           })}

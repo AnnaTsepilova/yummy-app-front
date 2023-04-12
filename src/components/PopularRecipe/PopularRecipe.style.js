@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FormWrapper = styled.div`
   margin-left: auto;
@@ -44,6 +45,34 @@ export const TitleStyled = styled.h3`
 `;
 
 export const PopularRecipeItem = styled.li`
+  /* display: flex;
+  padding-bottom: 13px;
+
+  width: 343px;
+  height: auto;
+
+  border-bottom: 1px solid rgba(112, 112, 112, 0.17);
+
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    &:not(:first-child) {
+      margin-top: 0px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 319px;
+    &:not(:first-child) {
+      margin-top: 24px;
+    }
+  } */
+`;
+
+export const LinkStyled = styled(Link)`
   display: flex;
   padding-bottom: 13px;
 
