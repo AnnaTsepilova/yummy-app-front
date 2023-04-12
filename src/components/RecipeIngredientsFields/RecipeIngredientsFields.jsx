@@ -60,7 +60,7 @@ const RecipeIngredientsFields = ({userList, handleIncIngredient, handleDecIngred
                      <UnitWrapper>
                         <UnitCount type="number"
                           min="0"
-                          onChange={e => { handleOnChangeUnitCount(e.currentTarget.value, index)}} 
+                          onChange={e => { handleOnChangeUnitCount(e, index)}} 
                           name={`uniCount${index}`}
                           placeholder="0"
                         />
