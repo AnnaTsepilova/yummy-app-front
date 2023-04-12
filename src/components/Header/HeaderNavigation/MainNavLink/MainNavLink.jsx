@@ -8,7 +8,7 @@ const MainNavLink = ({ to, title, closeMenu = () => {} }) => {
     <NavLinkStyle
       as={NavLink}
       to={to}
-      activeClassName="active"
+      activeclassname="active"
       onClick={() => closeMenu()}
     >
       {title}

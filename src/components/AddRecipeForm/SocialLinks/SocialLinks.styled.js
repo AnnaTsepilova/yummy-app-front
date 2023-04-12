@@ -21,6 +21,5 @@ export const SocialLinksContainer = styled.div`
 
   & > a :hover * {
     fill: var(--background-dark);
-    stroke: var(--background-dark);
   }
 `;
