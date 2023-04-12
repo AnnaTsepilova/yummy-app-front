@@ -41,7 +41,9 @@ const RecipeDescriptionFields = ({ dataField, handleOnImgSelect,handleOnTitleRec
               id="image"
               name="image"
               type="file"
-          onChange={handleOnImgSelect}>
+              onChange={handleOnImgSelect}
+              required        
+          >  
           </ImageInput>
         </ImgLabel>
         <WrapperFieldsInput>
