@@ -41,7 +41,11 @@ const UserProfileForm = () => {
 
     if (image && name && name !== userName) {
       if (!password) {
-        Notify.warning('Please enter a password and try again');
+        Notify.warning('Please enter a password and try again', {
+          fontSize: '16px',
+          width: '350px',
+          padding: '10px',
+        });
         return;
       }
       const formData = new FormData();
@@ -68,7 +72,11 @@ const UserProfileForm = () => {
 
     if (name !== userName) {
       if (!password) {
-        Notify.warning('Please enter a password and try again');
+        Notify.warning('Please enter a password and try again', {
+          fontSize: '16px',
+          width: '350px',
+          padding: '10px',
+        });
         return;
       }
       dispatch(updateUserById(user));

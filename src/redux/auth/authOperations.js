@@ -44,7 +44,7 @@ export const signIn = createAsyncThunk(
       Notify.failure(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
-        padding: '20px',
+        padding: '10px',
       });
 
       return thunkAPI.rejectWithValue({
@@ -65,6 +65,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     Notify.warning(error.response.data.message, {
       fontSize: '16px',
       width: '350px',
+      padding: '10px',
     });
 
     return thunkAPI.rejectWithValue({
@@ -86,6 +87,7 @@ export const getUserById = createAsyncThunk(
       Notify.warning(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
+        padding: '10px',
       });
 
       return thunkAPI.rejectWithValue({
@@ -103,12 +105,17 @@ export const updateUserById = createAsyncThunk(
     token.set(state.auth.accessToken);
     try {
       const { data } = await axios.put(`/auth/${state.auth.userId}`, user);
-      Notify.success('Name was changed');
-      return data;
-    } catch (error) {
-      Notify.warning('Please enter a password and try again', {
+      Notify.success('Name was changed', {
         fontSize: '16px',
         width: '350px',
+        padding: '10px',
+      });
+      return data;
+    } catch (error) {
+      Notify.warning('Please enter your password and try again', {
+        fontSize: '16px',
+        width: '350px',
+        padding: '10px',
       });
 
       return thunkAPI.rejectWithValue({
@@ -133,12 +140,17 @@ export const upLoadAvatar = createAsyncThunk(
         },
         data: file,
       });
-      Notify.success('Avatar was changed');
+      Notify.success('Avatar was changed', {
+        fontSize: '16px',
+        width: '350px',
+        padding: '10px',
+      });
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
+        padding: '10px',
       });
 
       return thunkAPI.rejectWithValue({
@@ -171,6 +183,7 @@ export const refreshToken = createAsyncThunk(
       Notify.warning(error.response.data.message, {
         fontSize: '16px',
         width: '350px',
+        padding: '10px',
       });
 
       return thunkAPI.rejectWithValue({

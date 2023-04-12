@@ -39,7 +39,11 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
       const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
         <ButtonLoader color="var(--primary-green)" />
       );
-      Notify.success('Ingredient deleted from shopping list.');
+      Notify.success('Ingredient was deleted from shopping list.', {
+        fontSize: '16px',
+        width: '350px',
+        padding: '10px',
+      });
 
       elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
       const arr = [];
@@ -54,7 +58,11 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
       <ButtonLoader color="var(--primary-green)" width={26} />
     );
-    Notify.success('Ingredient added to shopping list.');
+    Notify.success('Ingredient added to shopping list.', {
+      fontSize: '16px',
+      width: '350px',
+      padding: '10px',
+    });
     elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
 
     const arr = [];

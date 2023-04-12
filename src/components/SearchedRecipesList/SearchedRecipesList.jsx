@@ -61,7 +61,11 @@ const SearchedRecipesList = () => {
 
   const handleOnSubmit = (query1, type1) => {
     if (query1 === '') {
-      Notiflix.Notify.warning(`You didn't enter anything to search`);
+      Notiflix.Notify.warning(`You didn't enter anything to search`, {
+        fontSize: '16px',
+        width: '350px',
+        padding: '10px',
+      });
       return;
     }
     setSearchParams(

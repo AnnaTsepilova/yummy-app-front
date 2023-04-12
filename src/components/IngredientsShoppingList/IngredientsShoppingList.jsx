@@ -33,7 +33,11 @@ const IngredientsShoppingList = () => {
       measure: item,
     };
     dispatch(removeFromShoppingList(list));
-    Notify.success('Ingredient deleted from shopping list.');
+    Notify.success('Ingredient was deleted from shopping list.', {
+      fontSize: '16px',
+      width: '350px',
+      padding: '10px',
+    });
   };
   useEffect(() => {
     dispatch(getUserShoppingList());

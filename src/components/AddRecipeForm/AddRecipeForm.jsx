@@ -150,7 +150,7 @@ const AddRecipeForm = () => {
 
     try {
       addRecipe(recipeItem).then(() => {
-        Notify.success('Recipe add to database.', {
+        Notify.success('Recipe was added to database.', {
           fontSize: '16px',
           width: '350px',
           padding: '10px',
