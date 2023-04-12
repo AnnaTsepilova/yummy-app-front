@@ -14,6 +14,7 @@ import {
   SmallUserIcon,
   PasswordInputIcon,
   PlusFileIcon,
+  PasswordLabel,
 } from './UserProfileForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -40,7 +41,7 @@ const UserProfileForm = () => {
 
     if (image && name && name !== userName) {
       if (!password) {
-        Notify.warning('Please enter a password and try again12');
+        Notify.warning('Please enter a password and try again');
         return;
       }
       const formData = new FormData();
@@ -122,7 +123,7 @@ const UserProfileForm = () => {
           value={formik.values.name}
         />
       </NameLabel>
-      <NameLabel htmlFor="password">
+      <PasswordLabel htmlFor="password" need={userName !== formik.values.name}>
         <PasswordInputIcon />
         <NameInput
           id="password"
@@ -133,7 +134,7 @@ const UserProfileForm = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-      </NameLabel>
+      </PasswordLabel>
 
       <SubmitBtn type="submit">Save changes </SubmitBtn>
     </StyledForm>
