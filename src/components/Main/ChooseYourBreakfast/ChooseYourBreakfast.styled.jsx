@@ -44,7 +44,7 @@ export const BoxLink = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover {
     color: var(--primary-green);
@@ -63,7 +63,7 @@ export const RecipeLink = styled(Link)`
   justify-content: flex-end;
   align-items: center;
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover {
     color: var(--primary-green);

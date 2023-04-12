@@ -76,7 +76,7 @@ export const InputWrap = styled.div`
   height: 38px;
   /* padding-left: 12px; */
   margin-bottom: 8px;
-  transition: border 250ms var(--transition-function);
+  transition: border var(--transition-function);
 
   &:hover {
     border: 1px solid var(--white);
@@ -207,7 +207,7 @@ export const Button = styled.button`
   color: var(--primary-white);
   background-color: var(--primary-green);
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover {
     color: var(--secondary-black);

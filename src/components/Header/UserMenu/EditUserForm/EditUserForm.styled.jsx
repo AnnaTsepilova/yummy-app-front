@@ -65,7 +65,7 @@ export const EditButton = styled.button`
   line-height: 1.6;
   cursor: pointer;
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   svg path {
     stroke: var(--primary-black);

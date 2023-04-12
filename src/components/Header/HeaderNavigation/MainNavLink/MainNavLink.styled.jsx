@@ -9,7 +9,7 @@ export const NavLinkStyle = styled(NavLink)`
   line-height: 18px;
   color: var(--secondary-black);
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   cursor: pointer;
 

@@ -72,7 +72,7 @@ export const InputWrap = styled.div`
   font-size: 18px;
   color: var(--primary-white);
 
-  transition: border 250ms var(--transition-function);
+  transition: border var(--transition-function);
 
   &:hover,
   &:active,
@@ -159,7 +159,7 @@ export const FormButton = styled.button`
   color: var(--primary-white);
   text-align: center;
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   cursor: pointer;
 
@@ -185,7 +185,7 @@ export const FormLink = styled(NavLink)`
   text-decoration-line: underline;
   color: var(--primary-white);
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover,
   &:focus {

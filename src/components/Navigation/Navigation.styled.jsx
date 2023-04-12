@@ -10,7 +10,7 @@ export const NavDiv = styled.nav`
   letter-spacing: -0.02em;
 
   & > * {
-    transition: color 250ms var(--transition-function);
+    transition: color var(--transition-function);
   }
 
   cursor: pointer;

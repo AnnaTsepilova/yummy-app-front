@@ -14,8 +14,8 @@ export const StyledSearchBlackBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  
-  transition: background-color 250ms var(--transition-function);
+
+  transition: background-color var(--transition-function);
 
   &:hover {
     background-color: var(--primary-green);
@@ -46,7 +46,7 @@ export const StyledSearchGreenBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function);
+  transition: background-color var(--transition-function);
 
   &:hover {
     background-color: var(--secondary-black);
@@ -76,7 +76,7 @@ export const StyledSubscribeGreenBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover {
     color: var(--secondary-black);
@@ -108,7 +108,7 @@ export const StyledLogOutBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function);
+  transition: background-color var(--transition-function);
 
   &:hover {
     background-color: var(--secondary-black);
@@ -136,8 +136,8 @@ export const StyledCancelBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function),
-    border 250ms var(--transition-function);
+  transition: background-color var(--transition-function),
+    border var(--transition-function);
 
   &:hover {
     border: 1px solid var(--primary-black);
@@ -166,7 +166,7 @@ export const StyledSeeAllBtn = styled.div`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function);
+  transition: background-color var(--transition-function);
 
   &:hover {
     background-color: var(--secondary-black);
@@ -187,8 +187,8 @@ export const StyledOtherCatBtn = styled.div`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function),
-    color 250ms var(--transition-function);
+  transition: background-color var(--transition-function),
+    color var(--transition-function);
 
   &:hover {
     background-color: var(--primary-green);
@@ -220,8 +220,8 @@ export const StyledAddRecipeBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function),
-    color 250ms var(--transition-function);
+  transition: background-color var(--transition-function),
+    color var(--transition-function);
 
   &:hover {
     background-color: var(--primary-green);
