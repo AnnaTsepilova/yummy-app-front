@@ -5,7 +5,7 @@ const checkPasswordStrength = password => {
     useValidationSchema.validateSync(password);
     return 'strong';
   } catch (err) {
-    if (password.length >= 6 && password.length < 20) {
+    if (password.length >= 10 && password.length < 20) {
       return 'medium';
     } else {
       return 'weak';
