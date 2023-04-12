@@ -72,7 +72,7 @@ export const InputWrap = styled.div`
         : 'rgba(250, 250, 250, 0.3)'};
   font-size: 18px;
   color: var(--primary-white);
-  transition: border 250ms var(--transition-function);
+  transition: border var(--transition-function);
 
   &:hover {
     border: 1px solid var(--primary-white);
@@ -222,7 +222,7 @@ export const FormLink = styled(NavLink)`
   text-decoration-line: underline;
   color: var(--primary-white);
 
-  transition: color 250ms var(--transition-function);
+  transition: color var(--transition-function);
 
   &:hover,
   &:focus {

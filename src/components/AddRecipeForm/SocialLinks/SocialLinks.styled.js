@@ -16,7 +16,7 @@ export const SocialLinksContainer = styled.div`
   margin: 0;
   padding: 0;
   & > a {
-    transition: all 250ms var(--transition-function);
+    transition: all var(--transition-function);
   }
 
   & > a :hover * {

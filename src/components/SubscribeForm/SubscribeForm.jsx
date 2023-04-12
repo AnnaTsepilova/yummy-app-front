@@ -31,9 +31,17 @@ const SubscribeForm = () => {
         Notiflix.Notify.success('Great! You signed up!');
       } catch (error) {
         if (error.response && error.response.status === 400) {
-          Notiflix.Notify.info('A user with this email is already signed');
+          Notiflix.Notify.info('User with this email is already signed', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
         } else {
-          Notiflix.Notify.failure('There was an error, try again later');
+          Notiflix.Notify.failure('There was an error, try again later', {
+            fontSize: '16px',
+            width: '350px',
+            padding: '10px',
+          });
         }
       }
     },

@@ -170,7 +170,7 @@ export const RegistrationLink = styled(NavLink)`
   text-align: center;
 
   cursor: pointer;
-  transition: background-color 250ms var(--transition-function);
+  transition: background-color var(--transition-function);
 
   &:hover {
     background-color: var(--secondary-black);
@@ -200,8 +200,8 @@ export const SignInLink = styled(NavLink)`
   text-align: center;
 
   cursor: pointer;
-  transition: border 250ms var(--transition-function),
-    color 250ms var(--transition-function);
+  transition: border var(--transition-function),
+    color var(--transition-function);
 
   &:hover {
     border: 2px solid var(--primary-green);

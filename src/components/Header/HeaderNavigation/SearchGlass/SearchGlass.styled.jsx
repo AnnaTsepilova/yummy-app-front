@@ -8,8 +8,8 @@ export const Search = styled.button`
   border: none;
   background-color: transparent;
   background-image: url('${SearchGlassSvg}');
-  
-  transition: background-image 250ms var(--transition-function);
+
+  transition: background-image var(--transition-function);
 
   &:hover,
   &:focus,
