@@ -40,7 +40,7 @@ export const SeeAllBtn = ({ children, href }) => {
 export const OtherCatBtn = ({ children }) => {
   return (
     <StyledOtherCatBtn>
-      <Link role="button" to="/categories/breakfast">
+      <Link role="button" to="/categories/beef">
         {children}
       </Link>
     </StyledOtherCatBtn>
