@@ -14,3 +14,28 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
+
+// import { useState, useEffect } from 'react';
+// import { Button } from './ScrollToTop.styled';
+
+// const ScrollToTop = () => {
+//   const [showButton, setShowButton] = useState(false);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setShowButton(window.pageYOffset > 200);
+//     };
+//     window.addEventListener('scroll', handleScroll);
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   const handleClick = () => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   };
+
+//   return <>{showButton && <Button onClick={handleClick}>Top</Button>}</>;
+// };
+
+// export default ScrollToTop;
