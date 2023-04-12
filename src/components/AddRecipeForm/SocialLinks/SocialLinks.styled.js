@@ -20,7 +20,7 @@ export const SocialLinksContainer = styled.div`
   }
 
   & > a :hover * {
-    fill: #1e1f28;
-    stroke: #1e1f28;
+    fill: var(--background-dark);
+    stroke: var(--background-dark);
   }
 `;
