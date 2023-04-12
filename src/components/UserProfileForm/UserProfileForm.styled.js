@@ -129,6 +129,14 @@ export const NameInput = styled.input`
   }
 `;
 
+export const PasswordLabel = styled(NameLabel)`
+  opacity: ${props => (props.need ? '1' : '0')};
+  display: ${props => (props.need ? 'block' : 'none')};
+
+  transition: display var(--transition-function),
+    opasity var(--transition-function);
+`;
+
 export const SmallUserIcon = styled(UserIcon)`
   position: absolute;
   top: 50%;
