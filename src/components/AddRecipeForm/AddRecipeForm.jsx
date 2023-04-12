@@ -88,8 +88,13 @@ const AddRecipeForm = () => {
   };
 
   const handleOnChangeUnitCount = (e, i) => {
+    let tmpData = e.currentTarget.value;
+    if (tmpData < 0) {
+      tmpData = 0;
+      e.currentTarget.value = 0;
+    }
     const tmpList = [...userIngredientsList];
-    tmpList[i].unitCount = e;
+    tmpList[i].unitCount = tmpData;
     setUserIngredientList(tmpList);
   };
 
