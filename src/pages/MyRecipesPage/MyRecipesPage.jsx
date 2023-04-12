@@ -9,7 +9,7 @@ import { MuiPag } from 'components/MuiPagination/MuiPag';
 import {
   selectMyRecipes,
   selectIsLoading,
-  selectTotalMyResipes,
+  selectTotalMyRecipes,
 } from 'redux/userRecipes/userRecipesSelectors';
 import {
   getMyRecipe,
@@ -19,7 +19,7 @@ import {
 const MyRecipesPage = () => {
   const recipes = useSelector(selectMyRecipes);
   const isLoading = useSelector(selectIsLoading);
-  const totalMyRecipes = useSelector(selectTotalMyResipes);
+  const totalMyRecipes = useSelector(selectTotalMyRecipes);
 
   const [page, setPage] = useState(1);
   const perPage = 4;

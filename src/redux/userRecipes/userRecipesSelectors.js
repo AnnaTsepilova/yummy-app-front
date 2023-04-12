@@ -12,6 +12,6 @@ export const selectRecipe = state => state.userRecipes.recipeById;
 
 export const selectTotalFavorite = state => state.userRecipes.totalFavorite;
 
-export const selectTotalMyResipes = state => state.userRecipes.totalMyRecipes;
+export const selectTotalMyRecipes = state => state.userRecipes.totalMyRecipes;
 
 export const selectIsLoadBtn = state => state.userRecipes.isLoadBtn;
