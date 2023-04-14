@@ -81,7 +81,7 @@ export const getUserById = createAsyncThunk(
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      const { data } = await axios.get(`/auth/${userId}`);
+      const { data } = await axios.get(`/auth/`);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
@@ -104,7 +104,7 @@ export const updateUserById = createAsyncThunk(
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      const { data } = await axios.put(`/auth/${state.auth.userId}`, user);
+      const { data } = await axios.put(`/auth/`, user);
       Notify.success('Name was changed', {
         fontSize: '16px',
         width: '350px',
