@@ -31,7 +31,7 @@ export const getShoppingList = async () => {
 export const addShoppingList = async obj => {
   try {
     const { data } = await axios.post(
-      `/shopping-list/add?recipeId=${obj[1]}`,
+      `/shopping-list/?recipeId=${obj[1]}`,
       obj[0]
     );
 
@@ -46,12 +46,12 @@ export const deleteShoppingList = async obj => {
   try {
     if (obj.length > 0) {
       const { data } = await axios.delete(
-        `/shopping-list/remove/${obj[0].ingredientId}?measure=${obj[0].measure}&recipeId=${obj[1]}`
+        `/shopping-list/${obj[0].ingredientId}?measure=${obj[0].measure}&recipeId=${obj[1]}`
       );
       return data;
     }
     const { data } = await axios.delete(
-      `/shopping-list/remove/${obj.id}?measure=${obj.measure}`
+      `/shopping-list/${obj.id}?measure=${obj.measure}`
     );
     return data;
   } catch (error) {
@@ -85,7 +85,7 @@ export const getRecipeByCategoryAPI = () => {
 };
 
 export const getMyRecipeAPI = page => {
-  return axios.get(`/recipes?page=${page}`).then(({ data }) => {
+  return axios.get(`/ownRecipes?page=${page}`).then(({ data }) => {
     return data;
   });
 };
@@ -103,7 +103,7 @@ export const removeRecipeFromFavoriteAPI = id => {
 };
 
 export const removeMyRecipeAPI = id => {
-  return axios.delete(`/recipes/remove/${id}`).then(({ data }) => {
+  return axios.delete(`/ownRecipes/${id}`).then(({ data }) => {
     return data;
   });
 };
@@ -126,7 +126,7 @@ export const setAuthHeader = token => {
 export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
   return axios
     .get(
-      `/recipes/search/recipes?title=${query}&ingredient=${query}&page=${page}&per_page=${per_page}`
+      `/recipes/search/byTitle?title=${query}&ingredient=${query}&page=${page}&per_page=${per_page}`
     )
     .then(({ data }) => {
       return data;
@@ -136,7 +136,7 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
 export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
   return axios
     .get(
-      `/recipes/search/recipes?ingredient=${query}&page=${page}&per_page=${per_page}`
+      `/recipes/search/byIngr?ingredient=${query}&page=${page}&per_page=${per_page}`
     )
     .then(({ data }) => {
       return data;
@@ -156,7 +156,7 @@ export const getPopularRecipe = async () => {
 };
 
 export const addRecipe = async data => {
-  return axios.post(`/recipes/add`, data).then(({ result }) => {
+  return axios.post(`/ownRecipes/`, data).then(({ result }) => {
     return result;
   });
 };
@@ -165,6 +165,6 @@ export const addRecipeImg = async data => {
   const formData = new FormData();
   formData.append('image', data);
   return axios
-    .post(`/recipes/add/recipeImage`, formData)
+    .post(`/ownRecipes/recipeImage`, formData)
     .then(data => data.data.response);
 };
