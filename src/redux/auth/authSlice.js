@@ -77,12 +77,12 @@ const authSlice = createSlice({
       })
       .addCase(authOperations.refreshToken.rejected, (state, action) => {})
 
-      .addCase(authOperations.getUserById.pending, handlePending)
-      .addCase(authOperations.getUserById.fulfilled, (state, action) => {
+      .addCase(authOperations.current.pending, handlePending)
+      .addCase(authOperations.current.fulfilled, (state, action) => {
         state.userEmail = action.payload.email;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.getUserById.rejected, handleRejected)
+      .addCase(authOperations.current.rejected, handleRejected)
 
       .addCase(authOperations.updateUserById.pending, handlePending)
       .addCase(authOperations.updateUserById.fulfilled, (state, action) => {

@@ -75,13 +75,13 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-export const getUserById = createAsyncThunk(
+export const current = createAsyncThunk(
   'auth/user',
   async (userId, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      const { data } = await axios.get(`/auth/`);
+      const { data } = await axios.get(`/auth/current`);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
