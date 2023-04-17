@@ -43,16 +43,18 @@ const userRecipesSlice = createSlice({
         state.isLoadBtn = true;
       })
       .addCase(addRecipeToFavorite.fulfilled, (state, { payload }) => {
+        console.log(payload);
         state.isLoadBtn = false;
-        // state.favorite = payload;
+        state.favorite.push(payload);
       })
       .addCase(addRecipeToFavorite.rejected, rejected)
       .addCase(removeRecipeFromFavorite.pending, state => {
         state.isLoadBtn = true;
       })
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
+        console.log(payload);
         state.isLoadBtn = false;
-        const index = state.favorite.findIndex(item => item.id === payload);
+        const index = state.favorite.findIndex(item => item._id === payload);
         state.favorite.splice(index, 1);
         state.isLoading = false;
       })

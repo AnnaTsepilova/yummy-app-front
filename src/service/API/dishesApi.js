@@ -98,7 +98,8 @@ export const addRecipeTofavoriteAPI = id => {
 
 export const removeRecipeFromFavoriteAPI = id => {
   return axios.put(`/favorite/${id}`).then(({ data }) => {
-    return data;
+    console.log(data);
+    return data._id;
   });
 };
 

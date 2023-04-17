@@ -24,9 +24,7 @@ const FavoritesPage = () => {
   const [page, setPage] = useState(1);
   const perPage = 4;
   const count = Math.ceil(totalFavorite / perPage);
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getFavoriteRecipes(page));
   }, [dispatch, page]);
@@ -45,6 +43,7 @@ const FavoritesPage = () => {
           items={recipes}
           btnStyle={'secondary'}
           removeFnc={removeRecipeFromFavorite}
+          change={setPage}
         />
       )}
 
