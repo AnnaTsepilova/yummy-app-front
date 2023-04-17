@@ -14,12 +14,13 @@ import {
   Title,
 } from 'components/RecipeInngredientsList/RecipeInngredientsList.styled';
 import CustomCheckbox from 'components/RecipeInngredientsList/CheckBox/CheckBox';
-import { selectRecipe } from 'redux/userRecipes/userRecipesSelectors';
+import { selectRecipe, selectShoppingList } from 'redux/userRecipes/userRecipesSelectors';
 import { ReactComponent as DefaultImage } from 'images/Plugs/image.svg';
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const list = useSelector(selectRecipe); // eslint-disable-line
-
+  const shoppingList = useSelector(selectShoppingList);
+  console.log(shoppingList);
   return (
     <Box>
       <ListHeader>
@@ -31,7 +32,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
       </ListHeader>
       <List>
         {ingredients?.map(({ _id, ttl, desc, thb, measure }) => {
-          const isChecked = ingredients?.some(item => item._id === _id); // eslint-disable-line
+          const isChecked = shoppingList?.filter(item => item.id === _id).flatMap(item => item.recipesId).includes(recipeId);
           if (!_id) {
             return null;
           }
