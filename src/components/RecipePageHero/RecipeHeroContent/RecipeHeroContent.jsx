@@ -36,7 +36,6 @@ const RecipeHeroContent = ({ title, description, time, id }) => {
     // setIsFavorite(userFavouritesRecipes.includes(id));
     dispatch(getFavoriteRecipes('all'));
   }, [dispatch]);
-  console.log(!userFavouritesRecipes.map(item => item._id === recipe._id).join(''));
   const func = () => {
     const check = userFavouritesRecipes.filter(item => item._id === recipe._id);
     if (check.length > 0) {

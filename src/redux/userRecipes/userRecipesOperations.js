@@ -100,7 +100,6 @@ export const removeRecipeFromFavorite = createAsyncThunk(
     setAuthHeader(token);
     try {
       if (id.page) {
-        console.log('alo');
         const data = await removeRecipeFromFavoriteAPI(id.id);
         return data;
       }

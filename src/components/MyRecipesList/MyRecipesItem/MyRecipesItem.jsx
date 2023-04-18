@@ -22,7 +22,6 @@ const MyRecipesItem = ({ data, btnStyle, removeFnc, change, page }) => {
   const { _id, title, description, preview, time } = data;
   const dispatch = useDispatch();
   const recipes = useSelector(selectFavoriteRecipes);
-  console.log('page', page)
   return (
     <Item>
       <ImgWrapper>

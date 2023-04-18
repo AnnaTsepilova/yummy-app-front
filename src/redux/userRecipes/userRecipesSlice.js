@@ -43,7 +43,6 @@ const userRecipesSlice = createSlice({
         state.isLoadBtn = true;
       })
       .addCase(addRecipeToFavorite.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoadBtn = false;
         state.favorite.push(payload);
       })
@@ -52,7 +51,6 @@ const userRecipesSlice = createSlice({
         state.isLoadBtn = true;
       })
       .addCase(removeRecipeFromFavorite.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoadBtn = false;
         const index = state.favorite.findIndex(item => item._id === payload);
         state.favorite.splice(index, 1);
