@@ -84,7 +84,7 @@ export const addRecipeToFavorite = createAsyncThunk(
     setAuthHeader(token);
     try {
       const data = await addRecipeTofavoriteAPI(id);
-      await dispatch(getFavoriteRecipes('all'));
+      // await dispatch(getFavoriteRecipes('all'));
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -101,12 +101,10 @@ export const removeRecipeFromFavorite = createAsyncThunk(
     try {
       if (id.page) {
         const data = await removeRecipeFromFavoriteAPI(id.id);
-        await dispatch(getFavoriteRecipes(id.page));
-        return data.id;
+        return data;
       }
       const data = await removeRecipeFromFavoriteAPI(id);
-      await dispatch(getFavoriteRecipes());
-      return data.id;
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
