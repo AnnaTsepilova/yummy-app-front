@@ -1,22 +1,12 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3333/api';
-
 export const getCategoryListAPI = () => {
   return axios.get('/recipes/category-list').then(({ data }) => {
     return data;
   });
 };
 
-export const patchShoppingList = async info => {
-  try {
-    const { data } = await axios.patch(`/shoping-list/`, info);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
+// ShoppingList Page
 
 export const getShoppingList = async () => {
   try {
@@ -59,6 +49,8 @@ export const deleteShoppingList = async obj => {
     return null;
   }
 };
+
+// Recipe Page
 
 export const getLimitedRecipesByCategoryAPI = category => {
   return axios.get(`/recipes/${category}`).then(({ data }) => {
@@ -119,20 +111,14 @@ export const getFavoriteRecipesAPI = page => {
   });
 };
 
-export const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
 export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
   return axios
-    .get(
-      `/recipes/search?title=${query}&page=${page}&per_page=${per_page}`
-    )
+    .get(`/recipes/search?title=${query}&page=${page}&per_page=${per_page}`)
     .then(({ data }) => {
       return data;
     });
 };
-///
+
 export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
   return axios
     .get(
@@ -142,6 +128,8 @@ export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
       return data;
     });
 };
+
+// Add Recipe Page
 
 export const getIngredientsList = async () => {
   return axios.get(`/ingredients/list`).then(({ data }) => {

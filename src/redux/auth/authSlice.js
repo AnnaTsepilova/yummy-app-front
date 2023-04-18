@@ -5,6 +5,7 @@ const initialState = {
   accessToken: '',
   refreshToken: '',
   sid: '',
+  user: null,
   userId: null,
   userName: '',
   userEmail: '',
@@ -62,6 +63,7 @@ const authSlice = createSlice({
         state.accessToken = null;
         state.refreshToken = null;
         state.sid = null;
+        state.user = null;
         state.userName = null;
         state.userEmail = null;
         state.userAvatar = '';
@@ -77,12 +79,13 @@ const authSlice = createSlice({
       })
       .addCase(authOperations.refreshToken.rejected, (state, action) => {})
 
-      .addCase(authOperations.current.pending, handlePending)
-      .addCase(authOperations.current.fulfilled, (state, action) => {
+      .addCase(authOperations.getCurrentUser.pending, handlePending)
+      .addCase(authOperations.getCurrentUser.fulfilled, (state, action) => {
         state.userEmail = action.payload.email;
+        state.user = action.payload;
         state.isLoggedIn = true;
       })
-      .addCase(authOperations.current.rejected, handleRejected)
+      .addCase(authOperations.getCurrentUser.rejected, handleRejected)
 
       .addCase(authOperations.updateUserById.pending, handlePending)
       .addCase(authOperations.updateUserById.fulfilled, (state, action) => {

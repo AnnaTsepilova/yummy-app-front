@@ -2,7 +2,14 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
+import {
+  signUpUser,
+  signInUser,
+  logOutUser,
+  getCurrentUserAPI,
+  updateUserByIdAPI,
+  refreshTokenAPI,
+} from 'service/API/authAPI';
 
 const token = {
   set(token) {
@@ -17,7 +24,7 @@ export const signUp = createAsyncThunk(
   'auth/signup',
   async (user, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/signup', user);
+      const { data } = await signUpUser(user);
       return data;
     } catch (error) {
       Notify.failure(error.response.data.message, {
@@ -37,7 +44,7 @@ export const signIn = createAsyncThunk(
   'auth/signin',
   async (user, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/signin', user);
+      const { data } = await signInUser(user);
       token.set(data.accessToken);
       return data;
     } catch (error) {
@@ -59,7 +66,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   token.set(state.auth.accessToken);
   try {
-    await axios.post('/auth/logout');
+    await logOutUser();
     token.unset();
   } catch (error) {
     Notify.warning(error.response.data.message, {
@@ -75,13 +82,13 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-export const current = createAsyncThunk(
+export const getCurrentUser = createAsyncThunk(
   'auth/user',
-  async (userId, thunkAPI) => {
+  async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      const { data } = await axios.get(`/auth/current`);
+      const { data } = await getCurrentUserAPI();
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
@@ -100,11 +107,11 @@ export const current = createAsyncThunk(
 
 export const updateUserById = createAsyncThunk(
   'auth/updateUser',
-  async (user, thunkAPI) => {
+  async (userId, thunkAPI) => {
     const state = thunkAPI.getState();
     token.set(state.auth.accessToken);
     try {
-      const { data } = await axios.put(`/auth/`, user);
+      const { data } = await updateUserByIdAPI(userId);
       Notify.success('Name was changed', {
         fontSize: '16px',
         width: '350px',
@@ -173,7 +180,7 @@ export const refreshToken = createAsyncThunk(
     const update = state.auth.refreshToken;
     token.set(update);
     try {
-      const { data } = await axios.post('/auth/refresh', {
+      const { data } = await refreshTokenAPI({
         sid,
       });
       token.set(data.newAccessToken);

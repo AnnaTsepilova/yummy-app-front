@@ -39,18 +39,11 @@ export const App = () => {
   const accessToken = useSelector(selectToken);
   const location = window.location;
 
-  // for Google authorization
-  // useEffect(() => {
-  //   if (!token) {
-  //     return;
-  //   }
-  //   dispatch(authOperations.refreshToken());
-  // }, [dispatch]);
-
   useEffect(() => {
     if (accessToken) {
       authOperations.setAuthHeader(accessToken);
       dispatch(setAccessToken(accessToken));
+      dispatch(authOperations.getCurrentUser());
       if (
         location.pathname === '/yummy-app-front/signin' ||
         location.pathname === '/yummy-app-front/register'
