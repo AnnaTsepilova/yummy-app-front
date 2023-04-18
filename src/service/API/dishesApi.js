@@ -132,7 +132,7 @@ export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
       return data;
     });
 };
-
+///
 export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
   return axios
     .get(
