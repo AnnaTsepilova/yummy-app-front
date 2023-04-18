@@ -21,10 +21,10 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const handleChange = async (e) => {
     if (check || check1) return;
     if (isChecked) {
-      setCheck1(true);
       if (elem !== null && elem.firstChild !== null) {
         elem.firstChild.innerHTML = ''
       }
+      setCheck1(true);
       Notify.success('Ingredient was deleted from shopping list.', {
         fontSize: '16px',
         width: '350px',
@@ -38,7 +38,6 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
       await dispatch(removeFromShoppingList(arr));
       return setCheck1(false);
     }
-    setCheck(true);
     const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
       <Svg
         id={measure}
@@ -53,6 +52,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
       </Svg>
     );
     elem?.insertAdjacentHTML('beforeend', buttonLoaderHtml);
+    setCheck(true);
     Notify.success('Ingredient added to shopping list.', {
       fontSize: '16px',
       width: '350px',
