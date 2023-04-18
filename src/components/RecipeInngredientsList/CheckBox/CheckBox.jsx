@@ -21,8 +21,10 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const handleChange = async (e) => {
     if (check || check1) return;
     if (isChecked) {
-      setCheck1(true)
-      elem.firstChild.innerHTML = ''
+      setCheck1(true);
+      if (elem.firstChild) {
+        elem.firstChild.innerHTML = ''
+      }
       Notify.success('Ingredient was deleted from shopping list.', {
         fontSize: '16px',
         width: '350px',
@@ -61,7 +63,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     reqObj[ingredientId] = measure;
     arr.push(reqObj, recipeId);
     await dispatch(addUserShoppingList(arr));
-    elem.removeChild(elem.firstChild);
+    elem?.removeChild(elem.firstChild);
     return setCheck(false);
   }
   return (
