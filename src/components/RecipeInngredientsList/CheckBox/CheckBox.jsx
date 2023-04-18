@@ -50,7 +50,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
         />
       </Svg>
     );
-    elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
+    elem?.insertAdjacentHTML('beforeend', buttonLoaderHtml);
     Notify.success('Ingredient added to shopping list.', {
       fontSize: '16px',
       width: '350px',
