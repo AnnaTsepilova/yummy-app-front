@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-//USER RECIPES
-
 export const addRecipeTofavoriteAPI = id => {
   return axios.post(`/favorites/${id}`).then(({ data }) => {
     return data;
@@ -83,78 +81,4 @@ export const removeRecipeFromFavoriteAPI = id => {
   return axios.delete(`/favorites/${id}`).then(({ data }) => {
     return data._id;
   });
-};
-
-//===================================
-
-// COMMON RECIPES
-export const getCategoryListAPI = () => {
-  return axios.get('/recipes/category-list').then(({ data }) => {
-    return data;
-  });
-};
-
-export const getLimitedRecipesByCategoryAPI = category => {
-  return axios.get(`/recipes/${category}`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getAllRecipesByCategoryAPI = category => {
-  return axios.get(`/recipes/${category}`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
-  return axios
-    .get(`/recipes/search?title=${query}&page=${page}&per_page=${per_page}`)
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
-  return axios
-    .get(
-      `/recipes/search?ingredient=${query}&page=${page}&per_page=${per_page}`
-    )
-    .then(({ data }) => {
-      return data;
-    });
-};
-
-// Recipe Page
-
-// export const getRecipeByCategoryAPI = () => {
-//   return axios.get('/recipes/:category').then(({ data }) => {
-//     return data;
-//   });
-// };
-
-// Add Recipe Page
-export const getIngredientsList = async () => {
-  return axios.get(`/ingredients/list`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getPopularRecipe = async () => {
-  return axios.get(`/recipes/popular`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const addRecipe = async data => {
-  return axios.post(`/ownRecipes/`, data).then(({ result }) => {
-    return result;
-  });
-};
-
-export const addRecipeImg = async data => {
-  const formData = new FormData();
-  formData.append('image', data);
-  return axios
-    .post(`/ownRecipes/recipeImage`, formData)
-    .then(data => data.data.response);
 };

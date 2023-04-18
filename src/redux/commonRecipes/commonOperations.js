@@ -7,7 +7,7 @@ import {
   getAllRecipesByCategoryAPI,
   getRecipesByQueryAPI,
   getRecipesByIngredientAPI,
-} from 'service/API/dishesApi';
+} from 'service/API/commonRecipesAPI';
 
 const token = {
   set(token) {

@@ -11,7 +11,7 @@ import {
   getShoppingList,
   removeMyRecipeAPI,
   removeRecipeFromFavoriteAPI,
-} from 'service/API/dishesApi';
+} from 'service/API/userRecipesAPI';
 
 export const getRecipeById = createAsyncThunk(
   'getRecipeById',
