@@ -75,7 +75,7 @@ export const App = () => {
               <Route path="/recipe/:recipeId" element={<RecipePage />} />
               <Route path="/add" element={<AddRecipePage />} />
               <Route path="/my" element={<MyRecipesPage />} />
-              <Route path="/favorite" element={<FavoritesPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
               <Route path="/shopping-list" element={<ShoppingListPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="*" element={<NotFoundPage />} />

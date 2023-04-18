@@ -7,7 +7,7 @@ const Navigation = () => {
       <NavItem to="/categories">Categories</NavItem>
       <NavItem to="/add">Add recipes</NavItem>
       <NavItem to="/my">My recipes</NavItem>
-      <NavItem to="/favorite">Favorites</NavItem>
+      <NavItem to="/favorites">Favorites</NavItem>
       <NavItem to="/shopping-list">Shopping List</NavItem>
       <NavItem to="/search">Search</NavItem>
     </Nav>
