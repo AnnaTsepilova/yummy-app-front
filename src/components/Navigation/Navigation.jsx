@@ -20,7 +20,7 @@ const Nav = () => {
       </NavLink>
       <NavLink to="/add">Add recipes</NavLink>
       <NavLink to="/my">My recipes</NavLink>
-      <NavLink to="/favorite">Favorite</NavLink>
+      <NavLink to="/favorites">Favorite</NavLink>
       <NavLink to="/shopping-list">Shopping list</NavLink>
     </NavDiv>
   );

@@ -13,7 +13,7 @@ const HeaderNavigation = ({ closeMenu }) => {
       />
       <MainNavLink to="/add" title="Add recipes" closeMenu={closeMenu} />
       <MainNavLink to="/my" title="My recipes" closeMenu={closeMenu} />
-      <MainNavLink to="/favorite" title="Favorites" closeMenu={closeMenu} />
+      <MainNavLink to="/favorites" title="Favorites" closeMenu={closeMenu} />
       <MainNavLink
         to="/shopping-list"
         title="Shopping list"

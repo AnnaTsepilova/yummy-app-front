@@ -91,13 +91,13 @@ export const getMyRecipeAPI = page => {
 };
 
 export const addRecipeTofavoriteAPI = id => {
-  return axios.post(`/favorite/${id}`).then(({ data }) => {
+  return axios.post(`/favorites/${id}`).then(({ data }) => {
     return data;
   });
 };
 
 export const removeRecipeFromFavoriteAPI = id => {
-  return axios.put(`/favorite/${id}`).then(({ data }) => {
+  return axios.put(`/favorites/${id}`).then(({ data }) => {
     return data._id;
   });
 };
@@ -110,11 +110,11 @@ export const removeMyRecipeAPI = id => {
 
 export const getFavoriteRecipesAPI = page => {
   if (page === 'all') {
-    return axios.get(`/favorite/list?all=true`).then(({ data }) => {
+    return axios.get(`/favorites/list?all=true`).then(({ data }) => {
       return data;
     });
   }
-  return axios.get(`/favorite/list?page=${page}`).then(({ data }) => {
+  return axios.get(`/favorites/list?page=${page}`).then(({ data }) => {
     return data;
   });
 };
@@ -150,7 +150,7 @@ export const getIngredientsList = async () => {
 };
 
 export const getPopularRecipe = async () => {
-  return axios.get(`/popular-recipe`).then(({ data }) => {
+  return axios.get(`/recipes/popular`).then(({ data }) => {
     return data;
   });
 };
