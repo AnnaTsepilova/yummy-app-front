@@ -1,21 +1,11 @@
 import axios from 'axios';
 
-export const getCategoryListAPI = () => {
-  return axios.get('/recipes/category-list').then(({ data }) => {
+//USER RECIPES
+
+export const addRecipeTofavoriteAPI = id => {
+  return axios.post(`/favorites/${id}`).then(({ data }) => {
     return data;
   });
-};
-
-// ShoppingList Page
-
-export const getShoppingList = async () => {
-  try {
-    const { data } = await axios.get(`/shopping-list/`);
-    return { shoppingList: data };
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
 };
 
 export const addShoppingList = async obj => {
@@ -50,28 +40,13 @@ export const deleteShoppingList = async obj => {
   }
 };
 
-// Recipe Page
-
-export const getLimitedRecipesByCategoryAPI = category => {
-  return axios.get(`/recipes/${category}`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getAllRecipesByCategoryAPI = category => {
-  return axios.get(`/recipes/${category}`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getRecipeByIdAPI = id => {
-  return axios.get(`/recipes/id/${id}`).then(({ data }) => {
-    return data;
-  });
-};
-
-export const getRecipeByCategoryAPI = () => {
-  return axios.get('/recipes/:category').then(({ data }) => {
+export const getFavoriteRecipesAPI = page => {
+  if (page === 'all') {
+    return axios.get(`/favorites/list?all=true`).then(({ data }) => {
+      return data;
+    });
+  }
+  return axios.get(`/favorites/list?page=${page}`).then(({ data }) => {
     return data;
   });
 };
@@ -82,8 +57,24 @@ export const getMyRecipeAPI = page => {
   });
 };
 
-export const addRecipeTofavoriteAPI = id => {
-  return axios.post(`/favorites/${id}`).then(({ data }) => {
+export const getRecipeByIdAPI = id => {
+  return axios.get(`/recipes/id/${id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getShoppingList = async () => {
+  try {
+    const { data } = await axios.get(`/shopping-list/`);
+    return { shoppingList: data };
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const removeMyRecipeAPI = id => {
+  return axios.delete(`/ownRecipes/${id}`).then(({ data }) => {
     return data;
   });
 };
@@ -94,19 +85,23 @@ export const removeRecipeFromFavoriteAPI = id => {
   });
 };
 
-export const removeMyRecipeAPI = id => {
-  return axios.delete(`/ownRecipes/${id}`).then(({ data }) => {
+//===================================
+
+// COMMON RECIPES
+export const getCategoryListAPI = () => {
+  return axios.get('/recipes/category-list').then(({ data }) => {
     return data;
   });
 };
 
-export const getFavoriteRecipesAPI = page => {
-  if (page === 'all') {
-    return axios.get(`/favorites/list?all=true`).then(({ data }) => {
-      return data;
-    });
-  }
-  return axios.get(`/favorites/list?page=${page}`).then(({ data }) => {
+export const getLimitedRecipesByCategoryAPI = category => {
+  return axios.get(`/recipes/${category}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getAllRecipesByCategoryAPI = category => {
+  return axios.get(`/recipes/${category}`).then(({ data }) => {
     return data;
   });
 };
@@ -129,8 +124,15 @@ export const getRecipesByIngredientAPI = (query, page = 1, per_page = 12) => {
     });
 };
 
-// Add Recipe Page
+// Recipe Page
 
+// export const getRecipeByCategoryAPI = () => {
+//   return axios.get('/recipes/:category').then(({ data }) => {
+//     return data;
+//   });
+// };
+
+// Add Recipe Page
 export const getIngredientsList = async () => {
   return axios.get(`/ingredients/list`).then(({ data }) => {
     return data;
