@@ -4,7 +4,7 @@ import { RecipeList } from 'components/MyRecipesList/MyRecipeList.styled';
 import MyRecipesItem from 'components/MyRecipesList/MyRecipesItem/MyRecipesItem';
 import NotFound from 'components/NotFound/NotFound';
 
-const MyRecipesList = ({ items, btnStyle, removeFnc, change }) => {
+const MyRecipesList = ({ items, btnStyle, removeFnc, change, page }) => {
   return (
     <>
       {items.length === 0 ? (
@@ -19,6 +19,7 @@ const MyRecipesList = ({ items, btnStyle, removeFnc, change }) => {
                 btnStyle={btnStyle}
                 removeFnc={removeFnc}
                 change={change}
+                page={page}
               />
             );
           })}

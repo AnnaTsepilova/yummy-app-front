@@ -16,12 +16,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledNotFoundImg } from './MyRecipeItem.styled';
 import { selectFavoriteRecipes } from 'redux/userRecipes/userRecipesSelectors';
+import { getFavoriteRecipes } from 'redux/userRecipes/userRecipesOperations';
 
-const MyRecipesItem = ({ data, btnStyle, removeFnc, change }) => {
+const MyRecipesItem = ({ data, btnStyle, removeFnc, change, page }) => {
   const { _id, title, description, preview, time } = data;
   const dispatch = useDispatch();
   const recipes = useSelector(selectFavoriteRecipes);
-  console.log(recipes.length);
+  console.log('page', page)
   return (
     <Item>
       <ImgWrapper>
@@ -44,7 +45,11 @@ const MyRecipesItem = ({ data, btnStyle, removeFnc, change }) => {
         <DeleteBtn view={btnStyle} onClick={async () => {
           await dispatch(removeFnc(_id))
           if (recipes.length === 1) {
-            change(prev => prev > 1 ? prev - 1 : prev);
+            if (page > 1) {
+              change(prev => prev - 1);
+            } else {
+              dispatch(getFavoriteRecipes(1));
+            }
           }
         }}>
           <StyledIcon view={btnStyle} />

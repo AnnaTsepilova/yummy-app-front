@@ -28,7 +28,6 @@ const FavoritesPage = () => {
   useEffect(() => {
     dispatch(getFavoriteRecipes(page));
   }, [dispatch, page]);
-
   const handleChange = (_, value) => {
     setPage(value);
   };
@@ -44,6 +43,7 @@ const FavoritesPage = () => {
           btnStyle={'secondary'}
           removeFnc={removeRecipeFromFavorite}
           change={setPage}
+          page={page}
         />
       )}
 
