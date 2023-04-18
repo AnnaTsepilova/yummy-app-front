@@ -1,15 +1,15 @@
-export const selectToken = store => store.auth.accessToken;
+export const selectToken = state => state.auth.accessToken;
 
-export const selectRefreshToken = store => store.auth.refreshToken;
+export const selectRefreshToken = state => state.auth.refreshToken;
 
-export const selectSid = store => store.auth.sid;
+export const selectSid = state => state.auth.sid;
 
-export const selectUserId = store => store.auth.userId;
+export const selectUserId = state => state.auth.userId;
 
-export const selectUserEmail = store => store.auth.userEmail;
+export const selectUserEmail = state => state.auth.userEmail;
 
-export const selectIsLoggedIn = store => store.auth.isLoggedIn;
+export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 
-export const selectUserName = store => store.auth.userName;
+export const selectUserName = state => state.auth.userName;
 
-export const selectUserAvatar = store => store.auth.userAvatar;
+export const selectUserAvatar = state => state.auth.userAvatar;

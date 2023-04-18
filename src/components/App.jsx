@@ -39,14 +39,6 @@ export const App = () => {
   const accessToken = useSelector(selectToken);
   const location = window.location;
 
-  // for Google authorization
-  // useEffect(() => {
-  //   if (!token) {
-  //     return;
-  //   }
-  //   dispatch(authOperations.refreshToken());
-  // }, [dispatch]);
-
   useEffect(() => {
     if (accessToken) {
       authOperations.setAuthHeader(accessToken);

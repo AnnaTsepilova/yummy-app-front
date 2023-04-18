@@ -119,9 +119,9 @@ export const getFavoriteRecipesAPI = page => {
   });
 };
 
-export const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+// export const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
 
 export const getRecipesByQueryAPI = (query, page = 1, per_page = 12) => {
   return axios
