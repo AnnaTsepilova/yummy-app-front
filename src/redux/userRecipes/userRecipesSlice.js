@@ -93,7 +93,7 @@ const userRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addUserShoppingList.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload.shoppingList.shopingList;
+        state.shoppingList = payload.shoppingList;
         state.isLoading = false;
         state.error = null;
       })
@@ -102,7 +102,8 @@ const userRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload.shopingList;
+        console.log(payload);
+        state.shoppingList = payload.shoppingList;
         state.isLoading = false;
         state.error = null;
       })
