@@ -10,6 +10,7 @@ import {
   logOutUser,
   getCurrentUserAPI,
   updateUserByIdAPI,
+  refreshTokenAPI,
 } from 'service/API/authAPI';
 
 const token = {
@@ -90,6 +91,7 @@ export const getCurrentUser = createAsyncThunk(
     token.set(state.auth.accessToken);
     try {
       const { data } = await getCurrentUserAPI();
+      console.log('getCurrentUser', data);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {
@@ -181,7 +183,7 @@ export const refreshToken = createAsyncThunk(
     const update = state.auth.refreshToken;
     token.set(update);
     try {
-      const { data } = await axios.post('/auth/refresh', {
+      const { data } = await refreshTokenAPI({
         sid,
       });
       token.set(data.newAccessToken);

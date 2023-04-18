@@ -21,13 +21,19 @@ export const logOutUser = user => {
 };
 
 export const getCurrentUserAPI = () => {
-  return axios.post('/auth/current').then(data => {
+  return axios.get('/auth/current').then(data => {
     return data;
   });
 };
 
 export const updateUserByIdAPI = userId => {
   return axios.put('/auth', userId).then(data => {
+    return data;
+  });
+};
+
+export const refreshTokenAPI = sid => {
+  return axios.put('/auth/refresh', sid).then(data => {
     return data;
   });
 };
