@@ -22,7 +22,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     if (check || check1) return;
     if (isChecked) {
       setCheck1(true);
-      if (elem.firstChild) {
+      if (elem !== null && elem.firstChild !== null) {
         elem.firstChild.innerHTML = ''
       }
       Notify.success('Ingredient was deleted from shopping list.', {
