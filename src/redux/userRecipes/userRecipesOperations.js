@@ -52,7 +52,6 @@ export const addUserShoppingList = createAsyncThunk(
     try {
       const data = await addShoppingList(obj);
 
-      // dispatch(getUserShoppingList());
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -68,7 +67,7 @@ export const removeFromShoppingList = createAsyncThunk(
     setAuthHeader(token);
     try {
       const data = await deleteShoppingList(obj);
-      // dispatch(getUserShoppingList());
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
@@ -84,7 +83,7 @@ export const addRecipeToFavorite = createAsyncThunk(
     setAuthHeader(token);
     try {
       const data = await addRecipeTofavoriteAPI(id);
-      // await dispatch(getFavoriteRecipes('all'));
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.status);

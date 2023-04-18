@@ -173,16 +173,3 @@ export const Measure = styled.span`
     font-size: 18px;
   }
 `;
-
-// // ??
-// export const Button = styled.button`
-//   background-color: transparent;
-//   border: none;
-//   margin-left: 46px;
-
-//   cursor: pointer;
-
-//   @media screen and (min-width: 768px) {
-//     margin-left: 110px;
-//   }
-// `;

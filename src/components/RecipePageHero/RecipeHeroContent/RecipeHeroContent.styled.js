@@ -18,7 +18,6 @@ export const RecipeHeroContentWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    // padding-top: 80px;
     padding: 72px 0 32px;
     max-width: 656px;
     height: 431px;

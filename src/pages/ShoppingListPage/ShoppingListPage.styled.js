@@ -1,4 +1,3 @@
-// const { default: styled } = require('styled-components');
 import styled from 'styled-components';
 import { MainTitleStyled } from 'components/MainTitle/MainTitle.styled';
 

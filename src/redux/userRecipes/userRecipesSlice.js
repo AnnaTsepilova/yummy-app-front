@@ -86,7 +86,6 @@ const userRecipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.shoppingList = payload.shoppingList;
-        // console.log('payload', payload.shoppingList);
       })
       .addCase(getUserShoppingList.rejected, rejected)
       .addCase(addUserShoppingList.pending, state => {

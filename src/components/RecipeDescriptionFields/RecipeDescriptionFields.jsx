@@ -18,8 +18,6 @@ import {
   LabelSelectStyled,
 } from './RecipeDescriptionFields.styled';
 
-//  import { Field } from 'formik';
-
 const RecipeDescriptionFields = ({
   dataField,
   handleOnImgSelect,

@@ -27,8 +27,6 @@ const RecipePageHero = () => {
   const recipe = useSelector(selectRecipe);
   const ingredients = recipe.ingredients;
 
-  // const { title, description, time } = useSelector(selectRecipe);
-
   useEffect(() => {
     dispatch(getUserShoppingList());
     dispatch(getRecipeById(id));

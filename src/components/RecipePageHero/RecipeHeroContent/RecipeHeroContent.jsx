@@ -26,14 +26,13 @@ import {
 } from 'redux/userRecipes/userRecipesSelectors';
 
 const RecipeHeroContent = ({ title, description, time, id }) => {
-  const recipe = useSelector(selectRecipe); // eslint-disable-line
+  const recipe = useSelector(selectRecipe);
 
   const userFavouritesRecipes = useSelector(selectFavoriteRecipes);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoadBtn);
 
   useEffect(() => {
-    // setIsFavorite(userFavouritesRecipes.includes(id));
     dispatch(getFavoriteRecipes('all'));
   }, [dispatch]);
   const func = () => {
