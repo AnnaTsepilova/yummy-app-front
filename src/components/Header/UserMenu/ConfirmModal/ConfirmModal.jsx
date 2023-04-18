@@ -1,22 +1,17 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { logoutUser } from 'redux/auth/authOperation';
-import MobMenuCloseBtn from 'components/Header/MobileNavMenu/MobMenuCloseBtn/MobMenuCloseBtn';
 
+import MobMenuCloseBtn from 'components/Header/MobileNavMenu/MobMenuCloseBtn/MobMenuCloseBtn';
 import {
   Container,
   Title,
   BtnWrapper,
   ConfirmBtn,
   CancelBtn,
-} from './ConfirmModal.styled';
+} from 'components/Header/UserMenu/ConfirmModal/ConfirmModal.styled';
 
 const ConfirmModal = ({ onClose }) => {
-  // const dispatch = useDispatch();
-
   const handleLogoutBtnClick = () => {
     onClose();
-    // dispatch(logoutUser());
   };
 
   return (

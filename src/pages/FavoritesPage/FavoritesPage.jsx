@@ -13,14 +13,12 @@ import {
   selectFavoriteRecipes,
   selectIsLoading,
   selectTotalFavorite,
-  // selectUserError,
 } from 'redux/userRecipes/userRecipesSelectors';
 
 const FavoritesPage = () => {
   const recipes = useSelector(selectFavoriteRecipes);
   const isLoading = useSelector(selectIsLoading);
   const totalFavorite = useSelector(selectTotalFavorite);
-  // const error = useSelector(selectUserError);
   const [page, setPage] = useState(1);
   const perPage = 4;
   const count = Math.ceil(totalFavorite / perPage);

@@ -1,10 +1,4 @@
 import React from 'react';
-// import {
-//   TitleWrapper,
-//   Title,
-//   Products,
-//   RightPartText,
-// } from 'components/IngredientsShoppingList/TitleShoppingList/TitleShoppingList.styled';
 
 import {
   ListHeader,

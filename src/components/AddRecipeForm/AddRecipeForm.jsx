@@ -23,7 +23,7 @@ import {
   getPopularRecipe,
   addRecipe,
   addRecipeImg,
-} from 'service/API/dishesApi';
+} from 'service/API/addRecipeAPI';
 
 const AddRecipeForm = () => {
   const navigate = useNavigate();

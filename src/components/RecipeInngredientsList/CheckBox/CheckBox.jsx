@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-// import { deleteIngredient, updateShoppinList } from 'redux/shopping/operations';
+
 import {
   Box,
   Svg,
@@ -7,20 +7,19 @@ import {
 import {
   addUserShoppingList,
   removeFromShoppingList,
-} from 'redux/userRecipes/userRecipesOperations'; // eslint-disable-line
+} from 'redux/userRecipes/userRecipesOperations';
 import * as ReactDOMServer from 'react-dom/server';
 import { Notify } from 'notiflix';
 import { useState } from 'react';
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
-// import { ReactComponent as TrashImage } from 'images/Plugs/trash.svg';
 
 const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   const elem = document.getElementById(ingredientId);
   const elem1 = document.getElementById(measure);
   const [check, setCheck] = useState(false);
   const [check1, setCheck1] = useState(false);
-  const dispatch = useDispatch(); // eslint-disable-line
-  const handleChange = async (e) => {
+  const dispatch = useDispatch();
+  const handleChange = async e => {
     if (check || check1) return;
     if (isChecked) {
       setCheck1(true);
@@ -63,7 +62,7 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
     await dispatch(addUserShoppingList(arr));
     elem?.removeChild(elem.firstChild);
     return setCheck(false);
-  }
+  };
   return (
     <Box id={ingredientId} onClick={handleChange}>
       {isChecked && (
