@@ -80,7 +80,7 @@ export const removeMyRecipeAPI = id => {
 };
 
 export const removeRecipeFromFavoriteAPI = id => {
-  return axios.put(`/favorites/${id}`).then(({ data }) => {
+  return axios.delete(`/favorites/${id}`).then(({ data }) => {
     return data._id;
   });
 };
