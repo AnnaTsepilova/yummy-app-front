@@ -2,6 +2,8 @@ export const selectToken = state => state.auth.accessToken;
 
 export const selectRefreshToken = state => state.auth.refreshToken;
 
+export const selectUser = state => state.auth.user;
+
 export const selectSid = state => state.auth.sid;
 
 export const selectUserId = state => state.auth.userId;

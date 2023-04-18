@@ -2,8 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-//axios.defaults.baseURL = 'https://y-3wt8.onrender.com/api';
-
 import {
   signUpUser,
   signInUser,
@@ -91,7 +89,6 @@ export const getCurrentUser = createAsyncThunk(
     token.set(state.auth.accessToken);
     try {
       const { data } = await getCurrentUserAPI();
-      console.log('getCurrentUser', data);
       return data;
     } catch (error) {
       Notify.warning(error.response.data.message, {

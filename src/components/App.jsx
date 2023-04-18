@@ -43,6 +43,7 @@ export const App = () => {
     if (accessToken) {
       authOperations.setAuthHeader(accessToken);
       dispatch(setAccessToken(accessToken));
+      dispatch(authOperations.getCurrentUser());
       if (
         location.pathname === '/yummy-app-front/signin' ||
         location.pathname === '/yummy-app-front/register'

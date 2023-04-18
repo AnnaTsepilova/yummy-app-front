@@ -1,19 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
-import { selectToken } from 'redux/auth/authSelectors';
-import { getCurrentUser } from 'redux/auth/authOperations';
-//import Loader from 'components/Loader/Loader';
+import { selectToken, selectUser } from 'redux/auth/authSelectors';
+import Loader from 'components/Loader/Loader';
 
 const PrivateRoute = () => {
-  const dispatch = useDispatch();
+  const currentUser = useSelector(selectUser);
   const token = useSelector(selectToken);
 
-  const fetchCurrentUser = () => {
-    const currentUser = dispatch(getCurrentUser());
-    console.log('PrivateRoute', currentUser);
-  };
-
-  return !token ? <Navigate to="/" /> : <Outlet />;
+  return !token ? <Navigate to="/" /> : !currentUser ? <Loader /> : <Outlet />;
 };
 
 export default PrivateRoute;
