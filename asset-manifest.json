@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/yummy-app-front/static/css/main.cdc2428b.css",
-    "main.js": "/yummy-app-front/static/js/main.6b13b65c.js",
+    "main.js": "/yummy-app-front/static/js/main.bfd300dd.js",
     "static/js/773.7fc2b88a.chunk.js": "/yummy-app-front/static/js/773.7fc2b88a.chunk.js",
     "static/js/126.754238bd.chunk.js": "/yummy-app-front/static/js/126.754238bd.chunk.js",
     "static/js/912.085eaf2e.chunk.js": "/yummy-app-front/static/js/912.085eaf2e.chunk.js",
     "static/js/596.bef205d5.chunk.js": "/yummy-app-front/static/js/596.bef205d5.chunk.js",
     "static/js/4.c214a648.chunk.js": "/yummy-app-front/static/js/4.c214a648.chunk.js",
     "static/js/307.419cdbad.chunk.js": "/yummy-app-front/static/js/307.419cdbad.chunk.js",
-    "static/js/848.6de49055.chunk.js": "/yummy-app-front/static/js/848.6de49055.chunk.js",
+    "static/js/848.74a5a4ec.chunk.js": "/yummy-app-front/static/js/848.74a5a4ec.chunk.js",
     "static/js/413.afef4478.chunk.js": "/yummy-app-front/static/js/413.afef4478.chunk.js",
     "static/js/226.ff97766e.chunk.js": "/yummy-app-front/static/js/226.ff97766e.chunk.js",
     "static/js/480.0242a327.chunk.js": "/yummy-app-front/static/js/480.0242a327.chunk.js",
@@ -20,7 +20,7 @@
     "static/js/805.fbbe51ed.chunk.js": "/yummy-app-front/static/js/805.fbbe51ed.chunk.js",
     "static/js/604.d226f178.chunk.js": "/yummy-app-front/static/js/604.d226f178.chunk.js",
     "static/js/340.bdb1fec0.chunk.js": "/yummy-app-front/static/js/340.bdb1fec0.chunk.js",
-    "static/js/191.2718927b.chunk.js": "/yummy-app-front/static/js/191.2718927b.chunk.js",
+    "static/js/191.ae6e7618.chunk.js": "/yummy-app-front/static/js/191.ae6e7618.chunk.js",
     "static/media/flat-lay-assortment-vegetables@2x.jpg": "/yummy-app-front/static/media/flat-lay-assortment-vegetables@2x.b3cb9dd223855b7eb22d.jpg",
     "static/media/wellcome-page-img-desc@2x.jpg": "/yummy-app-front/static/media/wellcome-page-img-desc@2x.fe0a2f6fc0029425b34e.jpg",
     "static/media/wellcome-page-img-tab@2x.jpg": "/yummy-app-front/static/media/wellcome-page-img-tab@2x.d3853ec4c66027b1a58b.jpg",
@@ -97,14 +97,14 @@
     "static/media/decrease.svg": "/yummy-app-front/static/media/decrease.fc2439265e0e7f523ec586d3ebb41865.svg",
     "static/media/increase.svg": "/yummy-app-front/static/media/increase.41c21a02084792062685394d4d64f5c1.svg",
     "main.cdc2428b.css.map": "/yummy-app-front/static/css/main.cdc2428b.css.map",
-    "main.6b13b65c.js.map": "/yummy-app-front/static/js/main.6b13b65c.js.map",
+    "main.bfd300dd.js.map": "/yummy-app-front/static/js/main.bfd300dd.js.map",
     "773.7fc2b88a.chunk.js.map": "/yummy-app-front/static/js/773.7fc2b88a.chunk.js.map",
     "126.754238bd.chunk.js.map": "/yummy-app-front/static/js/126.754238bd.chunk.js.map",
     "912.085eaf2e.chunk.js.map": "/yummy-app-front/static/js/912.085eaf2e.chunk.js.map",
     "596.bef205d5.chunk.js.map": "/yummy-app-front/static/js/596.bef205d5.chunk.js.map",
     "4.c214a648.chunk.js.map": "/yummy-app-front/static/js/4.c214a648.chunk.js.map",
     "307.419cdbad.chunk.js.map": "/yummy-app-front/static/js/307.419cdbad.chunk.js.map",
-    "848.6de49055.chunk.js.map": "/yummy-app-front/static/js/848.6de49055.chunk.js.map",
+    "848.74a5a4ec.chunk.js.map": "/yummy-app-front/static/js/848.74a5a4ec.chunk.js.map",
     "413.afef4478.chunk.js.map": "/yummy-app-front/static/js/413.afef4478.chunk.js.map",
     "226.ff97766e.chunk.js.map": "/yummy-app-front/static/js/226.ff97766e.chunk.js.map",
     "480.0242a327.chunk.js.map": "/yummy-app-front/static/js/480.0242a327.chunk.js.map",
@@ -116,10 +116,10 @@
     "805.fbbe51ed.chunk.js.map": "/yummy-app-front/static/js/805.fbbe51ed.chunk.js.map",
     "604.d226f178.chunk.js.map": "/yummy-app-front/static/js/604.d226f178.chunk.js.map",
     "340.bdb1fec0.chunk.js.map": "/yummy-app-front/static/js/340.bdb1fec0.chunk.js.map",
-    "191.2718927b.chunk.js.map": "/yummy-app-front/static/js/191.2718927b.chunk.js.map"
+    "191.ae6e7618.chunk.js.map": "/yummy-app-front/static/js/191.ae6e7618.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cdc2428b.css",
-    "static/js/main.6b13b65c.js"
+    "static/js/main.bfd300dd.js"
   ]
 }
