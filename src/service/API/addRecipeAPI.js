@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Add Recipe Page
 export const getIngredientsList = async () => {
-  return axios.get(`/ingredients/list`).then(({ data }) => {
+  return axios.get(`/ingredients`).then(({ data }) => {
     return data;
   });
 };
