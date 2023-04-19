@@ -6,7 +6,10 @@ import Loader from 'components/Loader/Loader';
 const PrivateRoute = () => {
   const currentUser = useSelector(selectUser);
   const token = useSelector(selectToken);
+  console.log('PrivateRoute', currentUser);
+  console.log('PrivateRoute', token);
 
+  // return !token ? <Navigate to="/" /> : !currentUser ? <Loader /> : <Outlet />;
   return !token ? <Navigate to="/" /> : !currentUser ? <Loader /> : <Outlet />;
 };
 

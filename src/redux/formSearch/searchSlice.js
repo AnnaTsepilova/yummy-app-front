@@ -16,7 +16,7 @@ const searchSlice = createSlice({
     builder.addMatcher(
       action => action.type.endsWith(`/rejected`),
       (_state, { payload }) => {
-        if (payload === 401) {
+        if (payload.code === 401) {
           return initialState;
         }
       }
