@@ -20,7 +20,6 @@ const MyRecipesPage = () => {
   const recipes = useSelector(selectMyRecipes);
   const isLoading = useSelector(selectIsLoading);
   const totalMyRecipes = useSelector(selectTotalMyRecipes);
-
   const [page, setPage] = useState(1);
   const perPage = 4;
   const count = Math.ceil(totalMyRecipes / perPage);
@@ -41,7 +40,7 @@ const MyRecipesPage = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <MyRecipesList items={recipes} removeFnc={removeMyRecipe} />
+        <MyRecipesList items={recipes} change={setPage} page={page} removeFnc={removeMyRecipe} />
       )}
 
       {count > 1 && (
