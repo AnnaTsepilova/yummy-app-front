@@ -60,7 +60,6 @@ const RecipeDescriptionFields = ({
             name="image"
             type="file"
             onChange={handleOnImgSelect}
-            required
           ></ImageInput>
         </ImgLabel>
         <WrapperFieldsInput>

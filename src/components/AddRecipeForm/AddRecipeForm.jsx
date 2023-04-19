@@ -133,22 +133,22 @@ const AddRecipeForm = () => {
   };
 
   const handleOnSubmit = async () => {
-    console.log('AddRecipeForm');
-    const newUrl = await addRecipeImg(imgData);
-
-    const recipeItem = {
-      title: itemTitleRecipe,
-      description: aboutRecipe,
-      recipeImage: newUrl,
-      category: category.value,
-      cockingTime: cookingTimeRecipe.value,
-      ingredients: userIngredientsList.map(e => {
-        return { [`${e.id}`]: `${e.unitCount} ${e.unit}` };
-      }),
-      preparation: recipePreparation,
-    };
-
     try {
+      let newUrl = '';
+      if (imgData) {
+        newUrl = await addRecipeImg(imgData);
+      }
+      const recipeItem = {
+        title: itemTitleRecipe,
+        description: aboutRecipe,
+        recipeImage: newUrl,
+        category: category.value,
+        cockingTime: cookingTimeRecipe.value,
+        ingredients: userIngredientsList.map(e => {
+         return { [`${e.id}`]: `${e.unitCount} ${e.unit}` };
+        }),
+        preparation: recipePreparation,
+      };
       addRecipe(recipeItem).then(() => {
         Notify.success('Recipe was added to database.', {
           fontSize: '16px',

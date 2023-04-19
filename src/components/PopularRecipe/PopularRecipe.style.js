@@ -45,13 +45,13 @@ export const TitleStyled = styled.h3`
 `;
 
 export const PopularRecipeItem = styled.li`
-  /* display: flex;
+  display: flex;
   padding-bottom: 13px;
 
   width: 343px;
   height: auto;
 
-  border-bottom: 1px solid rgba(112, 112, 112, 0.17);
+  /* border-bottom: 1px solid rgba(112, 112, 112, 0.17); */
 
   &:not(:first-child) {
     margin-top: 24px;
@@ -69,7 +69,7 @@ export const PopularRecipeItem = styled.li`
     &:not(:first-child) {
       margin-top: 24px;
     }
-  } */
+  }
 `;
 
 export const LinkStyled = styled(Link)`
