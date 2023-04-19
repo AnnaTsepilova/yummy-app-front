@@ -12,16 +12,18 @@ import {
   RecipeImg,
   RecipeSubtitle,
 } from './MyRecipeItem.styled';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledNotFoundImg } from './MyRecipeItem.styled';
-import { selectFavoriteRecipes } from 'redux/userRecipes/userRecipesSelectors';
-import { getFavoriteRecipes } from 'redux/userRecipes/userRecipesOperations';
+import { selectFavoriteRecipes, selectMyRecipes } from 'redux/userRecipes/userRecipesSelectors';
+import { getFavoriteRecipes, getMyRecipe } from 'redux/userRecipes/userRecipesOperations';
 
 const MyRecipesItem = ({ data, btnStyle, removeFnc, change, page }) => {
   const { _id, title, description, preview, time } = data;
   const dispatch = useDispatch();
   const recipes = useSelector(selectFavoriteRecipes);
+  const myrecipes = useSelector(selectMyRecipes);
+  const { pathname } = useLocation();
   return (
     <Item>
       <ImgWrapper>
@@ -43,11 +45,11 @@ const MyRecipesItem = ({ data, btnStyle, removeFnc, change, page }) => {
         </RecipeBtn>
         <DeleteBtn view={btnStyle} onClick={async () => {
           await dispatch(removeFnc(_id))
-          if (recipes.length === 1) {
+          if (recipes.length === 1 || myrecipes.length === 1) {
             if (page > 1) {
               change(prev => prev - 1);
             } else {
-              dispatch(getFavoriteRecipes(1));
+              pathname === '/my' ? dispatch(getMyRecipe(1)) : dispatch(getFavoriteRecipes(1));
             }
           }
         }}>

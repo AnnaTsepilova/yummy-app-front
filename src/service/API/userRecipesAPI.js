@@ -73,7 +73,7 @@ export const getShoppingList = async () => {
 
 export const removeMyRecipeAPI = id => {
   return axios.delete(`/ownRecipes/${id}`).then(({ data }) => {
-    return data;
+    return data._id;
   });
 };
 
