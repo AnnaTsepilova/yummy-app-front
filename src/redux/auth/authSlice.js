@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as authOperations from 'redux/auth/authOperations';
 
 const initialState = {
-  accessToken: '',
-  refreshToken: '',
+  accessToken: null,
+  refreshToken: null,
   sid: '',
   user: null,
   userId: null,
@@ -104,7 +104,7 @@ const authSlice = createSlice({
       .addMatcher(
         action => action.type.endsWith(`/rejected`),
         (_state, { payload }) => {
-          if (payload === 401) {
+          if (payload.code === 401) {
             return initialState;
           }
         }
