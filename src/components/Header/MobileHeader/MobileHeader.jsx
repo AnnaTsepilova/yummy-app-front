@@ -6,7 +6,7 @@ import {
   BurgerStyledIcon,
 } from './MobileHeader.styled';
 import { ReactComponent as MobileLogo } from 'images/Logo/logo-header.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileNavMenu from '../MobileNavMenu/MobileNavMenu';
 import UserIformation from '../UserInformation/UserInformation';
 
@@ -16,10 +16,15 @@ const MobileHeader = () => {
   const openNav = () => {
     setIsOpen(!isOpen);
     !isOpen
-      ? // ? (document.body.style.overflow = 'hidden')
-        (document.body.style.overflow = 'scroll')
+      ? (document.body.style.overflow = 'hidden')
       : (document.body.style.overflow = 'scroll');
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'scroll';
+    };
+  }, []);
 
   return (
     <>
