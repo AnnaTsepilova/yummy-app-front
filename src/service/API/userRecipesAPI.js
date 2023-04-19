@@ -40,11 +40,11 @@ export const deleteShoppingList = async obj => {
 
 export const getFavoriteRecipesAPI = page => {
   if (page === 'all') {
-    return axios.get(`/favorites/list?all=true`).then(({ data }) => {
+    return axios.get(`/favorites?all=true`).then(({ data }) => {
       return data;
     });
   }
-  return axios.get(`/favorites/list?page=${page}`).then(({ data }) => {
+  return axios.get(`/favorites?page=${page}`).then(({ data }) => {
     return data;
   });
 };
