@@ -101,7 +101,6 @@ const userRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.shoppingList = payload.shoppingList;
         state.isLoading = false;
         state.error = null;
