@@ -45,6 +45,7 @@ add their own recipes, and manage their favorite recipes and shopping lists.
 
 - Join us today and let's cook up something delicious together!
 
+<div align="center">
 ![Start](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660332_y_vcgiiz.jpg)
 ![Register](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660331_y_iizmw6.jpg)
 ![Main](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660325_y_q5dz4d.jpg)
@@ -54,6 +55,8 @@ add their own recipes, and manage their favorite recipes and shopping lists.
 ![Ingridients](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660328_y_ag8jfp.jpg)
 ![Add Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660327_y_lw3hhw.jpg)
 ![Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177639/photo_5307875603107660326_y_kkueba.jpg)
+
+</div>
 
 ## Features
 
