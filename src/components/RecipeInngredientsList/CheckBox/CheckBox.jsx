@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Box,
@@ -12,17 +12,27 @@ import * as ReactDOMServer from 'react-dom/server';
 import { Notify } from 'notiflix';
 import { useState } from 'react';
 import ButtonLoader from 'components/RecipePageHero/RecipeHeroContent/ButtonLoader/ButtonLoader';
+import { selectShoppingList } from 'redux/userRecipes/userRecipesSelectors';
 
-const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
-  const elem = document.getElementById(ingredientId);
-  const elem1 = document.getElementById(measure);
+const CustomCheckbox = ({ recipeId, ingredientId, measure, ttl }) => {
+  const shoppingList = useSelector(selectShoppingList);
+  const checkFunc = () => {
+    const recipesId = shoppingList
+      ?.filter(item => item.id === ingredientId)
+      .flatMap(item => item.recipesId);
+    if (recipesId.includes(recipeId)) {
+      return true;
+    }
+    return false;
+  };
   const [check, setCheck] = useState(false);
-  const [check1, setCheck1] = useState(false);
   const dispatch = useDispatch();
   const handleChange = async e => {
-    if (check || check1) return;
-    if (isChecked) {
-      setCheck1(true);
+    const elem = document.getElementById(ingredientId);
+    const elem1 = document.getElementById(ingredientId + ttl);
+    if (check) return;
+    if (checkFunc()) {
+      setCheck(true);
       if (elem1) {
         elem1.innerHTML = '';
       }
@@ -35,15 +45,15 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
         <ButtonLoader color="var(--primary-green)" width={333} />
       );
 
-      elem.insertAdjacentHTML('beforeend', buttonLoaderHtml);
+      elem?.insertAdjacentHTML('beforeend', buttonLoaderHtml);
       const arr = [];
       const reqObj = {};
       reqObj['measure'] = measure;
       reqObj['ingredientId'] = ingredientId;
       arr.push(reqObj, recipeId);
       await dispatch(removeFromShoppingList(arr));
-      elem.removeChild(elem.lastChild);
-      return setCheck1(false);
+      elem?.removeChild(elem.lastChild);
+      return setCheck(false);
     }
     setCheck(true);
     const buttonLoaderHtml = ReactDOMServer.renderToStaticMarkup(
@@ -65,9 +75,9 @@ const CustomCheckbox = ({ recipeId, ingredientId, measure, isChecked }) => {
   };
   return (
     <Box id={ingredientId} onClick={handleChange}>
-      {isChecked && (
+      {checkFunc() && (
         <Svg
-          id={measure}
+          id={ingredientId + ttl}
           viewBox="0 0 17 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

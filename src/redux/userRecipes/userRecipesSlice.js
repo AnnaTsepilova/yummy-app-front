@@ -76,7 +76,7 @@ const userRecipesSlice = createSlice({
       })
       .addCase(getMyRecipe.rejected, rejected)
       .addCase(removeMyRecipe.fulfilled, (state, { payload }) => {
-        const index = state.myRecipes.findIndex(item => item.id === payload);
+        const index = state.myRecipes.findIndex(item => item._id === payload);
         state.myRecipes.splice(index, 1);
         state.isLoading = false;
       })
@@ -101,7 +101,6 @@ const userRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.shoppingList = payload.shoppingList;
         state.isLoading = false;
         state.error = null;

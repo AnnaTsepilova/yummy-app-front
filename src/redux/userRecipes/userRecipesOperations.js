@@ -143,11 +143,10 @@ export const getMyRecipe = createAsyncThunk(
 
 export const removeMyRecipe = createAsyncThunk(
   'userRecipes/removeMyRecipes',
-  async (id, { rejectWithValue, dispatch }) => {
+  async (id, { rejectWithValue }) => {
     try {
       const data = await removeMyRecipeAPI(id);
-      await dispatch(getMyRecipe());
-      return data.id;
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
