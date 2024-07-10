@@ -1,86 +1,149 @@
-<div align='center'>
+# SoYummy
 
-![so-yummy](https://res.cloudinary.com/dbcvume5y/image/upload/v1681172673/rtt_1_1_1_1_cfqf3c.jpg)
+Welcome to SoYummy! This project is a web application that provides users with a
+comprehensive database of recipes. Users can search for recipes by categories,
+add their own recipes, and manage their favorite recipes and shopping lists.
 
-</div>
+![so-yummy](/assets/yummy-app.png) ![so-yummy](/assets/yummy-app-signup.png)
+![so-yummy](/assets/yummy-app-home.png)
 
-<div align='right'>
+## User manual
 
-###### *Welcome to the app!*
-###### *This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook.* 
-###### *You can easily save and retrieve your own recipes at any time.*
- # Instructions for cloning, installing and starting a project.
+- This is a recipe app, essentially your very own culinary book. You can add
+  your recipes and save them for future use.
 
- </div>
+- To begin utilizing the application, it is necessary to complete the
+  registration and sign-in process. Once this is accomplished, you will be
+  directed to the main page, which features a variety of popular categories and
+  a search field for locating recipes.
 
-1. To clone a project on your PC, you will need to install Git. Then go to the command line and run the command: `git clone <url repository>`.
-Replace `<url repository>` with the URL of your GitHub repository.
-2. After you have cloned the repository, go to its directory and run the command: `npm install`. This command will install all the project dependencies that are specified in the `package.json` file.
-3. After installing the dependencies, you can start the project with the command: `npm start`. This command starts the project and opens it in the browser at `http://localhost:3000/`.
-4. You can now work with the project and make changes to it. When you're done, you can save your changes to the repository using Git commands such as `git add`, `git commit` and `git push`.
+- You will not get lost in the application thanks to the main menu. After all,
+  it intuitively tells you the next steps you need to take. The extensive list
+  of recipes is sorted by category.
 
-<div align='center'>
+- Detailed viewing of recipes allows you to see the necessary ingredients for
+  their preparation. Which you can add to your shopping list, and remove at a
+  later date.
 
-# Technology
+- Add your favorite recipes to your favorites and they will never get lost.
 
-</div>
+- Do you love cooking? If so, share your recipes with us! There's a dedicated
+  space in your profile just for that. And of course, don't forget to sign up to
+  receive new recipes in no time.
 
-- The project was implemented in React, built with Webpack, and used such libraries as Styled-Components, MUI, Formik, YUP, Axios, Redux Toolkit and others. Adaptive layout. [Our Backend](https://github.com/AnnaTsepilova/yummy-app-back).
-- The code is written following best practices for writing clean and maintainable code.
-
-<div align='center'>
-
-# User manual
-
- </div>
-
-- This is a recipe app, essentially your very own culinary book. You can add your recipes and save them for future use.
-
-- To begin utilizing the application, it is necessary to complete the registration and sign-in process. Once this is accomplished, you will be directed to the main page, which features a variety of popular categories and a search field for locating recipes.
-
-- You will not get lost in the application thanks to the main menu. After all, it intuitively tells you the next steps you need to take. The extensive list of recipes is sorted by category. 
-
-- Detailed viewing of recipes allows you to see the necessary ingredients for their preparation. Which you can add to your shopping list, and remove at a later date. 
-
-- Add your favorite recipes to your favorites and they will never get lost. 
-
-- Do you love cooking? If so, share your recipes with us! There's a dedicated space in your profile just for that. And of course, don't forget to sign up to receive new recipes in no time. 
-
-- Our community is always looking for fresh and exciting ideas to try in the kitchen, so don't hesitate to share your culinary creations with us. 
+- Our community is always looking for fresh and exciting ideas to try in the
+  kitchen, so don't hesitate to share your culinary creations with us.
 
 - Join us today and let's cook up something delicious together!
 
-<div align='center'>
+|
+![Start](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660332_y_vcgiiz.jpg)
+|
+![Register](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660331_y_iizmw6.jpg)
+|
+![Main](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660325_y_q5dz4d.jpg)
+|
+![Menu](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660329_y_btxy0k.jpg)
+| |
+---------------------------------------------------------------------------------------------------------------------------------
+|
+----------------------------------------------------------------------------------------------------------------------------------
+|
+------------------------------------------------------------------------------------------------------------------------------------
+|
+--------------------------------------------------------------------------------------------------------------------------------
+| |
+![Categories](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660330_y_ft41kv.jpg)
+|
+![Ingridients](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660328_y_ag8jfp.jpg)
+|
+![Add Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660327_y_lw3hhw.jpg)
+|
+![Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177639/photo_5307875603107660326_y_kkueba.jpg)
+|
 
-|![Start](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660332_y_vcgiiz.jpg) |![Register](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660331_y_iizmw6.jpg) |![Main](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660325_y_q5dz4d.jpg) |![Menu](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660329_y_btxy0k.jpg)|
-|----|----|----|-----|
-|![Categories](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660330_y_ft41kv.jpg) |![Ingridients](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660328_y_ag8jfp.jpg) |![Add Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177638/photo_5307875603107660327_y_lw3hhw.jpg) |![Favotites](https://res.cloudinary.com/dbcvume5y/image/upload/c_scale,w_150/v1681177639/photo_5307875603107660326_y_kkueba.jpg)|
+## Features
 
-# Authors
+- **Recipe Categories**: Browse recipes organized into various categories such
+  as Breakfast, Miscellaneous, Vegan, Dessert, etc.
+- **Search Functionality**: Search for recipes using keywords.
+- **Add Recipes**: Users can add their own recipes to the database.
+- **Favorites**: Save favorite recipes for quick access.
+- **Shopping List**: Manage shopping lists for ingredients.
+- **Responsive Design**: The web app is fully responsive and works well on all
+  devices.
 
+## Technologies
 
+- **HTML5**: For the structure of the web pages.
+- **CSS3**, **Styled-Components**, **MUI**: For styling the web pages, including
+  responsive design.
+- **JavaScript**: For adding interactivity and functionality to the site.
+- **React**: For building the user interface.
+- **Redux**: For state management.
+- **Axios**: For making HTTP requests.
+- **Formik**: For forms.
+- **YUP**: For forms validation.
+- **Node.js**: For backend development.
+- **Express.js**: For creating RESTful APIs.
+- **MongoDB**: For the database.
 
+[Our Backend](https://github.com/AnnaTsepilova/yummy-app-back).
 
- |  №  |              Auhors                        | Position        |       Direction     |
- | ----|--------------------------------------------------|------------|-----------------------|
- |  1  | [Anna Tsepilova](https://github.com/AnnaTsepilova)| ***Team Lead*** | ***Front-end Developer*** |
- |  2  | [Oleksandr Soldatchenko](https://github.com/oleksandrsoldatchenko) | ***Scrum Master***  | ***Front-end Developer*** |
- |  3  | [Volodymyr Sagan (QNe)](https://github.com/QNeee) |    | ***Backend & Front-end Developer*** | 
- |  4  | [Oksana Hurduz](https://github.com/HurduzOksana) |     |***Front-end Developer*** | 
- |  5  | [Anna Pohorielova](https://github.com/Pohorielova) |     |***Front-end Developer*** | 
- |  6  | [Oleksii Onufriienko](https://github.com/Oleksii-onufriienko) |     |***Backend & Front-end Developer*** | 
- |  7  | [Ruslan Tendora (TnRuslan)](https://github.com/TnRuslan) |      |***Front-end Developer*** | 
- |  8  | [Kulik Viktor](https://github.com/Victor1988V) |       |***Front-end Developer*** |
- |  9  | [Denys Yefimov (EfirNet)](https://github.com/EfirNet) |       |***Backend & Front-end Developer*** |  
- |  10  | [Inna Konokh]() | ***Team Lead*** | ***Quality Assurance Engineer*** | 
+## Project Setup
 
+1. **Clone the repository**:
 
-</div>
+```
+git clone https://github.com/yourusername/soyummy.git
+cd soyummy
+```
 
-______
+2. **Install dependencies**:
 
-<div align='justify'>
+```
+npm install
+```
 
-### Feel free to reach out if you find our work or developers intriguing; were eager to collaborate with you.
+3. **Run the application**:
 
-</div>
+```
+npm start
+```
+
+4. **Build the application for production**:
+
+```
+npm run build
+```
+
+## Authors
+
+| №   | Auhors                                                             | Position           | Direction                           |
+| --- | ------------------------------------------------------------------ | ------------------ | ----------------------------------- |
+| 1   | [Anna Tsepilova](https://github.com/AnnaTsepilova)                 | **_Team Lead_**    | **_Front-end Developer_**           |
+| 2   | [Oleksandr Soldatchenko](https://github.com/oleksandrsoldatchenko) | **_Scrum Master_** | **_Front-end Developer_**           |
+| 3   | [Volodymyr Sagan (QNe)](https://github.com/QNeee)                  |                    | **_Backend & Front-end Developer_** |
+| 4   | [Oksana Hurduz](https://github.com/HurduzOksana)                   |                    | **_Front-end Developer_**           |
+| 5   | [Anna Pohorielova](https://github.com/Pohorielova)                 |                    | **_Front-end Developer_**           |
+| 6   | [Oleksii Onufriienko](https://github.com/Oleksii-onufriienko)      |                    | **_Backend & Front-end Developer_** |
+| 7   | [Ruslan Tendora (TnRuslan)](https://github.com/TnRuslan)           |                    | **_Front-end Developer_**           |
+| 8   | [Kulik Viktor](https://github.com/Victor1988V)                     |                    | **_Front-end Developer_**           |
+| 9   | [Denys Yefimov (EfirNet)](https://github.com/EfirNet)              |                    | **_Backend & Front-end Developer_** |
+| 10  | [Inna Konokh]()                                                    | **_Team Lead_**    | **_Quality Assurance Engineer_**    |
+
+## Contributions
+
+Contributions are welcome! If you would like to contribute to this project,
+please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b my-feature-branch`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin my-feature-branch`.
+5. Create a pull request.
+
+## Acknowledgements
+
+Thanks to the creators of the APIs used in this project. Special thanks to the
+team members who contributed to the development of this site.
